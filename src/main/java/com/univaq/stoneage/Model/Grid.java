@@ -33,7 +33,8 @@ public class Grid {
 
 	public int chooseRandomTokenForest() {
 		Random rand = new Random();
-		return m_idPositionsFaceDownForestTokens.get(rand.nextInt(m_idPositionsFaceDownForestTokens.size()));
+		Integer index = m_idPositionsFaceDownForestTokens.get(rand.nextInt(m_idPositionsFaceDownForestTokens.size()));
+		return m_idPositionsFaceDownForestTokens.get(index);
 	}
 
 	public String faceUpTokenForest(int aIdPosition) {
@@ -45,7 +46,7 @@ public class Grid {
 	}
 
 	private void removeForestTokenFromIdPositionsFaceDownForestTokens(Position p) {
-		m_idPositionsFaceDownForestTokens.remove(p.getIdPosition());
+		m_idPositionsFaceDownForestTokens.remove(Integer.valueOf(p.getIdPosition()));
 	}
 
 	public Position getPosition(int aIdPos) {
