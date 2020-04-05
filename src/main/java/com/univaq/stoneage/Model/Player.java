@@ -15,7 +15,11 @@ public abstract class Player {
 		this.m_marker = m_marker;
 	}
 
-	public void moveMarker(String tokenForestValue, Board board) {
+	/**
+	 * @param tokenForestValue
+	 * @param board
+	 */
+	public void moveMarker(Object tokenForestValue, Board board) {
 		Square currentSquare = m_marker.getCurrentSquare();
 		Square newSquare = board.findNewSquare(currentSquare,tokenForestValue);
 		m_marker.changeSquare(newSquare);

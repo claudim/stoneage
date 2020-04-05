@@ -2,10 +2,13 @@ package com.univaq.stoneage.Model;
 
 import java.util.Vector;
 
-public class Board {
-	private Vector<Square> m_squares = new Vector<>();
+public class Board{
+	private Vector<Square> m_squares;
+
+	private FindNewSquareStrategyFactory findNewSquareStrategyFactory;
 
 	public Board() {
+		m_squares = new Vector<>();
 		// create squares
 		this.createBoardSquares();
 		// link among squares
@@ -40,25 +43,12 @@ public class Board {
 
 	}
 
-	public Square findNewSquare(Square aCurrentSquare, String aTokenForestValue) {
-
-		Square newSquare = aCurrentSquare;
-
-		try{
-			int intValue = Integer.parseInt(aTokenForestValue);
-			for(int i = 1 ; i <= intValue; i++){
-				newSquare = newSquare.getM_nextSquare();
-			}
-
-		} catch (NumberFormatException e)
-		{
-			newSquare = getSquareByName(aTokenForestValue);
-
-		}
-
-		return newSquare;
-		//throw new UnsupportedOperationException();
+	public Square findNewSquare(Square aCurrentSquare, Object aTokenForestValue) {
+		IFindNewSquareStrategy newSquareStrategy = findNewSquareStrategyFactory
+				.getFindNewSquareStrategy(aTokenForestValue.getClass().getName());
+		return newSquareStrategy.findNewSquare(aCurrentSquare, aTokenForestValue);
 	}
+
 
 	private Square getSquareByName(String aTokenForestValue) {
 
