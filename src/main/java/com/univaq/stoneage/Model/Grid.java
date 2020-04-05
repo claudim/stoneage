@@ -21,8 +21,6 @@ public class Grid {
 		return m_idPositionsFaceDownForestTokens;
 	}
 
-
-
 	public ArrayList<Position> getM_positions() {
 		return m_positions;
 	}
@@ -60,5 +58,9 @@ public class Grid {
 		{
 			m_positions.add(new Position(i));
 		}
+	}
+
+	private void createTokenForest(){
+
 	}
 }

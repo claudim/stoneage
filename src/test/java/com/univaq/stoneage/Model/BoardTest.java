@@ -34,4 +34,20 @@ class BoardTest {
 
     }
 
+    @Test
+    void testFindNewSquare() {
+        Square currentSquare = board.getStartSquare();
+        Square newSquare = board.findNewSquare(currentSquare,"1");
+        assertEquals(newSquare.getM_name(), "Cane");
+        newSquare = board.findNewSquare(currentSquare,"2");
+        assertEquals(newSquare.getM_name(), "Sorpresa");
+        newSquare = board.findNewSquare(currentSquare,"3");
+        assertEquals(newSquare.getM_name(), "Prateria");
+        newSquare = board.findNewSquare(currentSquare,"4");
+        assertEquals(newSquare.getM_name(), "Foresta");
+        newSquare = board.findNewSquare(currentSquare,"5");
+        assertEquals(newSquare.getM_name(), "Artigiano");
+        newSquare = board.findNewSquare(currentSquare,"6");
+        assertEquals(newSquare.getM_name(), "Cava");
+    }
 }

@@ -12,10 +12,16 @@ class StoneAgeGameTest {
     @Test
     void playTurn() {
         sag.initializeStoneAgeGame("Rossa", 4, "Martin");
-        sag.playTurn(1);
+        /*sag.playTurn(1);
         assertEquals(sag.getM_players().firstElement().getM_marker().getCurrentSquare().getM_name(),"Cane");
         assertEquals(sag.getM_players().firstElement().getM_marker().getM_markerName(),"Martin");
         assertTrue(sag.getM_grid().getPosition(1).getTokenForest().getState());
+        assertEquals(sag.getM_grid().getM_idPositionsFaceDownForestTokens().size(), 12);*/
+
+        sag.playTurn(14);
+        assertEquals(sag.getM_players().firstElement().getM_marker().getCurrentSquare().getM_name(),"campoDiBattaglia");
+        assertEquals(sag.getM_players().firstElement().getM_marker().getM_markerName(),"Martin");
+        assertTrue(sag.getM_grid().getPosition(14).getTokenForest().getState());
         assertEquals(sag.getM_grid().getM_idPositionsFaceDownForestTokens().size(), 12);
 
     }

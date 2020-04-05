@@ -13,11 +13,9 @@ public class StoneAgeGame {
 		StoneAgeGame.turnCounter = turnCounter;
 	}
 
-
 	public static int getTurnCounter() {
 		return turnCounter;
 	}
-
 
 	public Grid getM_grid() {
 		return m_grid;
@@ -37,7 +35,7 @@ public class StoneAgeGame {
 
 
 	public void playTurn(int aIdPosition) {
-		String tokenForestValue = this.m_grid.faceUpTokenForest(aIdPosition);
+		Object tokenForestValue = this.m_grid.faceUpTokenForest(aIdPosition);
 		Player currentPlayer = m_players.get(turnCounter);
 
 		currentPlayer.moveMarker(tokenForestValue, m_board);
@@ -81,6 +79,7 @@ public class StoneAgeGame {
 
 
 	private void createPlayers(String aMarkerName, Square startSquare) {
+		m_players = new Vector<>();
 		m_players.add(new HumanPlayer(aMarkerName, startSquare));
 		//attenzione creo altri 3 giocatori todo cambiare in modo da far creare n-1 giocatori ulteriori
 		for (String markerName: playersNames)
