@@ -1,29 +1,33 @@
 package com.univaq.stoneage.Model;
 
-public class TokenForest {
-	public final boolean FACEDOWN =  false;
-	public final boolean FACEUP =  true;
+public abstract class TokenForest {
 
-	private boolean m_state;
-	private String m_value;
-	public Position m_occupedBy;
+    public final boolean FACEDOWN = false;
+    public final boolean FACEUP = true;
+    private boolean m_state;
+    private int m_position;
 
-	public TokenForest(String tokenForestValue) {
-		this.m_state = FACEDOWN; // false  = faceDown; true = faceUp
-		this.m_value = tokenForestValue;
+    public TokenForest(int position) {
+        this.m_state = FACEDOWN;
+        this.m_position = position;
+    }
 
-	}
+    public int getM_position() {
+        return m_position;
+    }
 
-	public boolean getState() {
-		return m_state;
-	}
+    public void setM_position(int m_position) {
+        this.m_position = m_position;
+    }
 
-	public void setState(boolean aFaceUpOrDown) {
-		this.m_state = aFaceUpOrDown;
-	}
+    public boolean getState() {
+        return m_state;
+    }
 
-	public String getValue() {
-		return this.m_value;
-		//throw new UnsupportedOperationException();
-	}
+    public void setState(boolean aFaceUpOrDown) {
+        this.m_state = aFaceUpOrDown;
+    }
+
+    public abstract Object getValue();
+
 }

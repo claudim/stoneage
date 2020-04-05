@@ -3,7 +3,7 @@ package com.univaq.stoneage.Model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StoneAgeGameTest {
     private StoneAgeGame sag = new StoneAgeGame();
@@ -15,7 +15,7 @@ class StoneAgeGameTest {
         sag.playTurn(1);
         assertEquals(sag.getM_players().firstElement().getM_marker().getCurrentSquare().getM_name(),"Cane");
         assertEquals(sag.getM_players().firstElement().getM_marker().getM_markerName(),"Martin");
-        assertTrue(sag.getM_grid().getPosition(1).getTokenForest().getState());
+//        assertTrue(sag.getM_grid().getPosition(1).getTokenForest().getState());
         assertEquals(sag.getM_grid().getM_idPositionsFaceDownForestTokens().size(), 12);
 
     }
@@ -45,9 +45,9 @@ class StoneAgeGameTest {
         assertEquals(sag.getM_board().getM_squares().size(), 10);
         assertEquals(sag.getM_board().getM_squares().firstElement().getM_name(), "Cantiere");
         assertEquals(sag.getM_board().getM_squares().firstElement().getM_nextSquare().getM_name(), "Cane");
-        assertEquals(sag.getM_grid().getM_positions().size(), 16);
-        assertFalse(sag.getM_grid().getM_positions().get(0).getTokenForest().getState());
-        assertEquals(sag.getM_grid().getM_positions().get(1).getTokenForest().getValue(), "1");
+        assertEquals(sag.getM_grid().getM_tokens().size(), 16);
+//        assertFalse(sag.getM_grid().getM_tokens().get(0).getTokenForest().getState());
+//        assertEquals(sag.getM_grid().getM_tokens().get(1).getTokenForest().getValue(), "1");
 
     }
 }

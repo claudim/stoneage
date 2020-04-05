@@ -16,14 +16,14 @@ class GridTest {
 
     @Test
     void faceUpTokenForest() {
-        String tokenForestValue = g.faceUpTokenForest(1);
-        assertEquals(tokenForestValue, "1");
-        assertTrue(g.getPosition(1).getTokenForest().getState());
+        Object tokenForestValue = g.faceUpTokenForest(1);
+        assertEquals(tokenForestValue, 1);
+        assertTrue(g.searchTFbyPosition(1).getState());
 
-        String tokenForestValue2 = g.faceUpTokenForest(11);
+        Object tokenForestValue2 = g.faceUpTokenForest(11);
         assertEquals(tokenForestValue2, "foresta");
-        assertTrue(g.getPosition(11).getTokenForest().getState());
-        assertFalse(g.getPosition(10).getTokenForest().getState());
+        assertTrue(g.searchTFbyPosition(11).getState());
+        assertFalse(g.searchTFbyPosition(10).getState());
 
 
     }

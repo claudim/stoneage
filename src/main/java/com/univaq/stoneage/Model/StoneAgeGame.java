@@ -37,13 +37,13 @@ public class StoneAgeGame {
 
 
 	public void playTurn(int aIdPosition) {
-		String tokenForestValue = this.m_grid.faceUpTokenForest(aIdPosition);
+		Object tokenForestValue = this.m_grid.faceUpTokenForest(aIdPosition);
 		Player currentPlayer = m_players.get(turnCounter);
 
-		currentPlayer.moveMarker(tokenForestValue, m_board);
+		currentPlayer.moveMarker((String) tokenForestValue, m_board);
 
 		currentPlayer = this.getNextPlayer();
-		if (currentPlayer instanceof EmulatedPlayer){
+		if (currentPlayer instanceof EmulatedPlayer) {
 
 			int idPosition = m_grid.chooseRandomTokenForest();
 			this.playTurn(idPosition);
