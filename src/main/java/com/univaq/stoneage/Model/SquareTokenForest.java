@@ -1,6 +1,6 @@
 package com.univaq.stoneage.Model;
 
-public class SquareTokenForest extends TokenForest {
+public class SquareTokenForest extends TokenForest<String> {
 
     private String m_squareName;
 
@@ -18,7 +18,12 @@ public class SquareTokenForest extends TokenForest {
     }
 
     @Override
-    public Object getValue() {
+    public String getValue() {
         return this.m_squareName;
+    }
+
+    @Override
+    public void setValue(String value) {
+        this.m_squareName = value;
     }
 }

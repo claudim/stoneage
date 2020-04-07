@@ -6,8 +6,8 @@ public class DieFaceTFFindNewSquareStrategy implements IFindNewSquareStrategy{
 
     //DieFaceTFFIndNewSquare
     @Override
-    public Square findNewSquare(Square aCurrentSquare, Object aTokenForestValue) {
-        int tokenForestValue = (int)aTokenForestValue;
+    public Square findNewSquare(Square aCurrentSquare, TokenForest aTokenForest) {
+        int tokenForestValue = (int) aTokenForest.getValue();
         Square newSquare = aCurrentSquare;
         for (int i = 1; i <= tokenForestValue; i++) {
             newSquare = newSquare.getM_nextSquare();

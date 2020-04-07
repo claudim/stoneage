@@ -1,6 +1,6 @@
 package com.univaq.stoneage.Model;
 
-public class DieFaceTokenForest extends TokenForest {
+public class DieFaceTokenForest extends TokenForest<Integer> {
 
     private int m_dieFace;
 
@@ -17,8 +17,14 @@ public class DieFaceTokenForest extends TokenForest {
         this.m_dieFace = m_dieFace;
     }
 
+
     @Override
-    public Object getValue() {
+    public Integer getValue() {
         return this.m_dieFace;
+    }
+
+    @Override
+    public void setValue(Integer value) {
+        this.m_dieFace = value;
     }
 }

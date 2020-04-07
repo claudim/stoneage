@@ -2,6 +2,10 @@ package com.univaq.stoneage.Model;
 
 import java.util.Vector;
 
+// todo migliorare la ricerca della start square
+/**
+ * Board class knows all board squares and which is the start square.
+ */
 public class Board{
 	private Vector<Square> m_squares;
 
@@ -21,9 +25,7 @@ public class Board{
 
 	public void createBoardSquares(){
 		//TODO  la creazione delle caselle va fatto automaticamente
-
 		//dovrebbe esserci un ciclo for per la creazione
-
 		creazioneSquareNaive();
 
 	}
@@ -43,13 +45,6 @@ public class Board{
 
 	}
 
-	public Square findNewSquare(Square aCurrentSquare, Object aTokenForestValue) {
-		IFindNewSquareStrategy newSquareStrategy = findNewSquareStrategyFactory
-				.getFindNewSquareStrategy(aTokenForestValue.getClass().getName());
-		return newSquareStrategy.findNewSquare(aCurrentSquare, aTokenForestValue);
-	}
-
-
 	private Square getSquareByName(String aTokenForestValue) {
 
 		for(Square s : m_squares){
@@ -64,7 +59,7 @@ public class Board{
 	public Square getStartSquare() {
 		// TODO migliorare
 		return m_squares.get(0); // il cantiere
-		//throw new UnsupportedOperationException();
+
 	}
 
 

@@ -1,13 +1,17 @@
 package com.univaq.stoneage.Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Vector;
 
+
+// todo aggiungere il player factory e modificare classi concrete e funzioni
 public class StoneAgeGame {
 	private Grid m_grid;
-	private Vector<Player> m_players = new Vector<>();
+	private Vector<Player> m_players;
 	private Board m_board;
 	private static int turnCounter;
+	private PlayerFactory m_playerFactory;
 
 	public static void setTurnCounter(int turnCounter) {
 		StoneAgeGame.turnCounter = turnCounter;
@@ -35,18 +39,19 @@ public class StoneAgeGame {
 
 
 	public void playTurn(int aIdPosition) {
-		Object tokenForestValue = this.m_grid.faceUpTokenForest(aIdPosition);
+		TokenForest tokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
 		Player currentPlayer = m_players.get(turnCounter);
 
-		currentPlayer.moveMarker((String) tokenForestValue, m_board);
-
+		currentPlayer.moveMarker(tokenForest, m_board);
 		currentPlayer = this.getNextPlayer();
-		if (currentPlayer instanceof EmulatedPlayer) {
 
-			int idPosition = m_grid.chooseRandomTokenForest();
-			this.playTurn(idPosition);
-
-		}
+		currentPlayer.chooseRandomTokenForest();
+//		if (currentPlayer instanceof EmulatedPlayer) {
+//
+//			int idPosition = m_grid.chooseRandomTokenForest();
+//			this.playTurn(idPosition);
+//
+//		}
 	}
 
 	public Player getNextPlayer() {
@@ -58,16 +63,14 @@ public class StoneAgeGame {
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
 		// create a board
-		m_board = new Board();
-
+		this.m_board = new Board();
 		// create a grid
-		m_grid = new Grid();
+		this.m_grid = new Grid();
 
 		Square startSquare = m_board.getStartSquare();
-
+		this.m_playerFactory = new PlayerFactory();
 		addPlayersNaive();
-
-		createPlayers(aMarkerName, startSquare);
+		createPlayers(aMarkerName, startSquare, aNumPlayers);
 
 		setFirstPlayer();
 
@@ -78,14 +81,21 @@ public class StoneAgeGame {
 	}
 
 
-	private void createPlayers(String aMarkerName, Square startSquare) {
+	private void createPlayers(String aMarkerName, Square aStartSquare, int aNumPlayers) {
 		m_players = new Vector<>();
-		m_players.add(new HumanPlayer(aMarkerName, startSquare));
-		//attenzione creo altri 3 giocatori todo cambiare in modo da far creare n-1 giocatori ulteriori
-		for (String markerName: playersNames)
+		Player p = this.m_playerFactory.getPlayer("HumanPlayer");
+		p.createMarker(aMarkerName, aStartSquare);
+		m_players.add(p);
+		Iterator<String> it = playersNames.iterator();
+		for (int i = 0; i<aNumPlayers && it.hasNext(); i++)
 		{
+			String markerName = it.next();
 			if (!markerName.equals(aMarkerName))
-			m_players.add(new EmulatedPlayer(markerName, startSquare));
+			{
+				p = this.m_playerFactory.getPlayer("EmulatedPlayer");
+				p.createMarker(markerName, aStartSquare);
+				m_players.add(p);
+			}
 		}
 	}
 

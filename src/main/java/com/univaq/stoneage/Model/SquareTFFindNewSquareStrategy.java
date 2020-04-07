@@ -5,9 +5,9 @@ public class SquareTFFindNewSquareStrategy implements IFindNewSquareStrategy{
     }
 
     @Override
-    public Square findNewSquare(Square aCurrentSquare, Object aTokenForestValue) {
+    public Square findNewSquare(Square aCurrentSquare, TokenForest aTokenForest) {
         Square newSquare = aCurrentSquare;
-        while(!newSquare.getM_name().equals((String)aTokenForestValue))
+        while(!newSquare.getM_name().equals((String)aTokenForest.getValue()))
             newSquare = newSquare.getM_nextSquare();
         return newSquare;
     }

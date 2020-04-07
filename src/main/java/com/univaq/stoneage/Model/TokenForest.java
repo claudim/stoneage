@@ -1,6 +1,6 @@
 package com.univaq.stoneage.Model;
 
-public abstract class TokenForest {
+public abstract class TokenForest<T> {
 
     public final boolean FACEDOWN = false;
     public final boolean FACEUP = true;
@@ -28,6 +28,8 @@ public abstract class TokenForest {
         this.m_state = aFaceUpOrDown;
     }
 
-    public abstract Object getValue();
+    public abstract T getValue();
+
+    public abstract void setValue(T value);
 
 }

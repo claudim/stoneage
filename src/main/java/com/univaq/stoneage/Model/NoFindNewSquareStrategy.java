@@ -5,7 +5,7 @@ public class NoFindNewSquareStrategy implements IFindNewSquareStrategy {
     }
 
     @Override
-    public Square findNewSquare(Square aCurrentSquare, Object aTokenForestValue) {
+    public Square findNewSquare(Square aCurrentSquare, TokenForest aTokenForest) {
         return aCurrentSquare;
     }
 }

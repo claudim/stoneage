@@ -4,26 +4,20 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
+//TODO aggiungere una strategy per individuare la strategia giusta per scegliere i token
+//todo le caselle sono conosciute da db o dalla board. capire cosa fare
+
 public class Grid {
 
-	private ArrayList<Integer> m_idPositionsFaceDownForestTokens;
 	private ArrayList<TokenForest> m_tokens;
 
 	public Grid() {
-		m_idPositionsFaceDownForestTokens = new ArrayList<>();
 		this.m_tokens = new ArrayList<TokenForest>();
 
 		//todo togli questo schifo per carità divina
 		this.createTokenForestNaive();
-		for (int i = 0; i < 16; i++) {
-			m_idPositionsFaceDownForestTokens.add(i);
-		}
-
 	}
 
-	public ArrayList<Integer> getM_idPositionsFaceDownForestTokens() {
-		return m_idPositionsFaceDownForestTokens;
-	}
 
 	public ArrayList<TokenForest> getM_tokens() {
 		return m_tokens;
@@ -33,11 +27,11 @@ public class Grid {
 		this.m_tokens = m_tokens;
 	}
 
-	public int chooseRandomTokenForest() {
+	/*public int chooseRandomTokenForest() {
 		Random rand = new Random();
 		Integer index = m_idPositionsFaceDownForestTokens.get(rand.nextInt(m_idPositionsFaceDownForestTokens.size()));
 		return m_idPositionsFaceDownForestTokens.get(index);
-	}
+	}*/
 
 	/**
 	 * Find the token forest in the given position
@@ -53,16 +47,11 @@ public class Grid {
 				.orElseThrow(NoSuchElementException::new);
 	}
 
-	public Object faceUpTokenForest(int position) {
+	public TokenForest faceUpTokenForest(int position) {
 		TokenForest t;
 		t = this.searchTFbyPosition(position); //todo gestire eccezione
 		t.setState(t.FACEUP);
-		this.removeTFFromFaceDownTFbyPosition(position);
-		return t.getValue();
-	}
-
-	private void removeTFFromFaceDownTFbyPosition(int position) {
-		m_idPositionsFaceDownForestTokens.remove(Integer.valueOf(position));
+		return t;
 	}
 
 	private void createTokenForestNaive() {

@@ -5,6 +5,7 @@ import java.util.Vector;
 public class Square {
 	private String m_name;
 	private Square m_nextSquare;
+
 	//public Vector<Marker> m_isOn = new Vector<Marker>();
 	//public Board m_contains;
 
