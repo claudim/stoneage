@@ -1,10 +1,8 @@
 package com.univaq.stoneage;
 
-import com.univaq.stoneage.ui.StartGame;
+import com.univaq.stoneage.ui.UMainFrame;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.swing.*;
 
 @SpringBootApplication
 public class StoneageApplication {
@@ -13,8 +11,11 @@ public class StoneageApplication {
         SpringApplication.run(StoneageApplication.class, args);
         System.setProperty("java.awt.headless", "false");
 
-        JDialog start = new StartGame();
-        start.setVisible(true);
+        UMainFrame mainFrame = UMainFrame.getInstance();
+        mainFrame.setStartPage();
+        mainFrame.setVisible(true);
     }
+
+
 
 }

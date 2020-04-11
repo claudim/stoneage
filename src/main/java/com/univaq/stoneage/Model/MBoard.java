@@ -1,25 +1,26 @@
 package com.univaq.stoneage.Model;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 // todo migliorare la ricerca della start square
 /**
  * Board class knows all board squares and which is the start square.
  */
-public class Board{
-	private Vector<Square> m_squares;
+public class MBoard {
+	private ArrayList<MSquare> m_squares;
 
-	private FindNewSquareStrategyFactory findNewSquareStrategyFactory;
+	private MFindNewSquareStrategyFactory MFindNewSquareStrategyFactory;
 
-	public Board() {
-		m_squares = new Vector<>();
+	public MBoard() {
+		m_squares = new ArrayList<>();
 		// create squares
 		this.createBoardSquares();
 		// link among squares
 		this.linkSquare();
 	}
 
-	public Vector<Square> getM_squares() {
+	public ArrayList<MSquare> getM_squares() {
 		return m_squares;
 	}
 
@@ -32,22 +33,22 @@ public class Board{
 
 	//Serve solo per la creazione al volo delle caselle
 	private void creazioneSquareNaive() {
-		m_squares.add(new Square("Cantiere"));
-		m_squares.add(new Square("Cane"));
-		m_squares.add(new Square("Sorpresa"));
-		m_squares.add(new Square("Prateria"));
-		m_squares.add(new Square("Foresta"));
-		m_squares.add(new Square("Artigiano"));
-		m_squares.add(new Square("Cava"));
-		m_squares.add(new Square("CampoDiBattaglia"));
-		m_squares.add(new Square("Fiume"));
-		m_squares.add(new Square("Mercato"));
+		m_squares.add(new MSquare("Cantiere"));
+		m_squares.add(new MSquare("Cane"));
+		m_squares.add(new MSquare("Sorpresa"));
+		m_squares.add(new MSquare("Prateria"));
+		m_squares.add(new MSquare("Foresta"));
+		m_squares.add(new MSquare("Artigiano"));
+		m_squares.add(new MSquare("Cava"));
+		m_squares.add(new MSquare("CampoDiBattaglia"));
+		m_squares.add(new MSquare("Fiume"));
+		m_squares.add(new MSquare("Mercato"));
 
 	}
 
-	private Square getSquareByName(String aTokenForestValue) {
+	private MSquare getSquareByName(String aTokenForestValue) {
 
-		for(Square s : m_squares){
+		for(MSquare s : m_squares){
 			if (s.getM_name().equals(aTokenForestValue)) return s;
 		}
 
@@ -56,7 +57,7 @@ public class Board{
 
 	}
 
-	public Square getStartSquare() {
+	public MSquare getStartSquare() {
 		// TODO migliorare
 		return m_squares.get(0); // il cantiere
 

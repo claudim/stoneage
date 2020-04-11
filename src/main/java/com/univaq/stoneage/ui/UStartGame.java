@@ -1,18 +1,22 @@
 package com.univaq.stoneage.ui;
 
+import com.univaq.stoneage.Model.MStoneAgeGame;
+
 import javax.swing.*;
 import java.awt.event.*;
 
-public class StartGame extends JDialog {
+public class UStartGame extends JPanel {
+    public JPanel getContentPane() {
+        return contentPane;
+    }
+
     private JPanel contentPane;
     private JButton playButton;
     private JButton tutorialButton;
-    private JButton tutorialButton1;
+    private JPanel content;
+    private JPanel buttons;
 
-    public StartGame() {
-        setContentPane(contentPane);
-        setModal(true);
-        getRootPane().setDefaultButton(playButton);
+    public UStartGame() {
 
         playButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -20,19 +24,19 @@ public class StartGame extends JDialog {
             }
         });
 
-        tutorialButton.addActionListener(new ActionListener() {
+       /* tutorialButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onTutorial();
             }
-        });
+        });*/
 
         // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onTutorial();
-            }
-        });
+//        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+//        addWindowListener(new WindowAdapter() {
+//            public void windowClosing(WindowEvent e) {
+//                onTutorial();
+//            }
+//        });
 
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
@@ -43,19 +47,17 @@ public class StartGame extends JDialog {
     }
 
     private void onPlay() {
-        // add your code here
-        dispose();
+        playButton.setEnabled(false);
+        MStoneAgeGame.getInstance().initializeStoneAgeGame("Rossa", 4, "Martin");
+        UMainFrame.getInstance().setGamePage();
+        UMainFrame.getInstance().setVisible(true);
     }
+
+
 
     private void onTutorial() {
         // add your code here if necessary
-        dispose();
+//        dispose();
     }
 
-    public static void main(String[] args) {
-        StartGame dialog = new StartGame();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
 }

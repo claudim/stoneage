@@ -1,10 +1,10 @@
 package com.univaq.stoneage.Model;
 
-public class SquareTokenForest extends TokenForest<String> {
+public class MSquareMTokenForest extends MTokenForest<String> {
 
     private String m_squareName;
 
-    public SquareTokenForest(int position, String tokenForestValue) {
+    public MSquareMTokenForest(int position, String tokenForestValue) {
         super(position);
         this.m_squareName = tokenForestValue;
     }

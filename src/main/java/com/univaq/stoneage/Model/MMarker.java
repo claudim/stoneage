@@ -1,10 +1,10 @@
 package com.univaq.stoneage.Model;
 
-public class Marker {
+public class MMarker {
 	private String m_markerName;
-	private Square m_square;
+	private MSquare m_square;
 
-	public Marker() {
+	public MMarker() {
 	}
 
 	public String getM_markerName() {
@@ -15,11 +15,11 @@ public class Marker {
 		this.m_markerName = m_markerName;
 	}
 
-	public void changeSquare(Square aNewSquare) {
+	public void changeSquare(MSquare aNewSquare) {
 		this.m_square = aNewSquare;
 	}
 
-	public Square getCurrentSquare() {
+	public MSquare getCurrentSquare() {
 		return m_square;
 	}
 }

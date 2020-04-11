@@ -1,15 +1,10 @@
 package com.univaq.stoneage.Model;
 
-import java.util.Vector;
-
-public class Square {
+public class MSquare {
 	private String m_name;
-	private Square m_nextSquare;
+	private MSquare m_nextSquare;
 
-	//public Vector<Marker> m_isOn = new Vector<Marker>();
-	//public Board m_contains;
-
-	public Square(String m_name) {
+	public MSquare(String m_name) {
 		this.m_name = m_name;
 		this.m_nextSquare = null;
 	}
@@ -22,11 +17,11 @@ public class Square {
 		this.m_name = m_name;
 	}
 
-	public Square getM_nextSquare() {
+	public MSquare getM_nextSquare() {
 		return m_nextSquare;
 	}
 
-	public void setM_nextSquare(Square m_nextSquare) {
+	public void setM_nextSquare(MSquare m_nextSquare) {
 		this.m_nextSquare = m_nextSquare;
 	}
 }

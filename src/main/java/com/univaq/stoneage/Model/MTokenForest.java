@@ -1,13 +1,13 @@
 package com.univaq.stoneage.Model;
 
-public abstract class TokenForest<T> {
+public abstract class MTokenForest<T> {
 
     public final boolean FACEDOWN = false;
     public final boolean FACEUP = true;
     private boolean m_state;
     private int m_position;
 
-    public TokenForest(int position) {
+    public MTokenForest(int position) {
         this.m_state = FACEDOWN;
         this.m_position = position;
     }

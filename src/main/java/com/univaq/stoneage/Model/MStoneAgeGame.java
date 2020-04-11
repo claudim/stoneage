@@ -6,30 +6,39 @@ import java.util.Vector;
 
 
 // todo aggiungere il player factory e modificare classi concrete e funzioni
-public class StoneAgeGame {
-	private Grid m_grid;
-	private Vector<Player> m_players;
-	private Board m_board;
+public class MStoneAgeGame {
+	private static MStoneAgeGame instance;
+	private MGrid m_grid;
+	private Vector<MPlayer> m_players;
+	private MBoard m_board;
 	private static int turnCounter;
-	private PlayerFactory m_playerFactory;
+	private MPlayerFactory m_playerFactory;
+
+	public static MStoneAgeGame getInstance() {
+
+		if (instance == null) {
+			instance = new MStoneAgeGame();
+		}
+		return instance;
+	}
 
 	public static void setTurnCounter(int turnCounter) {
-		StoneAgeGame.turnCounter = turnCounter;
+		MStoneAgeGame.turnCounter = turnCounter;
 	}
 
 	public static int getTurnCounter() {
 		return turnCounter;
 	}
 
-	public Grid getM_grid() {
+	public MGrid getM_grid() {
 		return m_grid;
 	}
 
-	public Vector<Player> getM_players() {
+	public Vector<MPlayer> getM_players() {
 		return m_players;
 	}
 
-	public Board getM_board() {
+	public MBoard getM_board() {
 		return m_board;
 	}
 
@@ -39,22 +48,24 @@ public class StoneAgeGame {
 
 
 	public void playTurn(int aIdPosition) {
-		TokenForest tokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
-		Player currentPlayer = m_players.get(turnCounter);
+		MTokenForest MTokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
 
-		currentPlayer.moveMarker(tokenForest, m_board);
-		currentPlayer = this.getNextPlayer();
+		MPlayer currentPlayer = m_players.get(turnCounter);
+		currentPlayer.moveMarker(MTokenForest, m_board);
 
-		currentPlayer.chooseRandomTokenForest();
+		//currentPlayer = this.getNextPlayer();
+		//this.m_grid.getRandomTokenForest();
+
+
+		//currentPlayer.chooseRandomTokenForest();
 //		if (currentPlayer instanceof EmulatedPlayer) {
 //
 //			int idPosition = m_grid.chooseRandomTokenForest();
 //			this.playTurn(idPosition);
-//
 //		}
 	}
 
-	public Player getNextPlayer() {
+	public MPlayer getNextPlayer() {
 
 		setTurnCounter((turnCounter + 1) % m_players.size());
 		return m_players.get(turnCounter);
@@ -63,16 +74,17 @@ public class StoneAgeGame {
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
 		// create a board
-		this.m_board = new Board();
+		this.m_board = new MBoard();
 		// create a grid
-		this.m_grid = new Grid();
+		this.m_grid = new MGrid();
 
-		Square startSquare = m_board.getStartSquare();
-		this.m_playerFactory = new PlayerFactory();
+		MSquare startSquare = m_board.getStartSquare();
+		this.m_playerFactory = new MPlayerFactory();
 		addPlayersNaive();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
 
 		setFirstPlayer();
+		System.out.println("inizializzato il gioco");
 
 	}
 
@@ -81,9 +93,9 @@ public class StoneAgeGame {
 	}
 
 
-	private void createPlayers(String aMarkerName, Square aStartSquare, int aNumPlayers) {
+	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
 		m_players = new Vector<>();
-		Player p = this.m_playerFactory.getPlayer("HumanPlayer");
+		MPlayer p = this.m_playerFactory.getPlayer("HumanPlayer");
 		p.createMarker(aMarkerName, aStartSquare);
 		m_players.add(p);
 		Iterator<String> it = playersNames.iterator();
@@ -104,5 +116,14 @@ public class StoneAgeGame {
 		playersNames.add("Jada");
 		playersNames.add("Martin");
 		playersNames.add("Guff");
+	}
+
+	public ArrayList<MTokenForest> getAllTokenForest() {
+		return this.m_grid.getM_tokens();
+	}
+
+	public ArrayList<MSquare> getAllSquare() {
+		return m_board.getM_squares();
+
 	}
 }
