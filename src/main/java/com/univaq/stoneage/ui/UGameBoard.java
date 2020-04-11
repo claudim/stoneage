@@ -18,24 +18,26 @@ public class UGameBoard extends JPanel {
         UBoard board = new UBoard();
         board.initSquares();
 
+        double i =  board.getSquareNumber()/4.0;
+        int inf = (int)i;
+        int sup = inf+1;
+
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout());
         centerPanel.add(grid.getGridPanel(), BorderLayout.CENTER );
 
         JPanel westPanel = new JPanel();
-        westPanel.setLayout(new FlowLayout());
+        westPanel.setLayout(new GridLayout(inf, 1));
 
         JPanel northPanel = new JPanel();
-        northPanel.setLayout(new FlowLayout());
+        northPanel.setLayout(new GridLayout(1, sup));
 
         JPanel eastPanel = new JPanel();
-        eastPanel.setLayout(new FlowLayout());
+        eastPanel.setLayout(new GridLayout(inf, 1));
 
         JPanel southPanel = new JPanel();
-        southPanel.setLayout(new FlowLayout());
-        double i =  board.getSquareNumber()/4.0;
-        int inf = (int)i;
-        int sup = inf+1;
+        southPanel.setLayout(new GridLayout(1, sup));
+
         int num =  board.getSquareNumber();
         for(int j = 0; j<num; j++)
         {
