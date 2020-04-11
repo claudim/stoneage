@@ -2,7 +2,6 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.Model.MPlayer;
 import com.univaq.stoneage.Model.MStoneAgeGame;
-import com.univaq.stoneage.Model.MTokenForest;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +10,9 @@ import java.util.ArrayList;
 public class UGameBoard extends JPanel {
 
     private ArrayList<UPlayer> players = new ArrayList<>();
+
     private JPanel gameContentPane;
+    private UBoard uBoard;
 
 
     public void initGameBoard(){
@@ -19,10 +20,10 @@ public class UGameBoard extends JPanel {
         UGrid grid = new UGrid();
         grid.initGrid();
 
-        UBoard board = new UBoard();
-        board.initSquares();
+        this.uBoard = new UBoard();
+        this.uBoard.initSquares();
 
-        double i =  board.getSquareNumber()/4.0;
+        double i =  this.uBoard.getSquareNumber()/4.0;
         int inf = (int)i;
         int sup = inf+1;
 
@@ -42,25 +43,25 @@ public class UGameBoard extends JPanel {
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridLayout(1, sup));
 
-        int num =  board.getSquareNumber();
+        int num =  this.uBoard.getSquareNumber();
         for(int j = 0; j<num; j++)
         {
-            board.getBoardPanel().getComponents();
+            this.uBoard.getBoardPanel().getComponents();
             int f = num-j-1;
             if (j<inf)
             {
-                westPanel.add(board.getBoardPanel().getComponent(f));
+                westPanel.add(this.uBoard.getBoardPanel().getComponent(f));
             }
             else if (j<(inf+sup))
             {
-                northPanel.add(board.getBoardPanel().getComponent(f));
+                northPanel.add(this.uBoard.getBoardPanel().getComponent(f));
             }
             else if(j<(2*inf+sup))
             {
-                eastPanel.add(board.getBoardPanel().getComponent(f));
+                eastPanel.add(this.uBoard.getBoardPanel().getComponent(f));
             }
             else {
-                southPanel.add(board.getBoardPanel().getComponent(f));
+                southPanel.add(this.uBoard.getBoardPanel().getComponent(f));
             }
         }
         centerPanel.add(westPanel, BorderLayout.WEST);
@@ -68,7 +69,7 @@ public class UGameBoard extends JPanel {
         centerPanel.add(eastPanel, BorderLayout.EAST);
         centerPanel.add(southPanel, BorderLayout.SOUTH);
         gameContentPane.add(centerPanel,BorderLayout.CENTER);
-        this.initPlayersMarker();
+        this.initPlayers();
 
 
      }
@@ -78,14 +79,21 @@ public class UGameBoard extends JPanel {
         return this.gameContentPane;
     }
 
-    public void initPlayersMarker(){
+    public void initPlayers(){
         int i = 1;
         ArrayList<MPlayer> mPlayers = MStoneAgeGame.getInstance().getM_players();
        // int numPlayers = mPlayers.size();
         for (MPlayer p: mPlayers){
             UPlayer uPlayer = new UPlayer();
             uPlayer.setName(p.getMarkerName());
+            uPlayer.playerStyle();
             this.players.add(uPlayer);
+            UMarker uMarker = new UMarker();
+            uMarker.setMarkerName(p.getMarkerName());
+            uMarker.markerStyle();
+            USquare usq = this.uBoard.findUSquareByName(p.getM_marker().getCurrentSquare().getM_name());
+            usq.getSquarePane().setLayout(new GridLayout());
+            usq.getSquarePane().add(uMarker.getMarkerPanel());
             switch (i)
             {
                 case 1:
@@ -95,12 +103,15 @@ public class UGameBoard extends JPanel {
                     break;
                 }
                 case 2: {
+//                    uPlayer.getPlayerPanel().setLayout(new BoxLayout(uPlayer.getPlayerPanel(), BoxLayout.PAGE_AXIS));
+//                    uPlayer.getPlayerPanel().add(uMarker.getMarkerPanel());
                     gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.WEST);
                     i++;
                     break;
                 }
                 case 3:
                 {
+                    //gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.NORTH);
                     gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.NORTH);
                     i++;
                     break;
@@ -110,13 +121,6 @@ public class UGameBoard extends JPanel {
                     break;
                 }
             }
-            UMarker uMarker = new UMarker();
-
-//            buttonTF.setContentAreaFilled(true);
-//            buttonTF.setOpaque(true);
-//            buttonTF.setBackground(new Color(10,93,0));
-//            buttonTF.setForeground(Color.ORANGE);
-//            gridPanel.add(buttonTF);
         };
     }
 

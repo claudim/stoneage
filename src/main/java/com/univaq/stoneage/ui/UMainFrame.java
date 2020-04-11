@@ -30,33 +30,6 @@ public class UMainFrame extends JFrame implements Observer {
         //maximize window
         this.setState(Frame.NORMAL);
 
-
-
-//        //c.setLayout(new BorderLayout());
-//        mainContainer = new JPanel();
-//        StartGame sg = new StartGame();
-//        getContentPane().add(sg);
-//
-//
-//        JPanel centroPnl = new JPanel();
-//
-//
-//        JPanel sudPnl = new JPanel();
-//        JLabel infoLbl = new JLabel("Selezionare:");
-//        JCheckBox opz1Chk = new JCheckBox("Opz1");
-//        JCheckBox opz2Chk = new JCheckBox("Opz2");
-//        JButton okBtn=new JButton("OK");
-//        JButton cancBtn=new JButton("Annulla");
-//        JButton centro = new JButton("centro");
-
-
-
-       // c.add(nord,BorderLayout.NORTH);
-        //c.add(centro, BorderLayout.CENTER);
-        //c.add(est,BorderLayout,EAST);
-        //c.add(ovest,BorderLayout.WEST);
-        //c.add(sud,BorderLayout.SOUTH);
-
     }
 
     public void setStartPage(){

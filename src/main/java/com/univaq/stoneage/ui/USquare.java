@@ -6,6 +6,11 @@ import java.awt.*;
 public class USquare extends JPanel {
 
     private JPanel squarePanel;
+
+    public JPanel getSquarePanel() {
+        return squarePanel;
+    }
+
     private JLabel squareName;
 
     public USquare(String name) {
@@ -19,4 +24,8 @@ public class USquare extends JPanel {
        return squarePanel;
     }
 
+    public String getSquareName()
+    {
+        return this.squareName.getText();
+    }
 }
