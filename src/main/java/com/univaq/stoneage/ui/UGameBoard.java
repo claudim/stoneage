@@ -1,12 +1,16 @@
 package com.univaq.stoneage.ui;
 
+import com.univaq.stoneage.Model.MPlayer;
 import com.univaq.stoneage.Model.MStoneAgeGame;
+import com.univaq.stoneage.Model.MTokenForest;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class UGameBoard extends JPanel {
 
+    private ArrayList<UPlayer> players = new ArrayList<>();
     private JPanel gameContentPane;
 
 
@@ -64,12 +68,56 @@ public class UGameBoard extends JPanel {
         centerPanel.add(eastPanel, BorderLayout.EAST);
         centerPanel.add(southPanel, BorderLayout.SOUTH);
         gameContentPane.add(centerPanel,BorderLayout.CENTER);
+        this.initPlayersMarker();
+
 
      }
 
 
     public JPanel getGameContentPane() {
         return this.gameContentPane;
+    }
+
+    public void initPlayersMarker(){
+        int i = 1;
+        ArrayList<MPlayer> mPlayers = MStoneAgeGame.getInstance().getM_players();
+       // int numPlayers = mPlayers.size();
+        for (MPlayer p: mPlayers){
+            UPlayer uPlayer = new UPlayer();
+            uPlayer.setName(p.getMarkerName());
+            this.players.add(uPlayer);
+            switch (i)
+            {
+                case 1:
+                {
+                    gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.SOUTH);
+                    i++;
+                    break;
+                }
+                case 2: {
+                    gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.WEST);
+                    i++;
+                    break;
+                }
+                case 3:
+                {
+                    gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.NORTH);
+                    i++;
+                    break;
+                }
+                default: {
+                    gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.EAST);
+                    break;
+                }
+            }
+            UMarker uMarker = new UMarker();
+
+//            buttonTF.setContentAreaFilled(true);
+//            buttonTF.setOpaque(true);
+//            buttonTF.setBackground(new Color(10,93,0));
+//            buttonTF.setForeground(Color.ORANGE);
+//            gridPanel.add(buttonTF);
+        };
     }
 
 }

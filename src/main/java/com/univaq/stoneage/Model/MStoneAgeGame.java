@@ -9,7 +9,7 @@ import java.util.Vector;
 public class MStoneAgeGame {
 	private static MStoneAgeGame instance;
 	private MGrid m_grid;
-	private Vector<MPlayer> m_players;
+	private ArrayList<MPlayer> m_players;
 	private MBoard m_board;
 	private static int turnCounter;
 	private MPlayerFactory m_playerFactory;
@@ -34,7 +34,7 @@ public class MStoneAgeGame {
 		return m_grid;
 	}
 
-	public Vector<MPlayer> getM_players() {
+	public ArrayList<MPlayer> getM_players() {
 		return m_players;
 	}
 
@@ -94,7 +94,7 @@ public class MStoneAgeGame {
 
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
-		m_players = new Vector<>();
+		m_players = new ArrayList<>();
 		MPlayer p = this.m_playerFactory.getPlayer("HumanPlayer");
 		p.createMarker(aMarkerName, aStartSquare);
 		m_players.add(p);

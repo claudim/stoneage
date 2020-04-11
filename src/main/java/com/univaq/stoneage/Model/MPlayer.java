@@ -24,6 +24,10 @@ public abstract class MPlayer {
 		this.m_marker = m;
 	}
 
+	public String getMarkerName(){
+		return this.m_marker.getM_markerName();
+	}
+
 	/**
 	 * @param MTokenForest
 	 * @param MBoard
