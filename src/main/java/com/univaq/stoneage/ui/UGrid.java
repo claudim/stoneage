@@ -24,15 +24,16 @@ public class UGrid extends JPanel {
     public void initGrid(){
 
         gridPanel.removeAll();
-        gridPanel.setLayout(new GridLayout());
-        for (MTokenForest tf: MStoneAgeGame.getInstance().getAllTokenForest()){
-            UTokenForest buttonTF = new UTokenForest(tf.getValue().toString(),tf.getM_position());
+        //todo dimensionare la griglia in modo dinamico???
+        gridPanel.setLayout(new GridLayout(4, 4));
+        for (MTokenForest tf : MStoneAgeGame.getInstance().getAllTokenForest()) {
+            UTokenForest buttonTF = new UTokenForest(tf.getValue().toString(), tf.getM_position());
             buttonTF.setContentAreaFilled(true);
             buttonTF.setOpaque(true);
-            buttonTF.setBackground(new Color(10,93,0));
+            buttonTF.setBackground(new Color(10, 93, 0));
             buttonTF.setForeground(Color.ORANGE);
             gridPanel.add(buttonTF);
-        };
+        }
 
     }
 }

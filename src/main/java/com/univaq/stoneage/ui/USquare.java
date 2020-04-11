@@ -12,6 +12,7 @@ public class USquare extends JPanel {
             super();
             this.squareName.setText(name);
             this.squarePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        this.squarePanel.setPreferredSize(new Dimension(100, 150));
     }
 
     public JPanel getSquarePane() {
