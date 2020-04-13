@@ -29,8 +29,8 @@ public class MFindNewSquareStrategyFactory {
     //we can hang on to a single instance of each strategy and return that whenever someone asks for it.
     public MIFindNewSquareStrategy getFindNewSquareStrategy(String tokenType) {
         switch (tokenType) {
-            case "SquareTokenForest": return squareTFFindNewSquareStrategy;
-            case "DieFaceTokenForest": return dieFaceTFFindNewSquareStrategy;
+            case "MSquareTokenForest": return squareTFFindNewSquareStrategy;
+            case "MDieFaceTokenForest": return dieFaceTFFindNewSquareStrategy;
             default: return noFindNewSquareStrategy;
         }
     }

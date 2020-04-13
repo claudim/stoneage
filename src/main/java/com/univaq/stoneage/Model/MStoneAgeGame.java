@@ -50,9 +50,10 @@ public class MStoneAgeGame {
 	public void playTurn(int aIdPosition) {
 		MTokenForest MTokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
 
-		MPlayer currentPlayer = m_players.get(turnCounter);
+		MPlayer currentPlayer = this.getCurrentPlayer();
 		currentPlayer.moveMarker(MTokenForest, m_board);
 
+		System.out.println("playturn terminato");
 		//currentPlayer = this.getNextPlayer();
 		//this.m_grid.getRandomTokenForest();
 
@@ -68,6 +69,12 @@ public class MStoneAgeGame {
 	public MPlayer getNextPlayer() {
 
 		setTurnCounter((turnCounter + 1) % m_players.size());
+		//return m_players.get(turnCounter);
+		return this.getCurrentPlayer();
+	}
+
+	public MPlayer getCurrentPlayer() {
+
 		return m_players.get(turnCounter);
 
 	}

@@ -59,21 +59,21 @@ public class MGrid {
 	}
 
 	private void createTokenForestNaive() {
-		this.m_tokens.add(new MSquareMTokenForest(7, "Cantiere"));
-		this.m_tokens.add(new MSquareMTokenForest(8, "Cane"));
-		this.m_tokens.add(new MSquareMTokenForest(9, "Sorpresa"));
-		this.m_tokens.add(new MSquareMTokenForest(10, "Prateria"));
-		this.m_tokens.add(new MSquareMTokenForest(11, "Foresta"));
-		this.m_tokens.add(new MSquareMTokenForest(12, "Artigiano"));
-		this.m_tokens.add(new MSquareMTokenForest(13, "Cava"));
-		this.m_tokens.add(new MSquareMTokenForest(14, "CampoDiBattaglia"));
-		this.m_tokens.add(new MSquareMTokenForest(15, "Fiume"));
-		this.m_tokens.add(new MSquareMTokenForest(0, "Mercato"));
-		this.m_tokens.add(new MDieFaceMTokenForest(1, 1));
-		this.m_tokens.add(new MDieFaceMTokenForest(2, 2));
-		this.m_tokens.add(new MDieFaceMTokenForest(3, 3));
-		this.m_tokens.add(new MDieFaceMTokenForest(4, 4));
-		this.m_tokens.add(new MDieFaceMTokenForest(5, 5));
-		this.m_tokens.add(new MDieFaceMTokenForest(6, 6));
+		this.m_tokens.add(new MSquareTokenForest(7, "Cantiere"));
+		this.m_tokens.add(new MSquareTokenForest(8, "Cane"));
+		this.m_tokens.add(new MSquareTokenForest(9, "Sorpresa"));
+		this.m_tokens.add(new MSquareTokenForest(10, "Prateria"));
+		this.m_tokens.add(new MSquareTokenForest(11, "Foresta"));
+		this.m_tokens.add(new MSquareTokenForest(12, "Artigiano"));
+		this.m_tokens.add(new MSquareTokenForest(13, "Cava"));
+		this.m_tokens.add(new MSquareTokenForest(14, "CampoDiBattaglia"));
+		this.m_tokens.add(new MSquareTokenForest(15, "Fiume"));
+		this.m_tokens.add(new MSquareTokenForest(0, "Mercato"));
+		this.m_tokens.add(new MDieFaceTokenForest(1, 1));
+		this.m_tokens.add(new MDieFaceTokenForest(2, 2));
+		this.m_tokens.add(new MDieFaceTokenForest(3, 3));
+		this.m_tokens.add(new MDieFaceTokenForest(4, 4));
+		this.m_tokens.add(new MDieFaceTokenForest(5, 5));
+		this.m_tokens.add(new MDieFaceTokenForest(6, 6));
 	}
 }

@@ -11,8 +11,8 @@ class MPlayerTest {
         MBoard MBoard = new MBoard();
         MHumanMPlayer player = new MHumanMPlayer();
         player.createMarker("Martin", MBoard.getStartSquare());
-        MTokenForest MTokenForest = new MSquareMTokenForest(13, "Cava");
-        MTokenForest MTokenForest2 = new MDieFaceMTokenForest(3, 3);
+        MTokenForest MTokenForest = new MSquareTokenForest(13, "Cava");
+        MTokenForest MTokenForest2 = new MDieFaceTokenForest(3, 3);
         player.moveMarker(MTokenForest, MBoard);
         assertEquals(player.getM_marker().getCurrentSquare().getM_name(), "Cava");
         player.moveMarker(MTokenForest2, MBoard);

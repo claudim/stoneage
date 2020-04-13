@@ -1,16 +1,17 @@
 package com.univaq.stoneage.Model;
 
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
-import java.util.Vector;
 
 // todo migliorare la ricerca della start square
 /**
  * Board class knows all board squares and which is the start square.
  */
-public class MBoard {
-	private ArrayList<MSquare> m_squares;
 
+public class MBoard{
+	private ArrayList<MSquare> m_squares;
 	private MFindNewSquareStrategyFactory MFindNewSquareStrategyFactory;
+
 
 	public MBoard() {
 		m_squares = new ArrayList<>();
@@ -62,7 +63,6 @@ public class MBoard {
 		return m_squares.get(0); // il cantiere
 
 	}
-
 
 	public void linkSquare() {
 		//TODO  il collegamento delle caselle va fatto automaticamente
