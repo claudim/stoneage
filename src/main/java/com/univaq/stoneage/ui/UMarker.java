@@ -6,12 +6,17 @@ import java.awt.*;
 public class UMarker extends JPanel {
     private JPanel markerPanel;
     private JLabel markerLabel;
+    private String markerName;
+
+    public String getMarkerName() {
+        return this.markerName;
+    }
 
     public void setMarkerName(String markerName) {
         this.markerName = markerName;
     }
 
-    private String markerName;
+
 
 
     private enum Colori {

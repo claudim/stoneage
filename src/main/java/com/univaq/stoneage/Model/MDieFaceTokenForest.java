@@ -1,10 +1,10 @@
 package com.univaq.stoneage.Model;
 
-public class MDieFaceMTokenForest extends MTokenForest<Integer> {
+public class MDieFaceTokenForest extends MTokenForest<Integer> {
 
     private int m_dieFace;
 
-    public MDieFaceMTokenForest(int position, int tokenForestValue) {
+    public MDieFaceTokenForest(int position, int tokenForestValue) {
         super(position);
         this.m_dieFace = tokenForestValue;
     }

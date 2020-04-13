@@ -46,4 +46,11 @@ public class UPlayer extends JPanel {
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
+
+    public void setCurrentPlayer(boolean currentPlayer){
+        if(currentPlayer) {
+            this.playerName.setText(name.toUpperCase());
+        }
+        else this.playerName.setText(name.toLowerCase());
+    }
 }

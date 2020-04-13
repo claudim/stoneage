@@ -12,6 +12,10 @@ public class UMainFrame extends JFrame implements Observer {
 
     private static UMainFrame instance;
 
+
+
+    private  UGameBoard uGameBoard;
+
     public static UMainFrame getInstance() {
         if (instance == null) {
             instance = new UMainFrame();
@@ -38,9 +42,9 @@ public class UMainFrame extends JFrame implements Observer {
     }
 
     public void setGamePage(){
-        UGameBoard g = new UGameBoard();
-        g.initGameBoard();
-        this.replacePanel(g.getGameContentPane());
+        this.uGameBoard = new UGameBoard();
+        this.uGameBoard.initGameBoard();
+        this.replacePanel(this.uGameBoard.getGameContentPane());
 
 
     }
@@ -68,5 +72,9 @@ public class UMainFrame extends JFrame implements Observer {
     @Override
     public void update(Observable o, Object arg) {
 
+    }
+
+    public UGameBoard getuGameBoard() {
+        return uGameBoard;
     }
 }

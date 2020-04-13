@@ -12,6 +12,16 @@ import java.awt.event.ActionListener;
 public class UTokenForest extends JButton {
     private String tokenValue;
     private int position;
+    private  boolean state = false; //facedown= false
+
+    public boolean isFaceUp() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
 
     public UTokenForest(String tokenValue, int position) {
         super();
@@ -28,8 +38,9 @@ public class UTokenForest extends JButton {
 
     private void onClick() {
         this.setText(this.tokenValue);
+        this.setState(true);
+        UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
         MStoneAgeGame.getInstance().playTurn(this.position);
+        UMainFrame.getInstance().getuGameBoard().getuGrid().ableAllTokensFaceDown();
     }
-
-
 }
