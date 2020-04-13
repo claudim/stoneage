@@ -57,8 +57,8 @@ public class UBoard extends JPanel implements PropertyChangeListener {
         UMarker uMarker = oldusq.getUMarkerByName(propertyName[0]);
         newusq.getuMarkers().add(uMarker);
         oldusq.getuMarkers().remove(uMarker);
-        newusq.getSquarePane().setLayout(new GridLayout());
-        newusq.getSquarePane().add(uMarker.getMarkerPanel());
+        newusq.getMarkersPanel().setLayout(new GridLayout());
+        newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
 
     }
 
