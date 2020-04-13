@@ -25,7 +25,8 @@ public class UGrid extends JPanel {
 
         gridPanel.removeAll();
         //todo dimensionare la griglia in modo dinamico???
-        gridPanel.setLayout(new GridLayout(4, 4));
+        gridPanel.setLayout(new GridLayout(4, 4, 15, 5));
+        gridPanel.setBorder(BorderFactory.createEmptyBorder(40, 150, 40, 150));
         for (MTokenForest tf : MStoneAgeGame.getInstance().getAllTokenForest()) {
             UTokenForest buttonTF = new UTokenForest(tf.getValue().toString(), tf.getM_position());
             buttonTF.setContentAreaFilled(true);

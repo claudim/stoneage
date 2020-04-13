@@ -6,26 +6,26 @@ import java.awt.*;
 public class USquare extends JPanel {
 
     private JPanel squarePanel;
-
-    public JPanel getSquarePanel() {
-        return squarePanel;
-    }
-
     private JLabel squareName;
 
+    private JPanel markersPanel;
+
     public USquare(String name) {
-            super();
-            this.squareName.setText(name);
-            this.squarePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        super();
+        this.squareName.setText(name);
+        this.squarePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         this.squarePanel.setPreferredSize(new Dimension(100, 150));
     }
 
-    public JPanel getSquarePane() {
-       return squarePanel;
+    public JPanel getMarkersPanel() {
+        return markersPanel;
     }
 
-    public String getSquareName()
-    {
+    public JPanel getSquarePane() {
+        return squarePanel;
+    }
+
+    public String getSquareName() {
         return this.squareName.getText();
     }
 }

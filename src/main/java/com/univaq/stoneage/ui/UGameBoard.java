@@ -92,12 +92,10 @@ public class UGameBoard extends JPanel {
             uMarker.setMarkerName(p.getMarkerName());
             uMarker.markerStyle();
             USquare usq = this.uBoard.findUSquareByName(p.getM_marker().getCurrentSquare().getM_name());
-            usq.getSquarePane().setLayout(new GridLayout());
-            usq.getSquarePane().add(uMarker.getMarkerPanel());
-            switch (i)
-            {
-                case 1:
-                {
+            usq.getMarkersPanel().setLayout(new GridLayout());
+            usq.getMarkersPanel().add(uMarker.getMarkerPanel());
+            switch (i) {
+                case 1: {
                     gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.SOUTH);
                     i++;
                     break;
@@ -121,7 +119,7 @@ public class UGameBoard extends JPanel {
                     break;
                 }
             }
-        };
+        }
     }
 
 }

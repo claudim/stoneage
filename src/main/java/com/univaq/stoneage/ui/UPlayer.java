@@ -11,6 +11,14 @@ public class UPlayer extends JPanel {
     private String name;
 
 
+    public void playerStyle() {
+        String n = name.toUpperCase();
+        this.playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        this.playerPanel.setPreferredSize(new Dimension(100, 100));
+        this.playerName.setBackground(Colori.valueOf(n).markerColor);
+        this.playerName.setOpaque(true);
+    }
+
     private enum Colori {
         JONO(Color.blue),
         JADA(Color.magenta),
@@ -19,17 +27,9 @@ public class UPlayer extends JPanel {
 
         public final Color markerColor;
 
-        private Colori(Color label) {
+        Colori(Color label) {
             this.markerColor = label;
         }
-    }
-
-    public void playerStyle() {
-        String n = name.toUpperCase();
-        this.playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.playerPanel.setPreferredSize(new Dimension(100, 150));
-        this.playerName.setBackground(Colori.valueOf(n).markerColor);
-        this.playerName.setOpaque(true);
     }
 
     @Override
