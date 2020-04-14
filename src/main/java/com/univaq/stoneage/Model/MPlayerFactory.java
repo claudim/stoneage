@@ -7,8 +7,10 @@ public class MPlayerFactory {
 
     public MPlayer getPlayer(String aPlayerType){
         switch (aPlayerType) {
-            case "HumanPlayer": return new MHumanMPlayer();
-            default: return new MEmulatedMPlayer();
+            case "HumanPlayer":
+                return new MHumanPlayer();
+            default:
+                return new MEmulatedPlayer();
         }
     }
 }

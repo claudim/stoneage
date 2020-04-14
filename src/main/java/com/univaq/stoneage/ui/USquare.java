@@ -8,17 +8,19 @@ public class USquare extends JPanel {
 
     private JPanel squarePanel;
     private ArrayList<UMarker> uMarkers;
-
     private JLabel squareName;
-
     private JPanel markersPanel;
 
     public USquare(String name) {
-            super();
-            this.uMarkers = new ArrayList<>();
-            this.squareName.setText(name);
-            this.squarePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            this.squarePanel.setPreferredSize(new Dimension(100, 150));
+        super();
+        this.uMarkers = new ArrayList<>();
+        this.squareName.setText(name);
+        this.setUSquareStyle();
+    }
+
+    private void setUSquareStyle() {
+        this.squarePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        this.squarePanel.setPreferredSize(new Dimension(100, 150));
     }
 
     public JPanel getMarkersPanel() {
@@ -26,7 +28,7 @@ public class USquare extends JPanel {
     }
 
     public JPanel getSquarePane() {
-       return squarePanel;
+        return squarePanel;
     }
 
     public String getSquareName()

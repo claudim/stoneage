@@ -8,17 +8,7 @@ public class UMarker extends JPanel {
     private JLabel markerLabel;
     private String markerName;
 
-    public String getMarkerName() {
-        return this.markerName;
-    }
-
-    public void setMarkerName(String markerName) {
-        this.markerName = markerName;
-    }
-
-
-
-
+    //TODO i nomi dei player vanno recuperati da qualche parte
     private enum Colori {
         JONO(Color.blue),
         JADA(Color.magenta),
@@ -27,15 +17,22 @@ public class UMarker extends JPanel {
 
         public final Color markerColor;
 
-        private Colori(Color label) {
+        Colori(Color label) {
             this.markerColor = label;
         }
+    }
+
+    public String getMarkerName() {
+        return this.markerName;
+    }
+
+    public void setMarkerName(String markerName) {
+        this.markerName = markerName;
     }
 
     public void setMarkerPanel(JPanel markerPanel) {
         this.markerPanel = markerPanel;
     }
-
 
     public JPanel getMarkerPanel() {
         return markerPanel;

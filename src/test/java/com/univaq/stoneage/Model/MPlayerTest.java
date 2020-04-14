@@ -2,14 +2,14 @@ package com.univaq.stoneage.Model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MPlayerTest {
 
     @Test
     void moveMarker() {
         MBoard MBoard = new MBoard();
-        MHumanMPlayer player = new MHumanMPlayer();
+        MHumanPlayer player = new MHumanPlayer();
         player.createMarker("Martin", MBoard.getStartSquare());
         MTokenForest MTokenForest = new MSquareTokenForest(13, "Cava");
         MTokenForest MTokenForest2 = new MDieFaceTokenForest(3, 3);

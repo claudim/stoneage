@@ -2,7 +2,6 @@ package com.univaq.stoneage.Model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Vector;
 
 
 // todo aggiungere il player factory e modificare classi concrete e funzioni
@@ -11,8 +10,8 @@ public class MStoneAgeGame {
 	private MGrid m_grid;
 	private ArrayList<MPlayer> m_players;
 	private MBoard m_board;
-	private static int turnCounter;
 	private MPlayerFactory m_playerFactory;
+	private MINextPlayerStrategy m_nextPlayerStrategy;
 
 	public static MStoneAgeGame getInstance() {
 
@@ -20,14 +19,6 @@ public class MStoneAgeGame {
 			instance = new MStoneAgeGame();
 		}
 		return instance;
-	}
-
-	public static void setTurnCounter(int turnCounter) {
-		MStoneAgeGame.turnCounter = turnCounter;
-	}
-
-	public static int getTurnCounter() {
-		return turnCounter;
 	}
 
 	public MGrid getM_grid() {
@@ -46,7 +37,6 @@ public class MStoneAgeGame {
 	//TODO recuperarli dal db
 	private ArrayList<String> playersNames = new ArrayList<>();
 
-
 	public void playTurn(int aIdPosition) {
 		MTokenForest MTokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
 
@@ -54,7 +44,8 @@ public class MStoneAgeGame {
 		currentPlayer.moveMarker(MTokenForest, m_board);
 
 		System.out.println("playturn terminato");
-		//currentPlayer = this.getNextPlayer();
+		currentPlayer = this.m_nextPlayerStrategy.getNextPlayer();
+
 		//this.m_grid.getRandomTokenForest();
 
 
@@ -64,19 +55,6 @@ public class MStoneAgeGame {
 //			int idPosition = m_grid.chooseRandomTokenForest();
 //			this.playTurn(idPosition);
 //		}
-	}
-
-	public MPlayer getNextPlayer() {
-
-		setTurnCounter((turnCounter + 1) % m_players.size());
-		//return m_players.get(turnCounter);
-		return this.getCurrentPlayer();
-	}
-
-	public MPlayer getCurrentPlayer() {
-
-		return m_players.get(turnCounter);
-
 	}
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
@@ -89,16 +67,11 @@ public class MStoneAgeGame {
 		this.m_playerFactory = new MPlayerFactory();
 		addPlayersNaive();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
+		this.m_nextPlayerStrategy = new MANextPlayerStrategy(this.m_players); // set the right strategy to identify the players order
+		MPlayer currentPlayer = this.getCurrentPlayer(); // set the first Player
 
-		setFirstPlayer();
 		System.out.println("inizializzato il gioco");
-
 	}
-
-	private void setFirstPlayer() {
-		setTurnCounter(0);
-	}
-
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
 		m_players = new ArrayList<>();
@@ -132,5 +105,13 @@ public class MStoneAgeGame {
 	public ArrayList<MSquare> getAllSquare() {
 		return m_board.getM_squares();
 
+	}
+
+	public MPlayer getCurrentPlayer() {
+		return this.m_nextPlayerStrategy.getCurrentPlayer();
+	}
+
+	public void setM_players(ArrayList<MPlayer> m_players) {
+		this.m_players = m_players;
 	}
 }
