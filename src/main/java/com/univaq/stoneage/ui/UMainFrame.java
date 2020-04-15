@@ -2,19 +2,16 @@ package com.univaq.stoneage.ui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Observable;
-import java.util.Observer;
 
 
-public class UMainFrame extends JFrame implements Observer {
+public class UMainFrame extends JFrame {
 
     private JPanel mainContainer;
 
     private static UMainFrame instance;
 
 
-
-    private  UGameBoard uGameBoard;
+    private UGameBoard uGameBoard;
 
     public static UMainFrame getInstance() {
         if (instance == null) {
@@ -37,7 +34,6 @@ public class UMainFrame extends JFrame implements Observer {
     }
 
     public void setStartPage(){
-        //this.setContentPane(new StartGame().getContentPane());
         this.replacePanel(new UStartGame().getContentPane());
     }
 
@@ -45,8 +41,6 @@ public class UMainFrame extends JFrame implements Observer {
         this.uGameBoard = new UGameBoard();
         this.uGameBoard.initGameBoard();
         this.replacePanel(this.uGameBoard.getGameContentPane());
-
-
     }
 
     private void makeFrameFullDisplay() {
@@ -67,11 +61,6 @@ public class UMainFrame extends JFrame implements Observer {
     private void replacePanel(JPanel aPanel){
         this.getContentPane().removeAll();
         this.addPanel(aPanel);
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-
     }
 
     public UGameBoard getuGameBoard() {

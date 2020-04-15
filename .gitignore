@@ -29,3 +29,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/data/stoneAge.mv.db
+/src/main/resources/data/stoneAge.trace.db

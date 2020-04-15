@@ -69,4 +69,5 @@ public class UBoard extends JPanel implements PropertyChangeListener {
 //    public UMarker getCurrentMarker(){
 //        return this.currentMarker;
 //    }
+
 }
