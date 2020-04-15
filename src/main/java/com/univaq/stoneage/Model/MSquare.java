@@ -1,11 +1,28 @@
 package com.univaq.stoneage.Model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Square")
 public class MSquare {
+	@Id
+	@Column(name = "square_name", nullable = true, unique = true)
 	private String m_name;
+
+	@Column(name = "start_square")
+	private boolean m_startSquare;
+
+	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
+//	@Column(name = "next_square_name")
+	@JoinColumn(name = "square_name")
 	private MSquare m_nextSquare;
+
+	public MSquare() {
+	}
 
 	public MSquare(String m_name) {
 		this.m_name = m_name;
+		this.m_startSquare = false;
 		this.m_nextSquare = null;
 	}
 
@@ -23,5 +40,13 @@ public class MSquare {
 
 	public void setM_nextSquare(MSquare m_nextSquare) {
 		this.m_nextSquare = m_nextSquare;
+	}
+
+	public boolean isM_startSquare() {
+		return m_startSquare;
+	}
+
+	public void setM_startSquare(boolean m_startSquare) {
+		this.m_startSquare = m_startSquare;
 	}
 }

@@ -5,32 +5,34 @@ DROP TABLE IF EXISTS TokenForest;
 
 CREATE TABLE Square
 (
-    SquareName  VARCHAR(30) NOT NULL UNIQUE,
-    StartSquare boolean,
-    PRIMARY KEY (SquareName)
+    square_name      VARCHAR(30) NOT NULL UNIQUE,
+    start_square     boolean,
+    next_square_name VARCHAR(30),
+    PRIMARY KEY (square_name),
+    FOREIGN KEY (next_square_name) REFERENCES Square (square_name) ON UPDATE CASCADE
 );
 
 CREATE TABLE Marker
 (
-    MarkerName VARCHAR(20) NOT NULL UNIQUE,
-    SquareName VARCHAR(30) NOT NULL,
-    PRIMARY KEY (MarkerName),
-    FOREIGN KEY (SquareName) REFERENCES Square (squarename) ON UPDATE CASCADE ON DELETE CASCADE
+    marker_name VARCHAR(20) NOT NULL UNIQUE,
+    square_name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (marker_name),
+    FOREIGN KEY (square_name) REFERENCES Square (square_name) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE TokenForest
 (
-    TokenForestId    INT AUTO_INCREMENT NOT NULL,
-    TokenForestValue VARCHAR(30)        NOT NULL UNIQUE,
-    TokenForestState boolean,
-    PRIMARY KEY (TokenForestId)
+    token_forest_id    INT AUTO_INCREMENT NOT NULL,
+    token_forest_value VARCHAR(30)        NOT NULL UNIQUE,
+    token_forest_state boolean,
+    PRIMARY KEY (token_forest_id)
 );
 
-CREATE TABLE NearTo
-(
-    NameSquareFrom VARCHAR(30) NOT NULL,
-    NameSquareTo   VARCHAR(30) NOT NULL,
-    PRIMARY KEY (NameSquareFrom, NameSquareTo),
-    FOREIGN KEY (NameSquareFrom) REFERENCES Square (squarename) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (NameSquareTo) REFERENCES Square (squarename) ON UPDATE CASCADE ON DELETE CASCADE
-);
+--CREATE TABLE NearTo
+--(
+--     square_name_from VARCHAR(30) NOT NULL,
+--     square_name_to   VARCHAR(30) NOT NULL,
+--     PRIMARY KEY (square_name_from,square_name_to),
+--     FOREIGN KEY (square_name_from) REFERENCES Square (square_name) ON UPDATE CASCADE ON DELETE CASCADE,
+--     FOREIGN KEY (square_name_to) REFERENCES Square (square_name) ON UPDATE CASCADE ON DELETE CASCADE
+-- );
