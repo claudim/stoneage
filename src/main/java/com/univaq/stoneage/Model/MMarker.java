@@ -1,11 +1,15 @@
 package com.univaq.stoneage.Model;
 
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.StringJoiner;
 
+
 public class MMarker {
+
 	private String m_markerName;
+
 	private MSquare m_square;
 
 	private PropertyChangeSupport support; // to implement the oberver pattern
