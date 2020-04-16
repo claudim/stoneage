@@ -11,14 +11,14 @@ import java.util.StringJoiner;
 public class MMarker {
 
 	@Id
-	@Column(name = "marker_name", nullable = true, unique = true)
+	@Column(name = "marker_name", nullable = true, unique = true, length = 30)
 	private String m_markerName;
 
 	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
-//	@Column(name = "square_name")
 	@JoinColumn(name = "square_name")
 	private MSquare m_square;
 
+	@Transient // ignore this property/field
 	private PropertyChangeSupport support; // to implement the oberver pattern
 
 	public MMarker() {
@@ -33,10 +33,18 @@ public class MMarker {
 		this.m_markerName = m_markerName;
 	}
 
+	public MSquare getM_square() {
+		return m_square;
+	}
+
+	public void setM_square(MSquare m_square) {
+		this.m_square = m_square;
+	}
+
 	public void changeSquare(MSquare aNewSquare) {
 		StringJoiner propertyNameJoiner = new StringJoiner("_");
 		propertyNameJoiner.add(this.m_markerName).add("square"); // markerName_square
-		if(this.m_square != null) {
+		if (this.m_square != null) {
 			support.firePropertyChange(propertyNameJoiner.toString(), this.m_square.getM_name(), aNewSquare.getM_name());
 		}
 		this.m_square = aNewSquare;

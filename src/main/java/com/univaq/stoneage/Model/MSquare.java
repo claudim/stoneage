@@ -6,16 +6,15 @@ import javax.persistence.*;
 @Table(name = "Square")
 public class MSquare {
 	@Id
-	@Column(name = "square_name", nullable = true, unique = true)
-	private String m_name;
+    @Column(name = "square_name", nullable = true, unique = true, length = 30)
+    private String m_name;
 
 	@Column(name = "start_square")
 	private boolean m_startSquare;
 
-	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
-//	@Column(name = "next_square_name")
-	@JoinColumn(name = "square_name")
-	private MSquare m_nextSquare;
+    @OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "next_square_name")
+    private MSquare m_nextSquare;
 
 	public MSquare() {
 	}

@@ -1,7 +1,14 @@
 package com.univaq.stoneage.Model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("squaretokenforest")
 public class MSquareTokenForest extends MTokenForest<String> {
 
+    @Column(name = "value")
     private String m_squareName;
 
     public MSquareTokenForest(int position, String tokenForestValue) {

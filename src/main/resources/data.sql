@@ -67,35 +67,35 @@ VALUES ('Guff', 'cantiere');
 
 
 -- TokenForest data --
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('1', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('2', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('3', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('4', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('5', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('6', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('cantiere', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('mercato', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('cane', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('sorpresa', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('campodibattaglia', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('artigiano', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('cava', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('foresta', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('prateria', false);
-INSERT INTO tokenforest(token_forest_value, token_forest_state)
-VALUES ('fiume', false);
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (1, '1', false, 1, 'diefacetokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (2, '2', false, 2, 'diefacetokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (3, '3', false, 3, 'diefacetokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (4,'4', false, 4, 'diefacetokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (5, '5', false, 5, 'diefacetokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (6, '6', false, 6, 'diefacetokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (7, 'cantiere', false, 7, 'squaretokenforest');
+INSERT INTO tokenforest(id,value, state, position, type)
+VALUES (8,'mercato', false, 8, 'squaretokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (9, 'cane', false, 9, 'squaretokenforest');
+INSERT INTO tokenforest(id,value, state, position, type)
+VALUES (10, 'sorpresa', false, 10, 'squaretokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (11, 'campodibattaglia', false, 11, 'squaretokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (12, 'artigiano', false, 12, 'squaretokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (13, 'cava', false, 13, 'squaretokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (14, 'foresta', false, 14, 'squaretokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (15, 'prateria', false, 15, 'squaretokenforest');
+INSERT INTO tokenforest(id, value, state, position, type)
+VALUES (16, 'fiume', false, 16, 'squaretokenforest');
