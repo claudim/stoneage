@@ -1,15 +1,22 @@
 package com.univaq.stoneage.Model;
 
 
+import javax.persistence.*;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.StringJoiner;
 
-
+@Entity
+@Table(name = "Marker")
 public class MMarker {
 
+	@Id
+	@Column(name = "marker_name", nullable = true, unique = true)
 	private String m_markerName;
 
+	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
+//	@Column(name = "square_name")
+	@JoinColumn(name = "square_name")
 	private MSquare m_square;
 
 	private PropertyChangeSupport support; // to implement the oberver pattern

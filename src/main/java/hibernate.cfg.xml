@@ -28,5 +28,11 @@
         <!--        <mapping class="au.com.ozblog.hibernate.h2.example.User"/>-->
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+
+        <!-- List of XML mapping files -->
+        <mapping class="com.univaq.stoneage.Model.MSquare"/>
+        <mapping class="com.univaq.stoneage.Model.MMarker"/>
+        <!--        <mapping class="com.univaq.stoneage.Model.MTokenForest"/>-->
+
     </session-factory>
 </hibernate-configuration>
