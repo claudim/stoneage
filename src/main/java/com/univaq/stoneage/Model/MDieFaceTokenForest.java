@@ -1,7 +1,15 @@
 package com.univaq.stoneage.Model;
 
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("diefacetokenforest")
 public class MDieFaceTokenForest extends MTokenForest<Integer> {
 
+    @Column(name = "token_forest_value")
     private int m_dieFace;
 
     public MDieFaceTokenForest(int position, int tokenForestValue) {
