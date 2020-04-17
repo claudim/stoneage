@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("diefacetokenforest")
 public class MDieFaceTokenForest extends MTokenForest<Integer> {
 
-    @Column(name = "token_forest_value")
+    @Column(name = "die_value")
     private int m_dieFace;
 
     public MDieFaceTokenForest(int position, int tokenForestValue) {

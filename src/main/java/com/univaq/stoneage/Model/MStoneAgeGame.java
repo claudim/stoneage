@@ -1,10 +1,18 @@
 package com.univaq.stoneage.Model;
 
+import com.univaq.stoneage.service.MarkerService;
+import com.univaq.stoneage.service.SquareService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Controller;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
 
 // todo aggiungere il player factory e modificare classi concrete e funzioni
+@Controller
+//@Configurable
 public class MStoneAgeGame {
 	private static MStoneAgeGame instance;
 	private MGrid m_grid;
@@ -13,12 +21,23 @@ public class MStoneAgeGame {
 	private MPlayerFactory m_playerFactory;
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 
+	@Autowired
+	private SquareService squareService;
+
+	@Autowired
+	private MarkerService markerService;
+
+	@Bean
 	public static MStoneAgeGame getInstance() {
 
 		if (instance == null) {
 			instance = new MStoneAgeGame();
 		}
 		return instance;
+	}
+
+	public SquareService getSquareService() {
+		return squareService;
 	}
 
 	public MGrid getM_grid() {

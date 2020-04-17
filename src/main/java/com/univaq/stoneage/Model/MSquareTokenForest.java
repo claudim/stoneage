@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("squaretokenforest")
 public class MSquareTokenForest extends MTokenForest<String> {
 
-    @Column(name = "value")
+    @Column(name = "square_value")
     private String m_squareName;
 
     public MSquareTokenForest(int position, String tokenForestValue) {

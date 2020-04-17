@@ -4,10 +4,7 @@ import com.univaq.stoneage.Model.MSquare;
 
 import java.util.List;
 
-public interface ISquareManager {
-    void addSquare(MSquare employee);
-
+public interface ISquareService {
+    //void getAllSquares();
     List<MSquare> getAllSquares();
-
-    void deleteSquare(String squareName);
 }

@@ -4,11 +4,12 @@ package com.univaq.stoneage.Model;
 import javax.persistence.*;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.Serializable;
 import java.util.StringJoiner;
 
 @Entity
 @Table(name = "Marker")
-public class MMarker {
+public class MMarker implements Serializable {
 
 	@Id
 	@Column(name = "marker_name", nullable = true, unique = true, length = 30)

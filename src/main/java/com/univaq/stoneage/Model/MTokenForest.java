@@ -2,13 +2,14 @@ package com.univaq.stoneage.Model;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "tokenforest")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue(value = "tokenforest")
-public abstract class MTokenForest<T> {
+public abstract class MTokenForest<T> implements Serializable {
 
     @Transient
     public final boolean FACEDOWN = false;

@@ -1,17 +1,16 @@
 package com.univaq.stoneage.Model;
 
-import java.beans.PropertyChangeSupport;
+import com.univaq.stoneage.service.SquareService;
+
 import java.util.ArrayList;
 
 // todo migliorare la ricerca della start square
 /**
  * Board class knows all board squares and which is the start square.
  */
-
 public class MBoard{
 	private ArrayList<MSquare> m_squares;
 	private MFindNewSquareStrategyFactory MFindNewSquareStrategyFactory;
-
 
 	public MBoard() {
 		m_squares = new ArrayList<>();
@@ -21,15 +20,16 @@ public class MBoard{
 		this.linkSquare();
 	}
 
+
 	public ArrayList<MSquare> getM_squares() {
 		return m_squares;
 	}
 
-	public void createBoardSquares(){
+	public void createBoardSquares() {
 		//TODO  la creazione delle caselle va fatto automaticamente
 		//dovrebbe esserci un ciclo for per la creazione
-		creazioneSquareNaive();
-
+		//creazioneSquareNaive();
+		createSquareFromDB();
 	}
 
 	//Serve solo per la creazione al volo delle caselle
@@ -44,12 +44,16 @@ public class MBoard{
 		m_squares.add(new MSquare("CampoDiBattaglia"));
 		m_squares.add(new MSquare("Fiume"));
 		m_squares.add(new MSquare("Mercato"));
+	}
 
+	private void createSquareFromDB() {
+		SquareService squareService = MStoneAgeGame.getInstance().getSquareService();
+		m_squares.addAll(squareService.getAllSquares());
 	}
 
 	private MSquare getSquareByName(String aTokenForestValue) {
 
-		for(MSquare s : m_squares){
+		for (MSquare s : m_squares) {
 			if (s.getM_name().equals(aTokenForestValue)) return s;
 		}
 

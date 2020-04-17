@@ -1,23 +1,25 @@
 package com.univaq.stoneage.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Square")
-public class MSquare {
-	@Id
+public class MSquare implements Serializable {
+    @Id
     @Column(name = "square_name", nullable = true, unique = true, length = 30)
     private String m_name;
 
-	@Column(name = "start_square")
-	private boolean m_startSquare;
+    @Column(name = "start_square")
+    private boolean m_startSquare;
 
     @OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "next_square_name")
     private MSquare m_nextSquare;
 
 	public MSquare() {
-	}
+        super();
+    }
 
 	public MSquare(String m_name) {
 		this.m_name = m_name;
