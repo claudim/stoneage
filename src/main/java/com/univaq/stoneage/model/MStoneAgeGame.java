@@ -13,13 +13,6 @@ public class MStoneAgeGame {
 	private MPlayerFactory m_playerFactory;
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 
-//	@Autowired
-//	private SquareService squareService;
-//
-//	@Autowired
-//	private MarkerService markerService;
-
-	//@Bean
 	public static MStoneAgeGame getInstance() {
 
 		if (instance == null) {
@@ -27,7 +20,6 @@ public class MStoneAgeGame {
 		}
 		return instance;
 	}
-
 
 	public MGrid getM_grid() {
 		return m_grid;
@@ -71,10 +63,11 @@ public class MStoneAgeGame {
 		// create a grid
 		this.m_grid = new MGrid();
 
-		MSquare startSquare = m_board.getStartSquare();
+		//MSquare startSquare = m_board.getStartSquare();
 		this.m_playerFactory = new MPlayerFactory();
 		addPlayersNaive();
-		createPlayers(aMarkerName, startSquare, aNumPlayers);
+		//createPlayers(aMarkerName, startSquare, aNumPlayers);
+		createPlayers(aMarkerName, m_board.getStartSquare(), aNumPlayers);
 		this.m_nextPlayerStrategy = new MANextPlayerStrategy(this.m_players); // set the right strategy to identify the players order
 		MPlayer currentPlayer = this.getCurrentPlayer(); // set the first Player
 

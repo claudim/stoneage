@@ -1,69 +1,69 @@
 -- Square data --
 INSERT INTO square(square_name,  start_square)
-VALUES ('cantiere', true);
+VALUES ('Cantiere', true);
 INSERT INTO square(square_name,  start_square)
-VALUES ('cane', false);
+VALUES ('Cane', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('sorpresa', false);
+VALUES ('Sorpresa', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('prateria', false);
+VALUES ('Prateria', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('foresta', false);
+VALUES ('Foresta', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('artigiano', false);
+VALUES ('Artigiano', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('cava', false);
+VALUES ('Cava', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('campodibattaglia', false);
+VALUES ('Battaglia', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('fiume', false);
+VALUES ('Fiume', false);
 INSERT INTO square(square_name,  start_square)
-VALUES ('mercato', false);
+VALUES ('Mercato', false);
 
-UPDATE square SET next_square_name='cane' WHERE square_name='cantiere';
-UPDATE square SET next_square_name='cantiere' WHERE square_name='mercato';
-UPDATE square SET next_square_name='sorpresa' WHERE square_name='cane';
-UPDATE square SET next_square_name='prateria' WHERE square_name='sorpresa';
-UPDATE square SET next_square_name='foresta' WHERE square_name='prateria';
-UPDATE square SET next_square_name='artigiano' WHERE square_name='foresta';
-UPDATE square SET next_square_name='cava' WHERE square_name='artigiano';
-UPDATE square SET next_square_name='campodibattaglia' WHERE square_name='cava';
-UPDATE square SET next_square_name='fiume' WHERE square_name='campodibattaglia';
-UPDATE square SET next_square_name='mercato' WHERE square_name='fiume';
+UPDATE square SET next_square_name='Cane' WHERE square_name='Cantiere';
+UPDATE square SET next_square_name='Cantiere' WHERE square_name='Mercato';
+UPDATE square SET next_square_name='Sorpresa' WHERE square_name='Cane';
+UPDATE square SET next_square_name='Prateria' WHERE square_name='Sorpresa';
+UPDATE square SET next_square_name='Foresta' WHERE square_name='Prateria';
+UPDATE square SET next_square_name='Artigiano' WHERE square_name='Foresta';
+UPDATE square SET next_square_name='Cava' WHERE square_name='Artigiano';
+UPDATE square SET next_square_name='Battaglia' WHERE square_name='Cava';
+UPDATE square SET next_square_name='Fiume' WHERE square_name='Battaglia';
+UPDATE square SET next_square_name='Mercato' WHERE square_name='Fiume';
 
 
 -- Marker data --
 INSERT INTO marker(marker_name, square_name)
-VALUES ('Jono', 'cantiere');
+VALUES ('Jono', 'Cantiere');
 INSERT INTO marker(marker_name, square_name)
-VALUES ('Jada', 'cantiere');
+VALUES ('Jada', 'Cantiere');
 INSERT INTO marker(marker_name, square_name)
-VALUES ('Martin', 'cantiere');
+VALUES ('Martin', 'Cantiere');
 INSERT INTO marker(marker_name, square_name)
-VALUES ('Guff', 'cantiere');
+VALUES ('Guff', 'Cantiere');
 
 
 -- -- NearTo data --
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('cantiere', 'cane');
+-- VALUES ('Cantiere', 'Cane');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('cane', 'sorpresa');
+-- VALUES ('Cane', 'Sorpresa');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('sorpresa', 'prateria');
+-- VALUES ('Sorpresa', 'Prateria');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('prateria', 'foresta');
+-- VALUES ('Prateria', 'Foresta');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('foresta', 'artigiano');
+-- VALUES ('Foresta', 'Artigiano');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('artigiano', 'cava');
+-- VALUES ('Artigiano', 'Cava');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('cava', 'campodibattaglia');
+-- VALUES ('Cava', 'Battaglia');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('campodibattaglia', 'fiume');
+-- VALUES ('Battaglia', 'Fiume');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('fiume', 'mercato');
+-- VALUES ('Fiume', 'Mercato');
 -- INSERT INTO nearto(square_name_from, square_name_to)
--- VALUES ('mercato', 'cantiere');
+-- VALUES ('Mercato', 'Cantiere');
 
 
 -- TokenForest data --
@@ -80,22 +80,22 @@ VALUES (5, 5, false, 5, 'diefacetokenforest');
 INSERT INTO tokenforest(id, die_value, state, position, type)
 VALUES (6, 6, false, 6, 'diefacetokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (7, 'cantiere', false, 7, 'squaretokenforest');
+VALUES (7, 'Cantiere', false, 7, 'squaretokenforest');
 INSERT INTO tokenforest(id,square_value, state, position, type)
-VALUES (8,'mercato', false, 8, 'squaretokenforest');
+VALUES (8,'Mercato', false, 8, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (9, 'cane', false, 9, 'squaretokenforest');
+VALUES (9, 'Cane', false, 9, 'squaretokenforest');
 INSERT INTO tokenforest(id,square_value, state, position, type)
-VALUES (10, 'sorpresa', false, 10, 'squaretokenforest');
+VALUES (10, 'Sorpresa', false, 10, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (11, 'campodibattaglia', false, 11, 'squaretokenforest');
+VALUES (11, 'Battaglia', false, 11, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (12, 'artigiano', false, 12, 'squaretokenforest');
+VALUES (12, 'Artigiano', false, 12, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (13, 'cava', false, 13, 'squaretokenforest');
+VALUES (13, 'Cava', false, 13, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (14, 'foresta', false, 14, 'squaretokenforest');
+VALUES (14, 'Foresta', false, 14, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (15, 'prateria', false, 15, 'squaretokenforest');
+VALUES (15, 'Prateria', false, 15, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
-VALUES (16, 'fiume', false, 16, 'squaretokenforest');
+VALUES (16, 'Fiume', false, 16, 'squaretokenforest');

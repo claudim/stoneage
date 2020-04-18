@@ -1,7 +1,7 @@
 package com.univaq.stoneage.dao;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * The Data Access Object (DAO) pattern is a structural pattern that allows us to isolate the application/business layer from the persistence layer (usually a relational database, but it could be any other persistence mechanism) using an abstract API.
@@ -13,9 +13,9 @@ import java.util.List;
 public interface IGenericDAO<T extends Serializable> {
 //    T findOne(final long id);
 
-    List<T> findAll();
+    ArrayList<T> findAll();
 
-//    void create(final T entity);
+//    T create(final T entity);
 //
 //    T update(final T entity);
 //

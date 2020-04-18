@@ -1,5 +1,6 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.SquareDAO;
 
 import java.util.ArrayList;
@@ -47,9 +48,8 @@ public class MBoard{
 	}
 
 	private void createSquareFromDB() {
-		SquareDAO dao = new SquareDAO();
-		ArrayList<MSquare> all = (ArrayList<MSquare>) dao.findAll();
-		m_squares.addAll(all);
+		IGenericDAO<MSquare> dao = new SquareDAO();
+		m_squares.addAll(dao.findAll());
 	}
 
 	private MSquare getSquareByName(String aTokenForestValue) {
@@ -67,6 +67,7 @@ public class MBoard{
 		// TODO migliorare
 		//return m_squares.
 		//return m_squares.get(0); // il cantiere
+		m_squares.size();
 		for (MSquare square : m_squares) {
 			if (square.isM_startSquare()) {
 				return square;

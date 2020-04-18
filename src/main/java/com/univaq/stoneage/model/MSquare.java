@@ -1,10 +1,11 @@
 package com.univaq.stoneage.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Square")
-public class MSquare {
+public class MSquare implements Serializable {
 	@Id
 	@Column(name = "square_name", nullable = true, unique = true, length = 30)
 	private String m_name;
