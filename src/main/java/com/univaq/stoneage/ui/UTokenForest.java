@@ -1,11 +1,8 @@
 package com.univaq.stoneage.ui;
 
-import com.univaq.stoneage.Model.MStoneAgeGame;
+import com.univaq.stoneage.model.MStoneAgeGame;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

@@ -1,9 +1,11 @@
 package com.univaq.stoneage.ui;
 
-import com.univaq.stoneage.Model.MStoneAgeGame;
+import com.univaq.stoneage.model.MStoneAgeGame;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class UStartGame extends JPanel {
     public JPanel getContentPane() {

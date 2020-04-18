@@ -1,7 +1,7 @@
 package com.univaq.stoneage.ui;
 
-import com.univaq.stoneage.Model.MPlayer;
-import com.univaq.stoneage.Model.MStoneAgeGame;
+import com.univaq.stoneage.model.MPlayer;
+import com.univaq.stoneage.model.MStoneAgeGame;
 
 import javax.swing.*;
 import java.awt.*;
