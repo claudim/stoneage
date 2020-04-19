@@ -13,8 +13,8 @@ public class UPlayer extends JPanel {
 
     public void playerStyle() {
         String n = name.toUpperCase();
-        this.playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.playerPanel.setPreferredSize(new Dimension(100, 100));
+//        this.playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+//        this.playerPanel.setPreferredSize(new Dimension(100, 100));
         this.playerName.setBackground(Colori.valueOf(n).markerColor);
         this.playerName.setOpaque(true);
     }

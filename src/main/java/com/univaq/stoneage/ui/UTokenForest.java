@@ -3,6 +3,7 @@ package com.univaq.stoneage.ui;
 import com.univaq.stoneage.model.MStoneAgeGame;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,6 +26,11 @@ public class UTokenForest extends JButton {
         this.tokenValue = tokenValue;
         this.position = position;
 
+        this.setContentAreaFilled(true);
+        this.setOpaque(true);
+        this.setBackground(new Color(10, 93, 0));
+        this.setForeground(Color.ORANGE);
+        this.setPreferredSize(new Dimension(150, 70));
 
         this.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -36,8 +42,8 @@ public class UTokenForest extends JButton {
     private void onClick() {
         this.setText(this.tokenValue);
         this.setState(true);
-        UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
+        UMainFrame.getInstance().getuGamePlane().getuGrid().disableAllTokens();
         MStoneAgeGame.getInstance().playTurn(this.position);
-        UMainFrame.getInstance().getuGameBoard().getuGrid().ableAllTokensFaceDown();
+        UMainFrame.getInstance().getuGamePlane().getuGrid().ableAllTokensFaceDown();
     }
 }

@@ -11,7 +11,7 @@ public class UMainFrame extends JFrame {
     private static UMainFrame instance;
 
 
-    private UGameBoard uGameBoard;
+    private UGamePlane uGamePlane;
 
     public static UMainFrame getInstance() {
         if (instance == null) {
@@ -37,10 +37,10 @@ public class UMainFrame extends JFrame {
         this.replacePanel(new UStartGame().getContentPane());
     }
 
-    public void setGamePage(){
-        this.uGameBoard = new UGameBoard();
-        this.uGameBoard.initGameBoard();
-        this.replacePanel(this.uGameBoard.getGameContentPane());
+    public void setGamePage() {
+        this.uGamePlane = new UGamePlane();
+        this.uGamePlane.initGameBoard();
+        this.replacePanel(this.uGamePlane.getGameContentPane());
     }
 
     private void makeFrameFullDisplay() {
@@ -53,17 +53,16 @@ public class UMainFrame extends JFrame {
         this.setSize(screenSize.width/2, screenSize.height/2);
     }
 
-    private void addPanel(JPanel aPanel)
-    {
+    private void addPanel(JPanel aPanel) {
         this.getContentPane().add(aPanel);
     }
 
-    private void replacePanel(JPanel aPanel){
+    private void replacePanel(JPanel aPanel) {
         this.getContentPane().removeAll();
         this.addPanel(aPanel);
     }
 
-    public UGameBoard getuGameBoard() {
-        return uGameBoard;
+    public UGamePlane getuGamePlane() {
+        return uGamePlane;
     }
 }
