@@ -72,6 +72,7 @@ public class MBoard{
 			if (square.isM_startSquare()) {
 				return square;
 			}
+
 		}
 		return null;
 	}
