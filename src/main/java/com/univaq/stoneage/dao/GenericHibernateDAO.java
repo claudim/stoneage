@@ -9,14 +9,8 @@ import java.util.ArrayList;
 
 public abstract class GenericHibernateDAO<T extends Serializable> implements IGenericDAO<T> {
 
-    //    protected HibernateUtil2 sessionFactory;
     private Class<T> clazz;
 
-    //
-//    protected Session getCurrentSession() {
-//        return HibernateUtil.getCurrentSession();
-//    }
-//
     public void setClazz(Class<T> clazzToSet) {
         this.clazz = clazzToSet;
     }

@@ -6,9 +6,11 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "tokenforest")
+//@MappedSuperclass
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue(value = "tokenforest")
+//@DiscriminatorValue(value = "tokenforest")
 public abstract class MTokenForest<T> implements Serializable {
 
     @Transient
@@ -59,5 +61,14 @@ public abstract class MTokenForest<T> implements Serializable {
     public abstract T getValue();
 
     public abstract void setValue(T value);
+
+//    public String getM_type() {
+//        return m_type;
+//    }
+//
+//    public void setM_type(String m_type) {
+//        this.m_type = m_type;
+//    }
+
 
 }

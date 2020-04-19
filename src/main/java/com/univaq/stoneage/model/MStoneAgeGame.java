@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.dao.MarkerDAO;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -58,50 +60,56 @@ public class MStoneAgeGame {
 	}
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
-		// create a board
-		this.m_board = new MBoard();
-		// create a grid
-		this.m_grid = new MGrid();
+        // create a board
+        this.m_board = new MBoard();
+        // create a grid
+        this.m_grid = new MGrid();
 
-		//MSquare startSquare = m_board.getStartSquare();
-		this.m_playerFactory = new MPlayerFactory();
-		addPlayersNaive();
-		//createPlayers(aMarkerName, startSquare, aNumPlayers);
-		createPlayers(aMarkerName, m_board.getStartSquare(), aNumPlayers);
-		this.m_nextPlayerStrategy = new MANextPlayerStrategy(this.m_players); // set the right strategy to identify the players order
-		MPlayer currentPlayer = this.getCurrentPlayer(); // set the first Player
+        MSquare startSquare = m_board.getStartSquare();
+        this.m_playerFactory = new MPlayerFactory();
+        //addPlayersNaive();
+        createPlayers(aMarkerName, startSquare, aNumPlayers);
+        //createPlayers(aMarkerName, m_board.getStartSquare(), aNumPlayers);
+        this.m_nextPlayerStrategy = new MANextPlayerStrategy(this.m_players); // set the right strategy to identify the players order
+        MPlayer currentPlayer = this.getCurrentPlayer(); // set the first Player
 
-		System.out.println("inizializzato il gioco");
-	}
+        System.out.println("inizializzato il gioco");
+    }
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
-		m_players = new ArrayList<>();
-		MPlayer p = this.m_playerFactory.getPlayer("HumanPlayer");
-		p.createMarker(aMarkerName, aStartSquare);
-		m_players.add(p);
-		Iterator<String> it = playersNames.iterator();
-		for (int i = 0; i<aNumPlayers && it.hasNext(); i++)
-		{
-			String markerName = it.next();
-			if (!markerName.equals(aMarkerName))
-			{
-				p = this.m_playerFactory.getPlayer("EmulatedPlayer");
-				p.createMarker(markerName, aStartSquare);
-				m_players.add(p);
-			}
-		}
-	}
+        m_players = new ArrayList<>();
+        ArrayList<String> playersNames = this.getPlayersNamesFromDB();
+        MPlayer p = this.m_playerFactory.getPlayer("HumanPlayer");
+        p.createMarker(aMarkerName, aStartSquare);
+        m_players.add(p);
+        Iterator<String> it = playersNames.iterator();
+        for (int i = 0; i < aNumPlayers && it.hasNext(); i++) {
+            String markerName = it.next();
+            if (!markerName.equals(aMarkerName)) {
+                p = this.m_playerFactory.getPlayer("EmulatedPlayer");
+                p.createMarker(markerName, aStartSquare);
+                m_players.add(p);
+            }
+        }
+    }
 
-	private void addPlayersNaive() {
-		playersNames.add("Jono");
-		playersNames.add("Jada");
-		playersNames.add("Martin");
-		playersNames.add("Guff");
-	}
 
-	public ArrayList<MTokenForest> getAllTokenForest() {
-		return this.m_grid.getM_tokens();
-	}
+    private ArrayList<String> getPlayersNamesFromDB() {
+        MarkerDAO dao = new MarkerDAO(); // todo da cambiare
+        return dao.getAllMarkersName();
+
+    }
+
+    private void addPlayersNaive() {
+        playersNames.add("Jono");
+        playersNames.add("Jada");
+        playersNames.add("Martin");
+        playersNames.add("Guff");
+    }
+
+    public ArrayList<MTokenForest> getAllTokenForest() {
+        return this.m_grid.getM_tokens();
+    }
 
 	public ArrayList<MSquare> getAllSquare() {
 		return m_board.getM_squares();
