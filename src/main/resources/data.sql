@@ -99,3 +99,8 @@ INSERT INTO tokenforest(id, square_value, state, position, type)
 VALUES (15, 'Prateria', false, 15, 'squaretokenforest');
 INSERT INTO tokenforest(id, square_value, state, position, type)
 VALUES (16, 'Fiume', false, 16, 'squaretokenforest');
+
+-- INSERT INTO diefacetokenforest(id, die_value, state, position)
+-- VALUES (1, 1, false, 1);
+-- INSERT INTO diefacetokenforest(id, die_value, state, position)
+-- VALUES (2, 2, false, 2);

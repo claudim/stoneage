@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.dao.DieFaceTokenForestDAO;
+
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -17,11 +19,15 @@ public class MGrid {
 
 	public MGrid() {
 		this.m_tokens = new ArrayList<MTokenForest>();
-
-		//todo togli questo schifo per carità divina
-		this.createTokenForestNaive();
+		this.createTokenForest();
 	}
 
+	private void createTokenForest() {
+		//this.createTokenForestNaive();
+		DieFaceTokenForestDAO dao = new DieFaceTokenForestDAO();
+
+		m_tokens.addAll(dao.getAllDieFaceTokenForest());
+	}
 
 	public ArrayList<MTokenForest> getM_tokens() {
 		return m_tokens;

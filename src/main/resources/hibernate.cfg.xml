@@ -10,7 +10,7 @@
         <property name="connection.password"/>
 
         <!-- JDBC connection pool (use the built-in) -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">10</property>
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
@@ -32,6 +32,7 @@
         <mapping class="com.univaq.stoneage.model.MSquare"/>
         <mapping class="com.univaq.stoneage.model.MMarker"/>
         <mapping class="com.univaq.stoneage.model.MTokenForest"/>
+
 
     </session-factory>
 </hibernate-configuration>
