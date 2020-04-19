@@ -10,7 +10,6 @@ public class UMainFrame extends JFrame {
 
     private static UMainFrame instance;
 
-
     private UGameBoard uGameBoard;
 
     public static UMainFrame getInstance() {

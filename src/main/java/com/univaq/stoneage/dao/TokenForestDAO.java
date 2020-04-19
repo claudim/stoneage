@@ -13,8 +13,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 
-public class DieFaceTokenForestDAO extends GenericHibernateDAO<MDieFaceTokenForest> {
-    public DieFaceTokenForestDAO() {
+public class TokenForestDAO extends GenericHibernateDAO<MDieFaceTokenForest> {
+    public TokenForestDAO() {
         super();
         setClazz(MDieFaceTokenForest.class);
     }
