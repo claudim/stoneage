@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-// todo aggiungere il player factory e modificare classi concrete e funzioni
+// todo modificare classi concrete e funzioni
 public class MStoneAgeGame {
 	private static MStoneAgeGame instance;
 	private MGrid m_grid;
@@ -34,10 +34,6 @@ public class MStoneAgeGame {
 	public MBoard getM_board() {
 		return m_board;
 	}
-
-	//Per ora memorizzo il nome dei possibili giocatori quì
-	//TODO recuperarli dal db
-	private ArrayList<String> playersNames = new ArrayList<>();
 
 	public void playTurn(int aIdPosition) {
 		MTokenForest MTokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
@@ -67,9 +63,7 @@ public class MStoneAgeGame {
 
         MSquare startSquare = m_board.getStartSquare();
         this.m_playerFactory = new MPlayerFactory();
-        //addPlayersNaive();
         createPlayers(aMarkerName, startSquare, aNumPlayers);
-        //createPlayers(aMarkerName, m_board.getStartSquare(), aNumPlayers);
         this.m_nextPlayerStrategy = new MANextPlayerStrategy(this.m_players); // set the right strategy to identify the players order
         MPlayer currentPlayer = this.getCurrentPlayer(); // set the first Player
 
@@ -100,12 +94,6 @@ public class MStoneAgeGame {
 
     }
 
-    private void addPlayersNaive() {
-        playersNames.add("Jono");
-        playersNames.add("Jada");
-        playersNames.add("Martin");
-        playersNames.add("Guff");
-    }
 
     public ArrayList<MTokenForest> getAllTokenForest() {
         return this.m_grid.getM_tokens();
