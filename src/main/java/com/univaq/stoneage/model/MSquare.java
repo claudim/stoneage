@@ -3,6 +3,9 @@ package com.univaq.stoneage.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ *
+ */
 @Entity
 @Table(name = "Square")
 public class MSquare implements Serializable {
@@ -18,8 +21,8 @@ public class MSquare implements Serializable {
 	private MSquare m_nextSquare;
 
 	public MSquare() {
-        super();
-    }
+		super();
+	}
 
 	public MSquare(String m_name) {
 		this.m_name = m_name;
