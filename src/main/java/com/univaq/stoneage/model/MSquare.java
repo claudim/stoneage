@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- *
+ * MSquare is a persistence entity.
+ * It knows its name, its the next square with which it is linked, if it is the start square.
  */
 @Entity
 @Table(name = "Square")

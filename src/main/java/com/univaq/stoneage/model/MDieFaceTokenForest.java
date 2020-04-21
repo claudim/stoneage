@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * MDieFaceTokenForest is a persistence, concrete subclass of MTokenForest<Integer>.
+ * MDieFaceTokenForest is a persistence entity, concrete subclass of MTokenForest<Integer>.
  */
 @Entity
 //@Table(name = "diefacetokenforest")

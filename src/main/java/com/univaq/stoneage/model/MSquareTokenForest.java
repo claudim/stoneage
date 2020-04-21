@@ -5,7 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * MSquareTokenForest is a persistence, concrete subclass of MTokenForest<String>.
+ * MSquareTokenForest is a persistence entity, concrete subclass of MTokenForest<String>.
  */
 @Entity
 @DiscriminatorValue("squaretokenforest")

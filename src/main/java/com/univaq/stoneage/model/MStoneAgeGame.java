@@ -36,6 +36,9 @@ public class MStoneAgeGame {
 		// create a grid
 		this.m_grid = new MGrid();
 		MSquare startSquare = m_board.getStartSquare();
+		if (startSquare == null) {
+			startSquare = m_board.getM_squares().get(0);
+		}
 		this.m_playerFactory = new MPlayerFactory();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
 		this.m_nextPlayerStrategy = new MANextPlayerStrategy(this.m_players); // set the right strategy to identify the players order
