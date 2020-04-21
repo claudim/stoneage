@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+/**
+ * MSquareTokenForest is a persistence, concrete subclass of MTokenForest<String>.
+ */
 @Entity
 @DiscriminatorValue("squaretokenforest")
 public class MSquareTokenForest extends MTokenForest<String> {
@@ -18,19 +21,21 @@ public class MSquareTokenForest extends MTokenForest<String> {
         this.m_squareName = tokenForestValue;
     }
 
-    public String getM_squareName() {
-        return m_squareName;
-    }
-
-    public void setM_squareName(String m_squareName) {
-        this.m_squareName = m_squareName;
-    }
-
+    /**
+     * Get the forest token value. The value is a square name.
+     *
+     * @return String The forest token value
+     */
     @Override
     public String getValue() {
         return this.m_squareName;
     }
 
+    /**
+     * Set the forest token value. The value is a square name.
+     *
+     * @param value String The forest token value
+     */
     @Override
     public void setValue(String value) {
         this.m_squareName = value;
