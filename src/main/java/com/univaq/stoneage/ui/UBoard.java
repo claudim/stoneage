@@ -14,7 +14,6 @@ public class UBoard extends JPanel implements PropertyChangeListener {
 
     private ArrayList<USquare> uSquares;
     private JPanel boardPanel;
-    //private UMarker currentMarker;
 
     public int getSquareNumber() {
         return squareNumber;
@@ -52,18 +51,20 @@ public class UBoard extends JPanel implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        try {
-            MMarker marker = (MMarker) evt.getSource();
-            USquare newusq = this.findUSquareByName((String) evt.getNewValue()); // USquare of the newValue
-            USquare oldusq = this.findUSquareByName((String) evt.getOldValue());// USquare of the oldValue
-            UMarker uMarker = oldusq.getUMarkerByName(marker.getM_markerName());
-            newusq.getuMarkers().add(uMarker);
-            oldusq.getuMarkers().remove(uMarker);
-            newusq.getMarkersPanel().setLayout(new GridLayout());
-            newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
+        if (evt.getPropertyName().equals("square")) {
+            try {
+                MMarker marker = (MMarker) evt.getSource();
+                USquare newusq = this.findUSquareByName((String) evt.getNewValue()); // USquare of the newValue
+                USquare oldusq = this.findUSquareByName((String) evt.getOldValue());// USquare of the oldValue
+                UMarker uMarker = oldusq.getUMarkerByName(marker.getM_markerName());
+                newusq.getuMarkers().add(uMarker);
+                oldusq.getuMarkers().remove(uMarker);
+                newusq.getMarkersPanel().setLayout(new GridLayout());
+                newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
 
-        } catch (Exception e) {
+            } catch (Exception e) {
 
+            }
         }
 
 

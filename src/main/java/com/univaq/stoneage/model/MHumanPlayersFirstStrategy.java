@@ -14,11 +14,14 @@ public class MHumanPlayersFirstStrategy extends MNextPlayerStrategy {
     public MHumanPlayersFirstStrategy(ArrayList<MPlayer> a_players) {
         super(a_players);
         this.sort();
-        this.indexOfCurrentPlayer = 0;
+        this.setCurrentPlayer(0);
     }
 
-    private void setIndexOfCurrentPlayer(int indexOfCurrentPlayer) {
+    private void setCurrentPlayer(int indexOfCurrentPlayer) {
         this.indexOfCurrentPlayer = indexOfCurrentPlayer % (this.getSortedPlayer().size());
+        MPlayer newCurrentPlayer = this.getSortedPlayer().get(this.indexOfCurrentPlayer);
+        notifyPropertyChange(newCurrentPlayer);
+        this.currentPlayer = newCurrentPlayer;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class MHumanPlayersFirstStrategy extends MNextPlayerStrategy {
 
     @Override
     public MPlayer getNextPlayer() {
-        this.setIndexOfCurrentPlayer(this.indexOfCurrentPlayer + 1);
+        this.setCurrentPlayer(this.indexOfCurrentPlayer + 1);
         return this.getCurrentPlayer();
     }
 
@@ -43,7 +46,6 @@ public class MHumanPlayersFirstStrategy extends MNextPlayerStrategy {
             }
         });
         this.setSortedPlayer(players);
-        //MStoneAgeGame.getInstance().setM_players(players);
     }
 
 

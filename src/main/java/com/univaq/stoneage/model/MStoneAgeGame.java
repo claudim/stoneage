@@ -133,4 +133,8 @@ public class MStoneAgeGame {
 	public void setM_players(ArrayList<MPlayer> m_players) {
 		this.m_players = m_players;
 	}
+
+	public MINextPlayerStrategy getM_nextPlayerStrategy() {
+		return m_nextPlayerStrategy;
+	}
 }

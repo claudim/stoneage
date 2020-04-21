@@ -5,11 +5,13 @@ import com.univaq.stoneage.model.MStoneAgeGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
-public class UGameBoard extends JPanel {
+public class UGameBoard extends JPanel implements PropertyChangeListener {
 
-    private ArrayList<UPlayer> players = new ArrayList<>();
+    private ArrayList<UPlayer> uPlayers = new ArrayList<>();
 
     private JPanel gameContentPane;
     private UBoard uBoard;
@@ -21,6 +23,7 @@ public class UGameBoard extends JPanel {
 
     public void initGameBoard(){
 
+        MStoneAgeGame.getInstance().getM_nextPlayerStrategy().addPropertyChangeListener(this); // add uboard as a MMarker observer
         this.uGrid = new UGrid();
         uGrid.initGrid();
 
@@ -99,7 +102,7 @@ public class UGameBoard extends JPanel {
                // uBoard.setCurrentMarker(uMarker);
 
             }
-            this.players.add(uPlayer);
+            this.uPlayers.add(uPlayer);
 
             USquare usq = this.uBoard.findUSquareByName(p.getM_marker().getCurrentSquare().getM_name());
             p.getM_marker().addPropertyChangeListener(this.uBoard); // add uboard as a MMarker observer
@@ -136,4 +139,22 @@ public class UGameBoard extends JPanel {
         }
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if (evt.getPropertyName().equals("currentPlayer")) {
+            UPlayer newCurrentPlayer = this.findUPlayerByName((String) evt.getNewValue()); // new current player's name
+            UPlayer oldCurrentPlayer = this.findUPlayerByName((String) evt.getOldValue());// old current player's name
+            if (newCurrentPlayer != null) newCurrentPlayer.setCurrentPlayer(true);
+            if (oldCurrentPlayer != null) oldCurrentPlayer.setCurrentPlayer(false);
+        }
+    }
+
+    public UPlayer findUPlayerByName(String name) {
+        for (UPlayer player : uPlayers) {
+            if (player.getName().equals(name)) {
+                return player;
+            }
+        }
+        return null;
+    }
 }

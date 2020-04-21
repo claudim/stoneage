@@ -23,6 +23,7 @@ public class MMarker implements Serializable {
 
 	public MMarker() {
 		support = new PropertyChangeSupport(this);
+
 	}
 
 	public String getM_markerName() {

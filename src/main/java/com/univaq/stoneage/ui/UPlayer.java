@@ -9,6 +9,12 @@ public class UPlayer extends JPanel {
 
     private JLabel playerName;
     private JPanel playerPanel;
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
     private String name;
 
     public void playerStyle() {
