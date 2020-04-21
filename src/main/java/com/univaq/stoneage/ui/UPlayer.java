@@ -1,5 +1,7 @@
 package com.univaq.stoneage.ui;
 
+import com.univaq.stoneage.utility.PlayerColors;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,22 +15,10 @@ public class UPlayer extends JPanel {
         String n = name.toUpperCase();
         this.playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         this.playerPanel.setPreferredSize(new Dimension(100, 100));
-        this.playerName.setBackground(Colori.valueOf(n).markerColor);
+        this.playerName.setBackground(PlayerColors.valueOf(n).markerColor);
         this.playerName.setOpaque(true);
     }
 
-    private enum Colori {
-        JONO(Color.blue),
-        JADA(Color.magenta),
-        GUFF(Color.green),
-        MARTIN(Color.yellow);
-
-        public final Color markerColor;
-
-        Colori(Color label) {
-            this.markerColor = label;
-        }
-    }
 
     @Override
     public void setName(String name) {

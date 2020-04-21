@@ -1,7 +1,8 @@
 package com.univaq.stoneage.ui;
 
+import com.univaq.stoneage.utility.PlayerColors;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class UMarker extends JPanel {
     private JPanel markerPanel;
@@ -9,18 +10,6 @@ public class UMarker extends JPanel {
     private String markerName;
 
     //TODO i nomi dei player vanno recuperati da qualche parte
-    private enum Colori {
-        JONO(Color.blue),
-        JADA(Color.magenta),
-        GUFF(Color.green),
-        MARTIN(Color.yellow);
-
-        public final Color markerColor;
-
-        Colori(Color label) {
-            this.markerColor = label;
-        }
-    }
 
     public String getMarkerName() {
         return this.markerName;
@@ -41,7 +30,7 @@ public class UMarker extends JPanel {
     public void markerStyle(){
         this.markerLabel.setText("  ");
         String n = this.markerName.toUpperCase();
-        this.markerLabel.setBackground(Colori.valueOf(n).markerColor);
+        this.markerLabel.setBackground(PlayerColors.valueOf(n).markerColor);
         this.markerLabel.setOpaque(true);
 
     }

@@ -1,12 +1,13 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.utility.PlayerType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MANextPlayerStrategyTest {
+class MHumanPlayersFirstStrategyTest {
 
     private MPlayerFactory m_playerFactory;
     private ArrayList<MPlayer> m_players;
@@ -19,19 +20,19 @@ class MANextPlayerStrategyTest {
         this.m_players = new ArrayList<>();
         this.m_startSquare = new MSquare("cantiere");
 
-        MPlayer p = this.m_playerFactory.getPlayer("EmulatedPlayer");
+        MPlayer p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
         p.createMarker("Jono", m_startSquare);
         m_players.add(p);
-        p = this.m_playerFactory.getPlayer("HumanPlayer");
+        p = this.m_playerFactory.getPlayer(PlayerType.HumanPlayer);
         p.createMarker("Martin", m_startSquare);
         m_players.add(p);
-        p = this.m_playerFactory.getPlayer("EmulatedPlayer");
+        p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
         p.createMarker("Jada", m_startSquare);
         m_players.add(p);
-        p = this.m_playerFactory.getPlayer("HumanPlayer");
+        p = this.m_playerFactory.getPlayer(PlayerType.HumanPlayer);
         p.createMarker("Guff", m_startSquare);
         m_players.add(p);
-        this.m_nextPlayerStrategy = new MANextPlayerStrategy(m_players);
+        this.m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players);
         assertEquals(this.m_nextPlayerStrategy.getCurrentPlayer().getMarkerName(), "Martin");
         assertEquals(this.m_nextPlayerStrategy.getNextPlayer().getMarkerName(), "Guff");
 

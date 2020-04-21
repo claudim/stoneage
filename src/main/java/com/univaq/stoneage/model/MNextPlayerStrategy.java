@@ -20,10 +20,23 @@ public abstract class MNextPlayerStrategy implements MINextPlayerStrategy {
         this.sortedPlayer = sortedPlayer;
     }
 
-    public abstract void sort();
+    /**
+     * Sort players according to the strategy implementation
+     */
+    protected abstract void sort();
 
+    /**
+     * Return the Player playing current turn
+     *
+     * @return current player
+     */
     public abstract MPlayer getCurrentPlayer();
 
+    /**
+     * Return the next player according to the implemented strategy
+     *
+     * @return Next player to play
+     */
     public abstract MPlayer getNextPlayer();
 
 
