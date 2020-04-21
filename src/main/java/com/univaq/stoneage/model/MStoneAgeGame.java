@@ -2,6 +2,7 @@ package com.univaq.stoneage.model;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.utility.PlayerType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -73,16 +74,16 @@ public class MStoneAgeGame {
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
         m_players = new ArrayList<>();
-        ArrayList<String> playersNames = this.getPlayersNamesFromDB();
-        MPlayer p = this.m_playerFactory.getPlayer("HumanPlayer");
+		ArrayList<String> playersNames = this.getPlayersNamesFromDB();
+		MPlayer p = this.m_playerFactory.getPlayer(PlayerType.HumanPlayer);
         p.createMarker(aMarkerName, aStartSquare);
         m_players.add(p);
         Iterator<String> it = playersNames.iterator();
         for (int i = 0; i < aNumPlayers && it.hasNext(); i++) {
             String markerName = it.next();
             if (!markerName.equals(aMarkerName)) {
-                p = this.m_playerFactory.getPlayer("EmulatedPlayer");
-                p.createMarker(markerName, aStartSquare);
+				p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
+				p.createMarker(markerName, aStartSquare);
                 m_players.add(p);
             }
         }
