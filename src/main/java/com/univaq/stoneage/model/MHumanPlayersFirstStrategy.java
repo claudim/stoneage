@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class MANextPlayerStrategy extends MNextPlayerStrategy {
+/**
+ * Implementation of strategy for choosing next player. With this strategy the human players take precedence over emulated ones.
+ * Players are ordered by their type, human players first.
+ */
+public class MHumanPlayersFirstStrategy extends MNextPlayerStrategy {
     private int indexOfCurrentPlayer;
 
-    public MANextPlayerStrategy(ArrayList<MPlayer> a_players) {
+    public MHumanPlayersFirstStrategy(ArrayList<MPlayer> a_players) {
         super(a_players);
         this.sort();
         this.indexOfCurrentPlayer = 0;
     }
 
-    public void setIndexOfCurrentPlayer(int indexOfCurrentPlayer) {
+    private void setIndexOfCurrentPlayer(int indexOfCurrentPlayer) {
         this.indexOfCurrentPlayer = indexOfCurrentPlayer % (this.getSortedPlayer().size());
     }
 
@@ -29,7 +33,7 @@ public class MANextPlayerStrategy extends MNextPlayerStrategy {
     }
 
     @Override
-    public void sort() {
+    protected void sort() {
         ArrayList<MPlayer> players = this.getSortedPlayer();
         int j = 0;
         Collections.sort(players, new Comparator<MPlayer>() {

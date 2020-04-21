@@ -39,7 +39,7 @@ public class MStoneAgeGame {
 		MSquare startSquare = m_board.getStartSquare();
 		this.m_playerFactory = new MPlayerFactory();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
-		this.m_nextPlayerStrategy = new MANextPlayerStrategy(this.m_players); // set the right strategy to identify the players order
+		this.m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(this.m_players); // set the right strategy to identify the players order
 		MPlayer currentPlayer = this.getCurrentPlayer(); // set the first Player
 
 		System.out.println("inizializzato il gioco");
