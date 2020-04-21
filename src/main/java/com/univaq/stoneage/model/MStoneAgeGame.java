@@ -1,6 +1,7 @@
 package com.univaq.stoneage.model;
 
-import com.univaq.stoneage.dao.MarkerDAO;
+import com.univaq.stoneage.dao.IGenericDAO;
+import com.univaq.stoneage.dao.PersistenceServiceFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -87,12 +88,15 @@ public class MStoneAgeGame {
         }
     }
 
-
     private ArrayList<String> getPlayersNamesFromDB() {
-        MarkerDAO dao = new MarkerDAO(); // todo da cambiare
-        return dao.getAllMarkersName();
-
-    }
+		ArrayList<String> playersNames = new ArrayList<>();
+		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MMarker.class.getSimpleName());
+		ArrayList<MMarker> markers = dao.findAll();
+		for (MMarker marker : markers) {
+			playersNames.add(marker.getM_markerName());
+		}
+		return playersNames;
+	}
 
 
     public ArrayList<MTokenForest> getAllTokenForest() {

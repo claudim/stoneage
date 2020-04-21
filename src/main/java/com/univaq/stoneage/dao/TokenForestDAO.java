@@ -1,9 +1,9 @@
 package com.univaq.stoneage.dao;
 
-import com.univaq.stoneage.hibernate.HibernateUtil2;
 import com.univaq.stoneage.model.MDieFaceTokenForest;
 import com.univaq.stoneage.model.MSquareTokenForest;
 import com.univaq.stoneage.model.MTokenForest;
+import com.univaq.stoneage.utility.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -13,17 +13,17 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 
-public class TokenForestDAO extends GenericHibernateDAO<MDieFaceTokenForest> {
+public class TokenForestDAO extends GenericHibernateDAO<MTokenForest> {
     public TokenForestDAO() {
         super();
-        setClazz(MDieFaceTokenForest.class);
+        setClazz(MTokenForest.class);
     }
 
-    public ArrayList<MTokenForest> getAllDieFaceTokenForest() {
-        // ArrayList<MDieFaceTokenForest> dieFaceTokenForests = new ArrayList<>();
-        ArrayList<MTokenForest> dieFaceTokenForests = new ArrayList<>();
+    @Override
+    public ArrayList<MTokenForest> findAll() {
+        ArrayList<MTokenForest> tokenForests = new ArrayList<>();
         Transaction transaction = null;
-        try (Session session = HibernateUtil2.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
@@ -38,7 +38,7 @@ public class TokenForestDAO extends GenericHibernateDAO<MDieFaceTokenForest> {
 //            Query<MDieFaceTokenForest> q = session.createQuery(criteria);
 //
 //            List<MDieFaceTokenForest> list = q.getResultList();
-//            dieFaceTokenForests = (ArrayList<MDieFaceTokenForest>) list;
+//            tokenForests = (ArrayList<MDieFaceTokenForest>) list;
 
 
 //            CriteriaQuery<MTokenForest> criteria = criteriaBuilder.createQuery( MTokenForest.class );
@@ -58,9 +58,9 @@ public class TokenForestDAO extends GenericHibernateDAO<MDieFaceTokenForest> {
 
             criteriaQuery.multiselect(root.get("token_id"), root.get("m_state"), root.get("m_position"),
                     root2.get("m_dieFace"), root3.get("m_squareName"));
-            criteriaQuery.select(root);
+            //criteriaQuery.select(root);
             Query<MTokenForest> q = session.createQuery(criteriaQuery);
-            dieFaceTokenForests = (ArrayList<MTokenForest>) q.getResultList();
+            tokenForests = (ArrayList<MTokenForest>) q.getResultList();
 
 
 //
@@ -72,8 +72,8 @@ public class TokenForestDAO extends GenericHibernateDAO<MDieFaceTokenForest> {
 ////            //criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("type", "diefacetokenforest"));
 //            CriteriaQuery<MDieFaceTokenForest> all = criteriaQuery.select(root);
 //            Query<MDieFaceTokenForest> q = session.createQuery(all);
-//            dieFaceTokenForests = (ArrayList<MDieFaceTokenForest>) q.getResultList();
-//            dieFaceTokenForests  = (ArrayList<MDieFaceTokenForest>) session.createNativeQuery("SELECT * FROM diefacetokenforest").list();
+//            tokenForests = (ArrayList<MDieFaceTokenForest>) q.getResultList();
+//            tokenForests  = (ArrayList<MDieFaceTokenForest>) session.createNativeQuery("SELECT * FROM diefacetokenforest").list();
 
 
             // commit transaction
@@ -84,7 +84,7 @@ public class TokenForestDAO extends GenericHibernateDAO<MDieFaceTokenForest> {
             }
             e.printStackTrace();
         }
-        return dieFaceTokenForests;
+        return tokenForests;
     }
 
 

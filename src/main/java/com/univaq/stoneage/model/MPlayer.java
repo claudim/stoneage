@@ -1,7 +1,7 @@
 package com.univaq.stoneage.model;
 
 /**
- * Player resposabile del movimento del marker e della creazione del marker
+ * The class Player is resposable for the marker creation and moviment.
  */
 public abstract class MPlayer {
 	private MMarker m_marker;

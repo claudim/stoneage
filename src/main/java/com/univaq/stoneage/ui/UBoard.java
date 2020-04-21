@@ -1,5 +1,6 @@
 package com.univaq.stoneage.ui;
 
+import com.univaq.stoneage.model.MMarker;
 import com.univaq.stoneage.model.MSquare;
 import com.univaq.stoneage.model.MStoneAgeGame;
 
@@ -50,15 +51,21 @@ public class UBoard extends JPanel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // trovati il marker del current player
-        String[] propertyName = evt.getPropertyName().split("_");
-        USquare newusq = this.findUSquareByName((String) evt.getNewValue()); // USquare of the newValue
-        USquare oldusq = this.findUSquareByName((String) evt.getOldValue());// USquare of the oldValue
-        UMarker uMarker = oldusq.getUMarkerByName(propertyName[0]);
-        newusq.getuMarkers().add(uMarker);
-        oldusq.getuMarkers().remove(uMarker);
-        newusq.getMarkersPanel().setLayout(new GridLayout());
-        newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
+
+        try {
+            MMarker marker = (MMarker) evt.getSource();
+            USquare newusq = this.findUSquareByName((String) evt.getNewValue()); // USquare of the newValue
+            USquare oldusq = this.findUSquareByName((String) evt.getOldValue());// USquare of the oldValue
+            UMarker uMarker = oldusq.getUMarkerByName(marker.getM_markerName());
+            newusq.getuMarkers().add(uMarker);
+            oldusq.getuMarkers().remove(uMarker);
+            newusq.getMarkersPanel().setLayout(new GridLayout());
+            newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
+
+        } catch (Exception e) {
+
+        }
+
 
     }
 

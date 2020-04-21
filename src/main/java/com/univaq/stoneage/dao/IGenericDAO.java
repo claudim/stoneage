@@ -15,6 +15,8 @@ public interface IGenericDAO<T extends Serializable> {
 
     ArrayList<T> findAll();
 
+    //  ArrayList<T> findAllId();
+
 //    T create(final T entity);
 //
 //    T update(final T entity);

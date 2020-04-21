@@ -5,11 +5,9 @@ import java.awt.*;
 
 public class UPlayer extends JPanel {
 
-
     private JLabel playerName;
     private JPanel playerPanel;
     private String name;
-
 
     public void playerStyle() {
         String n = name.toUpperCase();

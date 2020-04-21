@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 //TODO aggiungere una strategy per individuare la strategia giusta per scegliere i token
-//todo le caselle sono conosciute da db o dalla board. capire cosa fare
 
 /**
  * Grid ha la conoscenza dei token
@@ -21,11 +20,11 @@ public class MGrid {
 	}
 
 	private void createTokenForest() {
-        this.createTokenForestNaive();
-        //DieFaceTokenForestDAO dao = new DieFaceTokenForestDAO();
+		this.createTokenForestNaive();
+//		IGenericDAO dao= PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName());
+//        m_tokens.addAll(dao.findAll());
 
-        //m_tokens.addAll(dao.getAllDieFaceTokenForest());
-    }
+	}
 
 	public ArrayList<MTokenForest> getM_tokens() {
 		return m_tokens;

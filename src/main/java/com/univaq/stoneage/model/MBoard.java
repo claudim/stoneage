@@ -1,17 +1,18 @@
 package com.univaq.stoneage.model;
 
 import com.univaq.stoneage.dao.IGenericDAO;
-import com.univaq.stoneage.dao.SquareDAO;
+import com.univaq.stoneage.dao.PersistenceServiceFactory;
 
 import java.util.ArrayList;
 
 // todo migliorare la ricerca della start square
+
 /**
  * Board class knows all board squares and which is the start square.
  */
-public class MBoard{
+public class MBoard {
 	private ArrayList<MSquare> m_squares;
-	private MFindNewSquareStrategyFactory MFindNewSquareStrategyFactory;
+	//private MFindNewSquareStrategyFactory MFindNewSquareStrategyFactory;
 
 	public MBoard() {
 		m_squares = new ArrayList<>();
@@ -28,7 +29,7 @@ public class MBoard{
 	}
 
 	private void createSquareFromDB() {
-		IGenericDAO<MSquare> dao = new SquareDAO();
+		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MSquare.class.getSimpleName());
 		m_squares.addAll(dao.findAll());
 	}
 

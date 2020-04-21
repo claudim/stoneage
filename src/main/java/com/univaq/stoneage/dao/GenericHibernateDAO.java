@@ -1,9 +1,13 @@
 package com.univaq.stoneage.dao;
 
-import com.univaq.stoneage.hibernate.HibernateUtil2;
+import com.univaq.stoneage.utility.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -14,19 +18,21 @@ public abstract class GenericHibernateDAO<T extends Serializable> implements IGe
     public void setClazz(Class<T> clazzToSet) {
         this.clazz = clazzToSet;
     }
-//
-//    public T findOne(long id) {
-//        return getCurrentSession().get(clazz, id);
-//    }
-//
 
     public ArrayList<T> findAll() {
         ArrayList<T> list = new ArrayList<>();
         Transaction transaction = null;
-        try (Session session = HibernateUtil2.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
-            list = (ArrayList<T>) session.createQuery("from " + clazz.getName(), this.clazz).list();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
+            Root<T> root = criteriaQuery.from(clazz);
+            criteriaQuery.select(root);
+            Query<T> q = session.createQuery(criteriaQuery);
+            list = (ArrayList<T>) q.getResultList();
+
+            // list = (ArrayList<T>) session.createQuery("from " + clazz.getName(), this.clazz).list();
             // commit transaction
             transaction.commit();
         } catch (Exception e) {
@@ -59,4 +65,10 @@ public abstract class GenericHibernateDAO<T extends Serializable> implements IGe
 //        T entity = findOne(entityId);
 //        delete(entity);
 //    }
+
+    //
+//    public T findOne(long id) {
+//        return getCurrentSession().get(clazz, id);
+//    }
+//
 }
