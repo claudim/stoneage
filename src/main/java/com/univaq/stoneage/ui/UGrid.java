@@ -34,6 +34,7 @@ public class UGrid extends JPanel {
 
         for (MTokenForest tf : MStoneAgeGame.getInstance().getAllTokenForest()) {
             UTokenForest buttonTF = new UTokenForest(tf.getValue().toString(), tf.getM_position());
+            tf.addPropertyChangeListener(buttonTF); // add UtokenForest observer  to MtokenForest
             buttonTF.setContentAreaFilled(true);
             buttonTF.setOpaque(true);
             buttonTF.setBackground(new Color(10, 93, 0));

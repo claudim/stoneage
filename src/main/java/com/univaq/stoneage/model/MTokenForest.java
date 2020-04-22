@@ -1,6 +1,8 @@
 package com.univaq.stoneage.model;
 
 import javax.persistence.*;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 
 /**
@@ -20,14 +22,21 @@ public abstract class MTokenForest<T> implements Serializable {
     public final boolean FACEDOWN = false;
     @Transient
     public final boolean FACEUP = true;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int token_id;
+
     @Column(name = "state")
     private boolean m_state;
+
     @Column(name = "position")
     private int m_position;
+
+
+    @Transient // ignore this property/field
+    private PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
 
     /**
      * Default constructor.
@@ -94,7 +103,9 @@ public abstract class MTokenForest<T> implements Serializable {
      * @param aFaceUpOrDown
      */
     public void setState(boolean aFaceUpOrDown) {
-        this.m_state = aFaceUpOrDown;
+        notifyPropertyChange(aFaceUpOrDown);
+        m_state = aFaceUpOrDown;
+
     }
 
     /**
@@ -110,4 +121,23 @@ public abstract class MTokenForest<T> implements Serializable {
      * @param value T The forest token value
      */
     public abstract void setValue(T value);
+
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+        support.addPropertyChangeListener(pcl);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener pcl) {
+        support.removePropertyChangeListener(pcl);
+    }
+
+    public void notifyPropertyChange(boolean aFaceUpOrDown) {
+        support.firePropertyChange("token_state", this.m_state, aFaceUpOrDown);
+
+//        if (currentPlayer != null && this.currentPlayer != null)
+//            support.firePropertyChange("currentPlayer", this.currentPlayer.getMarkerName(), currentPlayer.getMarkerName());
+//        else if (currentPlayer != null)
+//            support.firePropertyChange("currentPlayer", "", currentPlayer.getMarkerName());
+
+
+    }
 }
