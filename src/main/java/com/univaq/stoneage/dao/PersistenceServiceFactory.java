@@ -29,16 +29,24 @@ public class PersistenceServiceFactory {
      * @return The DAO class for a model class if exists, otherwise null
      */
     public IGenericDAO<?> getDao(String className) {
+        IGenericDAO<?> genericDAO;
         switch (className) {
-            case "MMarker":
-                return new MarkerDAO();
-            case "MSquare":
-                return new SquareDAO();
-            case "MTokenForest":
-                return new TokenForestDAO();
+            case "MMarker": {
+                genericDAO = new MarkerDAO();
+                break;
+            }
+            case "MSquare": {
+                genericDAO = new SquareDAO();
+                break;
+            }
+            case "MTokenForest": {
+                genericDAO = new TokenForestDAO();
+                break;
+            }
             default:
-                return null;
+                genericDAO = null;
         }
+        return genericDAO;
     }
 
 //

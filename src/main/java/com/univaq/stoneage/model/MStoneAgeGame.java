@@ -33,17 +33,17 @@ public class MStoneAgeGame {
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
 		// create a board
-		this.m_board = new MBoard();
+		m_board = new MBoard();
 		// create a grid
-		this.m_grid = new MGrid();
+		m_grid = new MGrid();
 		MSquare startSquare = m_board.getStartSquare();
 		if (startSquare == null) {
 			startSquare = m_board.getM_squares().get(0);
 		}
-		this.m_playerFactory = new MPlayerFactory();
+		m_playerFactory = new MPlayerFactory();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
-		this.m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(this.m_players); // set the right strategy to identify the players order
-		MPlayer currentPlayer = this.getCurrentPlayer(); // set the first Player
+		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players); // set the right strategy to identify the players order
+		MPlayer currentPlayer = getCurrentPlayer(); // set the first Player
 
 		System.out.println("inizializzato il gioco");
 	}
