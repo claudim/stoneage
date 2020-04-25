@@ -8,6 +8,7 @@ import java.io.Serializable;
 /**
  * MTokenForest is a generic, persistence abstract super class.
  * It knows its position, state and value.
+ * MTokenForest is obersevable.
  */
 @Entity
 @Table(name = "tokenforest")
@@ -36,7 +37,7 @@ public abstract class MTokenForest<T> implements Serializable {
 
 
     @Transient // ignore this property/field
-    private PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
+    private final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
 
     /**
      * Default constructor.
@@ -132,12 +133,5 @@ public abstract class MTokenForest<T> implements Serializable {
 
     public void notifyPropertyChange(boolean aFaceUpOrDown) {
         support.firePropertyChange("token_state", this.m_state, aFaceUpOrDown);
-
-//        if (currentPlayer != null && this.currentPlayer != null)
-//            support.firePropertyChange("currentPlayer", this.currentPlayer.getMarkerName(), currentPlayer.getMarkerName());
-//        else if (currentPlayer != null)
-//            support.firePropertyChange("currentPlayer", "", currentPlayer.getMarkerName());
-
-
     }
 }

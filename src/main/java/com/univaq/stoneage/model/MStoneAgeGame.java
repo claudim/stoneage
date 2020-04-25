@@ -23,6 +23,8 @@ public class MStoneAgeGame {
 	private MPlayerFactory m_playerFactory;
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 
+	private MPlayer activePlayer;
+
 	public static MStoneAgeGame getInstance() {
 
 		if (instance == null) {
@@ -31,7 +33,34 @@ public class MStoneAgeGame {
 		return instance;
 	}
 
-	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
+	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
+		initializeStoneAgeGame(aMode, aNumPlayers, aMarkerName);
+//		mainGameLoop();
+		gameLoop();
+	}
+
+	private void gameLoop() {
+		if (!activePlayer.isM_winner()) {
+			activePlayer = getNextPlayer();
+			activePlayer.playTurn();
+		} else {
+			//show victory
+		}
+
+	}
+
+//	private void mainGameLoop() {
+//		boolean winner = false;
+//		MPlayer currentPlayer;
+//		while (!winner){
+//
+//			currentPlayer = getCurrentPlayer();
+//
+//
+//		}
+//	}
+
+	private void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
 		// create a board
 		m_board = new MBoard();
 		// create a grid
@@ -43,7 +72,7 @@ public class MStoneAgeGame {
 		m_playerFactory = new MPlayerFactory();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
 		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players); // set the right strategy to identify the players order
-		MPlayer currentPlayer = getCurrentPlayer(); // set the first Player
+		activePlayer = getCurrentPlayer(); // set the first Player
 
 		System.out.println("inizializzato il gioco");
 	}
@@ -70,12 +99,12 @@ public class MStoneAgeGame {
 	 */
 	public void playTurn(int aIdPosition) {
 		MTokenForest mTokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
-		MPlayer currentPlayer = this.getCurrentPlayer();
 		if (mTokenForest != null) {
-			currentPlayer.moveMarker(mTokenForest, m_board);
+			activePlayer.moveMarker(mTokenForest, m_board);
 		}
 		System.out.println("playturn terminato");
-		currentPlayer = this.m_nextPlayerStrategy.getNextPlayer();
+		gameLoop();
+
 
 		//this.m_grid.getRandomTokenForest();
 
@@ -128,6 +157,10 @@ public class MStoneAgeGame {
 
 	public MPlayer getCurrentPlayer() {
 		return this.m_nextPlayerStrategy.getCurrentPlayer();
+	}
+
+	public MPlayer getNextPlayer() {
+		return this.m_nextPlayerStrategy.getNextPlayer();
 	}
 
 	public void setM_players(ArrayList<MPlayer> m_players) {

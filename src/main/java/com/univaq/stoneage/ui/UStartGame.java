@@ -50,7 +50,7 @@ public class UStartGame extends JPanel {
 
     private void onPlay() {
         playButton.setEnabled(false);
-        MStoneAgeGame.getInstance().initializeStoneAgeGame("Rossa", 4, "Martin");
+        MStoneAgeGame.getInstance().playStoneAge("Rossa", 4, "Martin");
         UMainFrame.getInstance().setGamePage();
         UMainFrame.getInstance().setVisible(true);
     }

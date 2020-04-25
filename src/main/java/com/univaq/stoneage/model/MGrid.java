@@ -1,5 +1,8 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.dao.IGenericDAO;
+import com.univaq.stoneage.dao.PersistenceServiceFactory;
+
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -42,9 +45,9 @@ public class MGrid {
 	 * Create the forest token
 	 */
 	public void createTokenForest() {
-		this.createTokenForestNaive();
-//		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName());
-//		m_tokens.addAll(dao.findAll());
+		//this.createTokenForestNaive();
+		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName());
+		m_tokens.addAll(dao.findAll());
 	}
 
 	/**
@@ -78,25 +81,25 @@ public class MGrid {
 		return t;
 	}
 
-	// to delete
-	private void createTokenForestNaive() {
-		this.m_tokens.add(new MSquareTokenForest(7, "Cantiere"));
-		this.m_tokens.add(new MSquareTokenForest(8, "Cane"));
-		this.m_tokens.add(new MSquareTokenForest(9, "Sorpresa"));
-		this.m_tokens.add(new MSquareTokenForest(10, "Prateria"));
-		this.m_tokens.add(new MSquareTokenForest(11, "Foresta"));
-		this.m_tokens.add(new MSquareTokenForest(12, "Artigiano"));
-		this.m_tokens.add(new MSquareTokenForest(13, "Cava"));
-		this.m_tokens.add(new MSquareTokenForest(14, "Battaglia"));
-		this.m_tokens.add(new MSquareTokenForest(15, "Fiume"));
-		this.m_tokens.add(new MSquareTokenForest(0, "Mercato"));
-		this.m_tokens.add(new MDieFaceTokenForest(1, 1));
-		this.m_tokens.add(new MDieFaceTokenForest(2, 2));
-		this.m_tokens.add(new MDieFaceTokenForest(3, 3));
-		this.m_tokens.add(new MDieFaceTokenForest(4, 4));
-		this.m_tokens.add(new MDieFaceTokenForest(5, 5));
-		this.m_tokens.add(new MDieFaceTokenForest(6, 6));
-	}
+//	 to delete
+//	private void createTokenForestNaive() {
+//		this.m_tokens.add(new MSquareTokenForest(7, "Cantiere"));
+//		this.m_tokens.add(new MSquareTokenForest(8, "Cane"));
+//		this.m_tokens.add(new MSquareTokenForest(9, "Sorpresa"));
+//		this.m_tokens.add(new MSquareTokenForest(10, "Prateria"));
+//		this.m_tokens.add(new MSquareTokenForest(11, "Foresta"));
+//		this.m_tokens.add(new MSquareTokenForest(12, "Artigiano"));
+//		this.m_tokens.add(new MSquareTokenForest(13, "Cava"));
+//		this.m_tokens.add(new MSquareTokenForest(14, "Battaglia"));
+//		this.m_tokens.add(new MSquareTokenForest(15, "Fiume"));
+//		this.m_tokens.add(new MSquareTokenForest(0, "Mercato"));
+//		this.m_tokens.add(new MDieFaceTokenForest(1, 1));
+//		this.m_tokens.add(new MDieFaceTokenForest(2, 2));
+//		this.m_tokens.add(new MDieFaceTokenForest(3, 3));
+//		this.m_tokens.add(new MDieFaceTokenForest(4, 4));
+//		this.m_tokens.add(new MDieFaceTokenForest(5, 5));
+//		this.m_tokens.add(new MDieFaceTokenForest(6, 6));
+//	}
 
 	/*public int chooseRandomTokenForest() {
 		Random rand = new Random();

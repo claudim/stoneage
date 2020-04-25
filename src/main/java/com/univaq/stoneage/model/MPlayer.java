@@ -5,8 +5,10 @@ package com.univaq.stoneage.model;
  */
 public abstract class MPlayer {
 	private MMarker m_marker;
+	private boolean m_winner;
 
 	public MPlayer() {
+		this.m_winner = false;
 	}
 
 	public MMarker getM_marker() {
@@ -24,8 +26,16 @@ public abstract class MPlayer {
 		this.m_marker = m;
 	}
 
-	public String getMarkerName(){
+	public String getMarkerName() {
 		return this.m_marker.getM_markerName();
+	}
+
+	public boolean isM_winner() {
+		return m_winner;
+	}
+
+	public void setM_winner(boolean m_winner) {
+		this.m_winner = m_winner;
 	}
 
 	/**
@@ -33,10 +43,12 @@ public abstract class MPlayer {
 	 * @param MBoard
 	 */
 	public void moveMarker(MTokenForest MTokenForest, MBoard MBoard) {
-        MSquare currentSquare = m_marker.getCurrentSquare();
-        MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
-        MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
-        MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
-        m_marker.changeSquare(newSquare);
-    }
+		MSquare currentSquare = m_marker.getCurrentSquare();
+		MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
+		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
+		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
+		m_marker.changeSquare(newSquare);
+	}
+
+	public abstract void playTurn();
 }
