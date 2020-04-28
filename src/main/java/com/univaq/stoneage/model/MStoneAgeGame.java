@@ -69,7 +69,7 @@ public class MStoneAgeGame {
 //		}
 //	}
 
-	private void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
+	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
 		// create a board
 		m_board = new MBoard();
 		// create a grid

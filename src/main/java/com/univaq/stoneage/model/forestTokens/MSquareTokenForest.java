@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("squaretokenforest")
 public class MSquareTokenForest extends MTokenForest<String> {
     public MSquareTokenForest() {
+        super();
     }
 
     @Column(name = "square_value")
