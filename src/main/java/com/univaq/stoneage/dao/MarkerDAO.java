@@ -1,6 +1,6 @@
 package com.univaq.stoneage.dao;
 
-import com.univaq.stoneage.model.MMarker;
+import com.univaq.stoneage.model.players.MMarker;
 
 public class MarkerDAO extends GenericHibernateDAO<MMarker> {
     public MarkerDAO() {

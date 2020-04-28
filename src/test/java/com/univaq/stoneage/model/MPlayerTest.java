@@ -1,5 +1,11 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.model.forestTokens.MDieFaceTokenForest;
+import com.univaq.stoneage.model.forestTokens.MSquareTokenForest;
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.players.MHumanPlayer;
+import com.univaq.stoneage.model.squares.MBoard;
+import com.univaq.stoneage.model.squares.MSquare;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

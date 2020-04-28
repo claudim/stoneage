@@ -1,6 +1,6 @@
 package com.univaq.stoneage.dao;
 
-import com.univaq.stoneage.model.MSquare;
+import com.univaq.stoneage.model.squares.MSquare;
 
 public class SquareDAO extends GenericHibernateDAO<MSquare> {
 

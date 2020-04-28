@@ -1,5 +1,10 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.model.players.MPlayer;
+import com.univaq.stoneage.model.players.MPlayerFactory;
+import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
+import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
+import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.utility.PlayerType;
 import org.junit.jupiter.api.Test;
 

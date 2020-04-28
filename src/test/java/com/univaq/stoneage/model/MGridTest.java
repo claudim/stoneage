@@ -1,12 +1,14 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.model.forestTokens.MGrid;
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MGridTest {
 
-    private MGrid g = new MGrid();
+    private final MGrid g = new MGrid();
 
     @Test
     void faceUpTokenForest() {

@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.squares.findingSquare;
 
 /**
  * Java class responsible for creating strategies to identifies the new square where move the marker.

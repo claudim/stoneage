@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.forestTokens;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
@@ -50,19 +50,19 @@ public class MGrid {
 		m_tokens.addAll(dao.findAll());
 	}
 
-	/**
-	 * Find the token forest in the given position
-	 *
-	 * @param position the position of the token forest
-	 * @return the token forest in the given position if present
-	 * @throws NoSuchElementException if the token is not present
-	 */
-	protected MTokenForest searchTFbyPosition(int position) throws NoSuchElementException {
-		return m_tokens.stream()
-				.filter((t) -> t.getM_position() == position)
-				.findFirst()
-				.orElseThrow(NoSuchElementException::new);
-	}
+    /**
+     * Find the token forest in the given position
+     *
+     * @param position the position of the token forest
+     * @return the token forest in the given position if present
+     * @throws NoSuchElementException if the token is not present
+     */
+    public MTokenForest searchTFbyPosition(int position) throws NoSuchElementException {
+        return m_tokens.stream()
+                .filter((t) -> t.getM_position() == position)
+                .findFirst()
+                .orElseThrow(NoSuchElementException::new);
+    }
 
 	/**
 	 * Face up the forest token by the position.

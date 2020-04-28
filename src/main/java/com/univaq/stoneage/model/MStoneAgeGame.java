@@ -2,6 +2,15 @@ package com.univaq.stoneage.model;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.model.forestTokens.MGrid;
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.players.MMarker;
+import com.univaq.stoneage.model.players.MPlayer;
+import com.univaq.stoneage.model.players.MPlayerFactory;
+import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
+import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
+import com.univaq.stoneage.model.squares.MBoard;
+import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.utility.PlayerType;
 
 import java.util.ArrayList;

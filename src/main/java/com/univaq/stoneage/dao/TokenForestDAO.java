@@ -1,6 +1,6 @@
 package com.univaq.stoneage.dao;
 
-import com.univaq.stoneage.model.MTokenForest;
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
 
 public class TokenForestDAO extends GenericHibernateDAO<MTokenForest> {
     public TokenForestDAO() {

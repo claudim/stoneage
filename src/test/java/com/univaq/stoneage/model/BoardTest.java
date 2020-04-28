@@ -1,8 +1,9 @@
 package com.univaq.stoneage.model;
 
-class BoardTest {
-    private MBoard MBoard = new MBoard();
+import com.univaq.stoneage.model.squares.MBoard;
 
+class BoardTest {
+    private final com.univaq.stoneage.model.squares.MBoard MBoard = new MBoard();
 
 
 }

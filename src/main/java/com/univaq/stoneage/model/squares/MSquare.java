@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.squares;
 
 import javax.persistence.*;
 import java.io.Serializable;

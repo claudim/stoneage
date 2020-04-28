@@ -1,5 +1,7 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.players;
 
+
+import com.univaq.stoneage.model.squares.MSquare;
 
 import javax.persistence.*;
 import java.beans.PropertyChangeListener;
@@ -18,8 +20,8 @@ public class MMarker implements Serializable {
 	@JoinColumn(name = "square_name")
 	private MSquare m_square;
 
-	@Transient // ignore this property/field
-	private PropertyChangeSupport support; // to implement the oberver pattern
+    @Transient // ignore this property/field
+    private final PropertyChangeSupport support; // to implement the oberver pattern
 
 	public MMarker() {
 		support = new PropertyChangeSupport(this);

@@ -29,9 +29,9 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mapping -->
-        <mapping class="com.univaq.stoneage.model.MSquare"/>
-        <mapping class="com.univaq.stoneage.model.MMarker"/>
-        <mapping class="com.univaq.stoneage.model.MTokenForest"/>
+        <mapping class="com.univaq.stoneage.model.squares.MSquare"/>
+        <mapping class="com.univaq.stoneage.model.players.MMarker"/>
+        <mapping class="com.univaq.stoneage.model.forestTokens.MTokenForest"/>
 
 
     </session-factory>

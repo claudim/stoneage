@@ -1,12 +1,14 @@
 package com.univaq.stoneage;
 
 import com.univaq.stoneage.ui.UMainFrame;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class StoneageApplication {
+public class StoneageApplication extends Application {
 
     public static void main(String[] args) {
         SpringApplication.run(StoneageApplication.class, args);
@@ -18,5 +20,8 @@ public class StoneageApplication {
     }
 
 
+    @Override
+    public void start(Stage stage) throws Exception {
 
+    }
 }

@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.players;
 
 import com.univaq.stoneage.utility.PlayerType;
 

@@ -1,7 +1,7 @@
 package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.MTokenForest;
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
 
 import javax.swing.*;
 import java.awt.*;

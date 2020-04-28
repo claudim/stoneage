@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.squares;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
  * MBoard class knows all board squares, how they are connected and which is the start square.
  */
 public class MBoard {
-	/**
-	 * Field for a list of all squares.
-	 */
-	private ArrayList<MSquare> m_squares;
+    /**
+     * Field for a list of all squares.
+     */
+    private final ArrayList<MSquare> m_squares;
 
 	/**
 	 * Constructor.

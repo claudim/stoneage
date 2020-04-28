@@ -1,7 +1,7 @@
 package com.univaq.stoneage.ui;
 
-import com.univaq.stoneage.model.MPlayer;
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class UGameBoard extends JPanel implements PropertyChangeListener {
 
-    private ArrayList<UPlayer> uPlayers = new ArrayList<>();
+    private final ArrayList<UPlayer> uPlayers = new ArrayList<>();
 
     private JPanel gameContentPane;
     private UBoard uBoard;

@@ -1,4 +1,7 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.squares.findingSquare;
+
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.squares.MSquare;
 
 /**
  * MIFindNewSquareStrategy is Strategy Interface to find the new square according to the forest token value.

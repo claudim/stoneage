@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.forestTokens;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;

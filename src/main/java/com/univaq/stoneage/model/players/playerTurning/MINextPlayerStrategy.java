@@ -1,4 +1,6 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.players.playerTurning;
+
+import com.univaq.stoneage.model.players.MPlayer;
 
 import java.beans.PropertyChangeListener;
 

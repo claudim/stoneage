@@ -1,4 +1,10 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.players;
+
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.squares.MBoard;
+import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.findingSquare.MFindNewSquareStrategyFactory;
+import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
 
 /**
  * The class Player is responsible for the marker creation and marker movement.
