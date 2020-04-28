@@ -24,20 +24,16 @@ public abstract class MTokenForest<T> implements Serializable {
     @Transient
     public final boolean FACEUP = true;
 
+    @Transient // ignore this property/field
+    protected final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int token_id;
-
+    protected int token_id;
     @Column(name = "state")
-    private boolean m_state;
-
+    protected boolean m_state;
     @Column(name = "position")
-    private int m_position;
-
-
-    @Transient // ignore this property/field
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
+    protected int m_position;
 
     /**
      * Default constructor.
