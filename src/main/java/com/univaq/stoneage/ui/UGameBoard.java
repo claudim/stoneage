@@ -102,6 +102,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
                // uBoard.setCurrentMarker(uMarker);
 
             }
+            p.getM_settlement().addPropertyChangeListener(uPlayer);
             this.uPlayers.add(uPlayer);
 
             USquare usq = this.uBoard.findUSquareByName(p.getM_marker().getCurrentSquare().getM_name());

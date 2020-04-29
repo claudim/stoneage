@@ -142,7 +142,7 @@ public class MStoneAgeGame {
 		ArrayList<String> playersNames = this.getPlayersNamesFromDB();
 		MPlayer p = this.m_playerFactory.getPlayer(PlayerType.HumanPlayer);
 		p.createMarker(aMarkerName, aStartSquare);
-		p.createSettlement();
+		p.createSettlement(aMarkerName);
 		m_players.add(p);
 		Iterator<String> it = playersNames.iterator();
 		for (int i = 0; i < aNumPlayers && it.hasNext(); i++) {
@@ -150,7 +150,7 @@ public class MStoneAgeGame {
 			if (!markerName.equals(aMarkerName)) {
 				p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
 				p.createMarker(markerName, aStartSquare);
-				p.createSettlement();
+				p.createSettlement(aMarkerName);
 				m_players.add(p);
 			}
 		}

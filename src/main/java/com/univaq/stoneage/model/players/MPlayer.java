@@ -58,17 +58,17 @@ public abstract class MPlayer {
 	 * @param MBoard
 	 */
 	public void moveMarker(MTokenForest MTokenForest, MBoard MBoard) {
-		MSquare currentSquare = m_marker.getCurrentSquare();
-		MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
-		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
-		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
-		m_marker.changeSquare(newSquare);
-		newSquare.doAction(this);
-	}
+        MSquare currentSquare = m_marker.getCurrentSquare();
+        MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
+        MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
+        MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
+        m_marker.changeSquare(newSquare);
+        newSquare.doAction(this);
+    }
 
-	public abstract void playTurn();
+    public abstract void playTurn();
 
-	public void createSettlement() {
-		m_settlement = new MSettlement();
-	}
+    public void createSettlement(String aName) {
+        m_settlement = new MSettlement(aName);
+    }
 }
