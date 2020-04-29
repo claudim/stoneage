@@ -64,12 +64,19 @@ public class UBoard extends JPanel implements PropertyChangeListener {
                 USquare newusq = this.findUSquareByName((String) evt.getNewValue()); // USquare of the newValue
                 USquare oldusq = this.findUSquareByName((String) evt.getOldValue());// USquare of the oldValue
                 UMarker uMarker = oldusq.getUMarkerByName(marker.getM_markerName());
+                if (newusq.getuMarkers().size() == 0) {
+                    newusq.getMarkersPanel().setLayout(new GridLayout());
+                }
                 newusq.getuMarkers().add(uMarker);
                 oldusq.getuMarkers().remove(uMarker);
-                newusq.getMarkersPanel().setLayout(new GridLayout());
                 newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
-                oldusq.getMarkersPanel().remove(uMarker.getMarkerPanel());
-
+                newusq.getMarkersPanel().revalidate();
+                newusq.getMarkersPanel().repaint();
+                if (oldusq.getuMarkers().size() == 0) {
+                    oldusq.getMarkersPanel().remove(uMarker.getMarkerPanel());
+                    oldusq.getMarkersPanel().revalidate();
+                    oldusq.getMarkersPanel().repaint();
+                }
             } catch (Exception e) {
                 System.out.println("errore");
             }
