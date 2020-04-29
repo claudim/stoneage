@@ -29,6 +29,8 @@ public class MSettlement {
      */
     public void addResource(MResource resource) {
         m_resources.add(resource);
+        int y = 0;
+        int x = y;
     }
 
     /**

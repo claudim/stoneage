@@ -51,8 +51,9 @@ public class MResourceSquare extends MSquare {
 
     @Override
     public void doAction(MPlayer mPlayer) {
-        MResource resource = getM_resources().get(0);
+        MResource resource = m_resources.remove(0);
         if (resource != null) {
+            notifyPropertyChange(m_resources.size());
             MSettlement settlement = mPlayer.getM_settlement();
             settlement.addResource(resource);
         } else {
@@ -68,7 +69,7 @@ public class MResourceSquare extends MSquare {
     @Override
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
-        support.firePropertyChange("resource", 0, this.m_resources.size());
+        support.firePropertyChange("initResource", 0, this.m_resources.size());
     }
 
     @Override
@@ -78,7 +79,8 @@ public class MResourceSquare extends MSquare {
 
     @Override
     public void notifyPropertyChange(Object newResourceNumber) {
-        support.firePropertyChange("resource", this.m_resources.size(), (int) newResourceNumber);
+        //todo la old size è calcolata hard coded
+        support.firePropertyChange("resource", this.m_resources.size() + 1, (int) newResourceNumber);
     }
 
     // after object creation from Hibernate this method is called

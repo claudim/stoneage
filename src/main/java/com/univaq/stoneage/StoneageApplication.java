@@ -16,5 +16,4 @@ public class StoneageApplication {
         mainFrame.setStartPage();
         mainFrame.setVisible(true);
     }
-
 }
