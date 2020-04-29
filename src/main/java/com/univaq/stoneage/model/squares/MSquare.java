@@ -1,17 +1,24 @@
 package com.univaq.stoneage.model.squares;
 
+import com.univaq.stoneage.model.players.MPlayer;
+
 import javax.persistence.*;
+import java.beans.PropertyChangeListener;
 import java.io.Serializable;
 
 /**
  * MSquare is a persistence entity.
  * It knows its name, its the next square with which it is linked, if it is the start square.
+ * It also knows the action to perform if the marker lands on it.
  */
 @Entity
 @Table(name = "Square")
-public class MSquare implements Serializable {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "square_type", discriminatorType = DiscriminatorType.STRING)
+public abstract class MSquare implements Serializable {
 	@Id
-	@Column(name = "square_name", nullable = true, unique = true, length = 30)
+	//@Column(name = "square_name", nullable = true, unique = true, length = 30)
+	@Column(name = "square_name", unique = true, length = 30)
 	private String m_name;
 
 	@Column(name = "start_square")
@@ -22,7 +29,6 @@ public class MSquare implements Serializable {
 	private MSquare m_nextSquare;
 
 	public MSquare() {
-		super();
 	}
 
 	public MSquare(String m_name) {
@@ -54,4 +60,16 @@ public class MSquare implements Serializable {
 	public void setM_startSquare(boolean m_startSquare) {
 		this.m_startSquare = m_startSquare;
 	}
+
+	public abstract void doAction(MPlayer mPlayer);
+
+	public abstract String getSquareType();
+
+	public abstract void addPropertyChangeListener(PropertyChangeListener pcl);
+
+	public abstract void removePropertyChangeListener(PropertyChangeListener pcl);
+
+	public abstract void notifyPropertyChange(Object object);
+
+
 }

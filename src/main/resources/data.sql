@@ -1,24 +1,24 @@
 -- Square data --
-INSERT INTO square(square_name,  start_square)
-VALUES ('Cantiere', true);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Cane', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Sorpresa', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Prateria', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Foresta', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Artigiano', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Cava', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Battaglia', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Fiume', false);
-INSERT INTO square(square_name,  start_square)
-VALUES ('Mercato', false);
+INSERT INTO square(square_name,  start_square, square_type)
+VALUES ('Cantiere', true, 'buildingsitesquare');
+INSERT INTO square(square_name,  start_square, square_type)
+VALUES ('Cane', false, 'buildingsitesquare');
+INSERT INTO square(square_name,  start_square, square_type)
+VALUES ('Sorpresa', false, 'buildingsitesquare');
+INSERT INTO square(square_name,  start_square, square_type, resource_type)
+VALUES ('Prateria', false, 'resourcesquare', 'dente');
+INSERT INTO square(square_name,  start_square, square_type, resource_type)
+VALUES ('Foresta', false, 'resourcesquare', 'bacca');
+INSERT INTO square(square_name,  start_square, square_type, resource_type)
+VALUES ('Artigiano', false, 'resourcesquare', 'anfora');
+INSERT INTO square(square_name,  start_square, square_type, resource_type)
+VALUES ('Cava', false,'resourcesquare', 'freccia');
+INSERT INTO square(square_name,  start_square, square_type)
+VALUES ('Battaglia', false, 'buildingsitesquare');
+INSERT INTO square(square_name,  start_square, square_type, resource_type)
+VALUES ('Fiume', false, 'resourcesquare', 'pesce');
+INSERT INTO square(square_name,  start_square, square_type)
+VALUES ('Mercato', false, 'buildingsitesquare');
 
 UPDATE square SET next_square_name='Cane' WHERE square_name='Cantiere';
 UPDATE square SET next_square_name='Cantiere' WHERE square_name='Mercato';

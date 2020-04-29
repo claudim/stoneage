@@ -4,6 +4,7 @@ import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MPlayerFactory;
 import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
 import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
+import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.utility.PlayerType;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,8 @@ class MHumanPlayersFirstStrategyTest {
     void sort() {
         this.m_playerFactory = new MPlayerFactory();
         this.m_players = new ArrayList<>();
-        this.m_startSquare = new MSquare("cantiere");
+        // this.m_startSquare = new MSquare("cantiere");
+        this.m_startSquare = new MBuildingSiteSquare("cantiere");
 
         MPlayer p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
         p.createMarker("Jono", m_startSquare);

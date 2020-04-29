@@ -31,6 +31,7 @@ public class MStoneAgeGame {
 	private MBoard m_board;
 	private MPlayerFactory m_playerFactory;
 	private MINextPlayerStrategy m_nextPlayerStrategy;
+	private int numPlayer;
 
 	private MPlayer activePlayer;
 
@@ -40,6 +41,14 @@ public class MStoneAgeGame {
 			instance = new MStoneAgeGame();
 		}
 		return instance;
+	}
+
+	public int getNumPlayer() {
+		return numPlayer;
+	}
+
+	public void setNumPlayer(int numPlayer) {
+		this.numPlayer = numPlayer;
 	}
 
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
@@ -70,6 +79,7 @@ public class MStoneAgeGame {
 //	}
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
+		setNumPlayer(aNumPlayers);
 		// create a board
 		m_board = new MBoard();
 		// create a grid
@@ -132,6 +142,7 @@ public class MStoneAgeGame {
 		ArrayList<String> playersNames = this.getPlayersNamesFromDB();
 		MPlayer p = this.m_playerFactory.getPlayer(PlayerType.HumanPlayer);
 		p.createMarker(aMarkerName, aStartSquare);
+		p.createSettlement();
 		m_players.add(p);
 		Iterator<String> it = playersNames.iterator();
 		for (int i = 0; i < aNumPlayers && it.hasNext(); i++) {
@@ -139,6 +150,7 @@ public class MStoneAgeGame {
 			if (!markerName.equals(aMarkerName)) {
 				p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
 				p.createMarker(markerName, aStartSquare);
+				p.createSettlement();
 				m_players.add(p);
 			}
 		}
@@ -179,4 +191,5 @@ public class MStoneAgeGame {
 	public MINextPlayerStrategy getM_nextPlayerStrategy() {
 		return m_nextPlayerStrategy;
 	}
+
 }

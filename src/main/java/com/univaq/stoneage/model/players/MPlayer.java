@@ -11,6 +11,7 @@ import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
  */
 public abstract class MPlayer {
 	private MMarker m_marker;
+	private MSettlement m_settlement;
 	private boolean m_winner;
 
 	public MPlayer() {
@@ -25,7 +26,15 @@ public abstract class MPlayer {
 		this.m_marker = m_marker;
 	}
 
-	public void createMarker(String aMarkerName, MSquare aNewSquare){
+	public MSettlement getM_settlement() {
+		return m_settlement;
+	}
+
+	public void setM_settlement(MSettlement m_settlement) {
+		this.m_settlement = m_settlement;
+	}
+
+	public void createMarker(String aMarkerName, MSquare aNewSquare) {
 		MMarker m = new MMarker();
 		m.setM_markerName(aMarkerName);
 		m.changeSquare(aNewSquare);
@@ -54,7 +63,12 @@ public abstract class MPlayer {
 		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
 		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
 		m_marker.changeSquare(newSquare);
+		newSquare.doAction(this);
 	}
 
 	public abstract void playTurn();
+
+	public void createSettlement() {
+		m_settlement = new MSettlement();
+	}
 }

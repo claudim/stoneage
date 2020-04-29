@@ -12,11 +12,8 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "tokenforest")
-//@MappedSuperclass
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
-//@DiscriminatorValue(value = "tokenforest")
 public abstract class MTokenForest<T> implements Serializable {
 
     @Transient

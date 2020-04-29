@@ -2,6 +2,7 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MMarker;
+import com.univaq.stoneage.model.squares.MResourceSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 
 import javax.swing.*;
@@ -27,8 +28,14 @@ public class UBoard extends JPanel implements PropertyChangeListener {
         boardPanel.setLayout(new FlowLayout());
         ArrayList<MSquare> squares = MStoneAgeGame.getInstance().getAllSquare();
         this.squareNumber = squares.size();
-        for (MSquare square : squares){
-            USquare uSquare = new USquare(square.getM_name());
+        for (MSquare square : squares) {
+            USquare uSquare;
+            if (square.getSquareType().equals(MResourceSquare.class.getSimpleName())) {
+                uSquare = new UResourceSquare(square.getM_name());
+            } else {
+                uSquare = new USquare(square.getM_name());
+            }
+            square.addPropertyChangeListener(uSquare); // add uSquare observer to MSquare
             uSquares.add(uSquare);
             boardPanel.add(uSquare.getSquarePane());
         }
@@ -61,9 +68,10 @@ public class UBoard extends JPanel implements PropertyChangeListener {
                 oldusq.getuMarkers().remove(uMarker);
                 newusq.getMarkersPanel().setLayout(new GridLayout());
                 newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
+                oldusq.getMarkersPanel().remove(uMarker.getMarkerPanel());
 
             } catch (Exception e) {
-
+                System.out.println("errore");
             }
         }
 

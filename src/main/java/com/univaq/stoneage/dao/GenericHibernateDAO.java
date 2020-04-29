@@ -2,7 +2,6 @@ package com.univaq.stoneage.dao;
 
 import com.univaq.stoneage.utility.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -21,10 +20,10 @@ public abstract class GenericHibernateDAO<T extends Serializable> implements IGe
 
     public ArrayList<T> findAll() {
         ArrayList<T> list = new ArrayList<>();
-        Transaction transaction = null;
+//        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
-            transaction = session.beginTransaction();
+//            transaction = session.beginTransaction();
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
             CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
             Root<T> root = criteriaQuery.from(clazz);
@@ -34,11 +33,11 @@ public abstract class GenericHibernateDAO<T extends Serializable> implements IGe
 
             // list = (ArrayList<T>) session.createQuery("from " + clazz.getName(), this.clazz).list();
             // commit transaction
-            transaction.commit();
+//            transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
+//            if (transaction != null) {
+//                transaction.rollback();
+//            }
             e.printStackTrace();
         }
         return list;
