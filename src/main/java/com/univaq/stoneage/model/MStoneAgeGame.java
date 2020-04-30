@@ -150,7 +150,7 @@ public class MStoneAgeGame {
 			if (!markerName.equals(aMarkerName)) {
 				p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
 				p.createMarker(markerName, aStartSquare);
-				p.createSettlement(aMarkerName);
+				p.createSettlement(markerName);
 				m_players.add(p);
 			}
 		}

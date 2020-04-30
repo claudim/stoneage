@@ -94,6 +94,8 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 
 
             }
+            // playerPanel.revalidate();
+            //playerPanel.repaint();
 
 
         }

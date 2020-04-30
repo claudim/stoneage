@@ -86,7 +86,6 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         int i = 1;
         ArrayList<MPlayer> mPlayers = MStoneAgeGame.getInstance().getM_players();
         MPlayer currentPlayer = MStoneAgeGame.getInstance().getCurrentPlayer();
-       // int numPlayers = mPlayers.size();
         for (MPlayer p: mPlayers){
             UPlayer uPlayer = new UPlayer();
             uPlayer.setName(p.getMarkerName());
@@ -99,8 +98,6 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
             if(currentPlayer.equals(p))
             {
                 uPlayer.setCurrentPlayer(true);
-               // uBoard.setCurrentMarker(uMarker);
-
             }
             p.getM_settlement().addPropertyChangeListener(uPlayer);
             this.uPlayers.add(uPlayer);
@@ -113,7 +110,6 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
             switch (i) {
                 case 1: {
                     gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.SOUTH);
-                    //gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.AFTER_LAST_LINE);
                     i++;
                     break;
                 }
