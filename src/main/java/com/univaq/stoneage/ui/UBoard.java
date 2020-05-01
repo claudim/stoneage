@@ -36,7 +36,7 @@ public class UBoard extends JPanel implements PropertyChangeListener {
                 uSquare = new UResourceSquare(square.getM_name());
             } else if (square.getSquareType().equals(MBuildingSiteSquare.class.getSimpleName())) {
                 uSquare = new UBuildingSiteSquare(square.getM_name());
-                uSquare.setHutTokens(((MBuildingSiteSquare) square).getFaceUpHutTokens());
+                ((UBuildingSiteSquare) uSquare).setHutTokens(((MBuildingSiteSquare) square).getFaceUpHutTokens());
             } else {
                 uSquare = new USquare(square.getM_name());
             }
