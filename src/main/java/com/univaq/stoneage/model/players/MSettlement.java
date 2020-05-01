@@ -1,9 +1,12 @@
 package com.univaq.stoneage.model.players;
 
+import com.univaq.stoneage.dao.IGenericDAO;
+import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.MResource;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,11 +21,17 @@ public class MSettlement {
     public MSettlement(String a_name) {
         this.m_name = a_name;
         this.m_resources = new HashMap<>();
-        this.m_resources.put("dente", 0);
-        this.m_resources.put("bacca", 0);
-        this.m_resources.put("anfora", 0);
-        this.m_resources.put("freccia", 0);
-        this.m_resources.put("pesce", 0);
+        ArrayList<MResource> resources = getResourcesFormDB();
+        for (MResource resource : resources) {
+            this.m_resources.put(resource.getM_type(), 0);
+        }
+    }
+
+    private ArrayList<MResource> getResourcesFormDB() {
+        ArrayList<MResource> resources = new ArrayList<>();
+        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MResource.class.getSimpleName());
+        resources.addAll(dao.findAll());
+        return resources;
     }
 
     public Map<String, Integer> getM_resources() {

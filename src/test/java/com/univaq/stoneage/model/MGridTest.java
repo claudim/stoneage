@@ -2,9 +2,10 @@ package com.univaq.stoneage.model;
 
 import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.utility.TokenState;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MGridTest {
 
@@ -14,12 +15,12 @@ class MGridTest {
     void faceUpTokenForest() {
         MTokenForest MTokenForest = g.faceUpTokenForest(1);
         assertEquals(MTokenForest.getValue(), 1);
-        assertTrue(g.searchTFbyPosition(1).getState());
+        assertEquals(g.searchTFbyPosition(1).getState(), TokenState.FACEUP);
 
-       MTokenForest MTokenForest2 = g.faceUpTokenForest(11);
+        MTokenForest MTokenForest2 = g.faceUpTokenForest(11);
         assertEquals(MTokenForest2.getValue(), "foresta");
-        assertTrue(g.searchTFbyPosition(11).getState());
-        assertFalse(g.searchTFbyPosition(10).getState());
+        assertEquals(g.searchTFbyPosition(11).getState(), TokenState.FACEUP);
+        assertEquals(g.searchTFbyPosition(10).getState(), TokenState.FACEDOWN);
     }
 
 }

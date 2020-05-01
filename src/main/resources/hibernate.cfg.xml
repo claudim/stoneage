@@ -34,6 +34,8 @@
         <mapping class="com.univaq.stoneage.model.players.MMarker"/>
         <mapping class="com.univaq.stoneage.model.forestTokens.MDieFaceTokenForest"/>
         <mapping class="com.univaq.stoneage.model.forestTokens.MSquareTokenForest"/>
+        <mapping class="com.univaq.stoneage.model.MHutToken"/>
+        <mapping class="com.univaq.stoneage.model.MResource"/>
 
 
     </session-factory>
