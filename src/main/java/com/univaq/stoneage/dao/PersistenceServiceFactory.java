@@ -47,6 +47,10 @@ public class PersistenceServiceFactory {
                 genericDAO = new ResourceDAO();
                 break;
             }
+            case "MHutToken": {
+                genericDAO = new HutTokenDAO();
+                break;
+            }
             default:
                 genericDAO = null;
         }

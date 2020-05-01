@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model.squares;
 
+import com.univaq.stoneage.dao.IGenericDAO;
+import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.utility.TokenState;
@@ -23,7 +25,7 @@ import java.util.Map;
 public class MBuildingSiteSquare extends MSquare {
 
     @Transient
-    ArrayList<MHutToken> MHutTokens = new ArrayList<>();
+    ArrayList<MHutToken> m_hutTokens = new ArrayList<>();
 
     public MBuildingSiteSquare() {
 //        super();
@@ -48,31 +50,43 @@ public class MBuildingSiteSquare extends MSquare {
         token2.setResources(res2);
         MHutToken token3 = new MHutToken(TokenState.FACEUP, false);
         token3.setResources(res3);
-        MHutTokens.add(token);
-        MHutTokens.add(token1);
-        MHutTokens.add(token2);
-        MHutTokens.add(token3);
+        m_hutTokens.add(token);
+        m_hutTokens.add(token1);
+        m_hutTokens.add(token2);
+        m_hutTokens.add(token3);
     }
 
     @Override
     public void doAction(MPlayer mPlayer) {
         ArrayList<MHutToken> playerBuildableMHutTokens = new ArrayList<>();
         //system checks if the player has enough resources to build an hut.
-        for (MHutToken hutToken : MHutTokens) {
-            if (hutToken.getM_state().equals(TokenState.FACEUP)) {
-                Map<String, Integer> hutTokenResources = hutToken.getResources();
-                Map<String, Integer> stlResources = mPlayer.getM_settlement().getM_resources();
-
-                Iterator it = hutTokenResources.entrySet().iterator();
-                while (hutToken.isM_buildableByActivePlayer() && it.hasNext()) {
-                    Map.Entry<String, Integer> hutResource = (Map.Entry<String, Integer>) it.next();
-                    if (hutResource.getValue() > stlResources.get(hutResource.getKey())) {
-                        hutToken.setM_buildableByActivePlayer(false);
-                    }
-                }
-                if (hutToken.isM_buildableByActivePlayer()) playerBuildableMHutTokens.add(hutToken);
+        for (MHutToken mHutToken : m_hutTokens) {
+            if (mHutToken.getM_state().equals(TokenState.FACEUP)) {
+                mHutToken.setM_buildableByActivePlayer(true);
+                mHutToken.getM_resources().entrySet().stream().forEach(
+                        e -> {
+                            Integer playerResNum = mPlayer.getM_settlement().getM_resources().get(e.getKey().getM_type());
+                            if (playerResNum < e.getValue())
+                                mHutToken.setM_buildableByActivePlayer(false);
+                        }
+                );
+                if (mHutToken.isM_buildableByActivePlayer()) playerBuildableMHutTokens.add(mHutToken);
                 //reset for the next active player
-                hutToken.setM_buildableByActivePlayer(true);
+                mHutToken.setM_buildableByActivePlayer(false);
+
+//                Map<String, Integer> hutTokenResources = MHutToken.getResources();
+//                Map<String, Integer> stlResources = mPlayer.getM_settlement().getM_resources();
+//
+//                Iterator it = hutTokenResources.entrySet().iterator();
+//                while (MHutToken.isM_buildableByActivePlayer() && it.hasNext()) {
+//                    Map.Entry<String, Integer> hutResource = (Map.Entry<String, Integer>) it.next();
+//                    if (hutResource.getValue() > stlResources.get(hutResource.getKey())) {
+//                        MHutToken.setM_buildableByActivePlayer(false);
+//                    }
+//                }
+//                if (MHutToken.isM_buildableByActivePlayer()) playerBuildableMHutTokens.add(MHutToken);
+//                //reset for the next active player
+//                MHutToken.setM_buildableByActivePlayer(true);
             }
         }
         mPlayer.buildHut(playerBuildableMHutTokens);
@@ -99,9 +113,18 @@ public class MBuildingSiteSquare extends MSquare {
         //no-op
     }
 
+    @PostLoad
+    public void loadHutTokenFromDB() {
+        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MHutToken.class.getSimpleName());
+        m_hutTokens.addAll(dao.findAll());
+        //m_hutTokens.size();
+    }
+
+
+
     public ArrayList<MHutToken> getFaceUpHutTokens() {
         ArrayList<MHutToken> faceUpHutTokens = new ArrayList<>();
-        for (MHutToken hutToken : MHutTokens) {
+        for (MHutToken hutToken : m_hutTokens) {
             if (hutToken.getM_state().equals(TokenState.FACEUP)) {
                 faceUpHutTokens.add(hutToken);
             }

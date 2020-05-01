@@ -101,115 +101,115 @@ INSERT INTO tokenforest(id, square_value, state, position, type)
 VALUES (16, 'Fiume', false, 16, 'squaretokenforest');
 
 --Hut tokens data--
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (1, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (2, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (3, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (4, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (5, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (6, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (7, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (8, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (9, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (10, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (11, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (12, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (13, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (14, false);
-INSERT INTO huttoken(id, state)
+INSERT INTO huttoken(id_token, state)
 VALUES (15, false);
 
 --Resource data--
 INSERT INTO resource(resource_type)
-VALUES ('Pesce');
+VALUES ('pesce');
 INSERT INTO resource(resource_type)
-VALUES ('Dente');
+VALUES ('dente');
 INSERT INTO resource(resource_type)
-VALUES ('Bacca');
+VALUES ('bacca');
 INSERT INTO resource(resource_type)
-VALUES ('Anfora');
+VALUES ('anfora');
 INSERT INTO resource(resource_type)
-VALUES ('Freccia');
+VALUES ('freccia');
 
 -- -- huttoken_resource data--
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (1, 'dente', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (1, 'bacca', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (2, 'dente', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (2, 'bacca', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (2, 'anfora', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (3, 'pesce', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (3, 'bacca', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (3, 'anfora', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (4, 'dente', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (4, 'bacca', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (4, 'pesce', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (5, 'dente', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (5, 'freccia', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (5, 'anfora', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (6, 'freccia', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (6, 'bacca', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (7, 'freccia', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (7, 'pesce', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (8, 'freccia', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (8, 'anfora', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (9, 'dente', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (9, 'bacca', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (10, 'anfora', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (10, 'bacca', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (11, 'anfora', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (11, 'freccia', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (12, 'pesce', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (12, 'bacca', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (13, 'anfora', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (13, 'bacca', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (14, 'dente', 2);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (14, 'bacca', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (15, 'anfora', 1);
--- INSERT INTO huttoken_resource(id_token, resource_name, quantity)
--- VALUES (15, 'pesce', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (1, 'dente', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (1, 'bacca', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (2, 'dente', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (2, 'bacca', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (2, 'anfora', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (3, 'pesce', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (3, 'bacca', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (3, 'anfora', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (4, 'dente', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (4, 'bacca', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (4, 'pesce', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (5, 'dente', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (5, 'freccia', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (5, 'anfora', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (6, 'freccia', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (6, 'bacca', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (7, 'freccia', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (7, 'pesce', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (8, 'freccia', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (8, 'anfora', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (9, 'dente', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (9, 'bacca', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (10, 'anfora', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (10, 'bacca', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (11, 'anfora', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (11, 'freccia', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (12, 'pesce', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (12, 'bacca', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (13, 'anfora', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (13, 'bacca', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (14, 'dente', 2);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (14, 'bacca', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (15, 'anfora', 1);
+INSERT INTO huttoken_resource(id_token, resource_name, quantity)
+VALUES (15, 'pesce', 2);
