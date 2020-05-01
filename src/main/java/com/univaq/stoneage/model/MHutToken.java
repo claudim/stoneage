@@ -11,7 +11,7 @@ import java.util.Map;
 public class MHutToken implements Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id_token")
     private int idHutToken;
 
     @Column(name = "state")
@@ -26,29 +26,19 @@ public class MHutToken implements Serializable {
 //            inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID",
 //                    nullable = false, updatable = false) })
 
-    //    @ElementCollection
-//    @CollectionTable(name = "huttoken_resource",
-//            joinColumns = @JoinColumn(name = "id_token"))
-//    @MapKeyJoinColumn(name = "resource_name")
-//    @Column(name = "quantity")
-    @Transient
-    private Map<String, Integer> resources;
+    //
+    @ElementCollection
+    @CollectionTable(name = "huttoken_resource", joinColumns = @JoinColumn(name = "id_token"))
+    @MapKeyJoinColumn(name = "resource_name")
+    @Column(name = "quantity")
+    private Map<MResource, Integer> m_resources;
 
     public MHutToken() {
-
     }
 
     public MHutToken(TokenState state, boolean buildable) {
         this.m_state = state;
         this.m_buildableByActivePlayer = buildable;
-    }
-
-    public Map<String, Integer> getResources() {
-        return resources;
-    }
-
-    public void setResources(Map<String, Integer> resources) {
-        this.resources = resources;
     }
 
     public TokenState getM_state() {
@@ -73,5 +63,29 @@ public class MHutToken implements Serializable {
 
     public void setIdHutToken(int idHutToken) {
         this.idHutToken = idHutToken;
+    }
+
+    public Map<MResource, Integer> getM_resources() {
+        return m_resources;
+    }
+
+    public void setM_resources(Map<MResource, Integer> m_resources) {
+        this.m_resources = m_resources;
+    }
+
+//
+//    public void getmapResource()
+//    {
+//        Iterator it = m_resources.entrySet().iterator();
+//        while(it.hasNext())
+//        {
+//            it.next();
+//            System.out.println("ciao");
+//        }
+//    }
+
+    @PostLoad
+    public void get() {
+        System.out.println(this.getM_state());
     }
 }
