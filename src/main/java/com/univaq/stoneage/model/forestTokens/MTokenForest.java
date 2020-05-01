@@ -1,9 +1,13 @@
 package com.univaq.stoneage.model.forestTokens;
 
+import com.univaq.stoneage.utility.TokenState;
+
 import javax.persistence.*;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
+
+import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
 
 /**
  * MTokenForest is a generic, persistence abstract super class.
@@ -16,10 +20,10 @@ import java.io.Serializable;
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class MTokenForest<T> implements Serializable {
 
-    @Transient
-    public final boolean FACEDOWN = false;
-    @Transient
-    public final boolean FACEUP = true;
+//    @Transient
+//    public final boolean FACEDOWN = false;
+//    @Transient
+//    public final boolean FACEUP = true;
 
     @Transient // ignore this property/field
     protected final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
@@ -28,7 +32,7 @@ public abstract class MTokenForest<T> implements Serializable {
     @Column(name = "id")
     protected int token_id;
     @Column(name = "state")
-    protected boolean m_state;
+    protected TokenState m_state;
     @Column(name = "position")
     protected int m_position;
 
@@ -89,14 +93,14 @@ public abstract class MTokenForest<T> implements Serializable {
      *
      * @return boolean The forest token state
      */
-    public boolean getState() {
+    public TokenState getState() {
         return m_state;
     }
 
     /**
      * @param aFaceUpOrDown
      */
-    public void setState(boolean aFaceUpOrDown) {
+    public void setState(TokenState aFaceUpOrDown) {
         notifyPropertyChange(aFaceUpOrDown);
         m_state = aFaceUpOrDown;
 
@@ -124,7 +128,7 @@ public abstract class MTokenForest<T> implements Serializable {
         support.removePropertyChangeListener(pcl);
     }
 
-    public void notifyPropertyChange(boolean aFaceUpOrDown) {
+    public void notifyPropertyChange(TokenState aFaceUpOrDown) {
         support.firePropertyChange("token_state", this.m_state, aFaceUpOrDown);
     }
 }

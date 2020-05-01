@@ -43,6 +43,10 @@ public class PersistenceServiceFactory {
                 genericDAO = new TokenForestDAO();
                 break;
             }
+            case "MResource": {
+                genericDAO = new ResourceDAO();
+                break;
+            }
             default:
                 genericDAO = null;
         }

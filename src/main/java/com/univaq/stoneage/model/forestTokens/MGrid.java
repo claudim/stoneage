@@ -6,7 +6,10 @@ import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
+import static com.univaq.stoneage.utility.TokenState.FACEUP;
+
 //TODO aggiungere una strategy per individuare la strategia giusta per scegliere i token
+
 /**
  * Grid is a Pure Fabrication class to manage forest tokens. It creates, knows and manages them.
  * It is responsible for the forest tokens creations, to face up a single token to get it value.
@@ -14,7 +17,7 @@ import java.util.NoSuchElementException;
  */
 public class MGrid {
 
-	/**
+    /**
 	 * Field for a list of all forest tokens.
 	 */
 	private ArrayList<MTokenForest> m_tokens;
@@ -73,9 +76,9 @@ public class MGrid {
 	public MTokenForest faceUpTokenForest(int position) {
 		MTokenForest t;
 		try {
-			t = searchTFbyPosition(position);
-			t.setState(t.FACEUP);
-		} catch (NoSuchElementException e) {
+            t = searchTFbyPosition(position);
+            t.setState(FACEUP);
+        } catch (NoSuchElementException e) {
 			t = null;
 		}
 		return t;

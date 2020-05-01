@@ -10,6 +10,9 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
+/**
+ *
+ */
 @Entity
 @DiscriminatorValue(value = "resourcesquare")
 public class MResourceSquare extends MSquare {

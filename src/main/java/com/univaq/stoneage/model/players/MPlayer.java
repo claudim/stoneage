@@ -1,20 +1,23 @@
 package com.univaq.stoneage.model.players;
 
+import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.findingSquare.MFindNewSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
 
+import java.util.ArrayList;
+
 /**
  * The class Player is responsible for the marker creation and marker movement.
  */
 public abstract class MPlayer {
-	private MMarker m_marker;
-	private MSettlement m_settlement;
-	private boolean m_winner;
+    private MMarker m_marker;
+    private MSettlement m_settlement;
+    private boolean m_winner;
 
-	public MPlayer() {
+    public MPlayer() {
 		this.m_winner = false;
 	}
 
@@ -71,4 +74,6 @@ public abstract class MPlayer {
     public void createSettlement(String aName) {
         m_settlement = new MSettlement(aName);
     }
+
+    public abstract void buildHut(ArrayList<MHutToken> playerBuildableHutTokens);
 }
