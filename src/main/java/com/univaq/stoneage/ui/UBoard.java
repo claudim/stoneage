@@ -2,6 +2,7 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MMarker;
+import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MResourceSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 
@@ -30,8 +31,12 @@ public class UBoard extends JPanel implements PropertyChangeListener {
         this.squareNumber = squares.size();
         for (MSquare square : squares) {
             USquare uSquare;
+            //todo usare una factory?
             if (square.getSquareType().equals(MResourceSquare.class.getSimpleName())) {
                 uSquare = new UResourceSquare(square.getM_name());
+            } else if (square.getSquareType().equals(MBuildingSiteSquare.class.getSimpleName())) {
+                uSquare = new UBuildingSiteSquare(square.getM_name());
+                uSquare.setHutTokens(((MBuildingSiteSquare) square).getFaceUpHutTokens());
             } else {
                 uSquare = new USquare(square.getM_name());
             }

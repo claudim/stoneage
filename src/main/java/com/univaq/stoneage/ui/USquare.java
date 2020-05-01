@@ -18,16 +18,17 @@ public class USquare extends JPanel implements PropertyChangeListener {
         super();
         this.uMarkers = new ArrayList<>();
         this.squareName.setText(name);
-        this.setUSquareStyle();
+        squareName.setPreferredSize(new Dimension(-1, 100));
+//        this.setUSquareStyle();
         childPanel.setLayout(new GridLayout());
     }
 
 
-    private void setUSquareStyle() {
-        squarePanel.setLayout(new GridLayout(0, 1));
-        squareName.setHorizontalAlignment(JLabel.CENTER);
-        this.squarePanel.setPreferredSize(new Dimension(100, 150));
-    }
+//    private void setUSquareStyle() {
+//        squarePanel.setLayout(new GridLayout(0, 1));
+//        squareName.setHorizontalAlignment(JLabel.CENTER);
+//        this.squarePanel.setPreferredSize(new Dimension(100, 150));
+//    }
 
     public JPanel getMarkersPanel() {
         return markersPanel;
@@ -91,6 +92,4 @@ public class USquare extends JPanel implements PropertyChangeListener {
 //        }
 
     }
-
-
 }

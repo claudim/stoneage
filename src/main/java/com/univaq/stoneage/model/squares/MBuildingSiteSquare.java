@@ -43,4 +43,8 @@ public class MBuildingSiteSquare extends MSquare {
     public void notifyPropertyChange(Object object) {
         //no-op
     }
+
+    public Object getFaceUpHutTokens() {
+        return null;
+    }
 }
