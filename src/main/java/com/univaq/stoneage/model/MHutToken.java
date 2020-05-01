@@ -27,7 +27,7 @@ public class MHutToken implements Serializable {
 //                    nullable = false, updatable = false) })
 
     //
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "huttoken_resource", joinColumns = @JoinColumn(name = "id_token"))
     @MapKeyJoinColumn(name = "resource_name")
     @Column(name = "quantity")

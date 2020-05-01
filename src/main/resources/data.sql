@@ -102,11 +102,11 @@ VALUES (16, 'Fiume', false, 16, 'squaretokenforest');
 
 --Hut tokens data--
 INSERT INTO huttoken(id_token, state)
-VALUES (1, false);
+VALUES (1, true);
 INSERT INTO huttoken(id_token, state)
-VALUES (2, false);
+VALUES (2, true);
 INSERT INTO huttoken(id_token, state)
-VALUES (3, false);
+VALUES (3, true);
 INSERT INTO huttoken(id_token, state)
 VALUES (4, false);
 INSERT INTO huttoken(id_token, state)

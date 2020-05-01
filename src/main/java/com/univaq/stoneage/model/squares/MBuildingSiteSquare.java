@@ -12,8 +12,6 @@ import javax.persistence.PostLoad;
 import javax.persistence.Transient;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * MBuildingSiteSquare is a persistence entity.
@@ -35,26 +33,26 @@ public class MBuildingSiteSquare extends MSquare {
         super(a_squareName);
     }
 
-    @PostLoad
-    private void initTokens() {
-
-        Map<String, Integer> res = Map.of("bacca", 3, "anfora", 2);
-        Map<String, Integer> res1 = Map.of("dente", 1, "freccia", 2);
-        Map<String, Integer> res2 = Map.of("freccia", 4, "dente", 5);
-        Map<String, Integer> res3 = Map.of("pesce", 6, "dente", 3);
-        MHutToken token = new MHutToken(TokenState.FACEUP, false);
-        token.setResources(res);
-        MHutToken token1 = new MHutToken(TokenState.FACEUP, false);
-        token1.setResources(res1);
-        MHutToken token2 = new MHutToken(TokenState.FACEDOWN, false);
-        token2.setResources(res2);
-        MHutToken token3 = new MHutToken(TokenState.FACEUP, false);
-        token3.setResources(res3);
-        m_hutTokens.add(token);
-        m_hutTokens.add(token1);
-        m_hutTokens.add(token2);
-        m_hutTokens.add(token3);
-    }
+//    @PostLoad
+//    private void initTokens() {
+//
+//        Map<String, Integer> res = Map.of("bacca", 3, "anfora", 2);
+//        Map<String, Integer> res1 = Map.of("dente", 1, "freccia", 2);
+//        Map<String, Integer> res2 = Map.of("freccia", 4, "dente", 5);
+//        Map<String, Integer> res3 = Map.of("pesce", 6, "dente", 3);
+//        MHutToken token = new MHutToken(TokenState.FACEUP, false);
+//        token.setM_resources(res);
+//        MHutToken token1 = new MHutToken(TokenState.FACEUP, false);
+//        token1.setM_resources(res1);
+//        MHutToken token2 = new MHutToken(TokenState.FACEDOWN, false);
+//        token2.setM_resources(res2);
+//        MHutToken token3 = new MHutToken(TokenState.FACEUP, false);
+//        token3.setM_resources(res3);
+//        m_hutTokens.add(token);
+//        m_hutTokens.add(token1);
+//        m_hutTokens.add(token2);
+//        m_hutTokens.add(token3);
+//    }
 
     @Override
     public void doAction(MPlayer mPlayer) {
@@ -119,7 +117,6 @@ public class MBuildingSiteSquare extends MSquare {
         m_hutTokens.addAll(dao.findAll());
         //m_hutTokens.size();
     }
-
 
 
     public ArrayList<MHutToken> getFaceUpHutTokens() {

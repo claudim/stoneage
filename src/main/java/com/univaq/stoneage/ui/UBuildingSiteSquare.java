@@ -32,17 +32,8 @@ public class UBuildingSiteSquare extends USquare {
 
     public void setHutTokens(ArrayList<MHutToken> faceUpHutTokens) {
 
-        faceUpHutTokens.get(0).getResources().entrySet().stream().forEach(e -> resourcesHut1Panel.add(new JLabel(e.getKey() + ": " + e.getValue())));
-        faceUpHutTokens.get(1).getResources().entrySet().stream().forEach(e -> resourcesHut2Panel.add(new JLabel(e.getKey() + ": " + e.getValue())));
-        faceUpHutTokens.get(2).getResources().entrySet().stream().forEach(e -> resourcesHut3Panel.add(new JLabel(e.getKey() + ": " + e.getValue())));
-//        resourcesHut1Panel.add(new JLabel());
-//        resourcesHut1Panel.add(new JLabel("ciao2"));
-//        resourcesHut1Panel.add(new JLabel("ciao3"));
-//        resourcesHut2Panel.add(new JLabel("ciao"));
-//        resourcesHut2Panel.add(new JLabel("ciao2"));
-//        resourcesHut2Panel.add(new JLabel("ciao3"));
-//        resourcesHut3Panel.add(new JLabel("ciao"));
-//        resourcesHut3Panel.add(new JLabel("ciao2"));
-//        resourcesHut3Panel.add(new JLabel("ciao3"));
+        faceUpHutTokens.get(0).getM_resources().forEach((key, value) -> resourcesHut1Panel.add(new JLabel(key.getM_type() + ": " + value)));
+        faceUpHutTokens.get(1).getM_resources().forEach((key, value) -> resourcesHut2Panel.add(new JLabel(key.getM_type() + ": " + value)));
+        faceUpHutTokens.get(2).getM_resources().forEach((key, value) -> resourcesHut3Panel.add(new JLabel(key.getM_type() + ": " + value)));
     }
 }
