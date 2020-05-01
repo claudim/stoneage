@@ -2,6 +2,7 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.utility.TokenState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,8 +60,7 @@ public class UGrid extends JPanel {
 
     public void ableAllTokensFaceDown(){
         for (UTokenForest utf : this.uTokenForests) {
-            if (!utf.isFaceUp())
-            {
+            if (utf.getState().equals(TokenState.FACEDOWN)) {
                 utf.setEnabled(true);
             }
         }

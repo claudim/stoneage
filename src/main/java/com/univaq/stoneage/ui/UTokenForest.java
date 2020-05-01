@@ -2,6 +2,7 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.utility.TokenState;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,16 +13,17 @@ import java.beans.PropertyChangeListener;
 public class UTokenForest extends JButton implements PropertyChangeListener {
     private final String tokenValue;
     private final int position;
-    private boolean state = false; //facedown= false
+//    private boolean state = false; //facedown= false
 
-    public boolean isFaceUp() {
+    private TokenState state = TokenState.FACEDOWN;
+
+    public TokenState getState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(TokenState state) {
         this.state = state;
     }
-
 
     public UTokenForest(String tokenValue, int position) {
         super();
@@ -51,8 +53,8 @@ public class UTokenForest extends JButton implements PropertyChangeListener {
         if (evt.getPropertyName().equals("token_state")) {
             MTokenForest mTokenForest = (MTokenForest) evt.getSource();
             if (mTokenForest.getValue().toString().equals(tokenValue)) {
-                setState((Boolean) evt.getNewValue());
-                if (this.state) {
+                setState((TokenState) evt.getNewValue());
+                if (state.equals(TokenState.FACEUP)) {
                     this.setText(this.tokenValue);
                 }
             }
