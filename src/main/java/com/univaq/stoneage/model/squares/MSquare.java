@@ -30,7 +30,7 @@ public abstract class MSquare implements Serializable {
 	private MSquare m_nextSquare;
 
 	@Transient // ignore this property/field
-	protected PropertyChangeSupport support;
+	protected PropertyChangeSupport support = new PropertyChangeSupport(this);
 
 	public MSquare() {
 	}

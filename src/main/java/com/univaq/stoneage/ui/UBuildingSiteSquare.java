@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UBuildingSiteSquare extends USquare {
 
@@ -20,6 +22,7 @@ public class UBuildingSiteSquare extends USquare {
     private JPanel hut2Panel;
     private JPanel hut3Panel;
 
+    private final Map<Integer, JButton> buttonHutTokenMapping = new HashMap<>();
 
     public UBuildingSiteSquare(String name) {
         super(name);
@@ -34,8 +37,11 @@ public class UBuildingSiteSquare extends USquare {
     public void setHutTokens(ArrayList<MHutToken> faceUpHutTokens) {
         faceUpHutTokens.forEach(this::subscribe);
         faceUpHutTokens.get(0).getM_resources().forEach((key, value) -> resourcesHut1Panel.add(new JLabel(key.getM_type() + ": " + value)));
+        buttonHutTokenMapping.put(faceUpHutTokens.get(0).getIdHutToken(), buildButton1);
         faceUpHutTokens.get(1).getM_resources().forEach((key, value) -> resourcesHut2Panel.add(new JLabel(key.getM_type() + ": " + value)));
+        buttonHutTokenMapping.put(faceUpHutTokens.get(1).getIdHutToken(), buildButton2);
         faceUpHutTokens.get(2).getM_resources().forEach((key, value) -> resourcesHut3Panel.add(new JLabel(key.getM_type() + ": " + value)));
+        buttonHutTokenMapping.put(faceUpHutTokens.get(2).getIdHutToken(), buildButton3);
     }
 
     public void subscribe(MHutToken hutToken) {
@@ -45,14 +51,9 @@ public class UBuildingSiteSquare extends USquare {
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("hutTokenBuildable")) {
             MHutToken mHutToken = (MHutToken) evt.getSource();
-            if (evt.getNewValue().equals(true)) {
-                //abilita il button
+            //abilita o diabilita il button
+            buttonHutTokenMapping.get(mHutToken.getIdHutToken()).setEnabled((boolean) evt.getNewValue());
 
-            } else {
-                //disabilita il button
-
-
-            }
         }
     }
 }

@@ -2,9 +2,9 @@
 INSERT INTO square(square_name,  start_square, square_type)
 VALUES ('Cantiere', true, 'buildingsitesquare');
 INSERT INTO square(square_name,  start_square, square_type)
-VALUES ('Cane', false, 'buildingsitesquare');
+VALUES ('Cane', false, 'regularsquare');
 INSERT INTO square(square_name,  start_square, square_type)
-VALUES ('Sorpresa', false, 'buildingsitesquare');
+VALUES ('Sorpresa', false, 'regularsquare');
 INSERT INTO square(square_name,  start_square, square_type, resource_type)
 VALUES ('Prateria', false, 'resourcesquare', 'dente');
 INSERT INTO square(square_name,  start_square, square_type, resource_type)
@@ -14,11 +14,11 @@ VALUES ('Artigiano', false, 'resourcesquare', 'anfora');
 INSERT INTO square(square_name,  start_square, square_type, resource_type)
 VALUES ('Cava', false,'resourcesquare', 'freccia');
 INSERT INTO square(square_name,  start_square, square_type)
-VALUES ('Battaglia', false, 'buildingsitesquare');
+VALUES ('Battaglia', false, 'regularsquare');
 INSERT INTO square(square_name,  start_square, square_type, resource_type)
 VALUES ('Fiume', false, 'resourcesquare', 'pesce');
 INSERT INTO square(square_name,  start_square, square_type)
-VALUES ('Mercato', false, 'buildingsitesquare');
+VALUES ('Mercato', false, 'regularsquare');
 
 UPDATE square SET next_square_name='Cane' WHERE square_name='Cantiere';
 UPDATE square SET next_square_name='Cantiere' WHERE square_name='Mercato';

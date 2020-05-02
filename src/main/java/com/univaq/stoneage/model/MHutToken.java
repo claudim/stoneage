@@ -20,7 +20,7 @@ public class MHutToken implements Serializable {
     private TokenState m_state;
 
     @Transient
-    private boolean m_buildableByActivePlayer;
+    private boolean m_buildableByActivePlayer = false;
 
     @Transient // ignore this property/field
     protected PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern;

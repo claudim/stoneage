@@ -30,6 +30,7 @@
 
         <!-- Mapping -->
         <mapping class="com.univaq.stoneage.model.squares.MResourceSquare"/>
+        <mapping class="com.univaq.stoneage.model.squares.MRegularSquare"/>
         <mapping class="com.univaq.stoneage.model.squares.MBuildingSiteSquare"/>
         <mapping class="com.univaq.stoneage.model.players.MMarker"/>
         <mapping class="com.univaq.stoneage.model.forestTokens.MDieFaceTokenForest"/>

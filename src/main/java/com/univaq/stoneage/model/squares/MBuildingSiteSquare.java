@@ -98,7 +98,7 @@ public class MBuildingSiteSquare extends MSquare {
 
     @PostLoad
     public void loadHutTokenFromDB() {
-        super.support = new PropertyChangeSupport(this); // to implement the oberver pattern
+        support = new PropertyChangeSupport(this); // to implement the oberver pattern
         IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MHutToken.class.getSimpleName());
         m_hutTokens.addAll(dao.findAll());
     }
