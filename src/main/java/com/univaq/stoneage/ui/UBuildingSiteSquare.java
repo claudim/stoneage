@@ -51,8 +51,9 @@ public class UBuildingSiteSquare extends USquare {
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("hutTokenBuildable")) {
             MHutToken mHutToken = (MHutToken) evt.getSource();
+
             //abilita o diabilita il button
-            buttonHutTokenMapping.get(mHutToken.getIdHutToken()).setEnabled((boolean) evt.getNewValue());
+            buttonHutTokenMapping.get(mHutToken.getIdHutToken()).setEnabled((((Boolean) evt.getNewValue()).booleanValue()));
 
         }
     }
