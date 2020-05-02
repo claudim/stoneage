@@ -4,6 +4,7 @@ import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.*;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 
 /**
@@ -27,6 +28,9 @@ public abstract class MSquare implements Serializable {
 	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "next_square_name")
 	private MSquare m_nextSquare;
+
+	@Transient // ignore this property/field
+	protected PropertyChangeSupport support;
 
 	public MSquare() {
 	}
@@ -65,11 +69,17 @@ public abstract class MSquare implements Serializable {
 
 	public abstract String getSquareType();
 
-	public abstract void addPropertyChangeListener(PropertyChangeListener pcl);
+	public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
 
-	public abstract void removePropertyChangeListener(PropertyChangeListener pcl);
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
 
-	public abstract void notifyPropertyChange(Object object);
+	public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
+		support.firePropertyChange(property, oldObject, newObject);
+	}
 
 
 }

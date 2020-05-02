@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.PostLoad;
 import javax.persistence.Transient;
-import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 /**
@@ -96,28 +96,12 @@ public class MBuildingSiteSquare extends MSquare {
         return this.getClass().getSimpleName();
     }
 
-    @Override
-    public void addPropertyChangeListener(PropertyChangeListener pcl) {
-
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener pcl) {
-
-    }
-
-    @Override
-    public void notifyPropertyChange(Object object) {
-        //no-op
-    }
-
     @PostLoad
     public void loadHutTokenFromDB() {
+        super.support = new PropertyChangeSupport(this); // to implement the oberver pattern
         IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MHutToken.class.getSimpleName());
         m_hutTokens.addAll(dao.findAll());
-        //m_hutTokens.size();
     }
-
 
     public ArrayList<MHutToken> getFaceUpHutTokens() {
         ArrayList<MHutToken> faceUpHutTokens = new ArrayList<>();

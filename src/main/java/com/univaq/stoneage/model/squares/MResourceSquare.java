@@ -17,8 +17,6 @@ import java.util.ArrayList;
 @DiscriminatorValue(value = "resourcesquare")
 public class MResourceSquare extends MSquare {
 
-    @Transient // ignore this property/field
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
     @Column(name = "resource_type")
     private String m_resourceType;
     @Transient
@@ -56,7 +54,8 @@ public class MResourceSquare extends MSquare {
     public void doAction(MPlayer mPlayer) {
         MResource resource = m_resources.remove(0);
         if (resource != null) {
-            notifyPropertyChange(m_resources.size());
+            //todo la old size è calcolata hard coded
+            notifyPropertyChange("resource", this.m_resources.size() + 1, this.m_resources.size());
             MSettlement settlement = mPlayer.getM_settlement();
             settlement.addResource(resource);
         } else {
@@ -72,23 +71,13 @@ public class MResourceSquare extends MSquare {
     @Override
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
-        support.firePropertyChange("initResource", 0, this.m_resources.size());
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener pcl) {
-        support.removePropertyChangeListener(pcl);
-    }
-
-    @Override
-    public void notifyPropertyChange(Object newResourceNumber) {
-        //todo la old size è calcolata hard coded
-        support.firePropertyChange("resource", this.m_resources.size() + 1, (int) newResourceNumber);
+        notifyPropertyChange("initResource", 0, this.m_resources.size());
     }
 
     // after object creation from Hibernate this method is called
     @PostLoad
     public void createResources() {
+        super.support = new PropertyChangeSupport(this); // to implement the oberver pattern
         int numPlayer = MStoneAgeGame.getInstance().getNumPlayer();
         for (int i = 0; i < numPlayer + 1; i++)
             m_resources.add(new MResource(m_resourceType));

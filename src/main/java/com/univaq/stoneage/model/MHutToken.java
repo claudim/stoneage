@@ -3,6 +3,8 @@ package com.univaq.stoneage.model;
 import com.univaq.stoneage.utility.TokenState;
 
 import javax.persistence.*;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Map;
 
@@ -20,13 +22,9 @@ public class MHutToken implements Serializable {
     @Transient
     private boolean m_buildableByActivePlayer;
 
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinTable(name = "huttoken_resource", joinColumns = {
-//            @JoinColumn(name = "STOCK_ID", nullable = false, updatable = false) },
-//            inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID",
-//                    nullable = false, updatable = false) })
+    @Transient // ignore this property/field
+    protected PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern;
 
-    //
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "huttoken_resource", joinColumns = @JoinColumn(name = "id_token"))
     @MapKeyJoinColumn(name = "resource_name")
@@ -54,6 +52,7 @@ public class MHutToken implements Serializable {
     }
 
     public void setM_buildableByActivePlayer(boolean m_buildableByActivePlayer) {
+        this.notifyPropertyChange("hutTokenBuildable", this.m_buildableByActivePlayer, m_buildableByActivePlayer);
         this.m_buildableByActivePlayer = m_buildableByActivePlayer;
     }
 
@@ -73,19 +72,15 @@ public class MHutToken implements Serializable {
         this.m_resources = m_resources;
     }
 
-//
-//    public void getmapResource()
-//    {
-//        Iterator it = m_resources.entrySet().iterator();
-//        while(it.hasNext())
-//        {
-//            it.next();
-//            System.out.println("ciao");
-//        }
-//    }
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+        support.addPropertyChangeListener(pcl);
+    }
 
-    @PostLoad
-    public void get() {
-        System.out.println(this.getM_state());
+    public void removePropertyChangeListener(PropertyChangeListener pcl) {
+        support.removePropertyChangeListener(pcl);
+    }
+
+    public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
+        support.firePropertyChange(property, oldObject, newObject);
     }
 }

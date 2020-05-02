@@ -4,6 +4,7 @@ import com.univaq.stoneage.model.MHutToken;
 
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 
 public class UBuildingSiteSquare extends USquare {
@@ -31,9 +32,27 @@ public class UBuildingSiteSquare extends USquare {
     }
 
     public void setHutTokens(ArrayList<MHutToken> faceUpHutTokens) {
-
+        faceUpHutTokens.forEach(this::subscribe);
         faceUpHutTokens.get(0).getM_resources().forEach((key, value) -> resourcesHut1Panel.add(new JLabel(key.getM_type() + ": " + value)));
         faceUpHutTokens.get(1).getM_resources().forEach((key, value) -> resourcesHut2Panel.add(new JLabel(key.getM_type() + ": " + value)));
         faceUpHutTokens.get(2).getM_resources().forEach((key, value) -> resourcesHut3Panel.add(new JLabel(key.getM_type() + ": " + value)));
+    }
+
+    public void subscribe(MHutToken hutToken) {
+        hutToken.addPropertyChangeListener(this); // add uSquare observer to MHutToken
+    }
+
+    public void propertyChange(PropertyChangeEvent evt) {
+        if (evt.getPropertyName().equals("hutTokenBuildable")) {
+            MHutToken mHutToken = (MHutToken) evt.getSource();
+            if (evt.getNewValue().equals(true)) {
+                //abilita il button
+
+            } else {
+                //disabilita il button
+
+
+            }
+        }
     }
 }
