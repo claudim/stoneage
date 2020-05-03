@@ -3,6 +3,7 @@ package com.univaq.stoneage.model.squares;
 import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.*;
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import java.io.Serializable;
 @Table(name = "Square")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "square_type", discriminatorType = DiscriminatorType.STRING)
-public abstract class MSquare implements Serializable {
+public abstract class MSquare implements Serializable, PropertyChangeListener {
 	@Id
 	//@Column(name = "square_name", nullable = true, unique = true, length = 30)
 	@Column(name = "square_name", unique = true, length = 30)
@@ -81,5 +82,6 @@ public abstract class MSquare implements Serializable {
 		support.firePropertyChange(property, oldObject, newObject);
 	}
 
-
+	@Override
+	public abstract void propertyChange(PropertyChangeEvent evt);
 }

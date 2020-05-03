@@ -34,12 +34,11 @@ public class UResourceSquare extends USquare {
 
     @Override
     public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
-        if (propertyChangeEvent.getPropertyName().equals("initResource")) {
+        if (propertyChangeEvent.getPropertyName().equals("initResource") || propertyChangeEvent.getPropertyName().equals("incrementResource")) {
             MResourceSquare mResourceSquare = (MResourceSquare) propertyChangeEvent.getSource();
             resourceName.setText(mResourceSquare.getm_resourceType());
         }
         numResources.setText(propertyChangeEvent.getNewValue().toString());
-
     }
 
 }

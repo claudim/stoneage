@@ -3,6 +3,7 @@ package com.univaq.stoneage.model.players;
 import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.squares.MBoard;
+import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.findingSquare.MFindNewSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
@@ -66,14 +67,23 @@ public abstract class MPlayer {
         MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
         MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
         m_marker.changeSquare(newSquare);
-        newSquare.doAction(this);
-    }
+		newSquare.doAction(this);
+	}
 
-    public abstract void playTurn();
+	public abstract void playTurn();
 
-    public void createSettlement(String aName) {
-        m_settlement = new MSettlement(aName);
-    }
+	public void createSettlement(String aName) {
+		m_settlement = new MSettlement(aName);
+	}
 
-    public abstract void buildHut(ArrayList<MHutToken> playerBuildableHutTokens);
+	public abstract void buildHut(ArrayList<MHutToken> playerBuildableHutTokens);
+
+	public void buildHut(int idHutToken) {
+		MBuildingSiteSquare mBuildingSiteSquare = (MBuildingSiteSquare) m_marker.getCurrentSquare();
+		MHutToken mHutToken = mBuildingSiteSquare.removeHutToken(idHutToken);
+		if (mHutToken != null) {
+			m_settlement.addHutToken(mHutToken);
+		}
+
+	}
 }

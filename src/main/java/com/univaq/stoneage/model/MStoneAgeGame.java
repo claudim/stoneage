@@ -192,4 +192,8 @@ public class MStoneAgeGame {
 		return m_nextPlayerStrategy;
 	}
 
+	public void buildHut(int idHutToken) {
+		activePlayer.buildHut(idHutToken);
+	}
+
 }

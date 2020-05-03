@@ -6,6 +6,7 @@ import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MSettlement;
 
 import javax.persistence.*;
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class MResourceSquare extends MSquare {
             //todo la old size è calcolata hard coded
             notifyPropertyChange("resource", this.m_resources.size() + 1, this.m_resources.size());
             MSettlement settlement = mPlayer.getM_settlement();
+            settlement.addPropertyChangeListener(this);
             settlement.addResource(resource);
         } else {
             //steal a resource
@@ -72,6 +74,16 @@ public class MResourceSquare extends MSquare {
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
         notifyPropertyChange("initResource", 0, this.m_resources.size());
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if (evt.getPropertyName().equals("removeResource")) {
+            MResource mResource = (MResource) evt.getOldValue();
+            notifyPropertyChange("incrementResource", this.m_resources.size(), this.m_resources.size() + 1);
+            m_resources.add(mResource);
+
+        }
     }
 
     // after object creation from Hibernate this method is called

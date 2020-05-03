@@ -1,13 +1,17 @@
 package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MHutToken;
+import com.univaq.stoneage.model.MStoneAgeGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class UBuildingSiteSquare extends USquare {
 
@@ -31,6 +35,22 @@ public class UBuildingSiteSquare extends USquare {
         resourcesHut1Panel.setLayout(new GridLayout(0, 1));
         resourcesHut2Panel.setLayout(new GridLayout(0, 1));
         resourcesHut3Panel.setLayout(new GridLayout(0, 1));
+
+        buildButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onPlay(buildButton1);
+            }
+        });
+        buildButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onPlay(buildButton2);
+            }
+        });
+        buildButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onPlay(buildButton3);
+            }
+        });
 
     }
 
@@ -56,5 +76,24 @@ public class UBuildingSiteSquare extends USquare {
             buttonHutTokenMapping.get(mHutToken.getIdHutToken()).setEnabled((((Boolean) evt.getNewValue()).booleanValue()));
 
         }
+    }
+
+    private void onPlay(JButton uButton) {
+        uButton.setEnabled(false);
+        MStoneAgeGame.getInstance().buildHut(getIdHutTokenByBottom(uButton));
+    }
+
+    public <K, V> Stream<K> getKeys(Map<K, V> map, V value) {
+        return map
+                .entrySet()
+                .stream()
+                .filter(entry -> value.equals(entry.getValue()))
+                .map(Map.Entry::getKey);
+    }
+
+    public int getIdHutTokenByBottom(JButton uButton) {
+        Stream<Integer> idHutTokens = getKeys(buttonHutTokenMapping, uButton);
+        return idHutTokens.findFirst().get();
+
     }
 }

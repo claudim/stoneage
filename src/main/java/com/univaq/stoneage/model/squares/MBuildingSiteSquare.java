@@ -10,13 +10,14 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.PostLoad;
 import javax.persistence.Transient;
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 /**
  * MBuildingSiteSquare is a persistence entity.
  * It also knows the action to perform if the marker lands on it. Indeed, it manage the action.
- * It is responsible for the creation of all hut tokens and it knows them.
+ * It is responsible for the creation of all hut tokens and it knows them and handle them until they are built.
  */
 @Entity
 @DiscriminatorValue(value = "buildingsitesquare")
@@ -42,7 +43,8 @@ public class MBuildingSiteSquare extends MSquare {
                 mHutToken.setM_buildableByActivePlayer(true);
                 mHutToken.getM_resources().entrySet().stream().forEach(
                         e -> {
-                            Integer playerResNum = mPlayer.getM_settlement().getM_resources().get(e.getKey().getM_type());
+                            Integer playerResNum = mPlayer.getM_settlement().resourceTypeCounter(e.getKey().getM_type());
+                            // Integer playerResNum = mPlayer.getM_settlement().getM_resources().get(e.getKey().getM_type());
                             if (playerResNum < e.getValue())
                                 mHutToken.setM_buildableByActivePlayer(false);
                         }
@@ -63,6 +65,11 @@ public class MBuildingSiteSquare extends MSquare {
         return this.getClass().getSimpleName();
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
+    }
+
     @PostLoad
     public void loadHutTokenFromDB() {
         support = new PropertyChangeSupport(this); // to implement the oberver pattern
@@ -78,5 +85,18 @@ public class MBuildingSiteSquare extends MSquare {
             }
         }
         return faceUpHutTokens;
+    }
+
+    public MHutToken removeHutToken(int idHutToken) {
+        MHutToken hutTokenToRemove = null;
+        for (MHutToken mHutToken : m_hutTokens) {
+            if (mHutToken.getIdHutToken() == idHutToken) {
+                hutTokenToRemove = mHutToken;
+            }
+        }
+        if (hutTokenToRemove != null) {
+            m_hutTokens.remove(hutTokenToRemove);
+        }
+        return hutTokenToRemove;
     }
 }
