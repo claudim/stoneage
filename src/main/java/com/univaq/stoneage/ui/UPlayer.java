@@ -66,40 +66,41 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        MSettlement mSettlement = (MSettlement) evt.getSource();
-        if (mSettlement.getM_name().equals(name)) {
-            switch (evt.getPropertyName()) {
-                case "pesce": {
-                    pesceCounter.setText(evt.getNewValue().toString());
-                    break;
-                }
-                case "anfora": {
-                    anforaCounter.setText(evt.getNewValue().toString());
-                    break;
-                }
-                case "bacca": {
-                    baccaCounter.setText(evt.getNewValue().toString());
-                    break;
-                }
-                case "dente": {
-                    denteCounter.setText(evt.getNewValue().toString());
-                    break;
-                }
-                case "freccia": {
-                    frecciaCounter.setText(evt.getNewValue().toString());
-                    break;
-                }
-                default:
-                    break;
+        if (!evt.getPropertyName().equals("removeResource")) {
+            MSettlement mSettlement = (MSettlement) evt.getSource();
+            if (mSettlement.getM_name().equals(name)) {
+                switch (evt.getPropertyName()) {
+                    case "pesce": {
+                        pesceCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "anfora": {
+                        anforaCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "bacca": {
+                        baccaCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "dente": {
+                        denteCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "freccia": {
+                        frecciaCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    default:
+                        break;
 
 
+                }
             }
+
             // playerPanel.revalidate();
             //playerPanel.repaint();
 
 
         }
-
-
     }
 }
