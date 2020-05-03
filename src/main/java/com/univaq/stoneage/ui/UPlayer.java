@@ -1,5 +1,6 @@
 package com.univaq.stoneage.ui;
 
+import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.players.MSettlement;
 import com.univaq.stoneage.utility.PlayerColors;
 
@@ -66,10 +67,12 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (!evt.getPropertyName().equals("removeResource")) {
+        //if (!evt.getPropertyName().equals("removeResource")) {
+        if (evt.getPropertyName().equals("removeResource")) {
             MSettlement mSettlement = (MSettlement) evt.getSource();
             if (mSettlement.getM_name().equals(name)) {
-                switch (evt.getPropertyName()) {
+                //switch (evt.getPropertyName()) {
+                switch (((MResource) evt.getOldValue()).getM_type()) {
                     case "pesce": {
                         pesceCounter.setText(evt.getNewValue().toString());
                         break;
@@ -96,11 +99,38 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 
                 }
             }
+        }
+        if (evt.getPropertyName().equals("insertResource")) {
+            MSettlement mSettlement = (MSettlement) evt.getSource();
+            if (mSettlement.getM_name().equals(name)) {
+                //switch (evt.getPropertyName()) {
+                switch (((MResource) evt.getOldValue()).getM_type()) {
+                    case "pesce": {
+                        pesceCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "anfora": {
+                        anforaCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "bacca": {
+                        baccaCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "dente": {
+                        denteCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    case "freccia": {
+                        frecciaCounter.setText(evt.getNewValue().toString());
+                        break;
+                    }
+                    default:
+                        break;
 
-            // playerPanel.revalidate();
-            //playerPanel.repaint();
 
-
+                }
+            }
         }
     }
 }

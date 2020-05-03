@@ -48,7 +48,7 @@ public class MSettlement {
     }
 
     /**
-     * Add the resource to the settlement
+     * Add the resource to the settlement and notify all the observer
      *
      * @param resource The resource to add
      */
@@ -56,11 +56,12 @@ public class MSettlement {
         String type = resource.getM_type();
         int count = resourceTypeCounter(type);
         m_resources.add(resource);
-        notifyPropertyChangeListener(type, count, count + 1);
+        notifyPropertyChangeListener("insertResource", resource, count + 1);
+        //  notifyPropertyChangeListener(type, count, count + 1);
     }
 
     /**
-     * Remove the resource from the settlement
+     * Remove the resource from the settlement and notify all the observer
      *
      * @param resource The reource to remove
      */
@@ -68,8 +69,8 @@ public class MSettlement {
         String type = resource.getM_type();
         int count = resourceTypeCounter(type);
         m_resources.remove(resource);
-        notifyPropertyChangeListener(type, count, count - 1);
-        notifyPropertyChangeListener("removeResource", resource, null);
+//        notifyPropertyChangeListener(type, count, count - 1);
+        notifyPropertyChangeListener("removeResource", resource, count - 1);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
