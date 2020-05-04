@@ -1,7 +1,6 @@
 package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MResource;
-import com.univaq.stoneage.model.players.MSettlement;
 import com.univaq.stoneage.utility.PlayerColors;
 
 import javax.swing.*;
@@ -67,70 +66,118 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        //if (!evt.getPropertyName().equals("removeResource")) {
-        if (evt.getPropertyName().equals("removeResource")) {
-            MSettlement mSettlement = (MSettlement) evt.getSource();
-            if (mSettlement.getM_name().equals(name)) {
-                //switch (evt.getPropertyName()) {
+//        if(!SwingUtilities.isEventDispatchThread())
+//        {
+//            SwingUtilities.invokeLater(new Runnable() {
+//                @Override
+//                public void run() {
+//                    propertyChange(evt);
+//                }
+//            });
+//        }
+        if (evt.getPropertyName().equals("resource")) {
+            if (evt.getNewValue() == null) {
                 switch (((MResource) evt.getOldValue()).getM_type()) {
                     case "pesce": {
-                        pesceCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(pesceCounter.getText());
+                        x--;
+                        pesceCounter.setText(x.toString());
                         break;
                     }
                     case "anfora": {
-                        anforaCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(anforaCounter.getText());
+                        x--;
+                        anforaCounter.setText(x.toString());
                         break;
                     }
                     case "bacca": {
-                        baccaCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(baccaCounter.getText());
+                        x--;
+                        baccaCounter.setText(x.toString());
                         break;
                     }
                     case "dente": {
-                        denteCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(denteCounter.getText());
+                        x--;
+                        denteCounter.setText(x.toString());
                         break;
                     }
                     case "freccia": {
-                        frecciaCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(frecciaCounter.getText());
+                        x--;
+                        frecciaCounter.setText(x.toString());
                         break;
                     }
                     default:
                         break;
-
-
                 }
-            }
-        }
-        if (evt.getPropertyName().equals("insertResource")) {
-            MSettlement mSettlement = (MSettlement) evt.getSource();
-            if (mSettlement.getM_name().equals(name)) {
-                //switch (evt.getPropertyName()) {
-                switch (((MResource) evt.getOldValue()).getM_type()) {
+            } else {
+                switch (((MResource) evt.getNewValue()).getM_type()) {
                     case "pesce": {
-                        pesceCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(pesceCounter.getText());
+                        x++;
+                        pesceCounter.setText(x.toString());
                         break;
                     }
                     case "anfora": {
-                        anforaCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(anforaCounter.getText());
+                        x++;
+                        anforaCounter.setText(x.toString());
                         break;
                     }
                     case "bacca": {
-                        baccaCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(baccaCounter.getText());
+                        x++;
+                        baccaCounter.setText(x.toString());
                         break;
                     }
                     case "dente": {
-                        denteCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(denteCounter.getText());
+                        x++;
+                        denteCounter.setText(x.toString());
                         break;
                     }
                     case "freccia": {
-                        frecciaCounter.setText(evt.getNewValue().toString());
+                        Integer x = Integer.parseInt(frecciaCounter.getText());
+                        x++;
+                        frecciaCounter.setText(x.toString());
                         break;
                     }
                     default:
                         break;
-
-
                 }
             }
         }
+
+//        if (evt.getPropertyName().equals("removeResource")|| evt.getPropertyName().equals("insertResource")) {
+//            MSettlement mSettlement = (MSettlement) evt.getSource();
+//            if (mSettlement.getM_name().equals(name)) {
+//                //switch (evt.getPropertyName()) {
+//                switch (((MResource) evt.getOldValue()).getM_type()) {
+//                    case "pesce": {
+//                        pesceCounter.setText(evt.getNewValue().toString());
+//                        break;
+//                    }
+//                    case "anfora": {
+//                        anforaCounter.setText(evt.getNewValue().toString());
+//                        break;
+//                    }
+//                    case "bacca": {
+//                        baccaCounter.setText(evt.getNewValue().toString());
+//                        break;
+//                    }
+//                    case "dente": {
+//                        denteCounter.setText(evt.getNewValue().toString());
+//                        break;
+//                    }
+//                    case "freccia": {
+//                        frecciaCounter.setText(evt.getNewValue().toString());
+//                        break;
+//                    }
+//                    default:
+//                        break;
+//                }
+//            }
+//        }
     }
 }

@@ -58,10 +58,12 @@ public class MResourceSquare extends MSquare {
             //todo la old size è calcolata hard coded
             notifyPropertyChange("resource", this.m_resources.size() + 1, this.m_resources.size());
             MSettlement settlement = mPlayer.getM_settlement();
-            settlement.addPropertyChangeListener(this);
+            //settlement.addPropertyChangeListener("removeResource", this);
+            settlement.addPropertyChangeListener("resource", this);
             settlement.addResource(resource);
         } else {
             //steal a resource
+            System.out.println("devi rubarla");
         }
     }
 
@@ -78,12 +80,11 @@ public class MResourceSquare extends MSquare {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals("removeResource") &&
-                ((MResource) evt.getOldValue()).getM_type().equals(this.m_resourceType)) {
+        //if (evt.getPropertyName().equals("removeResource") && ((MResource) evt.getOldValue()).getM_type().equals(this.m_resourceType)) {
+        if (evt.getPropertyName().equals("resource") && evt.getOldValue() != null && ((MResource) evt.getOldValue()).getM_type().equals(this.m_resourceType)) {
             MResource mResource = (MResource) evt.getOldValue();
             notifyPropertyChange("incrementResource", this.m_resources.size(), this.m_resources.size() + 1);
             m_resources.add(mResource);
-
         }
     }
 

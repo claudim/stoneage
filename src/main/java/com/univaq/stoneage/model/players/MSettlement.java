@@ -14,6 +14,7 @@ import java.util.Map;
  */
 public class MSettlement {
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+    //private EnhancedPropertyChangeSupport support = new PropertyChangeSupport(this);
     private final ArrayList<MHutToken> m_hutTokens;
     private ArrayList<MResource> m_resources;
     private String m_name;
@@ -56,8 +57,9 @@ public class MSettlement {
         String type = resource.getM_type();
         int count = resourceTypeCounter(type);
         m_resources.add(resource);
-        notifyPropertyChangeListener("insertResource", resource, count + 1);
-        //  notifyPropertyChangeListener(type, count, count + 1);
+        //notifyPropertyChangeListener("insertResource", resource, count + 1);
+        notifyPropertyChangeListener("resource", null, resource);
+
     }
 
     /**
@@ -70,7 +72,20 @@ public class MSettlement {
         int count = resourceTypeCounter(type);
         m_resources.remove(resource);
 //        notifyPropertyChangeListener(type, count, count - 1);
-        notifyPropertyChangeListener("removeResource", resource, count - 1);
+        //notifyPropertyChangeListener("removeResource", resource, count - 1);
+        notifyPropertyChangeListener("resource", resource, null);
+    }
+
+    public void addPropertyChangeListener(String propertyName, PropertyChangeListener pcl) {
+        PropertyChangeListener[] propertyChangeListeners = support.getPropertyChangeListeners(propertyName);
+        boolean alreadyAdded = false;
+        for (PropertyChangeListener propertyChangeListener : propertyChangeListeners) {
+            if (propertyChangeListener.equals(pcl)) {
+                alreadyAdded = true;
+            }
+
+        }
+        if (!alreadyAdded) support.addPropertyChangeListener(propertyName, pcl);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
@@ -93,22 +108,23 @@ public class MSettlement {
     public void addHutToken(MHutToken mHutToken) {
         m_hutTokens.add(mHutToken);
         Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
-        hutTokenResources.forEach((key, value) ->
-        {
+        hutTokenResources.forEach((key, value) -> {
             int i = 0;
             Iterator it = m_resources.iterator();
             while (i < value && it.hasNext()) {
                 MResource res = (MResource) it.next();
                 if (res.getM_type().equals(key.getM_type())) {
                     removeResource(res);
+                    i++;
                 }
-                i++;
             }
         });
     }
 
     public int resourceTypeCounter(String type) {
-        return (int) m_resources.stream().filter(mResource -> mResource.getM_type().equals(type)).count();
+        int x = (int) m_resources.stream().filter(mResource -> mResource.getM_type().equals(type)).count();
+        System.out.println(type + ": " + x);
+        return x;
     }
 }
 
