@@ -1,5 +1,6 @@
 package com.univaq.stoneage.model.squares;
 
+import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.DiscriminatorValue;
@@ -11,7 +12,7 @@ import java.beans.PropertyChangeEvent;
 public class MRegularSquare extends MSquare {
     @Override
     public void doAction(MPlayer mPlayer) {
-
+        MStoneAgeGame.getInstance().nextPlayerTurn();
     }
 
     @Override
@@ -23,6 +24,4 @@ public class MRegularSquare extends MSquare {
     public void propertyChange(PropertyChangeEvent evt) {
 
     }
-
-
 }

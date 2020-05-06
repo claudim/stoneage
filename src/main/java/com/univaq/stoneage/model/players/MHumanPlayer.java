@@ -19,4 +19,5 @@ public class MHumanPlayer extends MPlayer {
     public void buildHut(ArrayList<MHutToken> playerBuildableMHutTokens) {
         //NO-OP
     }
+
 }
