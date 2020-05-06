@@ -3,6 +3,7 @@ package com.univaq.stoneage.model.squares;
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.MHutToken;
+import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.utility.TokenState;
 
@@ -56,7 +57,9 @@ public class MBuildingSiteSquare extends MSquare {
                 //mHutToken.setM_buildableByActivePlayer(false);
             }
         }
+        MStoneAgeGame.getInstance().getGameState().hutForestCheckDone();
         mPlayer.buildHut(playerBuildableMHutTokens);
+
     }
 
 

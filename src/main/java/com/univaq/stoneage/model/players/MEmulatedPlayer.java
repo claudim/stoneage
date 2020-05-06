@@ -24,10 +24,11 @@ public class MEmulatedPlayer extends MPlayer {
 
     @Override
     public void buildHut(ArrayList<MHutToken> playerBuildableHutTokens) {
-
         if (playerBuildableHutTokens.size() > 0) {//todo non è detto che debba scegliere il primo inserire strategia ad esempio
             int idHutToken = playerBuildableHutTokens.get(0).getIdHutToken();
             this.buildHut(idHutToken);
         }
     }
+
+
 }

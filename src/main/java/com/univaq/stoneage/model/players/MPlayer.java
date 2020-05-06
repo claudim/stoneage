@@ -1,6 +1,7 @@
 package com.univaq.stoneage.model.players;
 
 import com.univaq.stoneage.model.MHutToken;
+import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
@@ -62,12 +63,15 @@ public abstract class MPlayer {
 	 * @param MBoard
 	 */
 	public void moveMarker(MTokenForest MTokenForest, MBoard MBoard) {
-        MSquare currentSquare = m_marker.getCurrentSquare();
-        MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
-        MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
-        MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
-        m_marker.changeSquare(newSquare);
-		newSquare.doAction(this);
+		MSquare currentSquare = m_marker.getCurrentSquare();
+		MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
+		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
+		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
+		m_marker.changeSquare(newSquare);
+		MStoneAgeGame.getInstance().getGameState().onNewSquare();
+		newSquare.doAction(this); // meglio spostarlo in onNewSquareState??
+		//
+
 	}
 
 	public abstract void playTurn();
@@ -84,6 +88,10 @@ public abstract class MPlayer {
 		if (mHutToken != null) {
 			m_settlement.addHutToken(mHutToken);
 		}
+		MStoneAgeGame.getInstance().getGameState().hutBuilt();
+		MStoneAgeGame.getInstance().nextPlayerTurn();
 
 	}
+
+
 }

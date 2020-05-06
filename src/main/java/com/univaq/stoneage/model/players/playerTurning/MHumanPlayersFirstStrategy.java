@@ -16,7 +16,8 @@ public class MHumanPlayersFirstStrategy extends MNextPlayerStrategy {
     public MHumanPlayersFirstStrategy(ArrayList<MPlayer> a_players) {
         super(a_players);
         this.sort();
-        this.setCurrentPlayer(a_players.size() - 1); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
+        //this.setCurrentPlayer(a_players.size() - 1); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
+        this.setCurrentPlayer(a_players.size()); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
     }
 
     private void setCurrentPlayer(int indexOfCurrentPlayer) {

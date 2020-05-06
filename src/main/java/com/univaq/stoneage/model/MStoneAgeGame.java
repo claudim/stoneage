@@ -4,6 +4,7 @@ import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.players.MMarker;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MPlayerFactory;
@@ -33,6 +34,8 @@ public class MStoneAgeGame {
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 	private int numPlayer;
 
+	private GameState gameState;
+
 	private MPlayer activePlayer;
 
 	public static MStoneAgeGame getInstance() {
@@ -43,42 +46,29 @@ public class MStoneAgeGame {
 		return instance;
 	}
 
-	public int getNumPlayer() {
-		return numPlayer;
-	}
-
-	public void setNumPlayer(int numPlayer) {
-		this.numPlayer = numPlayer;
-	}
-
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
 		initializeStoneAgeGame(aMode, aNumPlayers, aMarkerName);
-//		mainGameLoop();
-		gameLoop();
+		//gameLoop();
 	}
 
 	private void gameLoop() {
-		if (!activePlayer.isM_winner()) {
-			activePlayer = getNextPlayer();
-			activePlayer.playTurn();
-		} else {
-			//show victory
-		}
+//		if (!activePlayer.isM_winner()) {
+//			activePlayer = getNextPlayer();
+//			activePlayer.playTurn();
+//		} else {
+//			//show victory
+//		}
 
+		if (activePlayer.isM_winner()) {
+			gameState.winner();
+		} else {
+			activePlayer.playTurn();
+		}
 	}
 
-//	private void mainGameLoop() {
-//		boolean winner = false;
-//		MPlayer currentPlayer;
-//		while (!winner){
-//
-//			currentPlayer = getCurrentPlayer();
-//
-//
-//		}
-//	}
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
+
 		setNumPlayer(aNumPlayers);
 		// create a board
 		m_board = new MBoard();
@@ -93,21 +83,13 @@ public class MStoneAgeGame {
 		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players); // set the right strategy to identify the players order
 		activePlayer = getCurrentPlayer(); // set the first Player
 
+		// added with pattern state
+		gameState = new GameState();
+		gameLoop();
 		System.out.println("inizializzato il gioco");
 	}
 
 
-	public MGrid getM_grid() {
-		return m_grid;
-	}
-
-	public ArrayList<MPlayer> getM_players() {
-		return m_players;
-	}
-
-	public MBoard getM_board() {
-		return m_board;
-	}
 
 
 	/**
@@ -122,7 +104,7 @@ public class MStoneAgeGame {
 			activePlayer.moveMarker(mTokenForest, m_board);
 		}
 		System.out.println("playturn terminato");
-		gameLoop();
+		//gameLoop();
 
 
 		//this.m_grid.getRandomTokenForest();
@@ -194,6 +176,37 @@ public class MStoneAgeGame {
 
 	public void buildHut(int idHutToken) {
 		activePlayer.buildHut(idHutToken);
+	}
+
+	public int getNumPlayer() {
+		return numPlayer;
+	}
+
+	public void setNumPlayer(int numPlayer) {
+		this.numPlayer = numPlayer;
+	}
+
+	public MGrid getM_grid() {
+		return m_grid;
+	}
+
+	public ArrayList<MPlayer> getM_players() {
+		return m_players;
+	}
+
+	public MBoard getM_board() {
+		return m_board;
+	}
+
+	public GameState getGameState() {
+		return gameState;
+	}
+
+	public void nextPlayerTurn() {
+		activePlayer = getNextPlayer();
+		gameState.nextTurn();
+		gameLoop();
+
 	}
 
 }
