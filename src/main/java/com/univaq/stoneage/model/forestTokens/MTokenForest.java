@@ -7,11 +7,9 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 
-import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
-
 /**
  * MTokenForest is a generic, persistence abstract super class.
- * It knows its position, state and value.
+ * It knows its state and value.
  * MTokenForest is obersevable.
  */
 @Entity
@@ -19,11 +17,6 @@ import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class MTokenForest<T> implements Serializable {
-
-//    @Transient
-//    public final boolean FACEDOWN = false;
-//    @Transient
-//    public final boolean FACEUP = true;
 
     @Transient // ignore this property/field
     protected final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the oberver pattern
@@ -33,23 +26,11 @@ public abstract class MTokenForest<T> implements Serializable {
     protected int token_id;
     @Column(name = "state")
     protected TokenState m_state;
-    @Column(name = "position")
-    protected int m_position;
 
     /**
      * Default constructor.
      */
     public MTokenForest() {
-    }
-
-    /**
-     * Constructor to define forest token position and FACEDOWN state.
-     *
-     * @param position forest token position
-     */
-    public MTokenForest(int position) {
-        this.m_state = FACEDOWN;
-        this.m_position = position;
     }
 
     /**
@@ -71,24 +52,6 @@ public abstract class MTokenForest<T> implements Serializable {
     }
 
     /**
-     * Get the forest token position
-     *
-     * @return int The forest token position
-     */
-    public int getM_position() {
-        return m_position;
-    }
-
-    /**
-     * Set the forest token position
-     *
-     * @param m_position int The forest token position
-     */
-    public void setM_position(int m_position) {
-        this.m_position = m_position;
-    }
-
-    /**
      * Get the forest token state
      *
      * @return boolean The forest token state
@@ -101,9 +64,8 @@ public abstract class MTokenForest<T> implements Serializable {
      * @param aFaceUpOrDown
      */
     public void setState(TokenState aFaceUpOrDown) {
-        notifyPropertyChange(aFaceUpOrDown);
+        notifyPropertyChangeListener("token_state", this.m_state, aFaceUpOrDown);
         m_state = aFaceUpOrDown;
-
     }
 
     /**
@@ -128,7 +90,8 @@ public abstract class MTokenForest<T> implements Serializable {
         support.removePropertyChangeListener(pcl);
     }
 
-    public void notifyPropertyChange(TokenState aFaceUpOrDown) {
-        support.firePropertyChange("token_state", this.m_state, aFaceUpOrDown);
+    public void notifyPropertyChangeListener(String propertyName, Object oldValue, Object newValue) {
+        support.firePropertyChange(propertyName, oldValue, newValue);
     }
+
 }

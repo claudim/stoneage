@@ -2,11 +2,16 @@ package com.univaq.stoneage.model.forestTokens;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.model.shuffle.CollectionsShuffleStrategy;
+import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
+import com.univaq.stoneage.utility.TokenState;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-import static com.univaq.stoneage.utility.TokenState.FACEUP;
+import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
 
 //TODO aggiungere una strategy per individuare la strategia giusta per scegliere i token
 
@@ -17,10 +22,17 @@ import static com.univaq.stoneage.utility.TokenState.FACEUP;
  */
 public class MGrid {
 
-    /**
+	/**
 	 * Field for a list of all forest tokens.
 	 */
 	private ArrayList<MTokenForest> m_tokens;
+
+	private final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the observer pattern between MGrid and UGrid
+	/**
+	 * Field for the shuffle strategy.
+	 */
+	private IShuffleStrategy m_shuffleStrategy;
+
 
 	/**
 	 * Constructor.
@@ -28,6 +40,7 @@ public class MGrid {
 	 */
 	public MGrid() {
 		m_tokens = new ArrayList<MTokenForest>();
+		m_shuffleStrategy = new CollectionsShuffleStrategy();
 		createTokenForest();
 	}
 
@@ -44,6 +57,14 @@ public class MGrid {
 		this.m_tokens = m_tokens;
 	}
 
+	public IShuffleStrategy getM_shuffleStrategy() {
+		return m_shuffleStrategy;
+	}
+
+	public void setM_shuffleStrategy(IShuffleStrategy m_shuffleStrategy) {
+		this.m_shuffleStrategy = m_shuffleStrategy;
+	}
+
 	/**
 	 * Create the forest token
 	 */
@@ -53,60 +74,61 @@ public class MGrid {
 		m_tokens.addAll(dao.findAll());
 	}
 
-    /**
-     * Find the token forest in the given position
-     *
-     * @param position the position of the token forest
-     * @return the token forest in the given position if present
-     * @throws NoSuchElementException if the token is not present
-     */
-    public MTokenForest searchTFbyPosition(int position) throws NoSuchElementException {
-        return m_tokens.stream()
-                .filter((t) -> t.getM_position() == position)
-                .findFirst()
-                .orElseThrow(NoSuchElementException::new);
-    }
+	/**
+	 * Find the token forest in the given id
+	 *
+	 * @param idToken the id of the token forest
+	 * @return the token forest in the given id if present
+	 * @throws NoSuchElementException if the token is not present
+	 */
+	public MTokenForest searchTFbyId(int idToken) throws NoSuchElementException {
+		return m_tokens.stream()
+				.filter((t) -> t.getToken_id() == idToken)
+				.findFirst()
+				.orElseThrow(NoSuchElementException::new);
+	}
 
 	/**
-	 * Face up the forest token by the position.
+	 * Face up the forest token by the idToken.
 	 *
-	 * @param position int the forest token position.
+	 * @param idToken int the forest token id.
 	 * @return the forest token
 	 */
-	public MTokenForest faceUpTokenForest(int position) {
+	public MTokenForest faceUpTokenForest(int idToken) {
 		MTokenForest t;
 		try {
-            t = searchTFbyPosition(position);
-            t.setState(FACEUP);
-        } catch (NoSuchElementException e) {
+			t = searchTFbyId(idToken);
+			t.setState(TokenState.FACEUP);
+		} catch (NoSuchElementException e) {
 			t = null;
 		}
 		return t;
 	}
-
-//	 to delete
-//	private void createTokenForestNaive() {
-//		this.m_tokens.add(new MSquareTokenForest(7, "Cantiere"));
-//		this.m_tokens.add(new MSquareTokenForest(8, "Cane"));
-//		this.m_tokens.add(new MSquareTokenForest(9, "Sorpresa"));
-//		this.m_tokens.add(new MSquareTokenForest(10, "Prateria"));
-//		this.m_tokens.add(new MSquareTokenForest(11, "Foresta"));
-//		this.m_tokens.add(new MSquareTokenForest(12, "Artigiano"));
-//		this.m_tokens.add(new MSquareTokenForest(13, "Cava"));
-//		this.m_tokens.add(new MSquareTokenForest(14, "Battaglia"));
-//		this.m_tokens.add(new MSquareTokenForest(15, "Fiume"));
-//		this.m_tokens.add(new MSquareTokenForest(0, "Mercato"));
-//		this.m_tokens.add(new MDieFaceTokenForest(1, 1));
-//		this.m_tokens.add(new MDieFaceTokenForest(2, 2));
-//		this.m_tokens.add(new MDieFaceTokenForest(3, 3));
-//		this.m_tokens.add(new MDieFaceTokenForest(4, 4));
-//		this.m_tokens.add(new MDieFaceTokenForest(5, 5));
-//		this.m_tokens.add(new MDieFaceTokenForest(6, 6));
-//	}
 
 	/*public int chooseRandomTokenForest() {
 		Random rand = new Random();
 		Integer index = m_idPositionsFaceDownForestTokens.get(rand.nextInt(m_idPositionsFaceDownForestTokens.size()));
 		return m_idPositionsFaceDownForestTokens.get(index);
 	}*/
+
+	/**
+	 * Shuffle, set to face down and change position to all forest token.
+	 */
+	public void forestTokenShuffle() {
+		this.m_shuffleStrategy.shuffle(m_tokens);
+		m_tokens.forEach(tokenForest -> tokenForest.setState(FACEDOWN));
+		notifyPropertyChangeListener("shuffleForestToken", null, this.m_tokens);
+	}
+
+	public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
+
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
+
+	public void notifyPropertyChangeListener(String propertyName, Object oldValue, Object newValue) {
+		support.firePropertyChange(propertyName, oldValue, newValue);
+	}
 }

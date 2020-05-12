@@ -15,12 +15,12 @@ class MGridTest {
     void faceUpTokenForest() {
         MTokenForest MTokenForest = g.faceUpTokenForest(1);
         assertEquals(MTokenForest.getValue(), 1);
-        assertEquals(g.searchTFbyPosition(1).getState(), TokenState.FACEUP);
+        assertEquals(g.searchTFbyId(1).getState(), TokenState.FACEUP);
 
         MTokenForest MTokenForest2 = g.faceUpTokenForest(11);
         assertEquals(MTokenForest2.getValue(), "foresta");
-        assertEquals(g.searchTFbyPosition(11).getState(), TokenState.FACEUP);
-        assertEquals(g.searchTFbyPosition(10).getState(), TokenState.FACEDOWN);
+        assertEquals(g.searchTFbyId(11).getState(), TokenState.FACEUP);
+        assertEquals(g.searchTFbyId(10).getState(), TokenState.FACEDOWN);
     }
 
 }

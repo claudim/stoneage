@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
+
 /**
  * MDieFaceTokenForest is a persistence entity, concrete subclass of MTokenForest<Integer>.
  */
@@ -19,8 +21,9 @@ public class MDieFaceTokenForest extends MTokenForest<Integer> {
     @Column(name = "die_value")
     private int m_dieFace;
 
-    public MDieFaceTokenForest(int position, int tokenForestValue) {
-        super(position);
+    public MDieFaceTokenForest(int tokenForestValue) {
+        super();
+        super.m_state = FACEDOWN;
         this.m_dieFace = tokenForestValue;
     }
 

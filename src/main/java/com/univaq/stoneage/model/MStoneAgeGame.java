@@ -96,10 +96,10 @@ public class MStoneAgeGame {
 	 * Play a single player turn.
 	 * System operation.
 	 *
-	 * @param aIdPosition
+	 * @param aIdToken
 	 */
-	public void playTurn(int aIdPosition) {
-		MTokenForest mTokenForest = this.m_grid.faceUpTokenForest(aIdPosition);
+	public void playTurn(int aIdToken) {
+		MTokenForest mTokenForest = this.m_grid.faceUpTokenForest(aIdToken);
 		if (mTokenForest != null) {
 			activePlayer.moveMarker(mTokenForest, m_board);
 		}

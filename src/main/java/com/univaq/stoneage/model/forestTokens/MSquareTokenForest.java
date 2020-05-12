@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
+
 /**
  * MSquareTokenForest is a persistence entity, concrete subclass of MTokenForest<String>.
  */
@@ -17,8 +19,9 @@ public class MSquareTokenForest extends MTokenForest<String> {
     @Column(name = "square_value")
     private String m_squareName;
 
-    public MSquareTokenForest(int position, String tokenForestValue) {
-        super(position);
+    public MSquareTokenForest(String tokenForestValue) {
+        super();
+        super.m_state = FACEDOWN;
         this.m_squareName = tokenForestValue;
     }
 
