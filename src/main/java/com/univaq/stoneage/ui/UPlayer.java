@@ -28,6 +28,14 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
     private JLabel anforaCounter;
     private JPanel dentePanel;
     private JLabel denteCounter;
+    private JPanel otherTokensPanel;
+    private JPanel hutPanel;
+    private JPanel dogPanel;
+    private JLabel hutLabel;
+    private JLabel hutCounter;
+    private JLabel doglLabel;
+    private JLabel dogCounter;
+    private JPanel settlementPanel;
 
     @Override
     public String getName() {
@@ -66,6 +74,9 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        if (evt.getPropertyName().equals("addedHut")) {
+            hutCounter.setText(evt.getNewValue().toString());
+        }
 //        if(!SwingUtilities.isEventDispatchThread())
 //        {
 //            SwingUtilities.invokeLater(new Runnable() {
