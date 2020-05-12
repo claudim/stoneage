@@ -75,4 +75,18 @@ public class MBoard {
 		}
 		return null;
 	}
+
+	/**
+	 * Search and get the building site square if exists otherwise it returns null
+	 *
+	 * @return MBuildingSiteSquare The searched square if exists, null otherwise.
+	 */
+	public MBuildingSiteSquare getBuildingSiteSquare() {
+		for (MSquare square : m_squares) {
+			if (square.getSquareType().equals(MBuildingSiteSquare.class.getSimpleName())) {
+				return (MBuildingSiteSquare) square;
+			}
+		}
+		return null;
+	}
 }

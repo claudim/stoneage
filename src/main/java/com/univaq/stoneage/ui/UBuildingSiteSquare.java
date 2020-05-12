@@ -74,10 +74,24 @@ public class UBuildingSiteSquare extends USquare {
             //enable or disable the button
             buttonHutTokenMapping.get(mHutToken.getIdHutToken()).setEnabled((((Boolean) evt.getNewValue()).booleanValue()));
         }
+
         if (evt.getPropertyName().equals("hutTokenRemoved")) {
-            MHutToken mHutToken = (MHutToken) evt.getSource();
-            // elimina nella mappa il token con quell'id, richiedi un nuovo hut token e inseriscilo
-            buttonHutTokenMapping.get(mHutToken.getIdHutToken()).setEnabled((((Boolean) evt.getNewValue()).booleanValue()));
+            MHutToken mHutTokenRemoved = (MHutToken) evt.getOldValue();
+            JButton buttonToReplace = buttonHutTokenMapping.get(mHutTokenRemoved.getIdHutToken());
+            // delete from buttonHutTokenMapping the token associated to the id  elimina nella mappa il token con quell'id
+            buttonHutTokenMapping.remove(mHutTokenRemoved.getIdHutToken());
+
+            //get the resource panel associated to the button to change
+            JPanel resourcesHutPanel = (JPanel) buttonToReplace.getParent().getComponent(0);
+            resourcesHutPanel.removeAll();
+
+            // request for a hut token  richiedi un nuovo hut token
+            MHutToken nextHutTokenToBuild = MStoneAgeGame.getInstance().getHutToken();
+            if (nextHutTokenToBuild != null) {
+                // insert the got hut token  inserisci l'hut token ottenuto
+                nextHutTokenToBuild.getM_resources().forEach((key, value) -> resourcesHutPanel.add(new JLabel(key.getM_type() + ": " + value)));
+                buttonHutTokenMapping.put(nextHutTokenToBuild.getIdHutToken(), buttonToReplace);
+            }
         }
 
     }
