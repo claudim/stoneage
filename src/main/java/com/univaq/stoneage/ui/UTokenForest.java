@@ -11,11 +11,21 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class UTokenForest extends JButton implements PropertyChangeListener {
-    private final String tokenValue;
-    private final int position;
-//    private boolean state = false; //facedown= false
-
+    private String tokenValue;
+    private int idToken;
     private TokenState state = TokenState.FACEDOWN;
+
+    public UTokenForest(String tokenValue, int idToken) {
+        super();
+        this.tokenValue = tokenValue;
+        this.idToken = idToken;
+
+        this.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onClick();
+            }
+        });
+    }
 
     public TokenState getState() {
         return state;
@@ -25,25 +35,27 @@ public class UTokenForest extends JButton implements PropertyChangeListener {
         this.state = state;
     }
 
-    public UTokenForest(String tokenValue, int position) {
-        super();
-        this.tokenValue = tokenValue;
-        this.position = position;
-
-
-        this.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onClick();
-            }
-        });
+    public int getIdToken() {
+        return idToken;
     }
 
+    public void setIdToken(int idToken) {
+        this.idToken = idToken;
+    }
+
+    public String getTokenValue() {
+        return tokenValue;
+    }
+
+    public void setTokenValue(String tokenValue) {
+        this.tokenValue = tokenValue;
+    }
+
+
     private void onClick() {
-        //this.setText(this.tokenValue);
-        // this.setState(true);
         UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
-        MStoneAgeGame.getInstance().playTurn(this.position);
-        UMainFrame.getInstance().getuGameBoard().getuGrid().ableAllTokensFaceDown();
+        MStoneAgeGame.getInstance().playTurn(this.idToken);
+        UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
     }
 
 
@@ -56,6 +68,9 @@ public class UTokenForest extends JButton implements PropertyChangeListener {
                 setState((TokenState) evt.getNewValue());
                 if (state.equals(TokenState.FACEUP)) {
                     this.setText(this.tokenValue);
+                } else {
+                    this.setText("");
+                    this.setEnabled(true);
                 }
             }
         }
