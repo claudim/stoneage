@@ -70,8 +70,6 @@ public abstract class MPlayer {
 		m_marker.changeSquare(newSquare);
 		MStoneAgeGame.getInstance().getGameState().onNewSquare();
 		newSquare.doAction(this); // meglio spostarlo in onNewSquareState??
-		//
-
 	}
 
 	public abstract void playTurn();
@@ -89,6 +87,7 @@ public abstract class MPlayer {
 			m_settlement.addHutToken(mHutToken);
 		}
 		MStoneAgeGame.getInstance().getGameState().hutBuilt();
+		MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle(); // meglio non qui??
 		MStoneAgeGame.getInstance().nextPlayerTurn();
 
 	}

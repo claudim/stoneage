@@ -26,6 +26,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         MStoneAgeGame.getInstance().getM_nextPlayerStrategy().addPropertyChangeListener(this); // add uboard as a MMarker observer
         this.uGrid = new UGrid();
         uGrid.initGrid();
+        MStoneAgeGame.getInstance().getM_grid().addPropertyChangeListener(uGrid);
 
         this.uBoard = new UBoard();
         this.uBoard.initSquares();

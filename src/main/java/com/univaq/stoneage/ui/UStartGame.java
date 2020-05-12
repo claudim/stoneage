@@ -55,8 +55,6 @@ public class UStartGame extends JPanel {
         UMainFrame.getInstance().setVisible(true);
     }
 
-
-
     private void onTutorial() {
         // add your code here if necessary
 //        dispose();
