@@ -107,6 +107,7 @@ public class MSettlement {
 
     public void addHutToken(MHutToken mHutToken) {
         m_hutTokens.add(mHutToken);
+        notifyPropertyChangeListener("addedHut", m_hutTokens.size() - 1, m_hutTokens.size());
         Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
         hutTokenResources.forEach((key, value) -> {
             int i = 0;
