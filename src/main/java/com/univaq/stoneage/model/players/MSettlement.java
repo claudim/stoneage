@@ -15,14 +15,14 @@ import java.util.Map;
 public class MSettlement {
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     //private EnhancedPropertyChangeSupport support = new PropertyChangeSupport(this);
-    private final ArrayList<MHutToken> m_hutTokens;
+    private final ArrayList<MHutToken> m_builtHutTokens;
     private ArrayList<MResource> m_resources;
     private String m_name;
 
     public MSettlement(String a_name) {
         this.m_name = a_name;
         this.m_resources = new ArrayList<>();
-        this.m_hutTokens = new ArrayList<>();
+        this.m_builtHutTokens = new ArrayList<>();
     }
 
 //    private ArrayList<MResource> getResourcesFormDB() {
@@ -106,8 +106,8 @@ public class MSettlement {
 
 
     public void addHutToken(MHutToken mHutToken) {
-        m_hutTokens.add(mHutToken);
-        notifyPropertyChangeListener("addedHut", m_hutTokens.size() - 1, m_hutTokens.size());
+        m_builtHutTokens.add(mHutToken);
+        notifyPropertyChangeListener("addedHut", m_builtHutTokens.size() - 1, m_builtHutTokens.size());
         Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
         hutTokenResources.forEach((key, value) -> {
             int i = 0;

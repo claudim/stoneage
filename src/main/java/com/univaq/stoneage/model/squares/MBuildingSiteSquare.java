@@ -4,6 +4,8 @@ import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
+import com.univaq.stoneage.model.nextId.MinNumberStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.utility.TokenState;
 
@@ -14,6 +16,8 @@ import javax.persistence.Transient;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * MBuildingSiteSquare is a persistence entity.
@@ -25,7 +29,7 @@ import java.util.ArrayList;
 public class MBuildingSiteSquare extends MSquare {
 
     @Transient
-    ArrayList<MHutToken> m_hutTokens = new ArrayList<>();
+    ArrayList<MHutToken> m_buildableHutTokens = new ArrayList<>();
 
     public MBuildingSiteSquare() {
 //        super();
@@ -39,13 +43,12 @@ public class MBuildingSiteSquare extends MSquare {
     public void doAction(MPlayer mPlayer) {
         ArrayList<MHutToken> playerBuildableMHutTokens = new ArrayList<>();
         //system checks if the player has enough resources to build an hut.
-        for (MHutToken mHutToken : m_hutTokens) {
+        for (MHutToken mHutToken : m_buildableHutTokens) {
             if (mHutToken.getM_state().equals(TokenState.FACEUP)) {
                 mHutToken.setM_buildableByActivePlayer(true);
                 mHutToken.getM_resources().entrySet().stream().forEach(
                         e -> {
                             Integer playerResNum = mPlayer.getM_settlement().resourceTypeCounter(e.getKey().getM_type());
-                            // Integer playerResNum = mPlayer.getM_settlement().getM_resources().get(e.getKey().getM_type());
                             if (playerResNum < e.getValue())
                                 mHutToken.setM_buildableByActivePlayer(false);
                         }
@@ -78,12 +81,12 @@ public class MBuildingSiteSquare extends MSquare {
     public void loadHutTokenFromDB() {
         support = new PropertyChangeSupport(this); // to implement the oberver pattern
         IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MHutToken.class.getSimpleName());
-        m_hutTokens.addAll(dao.findAll());
+        m_buildableHutTokens.addAll(dao.findAll());
     }
 
     public ArrayList<MHutToken> getFaceUpHutTokens() {
         ArrayList<MHutToken> faceUpHutTokens = new ArrayList<>();
-        for (MHutToken hutToken : m_hutTokens) {
+        for (MHutToken hutToken : m_buildableHutTokens) {
             if (hutToken.getM_state().equals(TokenState.FACEUP)) {
                 faceUpHutTokens.add(hutToken);
             }
@@ -93,14 +96,38 @@ public class MBuildingSiteSquare extends MSquare {
 
     public MHutToken removeHutToken(int idHutToken) {
         MHutToken hutTokenToRemove = null;
-        for (MHutToken mHutToken : m_hutTokens) {
+        for (MHutToken mHutToken : m_buildableHutTokens) {
             if (mHutToken.getIdHutToken() == idHutToken) {
                 hutTokenToRemove = mHutToken;
             }
         }
         if (hutTokenToRemove != null) {
-            m_hutTokens.remove(hutTokenToRemove);
+            m_buildableHutTokens.remove(hutTokenToRemove);
+            notifyPropertyChange("hutTokenRemoved", hutTokenToRemove, null);
         }
         return hutTokenToRemove;
+    }
+
+    public MHutToken getNextHutTokenToBuild() {
+        IGetNextIdStrategy nextIdStrategy = new MinNumberStrategy();
+
+
+        List<MHutToken> result = m_buildableHutTokens.stream()                // convert list to stream
+                .filter(buildableHutToken -> buildableHutToken.getM_state().equals(TokenState.FACEDOWN))     // we want only facedown
+                .collect(Collectors.toList());              // collect the output and convert streams to a List
+
+        ArrayList<MHutToken> buildableFaceDownHutTokens = (ArrayList<MHutToken>) result;
+
+
+//        m_buildableHutTokens.forEach(buildableHutToken ->{
+//            if(buildableHutToken.getM_state().equals(TokenState.FACEDOWN) )
+//            {
+//                m_buildableHutTokens.add(buildableHutToken);
+//            }
+//        });
+
+        int nextId = nextIdStrategy.getNextId(0, buildableFaceDownHutTokens.size());
+        buildableFaceDownHutTokens.get(nextId).setM_state(TokenState.FACEUP);
+        return buildableFaceDownHutTokens.get(nextId);
     }
 }

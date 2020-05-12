@@ -11,6 +11,7 @@ import com.univaq.stoneage.model.players.MPlayerFactory;
 import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
 import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
 import com.univaq.stoneage.model.squares.MBoard;
+import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.utility.PlayerType;
 
@@ -209,4 +210,11 @@ public class MStoneAgeGame {
 
 	}
 
+	public MHutToken getHutToken() {
+		MBuildingSiteSquare mBuildingSiteSquare = m_board.getBuildingSiteSquare();
+		if (mBuildingSiteSquare != null) {
+			return mBuildingSiteSquare.getNextHutTokenToBuild();
+		}
+		return null;
+	}
 }
