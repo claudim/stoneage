@@ -2,6 +2,8 @@ package com.univaq.stoneage.model.forestTokens;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MINextForestTokenStrategy;
+import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MRandomNextForestTokenStrategy;
 import com.univaq.stoneage.model.shuffle.CollectionsShuffleStrategy;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.utility.TokenState;
@@ -9,6 +11,7 @@ import com.univaq.stoneage.utility.TokenState;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
@@ -33,6 +36,8 @@ public class MGrid {
 	 */
 	private IShuffleStrategy m_shuffleStrategy;
 
+	private final MINextForestTokenStrategy m_nextForestTokenStrategy;
+
 
 	/**
 	 * Constructor.
@@ -41,6 +46,7 @@ public class MGrid {
 	public MGrid() {
 		m_tokens = new ArrayList<MTokenForest>();
 		m_shuffleStrategy = new CollectionsShuffleStrategy();
+		m_nextForestTokenStrategy = new MRandomNextForestTokenStrategy();
 		createTokenForest();
 	}
 
@@ -103,6 +109,23 @@ public class MGrid {
 			t = null;
 		}
 		return t;
+	}
+
+	/**
+	 * Get all forest tokens in face down state
+	 *
+	 * @return list of forest tokens in face down state
+	 */
+	public List<MTokenForest> getFACEDOWNTF() {
+		ArrayList<MTokenForest> FACEDOWNTokens = new ArrayList<>();
+		m_tokens.forEach(tf -> {
+			if (tf.getState().equals(FACEDOWN)) FACEDOWNTokens.add(tf);
+		});
+		return FACEDOWNTokens;
+	}
+
+	public int getNextForestTokenId() {
+		return m_nextForestTokenStrategy.getNextForestTokenId(getFACEDOWNTF());
 	}
 
 	/*public int chooseRandomTokenForest() {

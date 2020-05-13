@@ -68,6 +68,7 @@ public class UTokenForest extends JButton implements PropertyChangeListener {
                 setState((TokenState) evt.getNewValue());
                 if (state.equals(TokenState.FACEUP)) {
                     this.setText(this.tokenValue);
+                    this.setEnabled(false);
                 } else {
                     this.setText("");
                     this.setEnabled(true);
