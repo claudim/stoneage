@@ -62,8 +62,6 @@ public class MBuildingSiteSquare extends MSquare {
         }
         MStoneAgeGame.getInstance().getGameState().hutForestCheckDone();
         mPlayer.buildHut(playerBuildableMHutTokens);
-
-
     }
 
 

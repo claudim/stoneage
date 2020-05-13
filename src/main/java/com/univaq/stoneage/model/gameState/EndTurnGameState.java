@@ -29,7 +29,8 @@ public class EndTurnGameState implements IGameState {
 
     @Override
     public void winner() {
-
+        //facciomogli fare quello che deve fare e poi cambiamo lo stato
+        this.gameState.changeState(new EndGameState(this.gameState));
     }
 
     @Override

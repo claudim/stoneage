@@ -12,7 +12,7 @@ import java.beans.PropertyChangeEvent;
 public class MRegularSquare extends MSquare {
     @Override
     public void doAction(MPlayer mPlayer) {
-        MStoneAgeGame.getInstance().nextPlayerTurn();
+        MStoneAgeGame.getInstance().getGameState().nextTurn();
     }
 
     @Override

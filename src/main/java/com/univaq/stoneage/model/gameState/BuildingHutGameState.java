@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
+import com.univaq.stoneage.model.MStoneAgeGame;
+
 public class BuildingHutGameState implements IGameState {
     private final GameState gameState;
 
@@ -36,5 +38,7 @@ public class BuildingHutGameState implements IGameState {
     public void hutBuilt() {
         System.out.println("hutBuilt   onBuildingHut");
         this.gameState.changeState(new EndTurnGameState(this.gameState));
+        MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle();
+        MStoneAgeGame.getInstance().endTurnActions();
     }
 }

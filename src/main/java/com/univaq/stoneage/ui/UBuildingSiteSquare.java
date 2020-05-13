@@ -88,6 +88,7 @@ public class UBuildingSiteSquare extends USquare {
             // request for a hut token  richiedi un nuovo hut token
             MHutToken nextHutTokenToBuild = MStoneAgeGame.getInstance().getHutToken();
             if (nextHutTokenToBuild != null) {
+                nextHutTokenToBuild.addPropertyChangeListener(this); // add observer
                 // insert the got hut token  inserisci l'hut token ottenuto
                 nextHutTokenToBuild.getM_resources().forEach((key, value) -> resourcesHutPanel.add(new JLabel(key.getM_type() + ": " + value)));
                 buttonHutTokenMapping.put(nextHutTokenToBuild.getIdHutToken(), buttonToReplace);
