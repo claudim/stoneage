@@ -26,8 +26,6 @@ public class StartTurnGameState implements IGameState {
     @Override
     public void winner() {
         System.out.println("winner   StartGameState");
-        //facciomogli fare quello che deve fare e poi cambiamo lo stato
-        this.gameState.changeState(new EndGameState(this.gameState));
     }
 
     @Override

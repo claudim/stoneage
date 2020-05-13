@@ -51,6 +51,8 @@ public abstract class MPlayer {
 	}
 
 	public boolean isM_winner() {
+		if (m_settlement.getM_builtHutTokens().size() == 3)
+			m_winner = true;
 		return m_winner;
 	}
 
@@ -62,14 +64,14 @@ public abstract class MPlayer {
 	 * @param MTokenForest
 	 * @param MBoard
 	 */
-	public void moveMarker(MTokenForest MTokenForest, MBoard MBoard) {
+	public MSquare moveMarker(MTokenForest MTokenForest, MBoard MBoard) {
 		MSquare currentSquare = m_marker.getCurrentSquare();
 		MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
 		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
 		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
 		m_marker.changeSquare(newSquare);
 		MStoneAgeGame.getInstance().getGameState().onNewSquare();
-		newSquare.doAction(this); // meglio spostarlo in onNewSquareState??
+		return newSquare;
 	}
 
 	public abstract void playTurn();
@@ -87,8 +89,8 @@ public abstract class MPlayer {
 			m_settlement.addHutToken(mHutToken);
 		}
 		MStoneAgeGame.getInstance().getGameState().hutBuilt();
-		MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle(); // meglio non qui??
-		MStoneAgeGame.getInstance().nextPlayerTurn();
+//		MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle(); // meglio non qui??
+//		MStoneAgeGame.getInstance().nextPlayerTurn();
 
 	}
 

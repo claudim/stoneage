@@ -49,23 +49,22 @@ public class MStoneAgeGame {
 
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
 		initializeStoneAgeGame(aMode, aNumPlayers, aMarkerName);
-		//gameLoop();
 	}
 
-	private void gameLoop() {
-//		if (!activePlayer.isM_winner()) {
-//			activePlayer = getNextPlayer();
-//			activePlayer.playTurn();
+//	private void gameLoop() {
+////		if (!activePlayer.isM_winner()) {
+////			activePlayer = getNextPlayer();
+////			activePlayer.playTurn();
+////		} else {
+////			//show victory
+////		}
+//
+//		if (activePlayer.isM_winner()) {
+//			gameState.winner();
 //		} else {
-//			//show victory
+//			activePlayer.playTurn();
 //		}
-
-		if (activePlayer.isM_winner()) {
-			gameState.winner();
-		} else {
-			activePlayer.playTurn();
-		}
-	}
+//	}
 
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
@@ -86,8 +85,7 @@ public class MStoneAgeGame {
 
 		// added with pattern state
 		gameState = new GameState();
-		gameLoop();
-		System.out.println("inizializzato il gioco");
+		activePlayer.playTurn();
 	}
 
 
@@ -102,11 +100,9 @@ public class MStoneAgeGame {
 	public void playTurn(int aIdToken) {
 		MTokenForest mTokenForest = this.m_grid.faceUpTokenForest(aIdToken);
 		if (mTokenForest != null) {
-			activePlayer.moveMarker(mTokenForest, m_board);
+			MSquare newSquare = activePlayer.moveMarker(mTokenForest, m_board);
+			newSquare.doAction(activePlayer);
 		}
-		System.out.println("playturn terminato");
-		//gameLoop();
-
 
 		//this.m_grid.getRandomTokenForest();
 
@@ -148,7 +144,6 @@ public class MStoneAgeGame {
 		}
 		return playersNames;
 	}
-
 
 	public ArrayList<MTokenForest> getAllTokenForest() {
 		return this.m_grid.getM_tokens();
@@ -206,8 +201,7 @@ public class MStoneAgeGame {
 	public void nextPlayerTurn() {
 		activePlayer = getNextPlayer();
 		gameState.nextTurn();
-		gameLoop();
-
+		activePlayer.playTurn();
 	}
 
 	public MHutToken getHutToken() {
@@ -216,5 +210,16 @@ public class MStoneAgeGame {
 			return mBuildingSiteSquare.getNextHutTokenToBuild();
 		}
 		return null;
+	}
+
+	public void endTurnActions() {
+		// checking for the victory
+		if (activePlayer.isM_winner()) {
+			gameState.winner();
+			// visualizza vittoria
+		} else {
+			// next player play his turn
+			nextPlayerTurn();
+		}
 	}
 }

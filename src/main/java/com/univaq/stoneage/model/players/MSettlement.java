@@ -48,6 +48,10 @@ public class MSettlement {
         this.m_name = m_name;
     }
 
+    public ArrayList<MHutToken> getM_builtHutTokens() {
+        return m_builtHutTokens;
+    }
+
     /**
      * Add the resource to the settlement and notify all the observer
      *

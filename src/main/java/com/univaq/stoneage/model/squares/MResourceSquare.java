@@ -62,7 +62,7 @@ public class MResourceSquare extends MSquare {
             settlement.addPropertyChangeListener("resource", this);
             settlement.addResource(resource);
             MStoneAgeGame.getInstance().getGameState().gotResource();
-            MStoneAgeGame.getInstance().nextPlayerTurn();
+//            MStoneAgeGame.getInstance().nextPlayerTurn();
         } else {
             //steal a resource
             System.out.println("devi rubarla");
