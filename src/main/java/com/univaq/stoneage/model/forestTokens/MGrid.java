@@ -89,7 +89,7 @@ public class MGrid {
 	 */
 	public MTokenForest searchTFbyId(int idToken) throws NoSuchElementException {
 		return m_tokens.stream()
-				.filter((t) -> t.getToken_id() == idToken)
+				.filter((t) -> t.getIdToken() == idToken)
 				.findFirst()
 				.orElseThrow(NoSuchElementException::new);
 	}
@@ -116,7 +116,7 @@ public class MGrid {
 	 *
 	 * @return list of forest tokens in face down state
 	 */
-	public List<MTokenForest> getFACEDOWNTF() {
+	public List<MTokenForest> getFACEDOWNTokenForest() {
 		ArrayList<MTokenForest> FACEDOWNTokens = new ArrayList<>();
 		m_tokens.forEach(tf -> {
 			if (tf.getState().equals(FACEDOWN)) FACEDOWNTokens.add(tf);
@@ -125,7 +125,7 @@ public class MGrid {
 	}
 
 	public int getNextForestTokenId() {
-		return m_nextForestTokenStrategy.getNextForestTokenId(getFACEDOWNTF());
+		return m_nextForestTokenStrategy.getNextForestTokenId(getFACEDOWNTokenForest());
 	}
 
 	/*public int chooseRandomTokenForest() {

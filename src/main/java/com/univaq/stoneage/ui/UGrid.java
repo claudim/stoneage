@@ -33,7 +33,7 @@ public class UGrid extends JPanel implements PropertyChangeListener {
         setGridLayoutBorder();
 
         for (MTokenForest tf : MStoneAgeGame.getInstance().getAllTokenForest()) {
-            UTokenForest buttonTF = new UTokenForest(tf.getValue().toString(), tf.getToken_id());
+            UTokenForest buttonTF = new UTokenForest(tf.getValue().toString(), tf.getIdToken());
             tf.addPropertyChangeListener(buttonTF); // add UtokenForest observer  to MtokenForest
             buttonTF.setContentAreaFilled(true);
             buttonTF.setOpaque(true);
@@ -64,11 +64,9 @@ public class UGrid extends JPanel implements PropertyChangeListener {
         }
     }
 
-
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("shuffleForestToken")) {
-
             ArrayList<MTokenForest> mTokenForests = (ArrayList<MTokenForest>) evt.getNewValue();
             updateGrid(mTokenForests);
         }
@@ -88,12 +86,11 @@ public class UGrid extends JPanel implements PropertyChangeListener {
         }
         gridPanel.revalidate();
         gridPanel.repaint();
-
     }
 
     private void sortToken(ArrayList<MTokenForest> mTokenForests, ArrayList<UTokenForest> uTokenForests) {
         for (int j = 0; j < mTokenForests.size(); j++) {
-            int idToken = mTokenForests.get(j).getToken_id();
+            int idToken = mTokenForests.get(j).getIdToken();
             UTokenForest tempUTokenForest = null;
             for (int i = 0; tempUTokenForest == null && i < uTokenForests.size(); i++) {
                 UTokenForest uTokenForest = uTokenForests.get(i);
@@ -106,6 +103,4 @@ public class UGrid extends JPanel implements PropertyChangeListener {
             tempUTokenForest = null;
         }
     }
-
-
 }

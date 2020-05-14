@@ -1,5 +1,6 @@
-package com.univaq.stoneage.model;
+package com.univaq.stoneage.model.hutTokens;
 
+import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.utility.TokenState;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ public class MHutToken implements Serializable {
 
     @Id
     @Column(name = "id_token")
-    private int idHutToken;
+    private int idToken;
 
     @Column(name = "state")
     private TokenState m_state;
@@ -56,12 +57,12 @@ public class MHutToken implements Serializable {
         this.m_buildableByActivePlayer = m_buildableByActivePlayer;
     }
 
-    public int getIdHutToken() {
-        return idHutToken;
+    public int getIdToken() {
+        return idToken;
     }
 
-    public void setIdHutToken(int idHutToken) {
-        this.idHutToken = idHutToken;
+    public void setIdToken(int idHutToken) {
+        this.idToken = idHutToken;
     }
 
     public Map<MResource, Integer> getM_resources() {

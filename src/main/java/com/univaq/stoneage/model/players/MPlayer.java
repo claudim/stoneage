@@ -1,8 +1,8 @@
 package com.univaq.stoneage.model.players;
 
-import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MSquare;

@@ -1,7 +1,7 @@
 package com.univaq.stoneage.ui;
 
-import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.hutTokens.MHutToken;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,11 +57,11 @@ public class UBuildingSiteSquare extends USquare {
     public void setHutTokens(ArrayList<MHutToken> faceUpHutTokens) {
         faceUpHutTokens.forEach(this::subscribe);
         faceUpHutTokens.get(0).getM_resources().forEach((key, value) -> resourcesHut1Panel.add(new JLabel(key.getM_type() + ": " + value)));
-        buttonHutTokenMapping.put(faceUpHutTokens.get(0).getIdHutToken(), buildButton1);
+        buttonHutTokenMapping.put(faceUpHutTokens.get(0).getIdToken(), buildButton1);
         faceUpHutTokens.get(1).getM_resources().forEach((key, value) -> resourcesHut2Panel.add(new JLabel(key.getM_type() + ": " + value)));
-        buttonHutTokenMapping.put(faceUpHutTokens.get(1).getIdHutToken(), buildButton2);
+        buttonHutTokenMapping.put(faceUpHutTokens.get(1).getIdToken(), buildButton2);
         faceUpHutTokens.get(2).getM_resources().forEach((key, value) -> resourcesHut3Panel.add(new JLabel(key.getM_type() + ": " + value)));
-        buttonHutTokenMapping.put(faceUpHutTokens.get(2).getIdHutToken(), buildButton3);
+        buttonHutTokenMapping.put(faceUpHutTokens.get(2).getIdToken(), buildButton3);
     }
 
     public void subscribe(MHutToken hutToken) {
@@ -72,14 +72,14 @@ public class UBuildingSiteSquare extends USquare {
         if (evt.getPropertyName().equals("hutTokenBuildable")) {
             MHutToken mHutToken = (MHutToken) evt.getSource();
             //enable or disable the button
-            buttonHutTokenMapping.get(mHutToken.getIdHutToken()).setEnabled((((Boolean) evt.getNewValue()).booleanValue()));
+            buttonHutTokenMapping.get(mHutToken.getIdToken()).setEnabled((((Boolean) evt.getNewValue()).booleanValue()));
         }
 
         if (evt.getPropertyName().equals("hutTokenRemoved")) {
             MHutToken mHutTokenRemoved = (MHutToken) evt.getOldValue();
-            JButton buttonToReplace = buttonHutTokenMapping.get(mHutTokenRemoved.getIdHutToken());
+            JButton buttonToReplace = buttonHutTokenMapping.get(mHutTokenRemoved.getIdToken());
             // delete from buttonHutTokenMapping the token associated to the id  elimina nella mappa il token con quell'id
-            buttonHutTokenMapping.remove(mHutTokenRemoved.getIdHutToken());
+            buttonHutTokenMapping.remove(mHutTokenRemoved.getIdToken());
 
             //get the resource panel associated to the button to change
             JPanel resourcesHutPanel = (JPanel) buttonToReplace.getParent().getComponent(0);
@@ -91,8 +91,11 @@ public class UBuildingSiteSquare extends USquare {
                 nextHutTokenToBuild.addPropertyChangeListener(this); // add observer
                 // insert the got hut token  inserisci l'hut token ottenuto
                 nextHutTokenToBuild.getM_resources().forEach((key, value) -> resourcesHutPanel.add(new JLabel(key.getM_type() + ": " + value)));
-                buttonHutTokenMapping.put(nextHutTokenToBuild.getIdHutToken(), buttonToReplace);
+                buttonHutTokenMapping.put(nextHutTokenToBuild.getIdToken(), buttonToReplace);
             }
+            buildButton1.setEnabled(false);
+            buildButton2.setEnabled(false);
+            buildButton3.setEnabled(false);
         }
 
     }

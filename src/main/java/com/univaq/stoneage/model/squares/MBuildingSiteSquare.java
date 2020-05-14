@@ -2,8 +2,10 @@ package com.univaq.stoneage.model.squares;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
-import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.hutTokens.MHutToken;
+import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
+import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MRandomNextHutTokenStrategy;
 import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.nextId.MinNumberStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
@@ -95,7 +97,7 @@ public class MBuildingSiteSquare extends MSquare {
     public MHutToken removeHutToken(int idHutToken) {
         MHutToken hutTokenToRemove = null;
         for (MHutToken mHutToken : m_buildableHutTokens) {
-            if (mHutToken.getIdHutToken() == idHutToken) {
+            if (mHutToken.getIdToken() == idHutToken) {
                 hutTokenToRemove = mHutToken;
             }
         }
@@ -127,5 +129,11 @@ public class MBuildingSiteSquare extends MSquare {
         int nextId = nextIdStrategy.getNextId(0, buildableFaceDownHutTokens.size());
         buildableFaceDownHutTokens.get(nextId).setM_state(TokenState.FACEUP);
         return buildableFaceDownHutTokens.get(nextId);
+    }
+
+
+    public int getNextHutTokenId(ArrayList<MHutToken> playerBuildableHutTokens) {
+        MINextHutTokenStrategy nextHutIdStrategy = new MRandomNextHutTokenStrategy();
+        return nextHutIdStrategy.getNextHutTokenId(playerBuildableHutTokens);
     }
 }

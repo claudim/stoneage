@@ -5,6 +5,7 @@ import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameState.GameState;
+import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.MMarker;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MPlayerFactory;

@@ -53,7 +53,12 @@ public class MResourceSquare extends MSquare {
 
     @Override
     public void doAction(MPlayer mPlayer) {
-        MResource resource = m_resources.remove(0);
+        MResource resource;
+        try {
+            resource = m_resources.remove(0);
+        } catch (Exception e) {
+            resource = null;
+        }
         if (resource != null) {
             //todo la old size è calcolata hard coded
             notifyPropertyChange("resource", this.m_resources.size() + 1, this.m_resources.size());
@@ -65,6 +70,7 @@ public class MResourceSquare extends MSquare {
 //            MStoneAgeGame.getInstance().nextPlayerTurn();
         } else {
             //steal a resource
+            MStoneAgeGame.getInstance().getGameState().gotResource();
             System.out.println("devi rubarla");
         }
     }
