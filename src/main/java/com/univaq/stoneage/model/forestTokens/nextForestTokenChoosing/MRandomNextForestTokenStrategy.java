@@ -10,6 +10,6 @@ public class MRandomNextForestTokenStrategy implements MINextForestTokenStrategy
     @Override
     public int getNextForestTokenId(List<MTokenForest> tokens) {
         Random rand = new Random();
-        return tokens.get(rand.nextInt(tokens.size())).getToken_id();
+        return tokens.get(rand.nextInt(tokens.size())).getIdToken();
     }
 }

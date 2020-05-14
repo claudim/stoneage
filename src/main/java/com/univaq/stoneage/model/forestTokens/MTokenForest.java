@@ -23,7 +23,7 @@ public abstract class MTokenForest<T> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    protected int token_id;
+    protected int idToken;
     @Column(name = "state")
     protected TokenState m_state;
 
@@ -38,8 +38,8 @@ public abstract class MTokenForest<T> implements Serializable {
      *
      * @return int The forest token id
      */
-    public int getToken_id() {
-        return token_id;
+    public int getIdToken() {
+        return idToken;
     }
 
     /**
@@ -47,8 +47,8 @@ public abstract class MTokenForest<T> implements Serializable {
      *
      * @param token_id int The forest token id
      */
-    public void setToken_id(int token_id) {
-        this.token_id = token_id;
+    public void setIdToken(int token_id) {
+        this.idToken = token_id;
     }
 
     /**

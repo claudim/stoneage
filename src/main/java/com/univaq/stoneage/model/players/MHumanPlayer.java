@@ -1,6 +1,7 @@
 package com.univaq.stoneage.model.players;
 
-import com.univaq.stoneage.model.MHutToken;
+import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.hutTokens.MHutToken;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,8 @@ public class MHumanPlayer extends MPlayer {
 
     @Override
     public void buildHut(ArrayList<MHutToken> playerBuildableMHutTokens) {
-        //NO-OP
+        if (playerBuildableMHutTokens.size() == 0)
+            MStoneAgeGame.getInstance().getGameState().hutBuilt();
     }
 
 }
