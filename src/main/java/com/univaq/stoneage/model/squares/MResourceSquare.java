@@ -63,13 +63,12 @@ public class MResourceSquare extends MSquare {
             //todo la old size è calcolata hard coded
             notifyPropertyChange("resource", this.m_resources.size() + 1, this.m_resources.size());
             MSettlement settlement = mPlayer.getM_settlement();
-            //settlement.addPropertyChangeListener("removeResource", this);
             settlement.addPropertyChangeListener("resource", this);
             settlement.addResource(resource);
             MStoneAgeGame.getInstance().getGameState().gotResource();
-//            MStoneAgeGame.getInstance().nextPlayerTurn();
         } else {
             //steal a resource
+
             MStoneAgeGame.getInstance().getGameState().gotResource();
             System.out.println("devi rubarla");
         }
