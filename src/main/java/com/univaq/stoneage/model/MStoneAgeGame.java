@@ -103,19 +103,10 @@ public class MStoneAgeGame {
 		if (mTokenForest != null) {
 			MSquare newSquare = activePlayer.moveMarker(mTokenForest, m_board);
 			newSquare.doAction(activePlayer);
+		} else {
+			//andare ad end turn
 		}
-
-		//this.m_grid.getRandomTokenForest();
-
-
-		//currentPlayer.chooseRandomTokenForest();
-//		if (currentPlayer instanceof EmulatedPlayer) {
-//
-//			int idPosition = m_grid.chooseRandomTokenForest();
-//			this.playTurn(idPosition);
-//		}
 	}
-
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
 		m_players = new ArrayList<>();
