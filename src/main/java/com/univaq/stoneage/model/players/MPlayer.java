@@ -1,6 +1,5 @@
 package com.univaq.stoneage.model.players;
 
-import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.squares.MBoard;
@@ -70,7 +69,7 @@ public abstract class MPlayer {
 		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
 		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
 		m_marker.changeSquare(newSquare);
-		MStoneAgeGame.getInstance().getGameState().onNewSquare();
+		//MStoneAgeGame.getInstance().getGameState().onNewSquare();
 		return newSquare;
 	}
 
@@ -88,10 +87,6 @@ public abstract class MPlayer {
 		if (mHutToken != null) {
 			m_settlement.addHutToken(mHutToken);
 		}
-		MStoneAgeGame.getInstance().getGameState().hutBuilt();
-//		MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle(); // meglio non qui??
-//		MStoneAgeGame.getInstance().nextPlayerTurn();
-
 	}
 
 

@@ -1,6 +1,9 @@
 package com.univaq.stoneage.model.gameState;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.players.MPlayer;
+import com.univaq.stoneage.model.squares.ActionResult;
+import com.univaq.stoneage.model.squares.MSquare;
 
 public class OnNewSquareGameState implements IGameState {
 
@@ -13,22 +16,7 @@ public class OnNewSquareGameState implements IGameState {
     @Override
     public void nextTurn() {
         System.out.println("nextTurn OnNewSquareGameState");
-        this.gameState.changeState(new EndTurnGameState(this.gameState));
-        MStoneAgeGame.getInstance().endTurnActions();
 
-    }
-
-    @Override
-    public void gotResource() {
-        System.out.println("gotResource OnNewSquareGameState");
-        this.gameState.changeState(new EndTurnGameState(this.gameState));
-        MStoneAgeGame.getInstance().endTurnActions();
-    }
-
-    @Override
-    public void hutTokenCheckDone() {
-        System.out.println("hutTokenCheckDone OnNewSquareGameState");
-        this.gameState.changeState(new BuildingHutGameState(this.gameState));
     }
 
     @Override
@@ -37,12 +25,30 @@ public class OnNewSquareGameState implements IGameState {
     }
 
     @Override
-    public void onNewSquare() {
+    public void onNewSquare(int idForestToken) {
         System.out.println("onNewSquare OnNewSquareGameState");
     }
 
     @Override
-    public void hutBuilt() {
+    public void hutBuilt(int idHutToken) {
         System.out.println("hutBuilt  onNewSuqareGameState");
+    }
+
+    @Override
+    public void initialize() {
+
+    }
+
+    @Override
+    public void doSquareAction() {
+        MPlayer activePlayer = MStoneAgeGame.getInstance().getCurrentPlayer();
+        MSquare newSquare = activePlayer.getM_marker().getCurrentSquare();
+        ActionResult actionResult = newSquare.doAction(activePlayer);
+        IStateFactory stateFactory = new SimpleStateFactory();
+        gameState.changeState(stateFactory.createState(actionResult, gameState));
+    }
+
+    @Override
+    public void endAction() {
     }
 }

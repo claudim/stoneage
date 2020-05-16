@@ -1,7 +1,11 @@
 package com.univaq.stoneage.model.gameState;
 
-public class EndGameState implements IGameState {
-    public EndGameState(GameState gameState) {
+public class StealingResourceGameState implements IGameState {
+
+    private final GameState gameState;
+
+    public StealingResourceGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 
     @Override
@@ -22,7 +26,7 @@ public class EndGameState implements IGameState {
 
     @Override
     public void hutBuilt(int idHutToken) {
-        System.out.println("EndGameState");
+
     }
 
     @Override
@@ -32,7 +36,6 @@ public class EndGameState implements IGameState {
 
     @Override
     public void doSquareAction() {
-
     }
 
     @Override

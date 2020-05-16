@@ -2,7 +2,6 @@ package com.univaq.stoneage.model.squares;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
-import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MRandomNextHutTokenStrategy;
@@ -33,6 +32,9 @@ public class MBuildingSiteSquare extends MSquare {
     @Transient
     ArrayList<MHutToken> m_buildableHutTokens = new ArrayList<>();
 
+    @Transient
+    ArrayList<MHutToken> m_playerBuildableMHutTokens;
+
     public MBuildingSiteSquare() {
 //        super();
     }
@@ -42,8 +44,8 @@ public class MBuildingSiteSquare extends MSquare {
     }
 
     @Override
-    public void doAction(MPlayer mPlayer) {
-        ArrayList<MHutToken> playerBuildableMHutTokens = new ArrayList<>();
+    public ActionResult doAction(MPlayer mPlayer) {
+        m_playerBuildableMHutTokens = new ArrayList<>();
         //system checks if the player has enough resources to build an hut.
         for (MHutToken mHutToken : m_buildableHutTokens) {
             if (mHutToken.getM_state().equals(TokenState.FACEUP)) {
@@ -55,15 +57,14 @@ public class MBuildingSiteSquare extends MSquare {
                                 mHutToken.setM_buildableByActivePlayer(false);
                         }
                 );
-                if (mHutToken.isM_buildableByActivePlayer()) playerBuildableMHutTokens.add(mHutToken);
+                if (mHutToken.isM_buildableByActivePlayer()) m_playerBuildableMHutTokens.add(mHutToken);
 
                 //todo il reset è da fare quando termina il turno un giocatore.
                 //reset for the next active player
                 //mHutToken.setM_buildableByActivePlayer(false);
             }
         }
-        MStoneAgeGame.getInstance().getGameState().hutForestCheckDone();
-        mPlayer.buildHut(playerBuildableMHutTokens);
+        return ActionResult.HUT_TOKEN_CHECK_DONE;
     }
 
 
@@ -82,6 +83,7 @@ public class MBuildingSiteSquare extends MSquare {
         support = new PropertyChangeSupport(this); // to implement the oberver pattern
         IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MHutToken.class.getSimpleName());
         m_buildableHutTokens.addAll(dao.findAll());
+        m_playerBuildableMHutTokens = new ArrayList<>();
     }
 
     public ArrayList<MHutToken> getFaceUpHutTokens() {
@@ -135,5 +137,13 @@ public class MBuildingSiteSquare extends MSquare {
     public int getNextHutTokenId(ArrayList<MHutToken> playerBuildableHutTokens) {
         MINextHutTokenStrategy nextHutIdStrategy = new MRandomNextHutTokenStrategy();
         return nextHutIdStrategy.getNextHutTokenId(playerBuildableHutTokens);
+    }
+
+    public ArrayList<MHutToken> getM_playerBuildableMHutTokens() {
+        return m_playerBuildableMHutTokens;
+    }
+
+    public void setM_playerBuildableMHutTokens(ArrayList<MHutToken> m_playerBuildableMHutTokens) {
+        this.m_playerBuildableMHutTokens = m_playerBuildableMHutTokens;
     }
 }
