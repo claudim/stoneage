@@ -18,8 +18,7 @@ public class MHumanPlayer extends MPlayer {
 
     @Override
     public void buildHut(ArrayList<MHutToken> playerBuildableMHutTokens) {
-        if (playerBuildableMHutTokens.size() == 0)
-            MStoneAgeGame.getInstance().getGameState().hutBuilt();
+        MStoneAgeGame.getInstance().getGameState().setWaitingForEvent(true);
     }
 
 }

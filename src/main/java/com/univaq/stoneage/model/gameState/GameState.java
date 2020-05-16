@@ -5,10 +5,12 @@ package com.univaq.stoneage.model.gameState;
  */
 public class GameState {
     private IGameState gameState;
+    private boolean waitingForEvent;
 
     public GameState() {
-        // startTurnGameState is the default game state
-        this.gameState = new StartTurnGameState(this);
+        // startGameState is the default game state
+        this.gameState = new StartGameState(this);
+        waitingForEvent = false;
     }
 
     public GameState(IGameState gameState) {
@@ -23,7 +25,6 @@ public class GameState {
         this.gameState = gameState;
     }
 
-
     public void changeState(IGameState gameState) {
         this.gameState = gameState;
     }
@@ -36,23 +37,34 @@ public class GameState {
 
     }
 
-    public void gotResource() {
-        this.gameState.gotResource();
-    }
-
-    public void hutForestCheckDone() {
-        this.gameState.hutTokenCheckDone();
-    }
-
     public void winner() {
         this.gameState.winner();
     }
 
-    public void onNewSquare() {
-        this.gameState.onNewSquare();
+    public void playTurn(int idForestToken) {
+        this.gameState.onNewSquare(idForestToken);
+        while (!this.gameState.getClass().getSimpleName().equals(EndTurnGameState.class.getSimpleName()) && !waitingForEvent) {
+            this.gameState.doSquareAction();
+        }
+        this.gameState.endAction();
+
     }
 
-    public void hutBuilt() {
-        this.gameState.hutBuilt();
+    public void hutBuilt(int idHutToken) {
+        this.gameState.hutBuilt(idHutToken);
+        this.waitingForEvent = false;
+        this.gameState.endAction();
+    }
+
+    public void initialize() {
+        this.gameState.initialize();
+    }
+
+    public boolean isWaitingForEvent() {
+        return waitingForEvent;
+    }
+
+    public void setWaitingForEvent(boolean waitingForEvent) {
+        this.waitingForEvent = waitingForEvent;
     }
 }

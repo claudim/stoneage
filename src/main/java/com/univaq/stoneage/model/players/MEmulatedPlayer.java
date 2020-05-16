@@ -15,28 +15,18 @@ public class MEmulatedPlayer extends MPlayer {
 
     @Override
     public void playTurn() {
-
         int nextForestTokenId = MStoneAgeGame.getInstance().getM_grid().getNextForestTokenId();
         //wait 2 seconds before execute MStoneAgeGame.getInstance().playTurn(nextForestTokenId)
         final ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
         executor.schedule(() -> MStoneAgeGame.getInstance().playTurn(nextForestTokenId), 2, TimeUnit.SECONDS);
-
     }
 
     @Override
     public void buildHut(ArrayList<MHutToken> playerBuildableHutTokens) {
-        if (playerBuildableHutTokens.size() > 0) {
+        //has already been done the check if playerBuildableHutTokens.size is zero
             int idHutToken = MStoneAgeGame.getInstance().getM_board().getBuildingSiteSquare().getNextHutTokenId(playerBuildableHutTokens);
-            buildHut(idHutToken);
-        } else {
-            // non posso costruire nulla quindi termino il turno
-            MStoneAgeGame.getInstance().getGameState().hutBuilt();
-        }
+        MStoneAgeGame.getInstance().buildHut(idHutToken);
 
-//        if (playerBuildableHutTokens.size() > 0) {//todo non è detto che debba scegliere il primo inserire strategia ad esempio
-//            int idHutToken = playerBuildableHutTokens.get(0).getIdToken();
-//            this.buildHut(idHutToken);
-//        }
     }
 
 

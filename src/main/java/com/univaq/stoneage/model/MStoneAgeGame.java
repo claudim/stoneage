@@ -38,6 +38,7 @@ public class MStoneAgeGame {
 
 	private GameState gameState;
 
+
 	private MPlayer activePlayer;
 
 	public static MStoneAgeGame getInstance() {
@@ -50,26 +51,11 @@ public class MStoneAgeGame {
 
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
 		initializeStoneAgeGame(aMode, aNumPlayers, aMarkerName);
+		gameState.initialize();
 	}
 
-//	private void gameLoop() {
-////		if (!activePlayer.isM_winner()) {
-////			activePlayer = getNextPlayer();
-////			activePlayer.playTurn();
-////		} else {
-////			//show victory
-////		}
-//
-//		if (activePlayer.isM_winner()) {
-//			gameState.winner();
-//		} else {
-//			activePlayer.playTurn();
-//		}
-//	}
-
-
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
-
+		gameState = new GameState();
 		setNumPlayer(aNumPlayers);
 		// create a board
 		m_board = new MBoard();
@@ -83,14 +69,7 @@ public class MStoneAgeGame {
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
 		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players); // set the right strategy to identify the players order
 		activePlayer = getCurrentPlayer(); // set the first Player
-
-		// added with pattern state
-		gameState = new GameState();
-		activePlayer.playTurn();
 	}
-
-
-
 
 	/**
 	 * Play a single player turn.
@@ -99,13 +78,7 @@ public class MStoneAgeGame {
 	 * @param aIdToken
 	 */
 	public void playTurn(int aIdToken) {
-		MTokenForest mTokenForest = this.m_grid.faceUpTokenForest(aIdToken);
-		if (mTokenForest != null) {
-			MSquare newSquare = activePlayer.moveMarker(mTokenForest, m_board);
-			newSquare.doAction(activePlayer);
-		} else {
-			//andare ad end turn
-		}
+		gameState.playTurn(aIdToken);
 	}
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
@@ -163,7 +136,7 @@ public class MStoneAgeGame {
 	}
 
 	public void buildHut(int idHutToken) {
-		activePlayer.buildHut(idHutToken);
+		gameState.hutBuilt(idHutToken);
 	}
 
 	public int getNumPlayer() {
@@ -190,12 +163,6 @@ public class MStoneAgeGame {
 		return gameState;
 	}
 
-	public void nextPlayerTurn() {
-		activePlayer = getNextPlayer();
-		gameState.nextTurn();
-		activePlayer.playTurn();
-	}
-
 	public MHutToken getHutToken() {
 		MBuildingSiteSquare mBuildingSiteSquare = m_board.getBuildingSiteSquare();
 		if (mBuildingSiteSquare != null) {
@@ -204,14 +171,15 @@ public class MStoneAgeGame {
 		return null;
 	}
 
-	public void endTurnActions() {
-		// checking for the victory
-		if (activePlayer.isM_winner()) {
-			gameState.winner();
-			// visualizza vittoria
-		} else {
-			// next player play his turn
-			nextPlayerTurn();
-		}
+	public MPlayer getActivePlayer() {
+		return activePlayer;
+	}
+
+	public void setActivePlayer(MPlayer activePlayer) {
+		this.activePlayer = activePlayer;
+	}
+
+	public void setActivePlayer() {
+		this.activePlayer = getNextPlayer();
 	}
 }

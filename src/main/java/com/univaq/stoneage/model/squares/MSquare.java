@@ -66,7 +66,7 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
 		this.m_startSquare = m_startSquare;
 	}
 
-	public abstract void doAction(MPlayer mPlayer);
+	public abstract ActionResult doAction(MPlayer mPlayer);
 
 	public abstract String getSquareType();
 

@@ -5,13 +5,19 @@ public interface IGameState {
     // inserire un metodo per ogni comportamento da richiamare
     void nextTurn();
 
-    void gotResource();
-
-    void hutTokenCheckDone();
+//    void gotResource();
+//
+//    void hutTokenCheckDone();
 
     void winner();
 
-    void onNewSquare();
+    void onNewSquare(int idForestToken);
 
-    void hutBuilt();
+    void hutBuilt(int idHutToken);
+
+    void initialize();
+
+    void doSquareAction();
+
+    void endAction();
 }

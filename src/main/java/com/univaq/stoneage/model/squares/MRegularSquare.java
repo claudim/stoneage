@@ -1,18 +1,20 @@
 package com.univaq.stoneage.model.squares;
 
-import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.beans.PropertyChangeEvent;
 
+import static com.univaq.stoneage.model.squares.ActionResult.ACTION_DONE;
+
 @Entity
 @DiscriminatorValue(value = "regularsquare")
 public class MRegularSquare extends MSquare {
     @Override
-    public void doAction(MPlayer mPlayer) {
-        MStoneAgeGame.getInstance().getGameState().nextTurn();
+    public ActionResult doAction(MPlayer mPlayer) {
+        // MStoneAgeGame.getInstance().getGameState().nextTurn();
+        return ACTION_DONE;
     }
 
     @Override

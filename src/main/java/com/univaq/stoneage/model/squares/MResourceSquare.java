@@ -52,7 +52,7 @@ public class MResourceSquare extends MSquare {
     }
 
     @Override
-    public void doAction(MPlayer mPlayer) {
+    public ActionResult doAction(MPlayer mPlayer) {
         MResource resource;
         try {
             resource = m_resources.remove(0);
@@ -65,12 +65,14 @@ public class MResourceSquare extends MSquare {
             MSettlement settlement = mPlayer.getM_settlement();
             settlement.addPropertyChangeListener("resource", this);
             settlement.addResource(resource);
-            MStoneAgeGame.getInstance().getGameState().gotResource();
+            return ActionResult.GOT_RESOURCE;
+            //MStoneAgeGame.getInstance().getGameState().gotResource();
         } else {
             //steal a resource
 
-            MStoneAgeGame.getInstance().getGameState().gotResource();
+            // MStoneAgeGame.getInstance().getGameState().gotResource();
             System.out.println("devi rubarla");
+            return ActionResult.MISSING_RESOURCE;
         }
     }
 
