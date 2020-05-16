@@ -13,6 +13,7 @@ import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrateg
 import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
+import com.univaq.stoneage.model.squares.MResourceSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.utility.PlayerType;
 
@@ -213,5 +214,14 @@ public class MStoneAgeGame {
 			// next player play his turn
 			nextPlayerTurn();
 		}
+	}
+
+	//todo se ne deve occupare stone age game di rubare la risorsa?
+	public void stealResource(String playerName) {
+		String resourceType = ((MResourceSquare) getCurrentPlayer().getM_marker().getCurrentSquare()).getm_resourceType();
+		MPlayer player = m_players.stream().filter(p -> p.getMarkerName().equals(playerName)).findFirst().get();
+		MResource resource = player.getM_settlement().getM_resources().stream().filter(r -> r.getM_type().equals(resourceType)).findFirst().get();
+		player.getM_settlement().removeResource(resource);
+		getCurrentPlayer().getM_settlement().addResource(resource);
 	}
 }
