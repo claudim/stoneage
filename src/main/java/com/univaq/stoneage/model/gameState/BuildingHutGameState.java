@@ -58,4 +58,9 @@ public class BuildingHutGameState implements IGameState {
     public void endAction() {
 
     }
+
+    @Override
+    public void stealResource(String playerName) {
+
+    }
 }

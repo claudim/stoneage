@@ -20,4 +20,6 @@ public interface IGameState {
     void doSquareAction();
 
     void endAction();
+
+    void stealResource(String playerName);
 }

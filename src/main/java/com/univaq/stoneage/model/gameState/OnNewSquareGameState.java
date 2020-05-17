@@ -51,4 +51,9 @@ public class OnNewSquareGameState implements IGameState {
     @Override
     public void endAction() {
     }
+
+    @Override
+    public void stealResource(String playerName) {
+
+    }
 }

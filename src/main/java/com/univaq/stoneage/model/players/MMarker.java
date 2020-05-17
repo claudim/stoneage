@@ -22,7 +22,7 @@ public class MMarker implements Serializable {
 	private MSquare m_square;
 
     @Transient // ignore this property/field
-    private final PropertyChangeSupport support; // to implement the oberver pattern
+    private final PropertyChangeSupport support; // to implement the observer pattern
 
 	public MMarker() {
 		support = new PropertyChangeSupport(this);

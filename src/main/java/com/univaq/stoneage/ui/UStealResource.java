@@ -5,6 +5,14 @@ import com.univaq.stoneage.model.MStoneAgeGame;
 import javax.swing.*;
 
 public class UStealResource {
+    public JPanel getStealResourcePanel() {
+        return stealResourcePanel;
+    }
+
+    public void setStealResourcePanel(JPanel stealResourcePanel) {
+        this.stealResourcePanel = stealResourcePanel;
+    }
+
     private JPanel stealResourcePanel;
     private JLabel stealResourceLabel;
     private JPanel stealResourceButtonsPanel;
@@ -31,5 +39,6 @@ public class UStealResource {
     private void onClick(String playerName) {
         //ruba la risorsa al player indicato
         MStoneAgeGame.getInstance().stealResource(playerName);
+
     }
 }

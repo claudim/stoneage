@@ -59,4 +59,9 @@ public class EndTurnGameState implements IGameState {
             //nextPlayerTurn();
         }
     }
+
+    @Override
+    public void stealResource(String playerName) {
+
+    }
 }
