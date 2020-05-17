@@ -20,10 +20,12 @@ public class UStealResource {
 
     public void intiButtons() {
         MStoneAgeGame.getInstance().getM_players().forEach(mPlayer -> {
-            JButton button = new JButton(mPlayer.getMarkerName());
-            button.setActionCommand(button.getText());
-            button.addActionListener(e -> onClick(e.getActionCommand()));
-            stealResourceButtonsPanel.add(button);
+            if (!mPlayer.getMarkerName().equals(MStoneAgeGame.getInstance().getCurrentPlayer().getMarkerName())) {
+                JButton button = new JButton(mPlayer.getMarkerName());
+                button.setActionCommand(button.getText());
+                button.addActionListener(e -> onClick(e.getActionCommand()));
+                stealResourceButtonsPanel.add(button);
+            }
         });
 
     }
