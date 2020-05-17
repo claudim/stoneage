@@ -39,4 +39,9 @@ public class EndGameState implements IGameState {
     public void endAction() {
 
     }
+
+    @Override
+    public void stealResource(String playerName) {
+
+    }
 }

@@ -70,7 +70,7 @@ public class UTokenForest extends JButton implements PropertyChangeListener {
                     this.setText(this.tokenValue);
                     this.setEnabled(false);
                 } else {
-                    this.setText("");
+                    //this.setText("");
                     this.setEnabled(true);
                 }
             }
