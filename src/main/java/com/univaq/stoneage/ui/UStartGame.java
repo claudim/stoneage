@@ -17,6 +17,7 @@ public class UStartGame extends JPanel {
     private JButton tutorialButton;
     private JPanel content;
     private JPanel buttons;
+    private JLabel winnerLabel;
 
     public UStartGame() {
 
@@ -46,6 +47,10 @@ public class UStartGame extends JPanel {
                 onTutorial();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+    }
+
+    public void setWinnerName(String winnerName) {
+        winnerLabel.setText(winnerName + " ha vinto!");
     }
 
     private void onPlay() {
