@@ -59,7 +59,6 @@ public class UStartGame extends JPanel {
         UMainFrame.getInstance().setGamePage();
         MStoneAgeGame.getInstance().getGameState().addPropertyChangeListener(UMainFrame.getInstance());
         UMainFrame.getInstance().setVisible(true);
-        //UMainFrame.getInstance().getMainContainer().setVisible(true);
     }
 
     private void onTutorial() {

@@ -1,15 +1,19 @@
 package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.gameState.EndGameState;
 import com.univaq.stoneage.model.gameState.OnNewSquareGameState;
 import com.univaq.stoneage.model.gameState.WaitingForPreyGameState;
 import com.univaq.stoneage.model.gameState.WaitingForTokenForest;
 import com.univaq.stoneage.model.players.MHumanPlayer;
+import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class UMainFrame extends JFrame implements PropertyChangeListener {
@@ -17,6 +21,8 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
     //private JPanel mainContainer;
     private final JPanel mainContainer1;
     private final JLayeredPane mainContainer;
+    private static UMainFrame instance;
+    private UGameBoard uGameBoard;
 
     private UMainFrame() {
         super("Stone Age Game");
@@ -29,12 +35,7 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
         this.setState(Frame.ICONIFIED);
         //maximize window
         this.setState(Frame.NORMAL);
-
     }
-
-    private static UMainFrame instance;
-
-    private UGameBoard uGameBoard;
 
     public static UMainFrame getInstance() {
         if (instance == null) {
@@ -49,6 +50,12 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
 
     public void setStartPage() {
         this.replacePanel(new UStartGame().getContentPane());
+    }
+
+    public void setStartPage(String name) {
+        UStartGame uStartGame = new UStartGame();
+        uStartGame.setWinnerName(name);
+        this.replacePanel(new uStartGame.getContentPane());
     }
 
     public void setGamePage() {
@@ -109,6 +116,23 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
                 // disabilita i buttoni dei token
                 UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
 
+            }
+
+            if (evt.getNewValue().getClass().getSimpleName().equals(EndGameState.class.getSimpleName())) {
+                //mostra vittoria del vincitore
+                ArrayList<MPlayer> mPlayers = MStoneAgeGame.getInstance().getM_players();
+                AtomicReference<String> winnerName = new AtomicReference<>("");
+                mPlayers.forEach(mPlayer -> {
+                    if (mPlayer.isM_winner()) {
+                        winnerName.set(mPlayer.getMarkerName());
+                    }
+                });
+                this.setStartPage();
+
+                this.setVisible(true);
+
+                UWinner uWinner = new UWinner();
+                uWinner.setWinnerName(winnerName);
             }
         }
     }
