@@ -86,7 +86,7 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 //                }
 //            });
 //        }
-        if (evt.getPropertyName().equals("resource")) {
+        if (evt.getPropertyName().equals("resource") || evt.getPropertyName().equals("stealResource")) {
             if (evt.getNewValue() == null) {
                 switch (((MResource) evt.getOldValue()).getM_type()) {
                     case "pesce": {

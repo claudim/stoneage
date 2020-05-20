@@ -35,10 +35,7 @@ public class MStoneAgeGame {
 	private MPlayerFactory m_playerFactory;
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 	private int numPlayer;
-
 	private GameState gameState;
-
-
 	private MPlayer activePlayer;
 
 	public static MStoneAgeGame getInstance() {
@@ -79,6 +76,15 @@ public class MStoneAgeGame {
 	 */
 	public void playTurn(int aIdToken) {
 		gameState.playTurn(aIdToken);
+	}
+
+	public void buildHut(int idHutToken) {
+		gameState.hutBuilt(idHutToken);
+	}
+
+	//todo se ne deve occupare stone age game di rubare la risorsa?
+	public void stealResource(String playerName) {
+		gameState.stealResource(playerName);
 	}
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
@@ -135,10 +141,6 @@ public class MStoneAgeGame {
 		return m_nextPlayerStrategy;
 	}
 
-	public void buildHut(int idHutToken) {
-		gameState.hutBuilt(idHutToken);
-	}
-
 	public int getNumPlayer() {
 		return numPlayer;
 	}
@@ -183,8 +185,5 @@ public class MStoneAgeGame {
 		this.activePlayer = getNextPlayer();
 	}
 
-	//todo se ne deve occupare stone age game di rubare la risorsa?
-	public void stealResource(String playerName) {
-		gameState.stealResource(playerName);
-	}
+
 }

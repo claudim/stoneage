@@ -1,6 +1,10 @@
 package com.univaq.stoneage.ui;
 
-import com.univaq.stoneage.model.gameState.StealingResourceGameState;
+import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.gameState.OnNewSquareGameState;
+import com.univaq.stoneage.model.gameState.WaitingForPreyGameState;
+import com.univaq.stoneage.model.gameState.WaitingForTokenForest;
+import com.univaq.stoneage.model.players.MHumanPlayer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -88,11 +92,23 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("changeState")) {
-            if (evt.getNewValue().getClass().getSimpleName().equals(StealingResourceGameState.class.getSimpleName())) {
+            if (evt.getNewValue().getClass().getSimpleName().equals(WaitingForPreyGameState.class.getSimpleName())
+                    && MStoneAgeGame.getInstance().getCurrentPlayer().getClass().getSimpleName().equals(MHumanPlayer.class.getSimpleName())) {
                 UStealResource uStealResource = new UStealResource();
                 FrameDimension frameDimension = new FrameDimension().invoke();
                 uStealResource.getStealResourcePanel().setBounds(0, 0, frameDimension.getWidth(), frameDimension.getHeight());
                 mainContainer.add(uStealResource.getStealResourcePanel(), JLayeredPane.POPUP_LAYER);
+            }
+
+            if (evt.getNewValue().getClass().getSimpleName().equals(WaitingForTokenForest.class.getSimpleName())
+                    && MStoneAgeGame.getInstance().getCurrentPlayer().getClass().getSimpleName().equals(MHumanPlayer.class.getSimpleName())) {
+                // abilita i buttoni dei token coperti
+                UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
+            }
+            if (evt.getNewValue().getClass().getSimpleName().equals(OnNewSquareGameState.class.getSimpleName())) {
+                // disabilita i buttoni dei token
+                UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
+
             }
         }
     }

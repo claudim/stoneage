@@ -3,23 +3,26 @@ package com.univaq.stoneage.model.gameState;
 public interface IGameState {
 
     // inserire un metodo per ogni comportamento da richiamare
-    void nextTurn();
-
-//    void gotResource();
-//
-//    void hutTokenCheckDone();
-
-    void winner();
-
-    void onNewSquare(int idForestToken);
-
-    void hutBuilt(int idHutToken);
 
     void initialize();
 
+    void initState();
+
+    void waitForTokenForest();
+
+    void onNewSquare(int idForestToken);
+
     void doSquareAction();
+
+    void hutBuilt(int idHutToken);
+
+    void stealResource(String playerName);
 
     void endAction();
 
-    void stealResource(String playerName);
+    void nextTurn();
+
+    void winner();
+
+
 }

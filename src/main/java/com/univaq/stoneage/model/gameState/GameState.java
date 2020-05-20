@@ -8,13 +8,11 @@ import java.beans.PropertyChangeSupport;
  */
 public class GameState {
     private IGameState gameState;
-    private boolean waitingForEvent;
     private PropertyChangeSupport support; // to implement the observer pattern
 
     public GameState() {
         // startGameState is the default game state
         this.gameState = new StartGameState(this);
-        waitingForEvent = false;
         support = new PropertyChangeSupport(this);
     }
 
@@ -33,51 +31,54 @@ public class GameState {
     public void changeState(IGameState gameState) {
         notifyPropertyChangeListener("changeState", this.gameState, gameState);
         this.gameState = gameState;
-
     }
 
     // every method delegate IGameState to handle the method
+    public void initialize() {
+        this.gameState.initialize();
+        this.gameState.initState();
+    }
+
+    public void waitForTokenForest() {
+        this.gameState.waitForTokenForest();
+    }
+
+    public void playTurn(int idForestToken) {
+        this.gameState.onNewSquare(idForestToken);
+        this.gameState.doSquareAction();
+    }
+
     public void nextTurn() {
         //delegates to IGameState
         this.gameState.nextTurn();
-
+        this.gameState.initState();
     }
 
     public void winner() {
         this.gameState.winner();
     }
 
-    public void playTurn(int idForestToken) {
-        this.gameState.onNewSquare(idForestToken);
-        while (!this.gameState.getClass().getSimpleName().equals(EndTurnGameState.class.getSimpleName()) && !waitingForEvent) {
-            this.gameState.doSquareAction();
-        }
-        this.gameState.endAction();
-
+    public void initState() {
+        this.gameState.initState();
     }
+
+//    public void playTurn(int idForestToken) {
+//        this.gameState.onNewSquare(idForestToken);
+//        while (!this.gameState.getClass().getSimpleName().equals(EndTurnGameState.class.getSimpleName()) && !waitingForEvent) {
+//            this.gameState.doSquareAction();
+//        }
+//        this.gameState.endAction();
+//
+//    }
 
     public void hutBuilt(int idHutToken) {
         this.gameState.hutBuilt(idHutToken);
-        this.waitingForEvent = false;
-        this.gameState.endAction();
+        this.gameState.initState();
     }
 
     public void stealResource(String playerName) {
         this.gameState.stealResource(playerName);
-        this.waitingForEvent = false;
-        this.gameState.endAction();
-    }
-
-    public void initialize() {
-        this.gameState.initialize();
-    }
-
-    public boolean isWaitingForEvent() {
-        return waitingForEvent;
-    }
-
-    public void setWaitingForEvent(boolean waitingForEvent) {
-        this.waitingForEvent = waitingForEvent;
+        this.gameState.initState();
     }
 
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
@@ -91,6 +92,4 @@ public class GameState {
     public void notifyPropertyChangeListener(String propertyName, Object oldValue, Object newValue) {
         support.firePropertyChange(propertyName, oldValue, newValue);
     }
-
-
 }

@@ -55,7 +55,7 @@ public class UTokenForest extends JButton implements PropertyChangeListener {
     private void onClick() {
         UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
         MStoneAgeGame.getInstance().playTurn(this.idToken);
-        UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
+        //UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
     }
 
 

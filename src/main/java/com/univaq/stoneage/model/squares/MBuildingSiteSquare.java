@@ -2,6 +2,7 @@ package com.univaq.stoneage.model.squares;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MRandomNextHutTokenStrategy;
@@ -64,7 +65,12 @@ public class MBuildingSiteSquare extends MSquare {
                 //mHutToken.setM_buildableByActivePlayer(false);
             }
         }
-        return ActionResult.HUT_TOKEN_CHECK_DONE;
+        if (m_playerBuildableMHutTokens.size() == 0) {
+            MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle();
+            return ActionResult.ACTION_DONE;
+        } else {
+            return ActionResult.HUT_TOKEN_CHECK_DONE;
+        }
     }
 
 
@@ -146,4 +152,28 @@ public class MBuildingSiteSquare extends MSquare {
     public void setM_playerBuildableMHutTokens(ArrayList<MHutToken> m_playerBuildableMHutTokens) {
         this.m_playerBuildableMHutTokens = m_playerBuildableMHutTokens;
     }
+
+//    @Override
+//    public void doAction(MPlayer mPlayer) {
+//        m_playerBuildableMHutTokens = new ArrayList<>();
+//        //system checks if the player has enough resources to build an hut.
+//        for (MHutToken mHutToken : m_buildableHutTokens) {
+//            if (mHutToken.getM_state().equals(TokenState.FACEUP)) {
+//                mHutToken.setM_buildableByActivePlayer(true);
+//                mHutToken.getM_resources().entrySet().stream().forEach(
+//                        e -> {
+//                            Integer playerResNum = mPlayer.getM_settlement().resourceTypeCounter(e.getKey().getM_type());
+//                            if (playerResNum < e.getValue())
+//                                mHutToken.setM_buildableByActivePlayer(false);
+//                        }
+//                );
+//                if (mHutToken.isM_buildableByActivePlayer()) m_playerBuildableMHutTokens.add(mHutToken);
+//
+//                //todo il reset è da fare quando termina il turno un giocatore.
+//                //reset for the next active player
+//                //mHutToken.setM_buildableByActivePlayer(false);
+//            }
+//        }
+//        mPlayer.buildHut(m_playerBuildableMHutTokens);
+//    }
 }

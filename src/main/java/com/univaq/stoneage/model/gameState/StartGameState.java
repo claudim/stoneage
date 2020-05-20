@@ -28,6 +28,7 @@ public class StartGameState implements IGameState {
     @Override
     public void initialize() {
         this.gameState.changeState(new StartTurnGameState(this.gameState));
+       // this.gameState.initState();
     }
 
     @Override
@@ -42,6 +43,16 @@ public class StartGameState implements IGameState {
 
     @Override
     public void stealResource(String playerName) {
+
+    }
+
+    @Override
+    public void waitForTokenForest() {
+
+    }
+
+    @Override
+    public void initState() {
 
     }
 }

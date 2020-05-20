@@ -78,7 +78,6 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         this.initPlayers();
      }
 
-
     public JPanel getGameContentPane() {
         return this.gameContentPane;
     }
@@ -115,16 +114,12 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
                     break;
                 }
                 case 2: {
-//                    uPlayer.getPlayerPanel().setLayout(new BoxLayout(uPlayer.getPlayerPanel(), BoxLayout.PAGE_AXIS));
-//                    uPlayer.getPlayerPanel().add(uMarker.getMarkerPanel());
                     gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.WEST);
-                    //gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.AFTER_LAST_LINE);
                     i++;
                     break;
                 }
                 case 3:
                 {
-                    //gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.NORTH);
                     gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.NORTH);
                     i++;
                     break;

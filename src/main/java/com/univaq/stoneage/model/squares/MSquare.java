@@ -58,25 +58,26 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
 		this.m_nextSquare = m_nextSquare;
 	}
 
-	public boolean isM_startSquare() {
-		return m_startSquare;
-	}
+    public boolean isM_startSquare() {
+        return m_startSquare;
+    }
 
-	public void setM_startSquare(boolean m_startSquare) {
-		this.m_startSquare = m_startSquare;
-	}
+    public void setM_startSquare(boolean m_startSquare) {
+        this.m_startSquare = m_startSquare;
+    }
 
-	public abstract ActionResult doAction(MPlayer mPlayer);
+    public abstract ActionResult doAction(MPlayer mPlayer);
+    //public abstract void doAction(MPlayer mPlayer);
 
-	public abstract String getSquareType();
+    public abstract String getSquareType();
 
-	public void addPropertyChangeListener(PropertyChangeListener pcl) {
-		support.addPropertyChangeListener(pcl);
-	}
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+        support.addPropertyChangeListener(pcl);
+    }
 
-	public void removePropertyChangeListener(PropertyChangeListener pcl) {
-		support.removePropertyChangeListener(pcl);
-	}
+    public void removePropertyChangeListener(PropertyChangeListener pcl) {
+        support.removePropertyChangeListener(pcl);
+    }
 
 	public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
 		support.firePropertyChange(property, oldObject, newObject);

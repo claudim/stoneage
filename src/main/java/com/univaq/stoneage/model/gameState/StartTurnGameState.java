@@ -1,9 +1,6 @@
 package com.univaq.stoneage.model.gameState;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.forestTokens.MTokenForest;
-import com.univaq.stoneage.model.players.MPlayer;
-import com.univaq.stoneage.model.squares.MSquare;
 
 public class StartTurnGameState implements IGameState {
 
@@ -11,7 +8,7 @@ public class StartTurnGameState implements IGameState {
 
     public StartTurnGameState(GameState gameState) {
         this.gameState = gameState;
-        MStoneAgeGame.getInstance().getCurrentPlayer().playTurn();
+
     }
 
     @Override
@@ -27,19 +24,6 @@ public class StartTurnGameState implements IGameState {
     @Override
     public void onNewSquare(int idForestToken) {
         //System.out.println("onNewSquare   StartGameState");
-        MStoneAgeGame sag = MStoneAgeGame.getInstance();
-        MTokenForest mTokenForest = sag.getM_grid().faceUpTokenForest(idForestToken);
-        if (mTokenForest != null) {
-            MPlayer activePlayer = sag.getCurrentPlayer();
-            MSquare newSquare = activePlayer.moveMarker(mTokenForest, sag.getM_board());
-            this.gameState.changeState(new OnNewSquareGameState(this.gameState));
-        } else {
-            //andare ad end turn
-            this.gameState.changeState(new EndTurnGameState(this.gameState));
-            //sag.endTurnActions();
-        }
-
-        //this.gameState.changeState(new OnNewSquareGameState(this.gameState));
 
     }
 
@@ -66,5 +50,15 @@ public class StartTurnGameState implements IGameState {
     @Override
     public void stealResource(String playerName) {
 
+    }
+
+    @Override
+    public void waitForTokenForest() {
+        this.gameState.changeState(new WaitingForTokenForest(this.gameState));
+    }
+
+    @Override
+    public void initState() {
+        MStoneAgeGame.getInstance().getCurrentPlayer().playTurn();
     }
 }

@@ -1,14 +1,19 @@
 package com.univaq.stoneage.model.gameState;
 
-public class EndGameState implements IGameState {
-    public EndGameState(GameState gameState) {
+import com.univaq.stoneage.model.MStoneAgeGame;
+
+public class WaitingForHutTokenGameState implements IGameState {
+
+    private final GameState gameState;
+
+    public WaitingForHutTokenGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 
     @Override
     public void nextTurn() {
 
     }
-
 
     @Override
     public void winner() {
@@ -22,7 +27,9 @@ public class EndGameState implements IGameState {
 
     @Override
     public void hutBuilt(int idHutToken) {
-        System.out.println("EndGameState");
+        MStoneAgeGame.getInstance().getActivePlayer().buildHut(idHutToken);
+        MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle();
+        this.gameState.changeState(new EndTurnGameState(this.gameState));
     }
 
     @Override
@@ -52,6 +59,11 @@ public class EndGameState implements IGameState {
 
     @Override
     public void initState() {
+        this.builtHut();
+    }
 
+    public void builtHut() {
+        MStoneAgeGame.getInstance().getActivePlayer().buildHut();
     }
 }
+

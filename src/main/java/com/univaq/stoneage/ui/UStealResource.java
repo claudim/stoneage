@@ -40,6 +40,7 @@ public class UStealResource {
 
     private void onClick(String playerName) {
         UMainFrame.getInstance().getMainContainer().remove(this.getStealResourcePanel());
+        UMainFrame.getInstance().getRootPane().repaint();
         //ruba la risorsa al player indicato
         MStoneAgeGame.getInstance().stealResource(playerName);
 

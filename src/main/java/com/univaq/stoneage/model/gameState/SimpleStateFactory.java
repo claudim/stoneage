@@ -9,11 +9,11 @@ public class SimpleStateFactory implements IStateFactory {
         IGameState iGameState;
         switch (actionResult) {
             case HUT_TOKEN_CHECK_DONE: {
-                iGameState = new BuildingHutGameState(gameState);
+                iGameState = new WaitingForHutTokenGameState(gameState);
                 break;
             }
             case MISSING_RESOURCE: {
-                iGameState = new StealingResourceGameState(gameState);
+                iGameState = new WaitingForPreyGameState(gameState);
                 break;
             }
             case GOT_RESOURCE: {

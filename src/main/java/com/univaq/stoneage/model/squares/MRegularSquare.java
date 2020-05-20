@@ -11,9 +11,9 @@ import static com.univaq.stoneage.model.squares.ActionResult.ACTION_DONE;
 @Entity
 @DiscriminatorValue(value = "regularsquare")
 public class MRegularSquare extends MSquare {
+
     @Override
     public ActionResult doAction(MPlayer mPlayer) {
-        // MStoneAgeGame.getInstance().getGameState().nextTurn();
         return ACTION_DONE;
     }
 

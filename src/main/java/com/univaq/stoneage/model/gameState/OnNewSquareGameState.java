@@ -16,12 +16,10 @@ public class OnNewSquareGameState implements IGameState {
     @Override
     public void nextTurn() {
         System.out.println("nextTurn OnNewSquareGameState");
-
     }
 
     @Override
     public void winner() {
-
     }
 
     @Override
@@ -46,6 +44,7 @@ public class OnNewSquareGameState implements IGameState {
         ActionResult actionResult = newSquare.doAction(activePlayer);
         IStateFactory stateFactory = new SimpleStateFactory();
         gameState.changeState(stateFactory.createState(actionResult, gameState));
+        gameState.initState();
     }
 
     @Override
@@ -54,6 +53,16 @@ public class OnNewSquareGameState implements IGameState {
 
     @Override
     public void stealResource(String playerName) {
+
+    }
+
+    @Override
+    public void waitForTokenForest() {
+
+    }
+
+    @Override
+    public void initState() {
 
     }
 }

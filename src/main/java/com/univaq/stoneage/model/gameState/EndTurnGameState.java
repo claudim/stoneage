@@ -18,6 +18,7 @@ public class EndTurnGameState implements IGameState {
         //facciomogli fare quello che deve fare e poi cambiamo lo stato
         MStoneAgeGame.getInstance().setActivePlayer(); // activePlayer = getNextPlayer();
         this.gameState.changeState(new StartTurnGameState(this.gameState));
+       // MStoneAgeGame.getInstance().getCurrentPlayer().playTurn();
     }
 
     @Override
@@ -38,7 +39,6 @@ public class EndTurnGameState implements IGameState {
 
     @Override
     public void initialize() {
-
     }
 
     @Override
@@ -48,7 +48,6 @@ public class EndTurnGameState implements IGameState {
 
     @Override
     public void endAction() {
-        // MStoneAgeGame.getInstance().endTurnActions();
         // checking for the victory
         if (MStoneAgeGame.getInstance().getCurrentPlayer().isM_winner()) {
             gameState.winner();
@@ -56,12 +55,21 @@ public class EndTurnGameState implements IGameState {
         } else {
             // next player play his turn
             gameState.nextTurn();
-            //nextPlayerTurn();
         }
     }
 
     @Override
     public void stealResource(String playerName) {
 
+    }
+
+    @Override
+    public void waitForTokenForest() {
+
+    }
+
+    @Override
+    public void initState() {
+        this.endAction();
     }
 }

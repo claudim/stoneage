@@ -75,9 +75,17 @@ public class MSettlement {
         String type = resource.getM_type();
         int count = resourceTypeCounter(type);
         m_resources.remove(resource);
-//        notifyPropertyChangeListener(type, count, count - 1);
-        //notifyPropertyChangeListener("removeResource", resource, count - 1);
         notifyPropertyChangeListener("resource", resource, null);
+    }
+
+    /**
+     * Steal the resource from the settlement and notify all the observer
+     *
+     * @param resource The reource to remove
+     */
+    public void stealResource(MResource resource) {
+        m_resources.remove(resource);
+        notifyPropertyChangeListener("stealResource", resource, null);
     }
 
     public void addPropertyChangeListener(String propertyName, PropertyChangeListener pcl) {
@@ -87,7 +95,6 @@ public class MSettlement {
             if (propertyChangeListener.equals(pcl)) {
                 alreadyAdded = true;
             }
-
         }
         if (!alreadyAdded) support.addPropertyChangeListener(propertyName, pcl);
     }
