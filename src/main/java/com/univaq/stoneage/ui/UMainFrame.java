@@ -52,6 +52,12 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
         this.replacePanel(new UStartGame().getContentPane());
     }
 
+    public void setStartPage(String name) {
+        UStartGame uStartGame = new UStartGame();
+        uStartGame.setWinnerName(name);
+        this.replacePanel(new uStartGame.getContentPane());
+    }
+
     public void setGamePage() {
         this.uGameBoard = new UGameBoard();
         this.uGameBoard.initGameBoard();
@@ -121,11 +127,12 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
                         winnerName.set(mPlayer.getMarkerName());
                     }
                 });
+                this.setStartPage();
+
+                this.setVisible(true);
+
                 UWinner uWinner = new UWinner();
                 uWinner.setWinnerName(winnerName);
-                FrameDimension frameDimension = new FrameDimension().invoke();
-                uWinner.getWinnerPanel().setBounds(0, 0, frameDimension.getWidth(), frameDimension.getHeight());
-                mainContainer.add(uWinner.getWinnerPanel(), JLayeredPane.POPUP_LAYER);
             }
         }
     }
