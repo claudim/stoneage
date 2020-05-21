@@ -128,7 +128,6 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
                     }
                 });
                 this.setStartPage(winnerName.toString());
-
                 this.setVisible(true);
             }
         }

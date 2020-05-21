@@ -5,6 +5,8 @@ import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MSettlement;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MResourceSquare;
+import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.ISquareStateFactory;
+import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.SimpleSquareStateFactory;
 
 import java.util.ArrayList;
 
@@ -35,8 +37,10 @@ public class WithResourceState implements ISquareState {
         MSettlement settlement = player.getM_settlement();
         settlement.addPropertyChangeListener("resource", m_ResourceSquareState);
         settlement.addResource(resource);
-        if (resources.size() == 0)
-            m_ResourceSquareState.changeState(new StealResourceState(m_ResourceSquareState));
+        if (resources.size() == 0) {
+            ISquareStateFactory squareStateFactory = new SimpleSquareStateFactory();
+            m_ResourceSquareState.changeState(squareStateFactory.createState("Rossa", m_ResourceSquareState));
+        }
         return ActionResult.GOT_RESOURCE;
     }
 
