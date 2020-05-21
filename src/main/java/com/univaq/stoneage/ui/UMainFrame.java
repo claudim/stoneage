@@ -55,7 +55,7 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
     public void setStartPage(String name) {
         UStartGame uStartGame = new UStartGame();
         uStartGame.setWinnerName(name);
-        this.replacePanel(new uStartGame.getContentPane());
+        this.replacePanel(uStartGame.getContentPane());
     }
 
     public void setGamePage() {
@@ -127,12 +127,9 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
                         winnerName.set(mPlayer.getMarkerName());
                     }
                 });
-                this.setStartPage();
+                this.setStartPage(winnerName.toString());
 
                 this.setVisible(true);
-
-                UWinner uWinner = new UWinner();
-                uWinner.setWinnerName(winnerName);
             }
         }
     }
