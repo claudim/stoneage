@@ -19,8 +19,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class UMainFrame extends JFrame implements PropertyChangeListener {
 
     //private JPanel mainContainer;
-    private final JPanel mainContainer1;
-    private final JLayeredPane mainContainer;
+    private JPanel mainContainer1;
+    private JLayeredPane mainContainer;
     private static UMainFrame instance;
     private UGameBoard uGameBoard;
 
@@ -56,6 +56,14 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
         UStartGame uStartGame = new UStartGame();
         uStartGame.setWinnerName(name);
         this.replacePanel(uStartGame.getContentPane());
+    }
+
+    public void setMainContainer1(JPanel mainContainer1) {
+        this.mainContainer1 = mainContainer1;
+    }
+
+    public void setMainContainer(JLayeredPane mainContainer) {
+        this.mainContainer = mainContainer;
     }
 
     public void setGamePage() {
