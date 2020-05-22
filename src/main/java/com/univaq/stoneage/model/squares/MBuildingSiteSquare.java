@@ -19,6 +19,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -47,6 +48,8 @@ public class MBuildingSiteSquare extends MSquare {
     @Override
     public ActionResult doAction(MPlayer mPlayer) {
         m_playerBuildableMHutTokens = new ArrayList<>();
+        AtomicInteger dogResourceNumber = new AtomicInteger(mPlayer.getM_settlement().resourceTypeCounter("cane"));
+
         //system checks if the player has enough resources to build an hut.
         for (MHutToken mHutToken : m_buildableHutTokens) {
             if (mHutToken.getM_state().equals(TokenState.FACEUP)) {
@@ -54,8 +57,13 @@ public class MBuildingSiteSquare extends MSquare {
                 mHutToken.getM_resources().entrySet().stream().forEach(
                         e -> {
                             Integer playerResNum = mPlayer.getM_settlement().resourceTypeCounter(e.getKey().getM_type());
-                            if (playerResNum < e.getValue())
-                                mHutToken.setM_buildableByActivePlayer(false);
+                            if (playerResNum < e.getValue()) {
+                                if ((playerResNum + dogResourceNumber.get()) < e.getValue())
+                                    mHutToken.setM_buildableByActivePlayer(false);
+                                else {
+                                    dogResourceNumber.set(dogResourceNumber.get() - (e.getValue() - playerResNum));
+                                }
+                            }
                         }
                 );
                 if (mHutToken.isM_buildableByActivePlayer()) m_playerBuildableMHutTokens.add(mHutToken);

@@ -116,27 +116,63 @@ public class MSettlement {
     }
 
 
-    public void addHutToken(MHutToken mHutToken) {
-        m_builtHutTokens.add(mHutToken);
-        notifyPropertyChangeListener("addedHut", m_builtHutTokens.size() - 1, m_builtHutTokens.size());
-        Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
-        hutTokenResources.forEach((key, value) -> {
-            int i = 0;
-            Iterator it = m_resources.iterator();
-            while (i < value && it.hasNext()) {
-                MResource res = (MResource) it.next();
-                if (res.getM_type().equals(key.getM_type())) {
-                    removeResource(res);
-                    i++;
-                }
-            }
-        });
-    }
+//    public void addHutToken(MHutToken mHutToken) {
+//        m_builtHutTokens.add(mHutToken);
+//        notifyPropertyChangeListener("addedHut", m_builtHutTokens.size() - 1, m_builtHutTokens.size());
+//        Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
+//        hutTokenResources.forEach((key, value) -> {
+//            int i = 0;
+//            Iterator it = m_resources.iterator();
+//            while (i < value && it.hasNext()) {
+//                MResource res = (MResource) it.next();
+//                if (res.getM_type().equals(key.getM_type())) {
+//                    removeResource(res);
+//                    i++;
+//                }
+//            }
+//        });
+//    }
 
     public int resourceTypeCounter(String type) {
         int x = (int) m_resources.stream().filter(mResource -> mResource.getM_type().equals(type)).count();
         System.out.println(type + ": " + x);
         return x;
+    }
+
+    public ArrayList<MResource> getAllResourcesOfType(String type) {
+        ArrayList<MResource> resourcesToReturn = new ArrayList<>();
+        for (MResource resource : m_resources) {
+            if (resource.getM_type().equals(type)) {
+                resourcesToReturn.add(resource);
+            }
+        }
+        return resourcesToReturn;
+    }
+
+    public void addHutToken(MHutToken mHutToken) {
+        m_builtHutTokens.add(mHutToken);
+        notifyPropertyChangeListener("addedHut", m_builtHutTokens.size() - 1, m_builtHutTokens.size());
+        Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
+        hutTokenResources.forEach((key, value) -> {
+            ArrayList<MResource> resources = getAllResourcesOfType(key.getM_type());
+            int i = 0;
+            Iterator it = resources.iterator();
+            while (i < value && it.hasNext()) {
+                MResource res = (MResource) it.next();
+                removeResource(res);
+                i++;
+            }
+            if (i != value) {
+                //there is not enought resource type, so it is necessary use the dog resource
+                ArrayList<MResource> dogResources = getAllResourcesOfType("cane");
+                Iterator dogIt = dogResources.iterator();
+                while (i < value && dogIt.hasNext()) {
+                    MResource res = (MResource) dogIt.next();
+                    removeResource(res);
+                    i++;
+                }
+            }
+        });
     }
 }
 
