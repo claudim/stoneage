@@ -153,7 +153,9 @@ public class MSettlement {
         m_builtHutTokens.add(mHutToken);
         notifyPropertyChangeListener("addedHut", m_builtHutTokens.size() - 1, m_builtHutTokens.size());
         Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
-        hutTokenResources.forEach((key, value) -> {
+        for (Map.Entry<MResource, Integer> entry : hutTokenResources.entrySet()) {
+            MResource key = entry.getKey();
+            Integer value = entry.getValue();
             ArrayList<MResource> resources = getAllResourcesOfType(key.getM_type());
             int i = 0;
             Iterator it = resources.iterator();
@@ -172,7 +174,7 @@ public class MSettlement {
                     i++;
                 }
             }
-        });
+        }
     }
 }
 

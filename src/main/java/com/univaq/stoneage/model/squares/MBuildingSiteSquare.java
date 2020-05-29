@@ -112,7 +112,8 @@ public class MBuildingSiteSquare extends MSquare {
 
     public MHutToken removeHutToken(int idHutToken) {
         MHutToken hutTokenToRemove = null;
-        for (MHutToken mHutToken : m_buildableHutTokens) {
+        for (int i = 0; i < m_buildableHutTokens.size(); i++) {
+            MHutToken mHutToken = m_buildableHutTokens.get(i);
             if (mHutToken.getIdToken() == idHutToken) {
                 hutTokenToRemove = mHutToken;
             }

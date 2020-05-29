@@ -3,7 +3,8 @@ package com.univaq.stoneage.model.squares;
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.resourceSquareState.ISquareState;
-import com.univaq.stoneage.model.squares.resourceSquareState.WithResourceState;
+import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.ISquareStateFactory;
+import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.SimpleSquareStateFactory;
 import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squareSetup.MISquareSetupStrategy;
 import com.univaq.stoneage.model.squares.squareSetup.MSetupResourceSquareStrategyFactory;
@@ -76,11 +77,13 @@ public class MResourceSquare extends MSquare {
     @PostLoad
     public void createResources() {
         super.support = new PropertyChangeSupport(this); // to implement the observer pattern
-        m_squareState = new WithResourceState(this);
 
         MISetupSquareStrategyFactory squareStrategyFactory = new MSetupResourceSquareStrategyFactory();
         MISquareSetupStrategy setupSquareStrategy = squareStrategyFactory.getSetupSquareStrategy(m_resourceType);
         setupSquareStrategy.setupSquare(this);
+
+        ISquareStateFactory squareStateFactory = new SimpleSquareStateFactory();
+        m_squareState = squareStateFactory.createState("Rossa", this);
     }
 
     public ISquareState getM_squareState() {

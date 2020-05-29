@@ -1,9 +1,9 @@
 package com.univaq.stoneage.model.players;
 
+import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
-import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MResourceSquare;
 import com.univaq.stoneage.model.squares.MSquare;
@@ -11,6 +11,7 @@ import com.univaq.stoneage.model.squares.findingSquare.MFindNewSquareStrategyFac
 import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 /**
  * The class Player is responsible for the marker creation and marker movement.
@@ -63,9 +64,8 @@ public abstract class MPlayer {
 
 	/**
 	 * @param MTokenForest
-	 * @param MBoard
 	 */
-	public MSquare moveMarker(MTokenForest MTokenForest, MBoard MBoard) {
+	public MSquare moveMarker(MTokenForest MTokenForest) {
 		MSquare currentSquare = m_marker.getCurrentSquare();
 		MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
 		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
@@ -96,14 +96,22 @@ public abstract class MPlayer {
 	public void stealResource(String playerName) {
 		String resourceType = ((MResourceSquare) m_marker.getCurrentSquare()).getm_resourceType();
 		ArrayList<MPlayer> m_players = MStoneAgeGame.getInstance().getM_players();
-		MPlayer player = m_players.stream().filter(p -> p.getMarkerName().equals(playerName)).findFirst().get();
+		Optional<MPlayer> found = Optional.empty();
+		for (MPlayer p : m_players) {
+			if (p.getMarkerName().equals(playerName)) {
+				found = Optional.of(p);
+				break;
+			}
+		}
+		MPlayer player = found.get();
 		// if there is a resource the player steals it, nothing otherwise
-		player.getM_settlement().getM_resources().stream().filter(r -> r.getM_type().equals(resourceType)).findFirst().ifPresent(
-				resource -> {
-					player.getM_settlement().stealResource(resource);
-					m_settlement.addResource(resource);
-					System.out.println(this.getMarkerName().concat(" ha rubato 1 ").concat(resourceType).concat(" a ").concat(playerName));
-				}
-		);
+		for (MResource r : player.getM_settlement().getM_resources()) {
+			if (r.getM_type().equals(resourceType)) {
+				player.getM_settlement().stealResource(r);
+				m_settlement.addResource(r);
+				System.out.println(this.getMarkerName().concat(" ha rubato 1 ").concat(resourceType).concat(" a ").concat(playerName));
+				break;
+			}
+		}
 	}
 }

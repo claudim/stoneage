@@ -3,6 +3,7 @@ package com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory
 import com.univaq.stoneage.model.squares.MResourceSquare;
 import com.univaq.stoneage.model.squares.resourceSquareState.ISquareState;
 import com.univaq.stoneage.model.squares.resourceSquareState.StealResourceState;
+import com.univaq.stoneage.model.squares.resourceSquareState.WithResourceState;
 
 public class SimpleSquareStateFactory implements ISquareStateFactory {
 
@@ -12,7 +13,11 @@ public class SimpleSquareStateFactory implements ISquareStateFactory {
         switch (type) {
             default: //Modalità rossa
             {
-                iSquareState = new StealResourceState(square);
+                if (square.getM_resources().size() == 0) {
+                    iSquareState = new StealResourceState(square);
+                } else {
+                    iSquareState = new WithResourceState(square);
+                }
                 break;
             }
 

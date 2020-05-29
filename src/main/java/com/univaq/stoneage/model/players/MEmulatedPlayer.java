@@ -4,6 +4,7 @@ import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.RobbedPlayer.MIRobbedPlayerStrategy;
 import com.univaq.stoneage.model.players.RobbedPlayer.MRandomRobberPlayerStrategy;
+import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 
 import java.util.ArrayList;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -26,10 +27,12 @@ public class MEmulatedPlayer extends MPlayer {
 
     @Override
     public void buildHut() {
-        ArrayList<MHutToken> playerBuildableHutTokens = MStoneAgeGame.getInstance().getM_board().getBuildingSiteSquare().getM_playerBuildableMHutTokens();
+        MStoneAgeGame stoneAgeGame = MStoneAgeGame.getInstance();
+        MBuildingSiteSquare bsSquare = stoneAgeGame.getM_board().getBuildingSiteSquare();
+        ArrayList<MHutToken> playerBuildableHutTokens = bsSquare.getM_playerBuildableMHutTokens();
         //has already been done the check if playerBuildableHutTokens.size is zero
-        int idHutToken = MStoneAgeGame.getInstance().getM_board().getBuildingSiteSquare().getNextHutTokenId(playerBuildableHutTokens);
-        MStoneAgeGame.getInstance().buildHut(idHutToken);
+        int idHutToken = bsSquare.getNextHutTokenId(playerBuildableHutTokens);
+        stoneAgeGame.buildHut(idHutToken);
 
     }
 
