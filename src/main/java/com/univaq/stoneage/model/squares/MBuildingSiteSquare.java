@@ -2,6 +2,7 @@ package com.univaq.stoneage.model.squares;
 
 import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
@@ -19,6 +20,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -54,18 +56,16 @@ public class MBuildingSiteSquare extends MSquare {
         for (MHutToken mHutToken : m_buildableHutTokens) {
             if (mHutToken.getM_state().equals(TokenState.FACEUP)) {
                 mHutToken.setM_buildableByActivePlayer(true);
-                mHutToken.getM_resources().entrySet().stream().forEach(
-                        e -> {
-                            Integer playerResNum = mPlayer.getM_settlement().resourceTypeCounter(e.getKey().getM_type());
-                            if (playerResNum < e.getValue()) {
-                                if ((playerResNum + dogResourceNumber.get()) < e.getValue())
-                                    mHutToken.setM_buildableByActivePlayer(false);
-                                else {
-                                    dogResourceNumber.set(dogResourceNumber.get() - (e.getValue() - playerResNum));
-                                }
-                            }
+                for (Map.Entry<MResource, Integer> e : mHutToken.getM_resources().entrySet()) {
+                    Integer playerResNum = mPlayer.getM_settlement().resourceTypeCounter(e.getKey().getM_type());
+                    if (playerResNum < e.getValue()) {
+                        if ((playerResNum + dogResourceNumber.get()) < e.getValue())
+                            mHutToken.setM_buildableByActivePlayer(false);
+                        else {
+                            dogResourceNumber.set(dogResourceNumber.get() - (e.getValue() - playerResNum));
                         }
-                );
+                    }
+                }
                 if (mHutToken.isM_buildableByActivePlayer()) m_playerBuildableMHutTokens.add(mHutToken);
 
                 //todo il reset è da fare quando termina il turno un giocatore.
