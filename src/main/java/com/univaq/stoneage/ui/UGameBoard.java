@@ -23,7 +23,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
 
     public void initGameBoard(){
 
-        MStoneAgeGame.getInstance().getM_nextPlayerStrategy().addPropertyChangeListener(this); // add uboard as a MMarker observer
+        MStoneAgeGame.getInstance().addPropertyChangeListener(this); // add uboard as a MMarker observer
         this.uGrid = new UGrid();
         uGrid.initGrid();
         MStoneAgeGame.getInstance().getM_grid().addPropertyChangeListener(uGrid);
@@ -85,7 +85,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
     public void initPlayers(){
         int i = 1;
         ArrayList<MPlayer> mPlayers = MStoneAgeGame.getInstance().getM_players();
-        MPlayer currentPlayer = MStoneAgeGame.getInstance().getCurrentPlayer();
+        MPlayer currentPlayer = MStoneAgeGame.getInstance().getActivePlayer();
         for (MPlayer p: mPlayers){
             UPlayer uPlayer = new UPlayer();
             uPlayer.setName(p.getMarkerName());
@@ -134,7 +134,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals("currentPlayer")) {
+        if (evt.getPropertyName().equals("activePlayer")) {
             UPlayer newCurrentPlayer = this.findUPlayerByName((String) evt.getNewValue()); // new current player's name
             UPlayer oldCurrentPlayer = this.findUPlayerByName((String) evt.getOldValue());// old current player's name
             if (newCurrentPlayer != null) newCurrentPlayer.setCurrentPlayer(true);

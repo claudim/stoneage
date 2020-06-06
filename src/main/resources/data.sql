@@ -4,7 +4,7 @@ VALUES ('Cantiere', true, 'buildingsitesquare');
 INSERT INTO square(square_name,  start_square, square_type,  resource_type)
 VALUES ('Cane', false, 'resourcesquare', 'cane');
 INSERT INTO square(square_name,  start_square, square_type)
-VALUES ('Sorpresa', false, 'regularsquare');
+VALUES ('Sorpresa', false, 'surprisesquare');
 INSERT INTO square(square_name,  start_square, square_type, resource_type)
 VALUES ('Prateria', false, 'resourcesquare', 'dente');
 INSERT INTO square(square_name,  start_square, square_type, resource_type)

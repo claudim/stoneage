@@ -28,7 +28,7 @@ public class UStealResource {
 
     public void intiButtons() {
         MStoneAgeGame.getInstance().getM_players().forEach(mPlayer -> {
-            if (!mPlayer.getMarkerName().equals(MStoneAgeGame.getInstance().getCurrentPlayer().getMarkerName())) {
+            if (!mPlayer.getMarkerName().equals(MStoneAgeGame.getInstance().getActivePlayer().getMarkerName())) {
                 JButton button = new JButton(mPlayer.getMarkerName());
                 button.setActionCommand(button.getText());
                 button.addActionListener(e -> onClick(e.getActionCommand()));

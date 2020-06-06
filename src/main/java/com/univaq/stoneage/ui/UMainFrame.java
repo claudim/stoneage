@@ -5,6 +5,7 @@ import com.univaq.stoneage.model.gameState.EndGameState;
 import com.univaq.stoneage.model.gameState.OnNewSquareGameState;
 import com.univaq.stoneage.model.gameState.WaitingForPreyGameState;
 import com.univaq.stoneage.model.gameState.WaitingForTokenForest;
+import com.univaq.stoneage.model.players.ExtraAbilityPlayerDecorator;
 import com.univaq.stoneage.model.players.MHumanPlayer;
 import com.univaq.stoneage.model.players.MPlayer;
 
@@ -108,17 +109,29 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("changeState")) {
             if (evt.getNewValue().getClass().getSimpleName().equals(WaitingForPreyGameState.class.getSimpleName())
-                    && MStoneAgeGame.getInstance().getCurrentPlayer().getClass().getSimpleName().equals(MHumanPlayer.class.getSimpleName())) {
+                    && MStoneAgeGame.getInstance().getActivePlayer().getClass().getSimpleName().equals(MHumanPlayer.class.getSimpleName())) {
                 UStealResource uStealResource = new UStealResource();
                 FrameDimension frameDimension = new FrameDimension().invoke();
                 uStealResource.getStealResourcePanel().setBounds(0, 0, frameDimension.getWidth(), frameDimension.getHeight());
                 mainContainer.add(uStealResource.getStealResourcePanel(), JLayeredPane.POPUP_LAYER);
             }
 
-            if (evt.getNewValue().getClass().getSimpleName().equals(WaitingForTokenForest.class.getSimpleName())
-                    && MStoneAgeGame.getInstance().getCurrentPlayer().getClass().getSimpleName().equals(MHumanPlayer.class.getSimpleName())) {
-                // abilita i buttoni dei token coperti
-                UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
+            if (evt.getNewValue().getClass().getSimpleName().equals(WaitingForTokenForest.class.getSimpleName())) {
+                if (MStoneAgeGame.getInstance().getActivePlayer().getClass().getSimpleName().equals(MHumanPlayer.class.getSimpleName())) {
+                    // abilita i buttoni dei token coperti
+                    UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
+                } else {
+                    try {
+                        ExtraAbilityPlayerDecorator activePlayer = (ExtraAbilityPlayerDecorator) MStoneAgeGame.getInstance().getActivePlayer();
+                        if (activePlayer.getPlayer().getClass().getSimpleName().equals(MHumanPlayer.class.getSimpleName())) {
+                            // abilita i buttoni dei token coperti
+                            UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
+                        }
+                    } catch (Exception e) {
+                        // vuol dire che è un emulato o un emulato con abilità quindi lascia tutto disabilitato
+                    }
+                }
+
             }
             if (evt.getNewValue().getClass().getSimpleName().equals(OnNewSquareGameState.class.getSimpleName())) {
                 // disabilita i buttoni dei token

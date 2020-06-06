@@ -135,7 +135,7 @@ public class MSettlement {
 
     public int resourceTypeCounter(String type) {
         int x = (int) m_resources.stream().filter(mResource -> mResource.getM_type().equals(type)).count();
-        System.out.println(type + ": " + x);
+        //System.out.println(type + ": " + x);
         return x;
     }
 

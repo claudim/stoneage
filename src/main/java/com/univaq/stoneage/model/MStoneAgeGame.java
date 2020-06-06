@@ -16,6 +16,8 @@ import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.utility.PlayerType;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -36,7 +38,8 @@ public class MStoneAgeGame {
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 	private int numPlayer;
 	private GameState gameState;
-	private MPlayer activePlayer;
+	//private MPlayer activePlayer;
+	protected PropertyChangeSupport support; // to implement the observer pattern
 
 	public static MStoneAgeGame getInstance() {
 
@@ -53,6 +56,7 @@ public class MStoneAgeGame {
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
 		gameState = new GameState();
+		this.support = new PropertyChangeSupport(this);
 		setNumPlayer(aNumPlayers);
 		// create a board
 		m_board = new MBoard();
@@ -64,8 +68,11 @@ public class MStoneAgeGame {
 		}
 		m_playerFactory = new MPlayerFactory();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
-		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players); // set the right strategy to identify the players order
-		activePlayer = getCurrentPlayer(); // set the first Player
+		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players.size()); // set the right strategy to identify the players order
+		m_players = m_nextPlayerStrategy.sortPlayers(m_players);
+		//activePlayer = m_players.get(m_nextPlayerStrategy.getIndexActivePlayer()); // set the first Player
+		// m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players); // set the right strategy to identify the players order
+		//activePlayer = getCurrentPlayer(); // set the first Player
 	}
 
 	/**
@@ -125,14 +132,6 @@ public class MStoneAgeGame {
 
 	}
 
-	public MPlayer getCurrentPlayer() {
-		return this.m_nextPlayerStrategy.getCurrentPlayer();
-	}
-
-	public MPlayer getNextPlayer() {
-		return this.m_nextPlayerStrategy.getNextPlayer();
-	}
-
 	public void setM_players(ArrayList<MPlayer> m_players) {
 		this.m_players = m_players;
 	}
@@ -174,16 +173,41 @@ public class MStoneAgeGame {
 	}
 
 	public MPlayer getActivePlayer() {
-		return activePlayer;
+		return m_players.get(m_nextPlayerStrategy.getIndexActivePlayer());
+		//return activePlayer;
 	}
 
-	public void setActivePlayer(MPlayer activePlayer) {
-		this.activePlayer = activePlayer;
+//	public void setActivePlayer(MPlayer activePlayer) {
+//		this.activePlayer = activePlayer;
+//	}
+
+	public void setNextPlayerAsActivePlayer() {
+		MPlayer activePlayer = m_players.get(m_nextPlayerStrategy.getIndexActivePlayer());
+		MPlayer nextPlayer = getNextPlayer();
+		notifyPropertyChange("activePlayer", activePlayer.getMarkerName(), nextPlayer.getMarkerName());
+		//activePlayer = nextPlayer;
+	}
+//
+//	private void setActivePlayer() {
+//		int indexActivePlayer = this.m_nextPlayerStrategy.getIndexActivePlayer();
+//		//	notifyPropertyChange();
+//		activePlayer = m_players.get(indexActivePlayer);
+//	}
+
+	private MPlayer getNextPlayer() {
+		int indexNextPlayer = this.m_nextPlayerStrategy.getIndexNextPlayer();
+		return m_players.get(indexNextPlayer);
 	}
 
-	public void setActivePlayer() {
-		this.activePlayer = getNextPlayer();
+	public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
 	}
 
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
 
+	public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
+		support.firePropertyChange(property, oldObject, newObject);
+	}
 }

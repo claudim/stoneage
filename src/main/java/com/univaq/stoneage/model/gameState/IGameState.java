@@ -24,5 +24,5 @@ public interface IGameState {
 
     void winner();
 
-
+    void takeAnotherTurn();
 }

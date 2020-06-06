@@ -95,6 +95,21 @@ public class MGrid {
 	}
 
 	/**
+	 * Find the token forest by its value
+	 *
+	 * @param value the value of the token forest.
+	 * @return the token forest with this value if present, null otherwise
+	 */
+	public MTokenForest searchTFbyValue(String value) throws NoSuchElementException {
+		for (MTokenForest tokenForest : m_tokens) {
+			if (tokenForest.getValue().toString().equals(value)) {
+				return tokenForest;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Face up the forest token by the idToken.
 	 *
 	 * @param idToken int the forest token id.

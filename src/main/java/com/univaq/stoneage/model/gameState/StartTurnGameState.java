@@ -1,6 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.players.MPlayer;
 
 public class StartTurnGameState implements IGameState {
 
@@ -13,23 +14,26 @@ public class StartTurnGameState implements IGameState {
 
     @Override
     public void nextTurn() {
-        System.out.println("nextTurn   StartTurnGameState");
+
     }
 
     @Override
     public void winner() {
-        System.out.println("winner   StartGameState");
+
+    }
+
+    @Override
+    public void takeAnotherTurn() {
     }
 
     @Override
     public void onNewSquare(int idForestToken) {
-        //System.out.println("onNewSquare   StartGameState");
 
     }
 
     @Override
     public void hutBuilt(int idHutToken) {
-        System.out.println("hutBuilt   StartGameState");
+
     }
 
     @Override
@@ -59,6 +63,8 @@ public class StartTurnGameState implements IGameState {
 
     @Override
     public void initState() {
-        MStoneAgeGame.getInstance().getCurrentPlayer().playTurn();
+        MPlayer activePlayer = MStoneAgeGame.getInstance().getActivePlayer();
+        activePlayer.executeOnStartTurnAbility();
+        activePlayer.playTurn();
     }
 }

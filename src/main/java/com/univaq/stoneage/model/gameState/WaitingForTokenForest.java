@@ -27,8 +27,8 @@ public class WaitingForTokenForest implements IGameState {
         MStoneAgeGame sag = MStoneAgeGame.getInstance();
         MTokenForest mTokenForest = sag.getM_grid().faceUpTokenForest(idForestToken);
         if (mTokenForest != null) {
-            MPlayer activePlayer = sag.getCurrentPlayer();
-            MSquare newSquare = activePlayer.moveMarker(mTokenForest, sag.getM_board());
+            MPlayer activePlayer = sag.getActivePlayer();
+            MSquare newSquare = activePlayer.moveMarker(mTokenForest);
             this.gameState.changeState(new OnNewSquareGameState(this.gameState));
         } else {
             this.gameState.changeState(new EndTurnGameState(this.gameState));
@@ -44,6 +44,11 @@ public class WaitingForTokenForest implements IGameState {
 
     @Override
     public void winner() {
+
+    }
+
+    @Override
+    public void takeAnotherTurn() {
 
     }
 

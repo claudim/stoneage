@@ -54,5 +54,25 @@ public class MEmulatedPlayer extends MPlayer {
         MStoneAgeGame.getInstance().stealResource(robbedPlayerName);
     }
 
+    @Override
+    public void executeAbility() {
+
+    }
+
+    @Override
+    public void executeOnSquareAbility() {
+
+    }
+
+    @Override
+    public void executeOnStartTurnAbility() {
+
+    }
+
+    @Override
+    public MPlayer getPlayer() {
+        return this;
+    }
+
 
 }

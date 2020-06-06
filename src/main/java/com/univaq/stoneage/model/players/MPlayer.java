@@ -3,6 +3,7 @@ package com.univaq.stoneage.model.players;
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MResourceSquare;
@@ -17,11 +18,11 @@ import java.util.Optional;
  * The class Player is responsible for the marker creation and marker movement.
  */
 public abstract class MPlayer {
-    private MMarker m_marker;
-    private MSettlement m_settlement;
-    private boolean m_winner;
+	protected MMarker m_marker;
+	protected MSettlement m_settlement;
+	private boolean m_winner;
 
-    public MPlayer() {
+	public MPlayer() {
 		this.m_winner = false;
 	}
 
@@ -71,6 +72,7 @@ public abstract class MPlayer {
 		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
 		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
 		m_marker.changeSquare(newSquare);
+		System.out.println(this.getMarkerName() + " è ora sulla casella " + newSquare.getM_name());
 		return newSquare;
 	}
 
@@ -88,6 +90,7 @@ public abstract class MPlayer {
 		MHutToken mHutToken = mBuildingSiteSquare.removeHutToken(idHutToken);
 		if (mHutToken != null) {
 			m_settlement.addHutToken(mHutToken);
+			System.out.println(this.getMarkerName() + " ha costruito 1 capanna");
 		}
 	}
 
@@ -114,4 +117,36 @@ public abstract class MPlayer {
 			}
 		}
 	}
+
+	public abstract void executeAbility();
+
+	public abstract void executeOnSquareAbility();
+
+	public abstract void executeOnStartTurnAbility();
+
+	public void executeOnEndTurnAbility() {
+		GameState gameState = MStoneAgeGame.getInstance().getGameState();
+		if (isM_winner()) {
+			System.out.println(this.getMarkerName() + " ha vinto la partita");
+			gameState.winner();
+			// visualizza vittoria
+		} else {
+			// next player play his turn
+			System.out.println(this.getMarkerName() + " ha terminato il suo turno");
+			gameState.nextTurn();
+		}
+	}
+
+//	public void addAbility(ExtraAbilityPlayerDecorator ability){
+//		// add a single ability for Simple Human and Emulated Player
+//		ExtraAbilityPlayerComposite extraAbilityPlayerComposite = new ExtraAbilityPlayerComposite(this);
+//		extraAbilityPlayerComposite.addAbility(ability);
+//		int indexActivePlayer = MStoneAgeGame.getInstance().getM_nextPlayerStrategy().getIndexActivePlayer();
+//		MStoneAgeGame.getInstance().getM_players().set(indexActivePlayer, extraAbilityPlayerComposite);
+//	}
+
+//	public void removeAbility(ExtraAbilityPlayerDecorator ability){
+//	}
+
+	public abstract MPlayer getPlayer();
 }

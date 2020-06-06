@@ -2,19 +2,16 @@ package com.univaq.stoneage.model.players.playerTurning;
 
 import com.univaq.stoneage.model.players.MPlayer;
 
-import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 
 /**
  * Define a common interface to manage the choice of the next player
  */
 public interface MINextPlayerStrategy {
-    MPlayer getCurrentPlayer();
+    int getIndexActivePlayer();
 
-    MPlayer getNextPlayer();
+    int getIndexNextPlayer();
 
-    void addPropertyChangeListener(PropertyChangeListener pcl);
+    ArrayList<MPlayer> sortPlayers(ArrayList<MPlayer> players);
 
-    void removePropertyChangeListener(PropertyChangeListener pcl);
-
-    void notifyPropertyChange(MPlayer currentPlayer);
 }

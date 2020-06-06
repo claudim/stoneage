@@ -12,35 +12,49 @@ import java.util.Comparator;
  */
 public class MHumanPlayersFirstStrategy extends MNextPlayerStrategy {
     private int indexOfCurrentPlayer;
+    private final int numberOfPlayer;
 
-    public MHumanPlayersFirstStrategy(ArrayList<MPlayer> a_players) {
-        super(a_players);
-        this.sort();
-        //this.setCurrentPlayer(a_players.size() - 1); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
-        this.setCurrentPlayer(a_players.size()); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
+//    public MHumanPlayersFirstStrategy(ArrayList<MPlayer> a_players) {
+//        super(a_players);
+//        this.sort();
+//        //this.setCurrentPlayer(a_players.size() - 1); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
+//        this.setCurrentPlayer(a_players.size()); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
+//    }
+
+    public MHumanPlayersFirstStrategy(int numberOfPlayer) {
+        this.numberOfPlayer = numberOfPlayer;
+        indexOfCurrentPlayer = 0;
+        //this.setCurrentPlayer(a_players.size()); // inizializzo all'ultimo player poichè con getNextPlayer ottengo il 1° giocatore
     }
 
-    private void setCurrentPlayer(int indexOfCurrentPlayer) {
-        this.indexOfCurrentPlayer = indexOfCurrentPlayer % (this.getSortedPlayer().size());
-        MPlayer newCurrentPlayer = this.getSortedPlayer().get(this.indexOfCurrentPlayer);
-        notifyPropertyChange(newCurrentPlayer);
-        this.currentPlayer = newCurrentPlayer;
+//    @Override
+//    public ArrayList<MPlayer> getSortedPlayer(ArrayList<MPlayer> players) {
+//        return null;
+//    }
+
+//    private void setCurrentPlayer(int indexOfCurrentPlayer) {
+//        this.indexOfCurrentPlayer = indexOfCurrentPlayer % (numberOfPlayer);
+//        MPlayer newCurrentPlayer = this.getSortedPlayer().get(this.indexOfCurrentPlayer);
+//        notifyPropertyChange(newCurrentPlayer);
+//        this.currentPlayer = newCurrentPlayer;
+//    }
+
+    @Override
+    public int getIndexActivePlayer() {
+        return this.indexOfCurrentPlayer;
     }
 
     @Override
-    public MPlayer getCurrentPlayer() {
-        return this.getSortedPlayer().get(this.indexOfCurrentPlayer);
+    public int getIndexNextPlayer() {
+        indexOfCurrentPlayer = (indexOfCurrentPlayer + 1) % (numberOfPlayer);
+        //this.setCurrentPlayer(this.indexOfCurrentPlayer + 1);
+        return indexOfCurrentPlayer;
     }
 
     @Override
-    public MPlayer getNextPlayer() {
-        this.setCurrentPlayer(this.indexOfCurrentPlayer + 1);
-        return this.getCurrentPlayer();
-    }
+    public ArrayList<MPlayer> sortPlayers(ArrayList<MPlayer> players) {
 
-    @Override
-    protected void sort() {
-        ArrayList<MPlayer> players = this.getSortedPlayer();
+        //ArrayList<MPlayer> players = this.getSortedPlayer();
         int j = 0;
         Collections.sort(players, new Comparator<MPlayer>() {
             @Override
@@ -48,7 +62,8 @@ public class MHumanPlayersFirstStrategy extends MNextPlayerStrategy {
                 return t1.getClass().getSimpleName().compareTo(mPlayer.getClass().getSimpleName());
             }
         });
-        this.setSortedPlayer(players);
+        return players;
+        // this.setSortedPlayer(players);
     }
 
 

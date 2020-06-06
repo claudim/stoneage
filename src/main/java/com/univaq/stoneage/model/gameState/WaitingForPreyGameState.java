@@ -31,6 +31,11 @@ public class WaitingForPreyGameState implements IGameState {
     public void winner() {
     }
 
+    @Override
+    public void takeAnotherTurn() {
+
+    }
+
 
     @Override
     public void hutBuilt(int idHutToken) {

@@ -21,9 +21,9 @@ class MPlayerTest {
             player.createMarker("Martin", startSquare);
             MTokenForest MTokenForest = new MSquareTokenForest("Cava");
             MTokenForest MTokenForest2 = new MDieFaceTokenForest(3);
-            player.moveMarker(MTokenForest, MBoard);
+            player.moveMarker(MTokenForest);
             assertEquals(player.getM_marker().getCurrentSquare().getM_name(), "Cava");
-            player.moveMarker(MTokenForest2, MBoard);
+            player.moveMarker(MTokenForest2);
             assertEquals(player.getM_marker().getCurrentSquare().getM_name(), "Mercato");
         }
     }

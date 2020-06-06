@@ -2,25 +2,27 @@ package com.univaq.stoneage.model.players;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 
-public class MHumanPlayer extends MPlayer {
-    public MHumanPlayer() {
-        super();
+public class SkipNextTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDecorator {
+
+    public SkipNextTurnAbilityPlayerDecorator(MPlayer player) {
+        super(player);
+        this.m_marker = player.getM_marker();
+        this.m_settlement = player.getM_settlement();
     }
 
     @Override
     public void playTurn() {
-        MStoneAgeGame.getInstance().getGameState().waitForTokenForest();
-        //NO-OP
+
     }
 
     @Override
     public void buildHut() {
-        //NO-OP
+
     }
 
     @Override
     public void stealResource() {
-        //NO-OP
+
     }
 
     @Override
@@ -35,12 +37,9 @@ public class MHumanPlayer extends MPlayer {
 
     @Override
     public void executeOnStartTurnAbility() {
+        removeAbility();
+        MStoneAgeGame.getInstance().getGameState().skipTurn();
+        System.out.println(player.getMarkerName() + " ha saltato il turno");
 
     }
-
-    @Override
-    public MPlayer getPlayer() {
-        return this;
-    }
-
 }

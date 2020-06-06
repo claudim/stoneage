@@ -39,9 +39,9 @@ class MHumanPlayersFirstStrategyTest {
         p = this.m_playerFactory.getPlayer(PlayerType.HumanPlayer);
         p.createMarker("Guff", m_startSquare);
         m_players.add(p);
-        this.m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players);
-        assertEquals(this.m_nextPlayerStrategy.getCurrentPlayer().getMarkerName(), "Martin");
-        assertEquals(this.m_nextPlayerStrategy.getNextPlayer().getMarkerName(), "Guff");
+        this.m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players.size());
+        assertEquals(m_players.get(this.m_nextPlayerStrategy.getIndexActivePlayer()).getMarkerName(), "Martin");
+        assertEquals(m_players.get(this.m_nextPlayerStrategy.getIndexNextPlayer()).getMarkerName(), "Guff");
 
         assertEquals(this.m_players.get(0).getMarkerName(), "Martin");
         assertEquals(this.m_players.get(1).getMarkerName(), "Guff");

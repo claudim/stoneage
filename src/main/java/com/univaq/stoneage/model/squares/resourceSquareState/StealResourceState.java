@@ -13,6 +13,7 @@ public class StealResourceState implements ISquareState {
 
     @Override
     public ActionResult doSquareAction(MPlayer player) {
+        System.out.println(player.getMarkerName() + " deve rubare una risorsa ");
         return ActionResult.MISSING_RESOURCE;
     }
 

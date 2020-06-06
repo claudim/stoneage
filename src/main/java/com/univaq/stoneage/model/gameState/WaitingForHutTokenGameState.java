@@ -21,6 +21,11 @@ public class WaitingForHutTokenGameState implements IGameState {
     }
 
     @Override
+    public void takeAnotherTurn() {
+
+    }
+
+    @Override
     public void onNewSquare(int idForestToken) {
 
     }

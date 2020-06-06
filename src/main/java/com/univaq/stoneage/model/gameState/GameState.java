@@ -81,6 +81,11 @@ public class GameState {
         this.gameState.initState();
     }
 
+    public void skipTurn() {
+        changeState(new EndTurnGameState(this));
+        this.gameState.initState();
+    }
+
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
     }
@@ -91,5 +96,10 @@ public class GameState {
 
     public void notifyPropertyChangeListener(String propertyName, Object oldValue, Object newValue) {
         support.firePropertyChange(propertyName, oldValue, newValue);
+    }
+
+    public void takeAnotherTurn() {
+        this.gameState.takeAnotherTurn();
+        this.gameState.initState();
     }
 }

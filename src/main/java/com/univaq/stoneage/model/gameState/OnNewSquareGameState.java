@@ -15,7 +15,6 @@ public class OnNewSquareGameState implements IGameState {
 
     @Override
     public void nextTurn() {
-        System.out.println("nextTurn OnNewSquareGameState");
     }
 
     @Override
@@ -23,13 +22,16 @@ public class OnNewSquareGameState implements IGameState {
     }
 
     @Override
+    public void takeAnotherTurn() {
+
+    }
+
+    @Override
     public void onNewSquare(int idForestToken) {
-        System.out.println("onNewSquare OnNewSquareGameState");
     }
 
     @Override
     public void hutBuilt(int idHutToken) {
-        System.out.println("hutBuilt  onNewSuqareGameState");
     }
 
     @Override
@@ -39,8 +41,9 @@ public class OnNewSquareGameState implements IGameState {
 
     @Override
     public void doSquareAction() {
-        MPlayer activePlayer = MStoneAgeGame.getInstance().getCurrentPlayer();
+        MPlayer activePlayer = MStoneAgeGame.getInstance().getActivePlayer();
         MSquare newSquare = activePlayer.getM_marker().getCurrentSquare();
+        activePlayer.executeOnSquareAbility(); // esegui l'abilità del player se ne ha una
         ActionResult actionResult = newSquare.doAction(activePlayer);
         IStateFactory stateFactory = new SimpleStateFactory();
         gameState.changeState(stateFactory.createState(actionResult, gameState));
