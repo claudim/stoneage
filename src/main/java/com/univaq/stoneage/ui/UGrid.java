@@ -79,7 +79,6 @@ public class UGrid extends JPanel implements PropertyChangeListener {
     }
 
     public void updateGrid(ArrayList<MTokenForest> mTokenForests) {
-        setGridLayoutBorder();
         sortToken(mTokenForests, uTokenForests);
         for (UTokenForest uTokenForest : this.uTokenForests) {
             gridPanel.add(uTokenForest);
@@ -96,7 +95,9 @@ public class UGrid extends JPanel implements PropertyChangeListener {
                 UTokenForest uTokenForest = uTokenForests.get(i);
                 if (uTokenForest.getIdToken() == idToken) {
                     tempUTokenForest = uTokenForests.get(j);
+                    uTokenForests.remove(j);
                     uTokenForests.add(j, uTokenForest);
+                    uTokenForests.remove(i);
                     uTokenForests.add(i, tempUTokenForest);
                 }
             }
