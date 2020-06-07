@@ -37,23 +37,17 @@ public class MSurpriseSquare extends MSquare {
     @Override
     public ActionResult doAction(MPlayer mPlayer) {
 
+        // scegli una sorpresa
         IGetNextIdStrategy getNextIdStrategy = new RandomStrategy(); // todo meglio una factory??
         int nextId = getNextIdStrategy.getNextId(Collections.singletonList(m_supriseTokens));
 
         ISurpriseTokenCommand supriseToken = m_supriseTokens.get(nextId);
 
-        try {
-            supriseToken.setReceiver(mPlayer);
-            // scegli una sorpresa
-            //TwoResourcesSupriseTokenCommand supriseToken = new TwoResourcesSupriseTokenCommand(mPlayer);
+
+        //TwoResourcesSupriseTokenCommand supriseToken = new TwoResourcesSupriseTokenCommand(mPlayer);
             // SkipTurnSurpriseTokenCommand supriseToken = new SkipTurnSurpriseTokenCommand(mPlayer);
             //GoToBuildingSiteSquareSurpriseTokenCommand supriseToken = new GoToBuildingSiteSquareSurpriseTokenCommand();
-            return supriseToken.execute();
-
-        } catch (Exception e) {
-            System.out.println("Errore set receiver in doAction MSurpriseSquare");
-        }
-        return ActionResult.ACTION_DONE;
+        return supriseToken.execute();
     }
 
     @Override

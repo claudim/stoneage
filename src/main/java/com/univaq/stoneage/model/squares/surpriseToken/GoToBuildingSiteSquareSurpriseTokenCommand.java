@@ -7,6 +7,8 @@ import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
 
+import java.util.ArrayList;
+
 public class GoToBuildingSiteSquareSurpriseTokenCommand implements ISurpriseTokenCommand {
     private final String squareName = "Cantiere";
     private MPlayer player;
@@ -16,14 +18,13 @@ public class GoToBuildingSiteSquareSurpriseTokenCommand implements ISurpriseToke
         this.player = player;
     }
 
-    @Override
-    public void setReceiver(Object receiver) {
-        player = (MPlayer) receiver;
-    }
 
     @Override
     public ActionResult execute() {
         // trovare l'id del cantiere
+        ArrayList<MPlayer> players = MStoneAgeGame.getInstance().getM_players();
+        int indexActivePlayer = MStoneAgeGame.getInstance().getM_nextPlayerStrategy().getIndexActivePlayer();
+        player = players.get(indexActivePlayer);
         MGrid grid = MStoneAgeGame.getInstance().getM_grid();
         MTokenForest tokenForest = grid.searchTFbyValue(squareName);
         //int idForestToken = tokenForest.getIdToken();
