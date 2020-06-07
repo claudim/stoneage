@@ -38,6 +38,7 @@ public class MStoneAgeGame {
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 	private int numPlayer;
 	private GameState gameState;
+	private IGameGoalStrategy m_gameGoalStrategy;
 	//private MPlayer activePlayer;
 	protected PropertyChangeSupport support; // to implement the observer pattern
 
@@ -68,6 +69,11 @@ public class MStoneAgeGame {
 		}
 		m_playerFactory = new MPlayerFactory();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
+
+
+		IGameGoalStrategyFactory gameGoalStrategyFactory = new GameGoalStrategyFactory();
+		m_gameGoalStrategy = gameGoalStrategyFactory.createGameGoalStrategy();
+
 		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players.size()); // set the right strategy to identify the players order
 		m_players = m_nextPlayerStrategy.sortPlayers(m_players);
 		//activePlayer = m_players.get(m_nextPlayerStrategy.getIndexActivePlayer()); // set the first Player
@@ -209,5 +215,13 @@ public class MStoneAgeGame {
 
 	public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
 		support.firePropertyChange(property, oldObject, newObject);
+	}
+
+	public IGameGoalStrategy getM_gameGoalStrategy() {
+		return m_gameGoalStrategy;
+	}
+
+	public void setM_gameGoalStrategy(IGameGoalStrategy m_gameGoalStrategy) {
+		this.m_gameGoalStrategy = m_gameGoalStrategy;
 	}
 }

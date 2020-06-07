@@ -51,15 +51,15 @@ public class EndTurnGameState implements IGameState {
 
     @Override
     public void endAction() {
-        // checking for the victory
-        MPlayer activePlayer = MStoneAgeGame.getInstance().getActivePlayer();
-        if (activePlayer.isM_winner()) {
-            gameState.winner();
-            // visualizza vittoria
-        } else {
-            // next player play his turn
-            gameState.nextTurn();
-        }
+//        // checking for the victory
+//        MPlayer activePlayer = MStoneAgeGame.getInstance().getActivePlayer();
+//        if (activePlayer.isM_winner()) {
+//            gameState.winner();
+//            // visualizza vittoria
+//        } else {
+//            // next player play his turn
+//            gameState.nextTurn();
+//        }
     }
 
     @Override

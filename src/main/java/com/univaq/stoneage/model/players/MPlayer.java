@@ -1,5 +1,6 @@
 package com.univaq.stoneage.model.players;
 
+import com.univaq.stoneage.model.IGameGoalStrategy;
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
@@ -54,9 +55,12 @@ public abstract class MPlayer {
 	}
 
 	public boolean isM_winner() {
-		if (m_settlement.getM_builtHutTokens().size() == 3)
-			m_winner = true;
-		return m_winner;
+
+//		if (m_settlement.getM_builtHutTokens().size() == 3)
+//			m_winner = true;
+		//return m_winner;
+		IGameGoalStrategy gameGoalStrategy = MStoneAgeGame.getInstance().getM_gameGoalStrategy();
+		return gameGoalStrategy.isWinner(this);
 	}
 
 	public void setM_winner(boolean m_winner) {
@@ -136,17 +140,6 @@ public abstract class MPlayer {
 			gameState.nextTurn();
 		}
 	}
-
-//	public void addAbility(ExtraAbilityPlayerDecorator ability){
-//		// add a single ability for Simple Human and Emulated Player
-//		ExtraAbilityPlayerComposite extraAbilityPlayerComposite = new ExtraAbilityPlayerComposite(this);
-//		extraAbilityPlayerComposite.addAbility(ability);
-//		int indexActivePlayer = MStoneAgeGame.getInstance().getM_nextPlayerStrategy().getIndexActivePlayer();
-//		MStoneAgeGame.getInstance().getM_players().set(indexActivePlayer, extraAbilityPlayerComposite);
-//	}
-
-//	public void removeAbility(ExtraAbilityPlayerDecorator ability){
-//	}
 
 	public abstract MPlayer getPlayer();
 }

@@ -25,7 +25,6 @@ public class SimpleStateFactory implements IStateFactory {
                 iGameState = new EndTurnGameState(gameState);
                 break;
             }
-
         }
         return iGameState;
     }
