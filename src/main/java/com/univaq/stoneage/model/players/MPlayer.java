@@ -142,4 +142,11 @@ public abstract class MPlayer {
 	}
 
 	public abstract MPlayer getPlayer();
+
+	public void createMarker(String aMarkerName) {
+		MMarker m = new MMarker();
+		m.setM_markerName(aMarkerName);
+		this.m_marker = m;
+
+	}
 }

@@ -18,6 +18,9 @@ public class UStartGame extends JPanel {
     private JPanel content;
     private JPanel buttons;
     private JLabel winnerLabel;
+    private JPanel optionsPanel;
+    private JComboBox playerComboBox;
+    private JComboBox modeComboBox;
 
     public UStartGame() {
 
@@ -55,7 +58,7 @@ public class UStartGame extends JPanel {
 
     private void onPlay() {
         playButton.setEnabled(false);
-        MStoneAgeGame.getInstance().playStoneAge("Rossa", 4, "Martin");
+        MStoneAgeGame.getInstance().playStoneAge(modeComboBox.getSelectedItem().toString(), 4, playerComboBox.getSelectedItem().toString());
         UMainFrame.getInstance().setGamePage();
         MStoneAgeGame.getInstance().getM_gameState().addPropertyChangeListener(UMainFrame.getInstance());
         UMainFrame.getInstance().setVisible(true);
