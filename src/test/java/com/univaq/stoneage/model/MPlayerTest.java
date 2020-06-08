@@ -14,7 +14,8 @@ class MPlayerTest {
 
     @Test
     void moveMarker() {
-        MBoard MBoard = new MBoard();
+        GameMode m_mode = new GameMode("Rossa");
+        MBoard MBoard = new MBoard(m_mode);
         MHumanPlayer player = new MHumanPlayer();
         MSquare startSquare = MBoard.getStartSquare();
         if (startSquare != null) {

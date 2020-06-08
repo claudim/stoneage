@@ -45,7 +45,7 @@ public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDec
     @Override
     public void executeOnEndTurnAbility() {
         removeAbility();
-        GameState gameState = MStoneAgeGame.getInstance().getGameState();
+        GameState gameState = MStoneAgeGame.getInstance().getM_gameState();
         if (isM_winner()) {
             gameState.winner();
             // visualizza vittoria

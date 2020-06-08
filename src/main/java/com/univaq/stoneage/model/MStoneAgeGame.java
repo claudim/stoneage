@@ -4,15 +4,12 @@ import com.univaq.stoneage.dao.IGenericDAO;
 import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
-import com.univaq.stoneage.model.gameGoal.GameGoalStrategyFactory;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
-import com.univaq.stoneage.model.gameGoal.IGameGoalStrategyFactory;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.MMarker;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MPlayerFactory;
-import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
 import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
@@ -40,8 +37,10 @@ public class MStoneAgeGame {
 	private MPlayerFactory m_playerFactory;
 	private MINextPlayerStrategy m_nextPlayerStrategy;
 	private int numPlayer;
-	private GameState gameState;
+	private GameState m_gameState;
 	private IGameGoalStrategy m_gameGoalStrategy;
+
+	private GameMode m_mode;
 	//private MPlayer activePlayer;
 	protected PropertyChangeSupport support; // to implement the observer pattern
 
@@ -55,33 +54,34 @@ public class MStoneAgeGame {
 
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
 		initializeStoneAgeGame(aMode, aNumPlayers, aMarkerName);
-		gameState.initialize();
+		m_gameState.initialize();
 	}
 
 	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
-		gameState = new GameState();
+		m_gameState = new GameState();
+		m_mode = new GameMode(aMode);
 		this.support = new PropertyChangeSupport(this);
 		setNumPlayer(aNumPlayers);
+
 		// create a board
-		m_board = new MBoard();
+		//m_board = new MBoard();
+		//m_grid = new MGrid();
+		m_board = new MBoard(m_mode);
 		// create a grid
-		m_grid = new MGrid();
+		m_grid = new MGrid(m_mode);
+
 		MSquare startSquare = m_board.getStartSquare();
-		if (startSquare == null) {
-			startSquare = m_board.getM_squares().get(0);
-		}
+
 		m_playerFactory = new MPlayerFactory();
 		createPlayers(aMarkerName, startSquare, aNumPlayers);
 
+		//IGameGoalStrategyFactory gameGoalStrategyFactory = new GameGoalStrategyFactory();
+		//m_gameGoalStrategy = gameGoalStrategyFactory.createGameGoalStrategy();
+		m_gameGoalStrategy = m_mode.getGameGoalStrategy();
 
-		IGameGoalStrategyFactory gameGoalStrategyFactory = new GameGoalStrategyFactory();
-		m_gameGoalStrategy = gameGoalStrategyFactory.createGameGoalStrategy();
-
-		m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players.size()); // set the right strategy to identify the players order
+		//m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players.size()); // set the right strategy to identify the players order
+		m_nextPlayerStrategy = m_mode.getNextPlayerStrategy(aNumPlayers);  // set the right strategy to identify the players order
 		m_players = m_nextPlayerStrategy.sortPlayers(m_players);
-		//activePlayer = m_players.get(m_nextPlayerStrategy.getIndexActivePlayer()); // set the first Player
-		// m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players); // set the right strategy to identify the players order
-		//activePlayer = getCurrentPlayer(); // set the first Player
 	}
 
 	/**
@@ -91,16 +91,16 @@ public class MStoneAgeGame {
 	 * @param aIdToken
 	 */
 	public void playTurn(int aIdToken) {
-		gameState.playTurn(aIdToken);
+		m_gameState.playTurn(aIdToken);
 	}
 
 	public void buildHut(int idHutToken) {
-		gameState.hutBuilt(idHutToken);
+		m_gameState.hutBuilt(idHutToken);
 	}
 
 	//todo se ne deve occupare stone age game di rubare la risorsa?
 	public void stealResource(String playerName) {
-		gameState.stealResource(playerName);
+		m_gameState.stealResource(playerName);
 	}
 
 	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
@@ -169,8 +169,8 @@ public class MStoneAgeGame {
 		return m_board;
 	}
 
-	public GameState getGameState() {
-		return gameState;
+	public GameState getM_gameState() {
+		return m_gameState;
 	}
 
 	public MHutToken getHutToken() {
@@ -183,25 +183,13 @@ public class MStoneAgeGame {
 
 	public MPlayer getActivePlayer() {
 		return m_players.get(m_nextPlayerStrategy.getIndexActivePlayer());
-		//return activePlayer;
 	}
-
-//	public void setActivePlayer(MPlayer activePlayer) {
-//		this.activePlayer = activePlayer;
-//	}
 
 	public void setNextPlayerAsActivePlayer() {
 		MPlayer activePlayer = m_players.get(m_nextPlayerStrategy.getIndexActivePlayer());
 		MPlayer nextPlayer = getNextPlayer();
 		notifyPropertyChange("activePlayer", activePlayer.getMarkerName(), nextPlayer.getMarkerName());
-		//activePlayer = nextPlayer;
 	}
-//
-//	private void setActivePlayer() {
-//		int indexActivePlayer = this.m_nextPlayerStrategy.getIndexActivePlayer();
-//		//	notifyPropertyChange();
-//		activePlayer = m_players.get(indexActivePlayer);
-//	}
 
 	private MPlayer getNextPlayer() {
 		int indexNextPlayer = this.m_nextPlayerStrategy.getIndexNextPlayer();

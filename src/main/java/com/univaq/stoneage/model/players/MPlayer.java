@@ -129,7 +129,7 @@ public abstract class MPlayer {
 	public abstract void executeOnStartTurnAbility();
 
 	public void executeOnEndTurnAbility() {
-		GameState gameState = MStoneAgeGame.getInstance().getGameState();
+		GameState gameState = MStoneAgeGame.getInstance().getM_gameState();
 		if (isM_winner()) {
 			System.out.println(this.getMarkerName() + " ha vinto la partita");
 			gameState.winner();

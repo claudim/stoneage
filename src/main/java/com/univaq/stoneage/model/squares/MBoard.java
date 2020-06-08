@@ -1,7 +1,7 @@
 package com.univaq.stoneage.model.squares;
 
-import com.univaq.stoneage.dao.IGenericDAO;
-import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.model.GameMode;
+import com.univaq.stoneage.model.ISquareFactory;
 
 import java.util.ArrayList;
 
@@ -18,10 +18,15 @@ public class MBoard {
 	/**
 	 * Constructor.
 	 * Create all squares and initialize the board fields.
+	 *
+	 * @param mode
 	 */
-	public MBoard() {
-		m_squares = new ArrayList<>();
-		this.createBoardSquares();
+	public MBoard(GameMode mode) {
+		//m_squares = new ArrayList<>();
+
+		ISquareFactory squareFactory = mode.getSquareFactory();
+		m_squares = squareFactory.createSquares();
+		//this.createBoardSquares();
 	}
 
 	/**
@@ -36,17 +41,17 @@ public class MBoard {
 	/**
 	 * Create the squares.
 	 */
-	private void createBoardSquares() {
-		this.createSquareFromDB();
-	}
+//	private void createBoardSquares() {
+//		this.createSquareFromDB();
+//	}
 
 	/**
 	 * Create the squares by accessing the DB.
 	 */
-	private void createSquareFromDB() {
-		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MSquare.class.getSimpleName());
-		m_squares.addAll(dao.findAll());
-	}
+//	private void createSquareFromDB() {
+//		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MSquare.class.getSimpleName());
+//		m_squares.addAll(dao.findAll());
+//	}
 
 	/**
 	 * Search and get a square by name if exists otherwise it returns null
@@ -73,7 +78,7 @@ public class MBoard {
 				return square;
 			}
 		}
-		return null;
+		return m_squares.get(0);
 	}
 
 	/**

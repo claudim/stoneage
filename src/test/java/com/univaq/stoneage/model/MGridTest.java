@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MGridTest {
-
-    private final MGrid g = new MGrid();
+    private final GameMode m_mode = new GameMode("Rossa");
+    private final MGrid g = new MGrid(m_mode);
 
     @Test
     void faceUpTokenForest() {

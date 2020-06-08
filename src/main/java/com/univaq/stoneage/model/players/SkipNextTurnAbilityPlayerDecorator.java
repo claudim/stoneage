@@ -38,7 +38,7 @@ public class SkipNextTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDecora
     @Override
     public void executeOnStartTurnAbility() {
         removeAbility();
-        MStoneAgeGame.getInstance().getGameState().skipTurn();
+        MStoneAgeGame.getInstance().getM_gameState().skipTurn();
         System.out.println(player.getMarkerName() + " ha saltato il turno");
 
     }

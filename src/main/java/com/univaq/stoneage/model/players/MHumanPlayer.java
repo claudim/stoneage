@@ -9,7 +9,7 @@ public class MHumanPlayer extends MPlayer {
 
     @Override
     public void playTurn() {
-        MStoneAgeGame.getInstance().getGameState().waitForTokenForest();
+        MStoneAgeGame.getInstance().getM_gameState().waitForTokenForest();
         //NO-OP
     }
 

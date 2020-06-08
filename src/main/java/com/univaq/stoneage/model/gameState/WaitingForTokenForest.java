@@ -28,9 +28,7 @@ public class WaitingForTokenForest implements IGameState {
         MTokenForest mTokenForest = sag.getM_grid().faceUpTokenForest(idForestToken);
         if (mTokenForest != null) {
             MPlayer activePlayer = sag.getActivePlayer();
-
             System.out.println(activePlayer.getMarkerName() + " ha scelto il token " + mTokenForest.getValue());
-
             MSquare newSquare = activePlayer.moveMarker(mTokenForest);
             this.gameState.changeState(new OnNewSquareGameState(this.gameState));
         } else {

@@ -1,10 +1,8 @@
 package com.univaq.stoneage.model.forestTokens;
 
-import com.univaq.stoneage.dao.IGenericDAO;
-import com.univaq.stoneage.dao.PersistenceServiceFactory;
+import com.univaq.stoneage.model.GameMode;
+import com.univaq.stoneage.model.ITokenForestFactory;
 import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MINextForestTokenStrategy;
-import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MRandomNextForestTokenStrategy;
-import com.univaq.stoneage.model.shuffle.CollectionsShuffleStrategy;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.utility.TokenState;
 
@@ -43,11 +41,17 @@ public class MGrid {
 	 * Constructor.
 	 * Create all forest tokens and initialize the grid fields.
 	 */
-	public MGrid() {
-		m_tokens = new ArrayList<MTokenForest>();
-		m_shuffleStrategy = new CollectionsShuffleStrategy();
-		m_nextForestTokenStrategy = new MRandomNextForestTokenStrategy();
-		createTokenForest();
+	public MGrid(GameMode mode) {
+		//m_tokens = new ArrayList<MTokenForest>()
+		// createTokenForest();
+		//m_shuffleStrategy = new CollectionsShuffleStrategy();
+		//m_nextForestTokenStrategy = new MRandomNextForestTokenStrategy();
+
+		ITokenForestFactory forestTokenFactory = mode.getForestTokenFactory();
+		m_tokens = forestTokenFactory.createForestTokens();
+		m_shuffleStrategy = mode.getShuffleStrategy();
+		m_nextForestTokenStrategy = mode.getNextForestTokenStrategy();
+
 	}
 
 	/**
@@ -74,11 +78,11 @@ public class MGrid {
 	/**
 	 * Create the forest token
 	 */
-	public void createTokenForest() {
-		//this.createTokenForestNaive();
-		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName());
-		m_tokens.addAll(dao.findAll());
-	}
+//	public void createTokenForest() {
+//		//this.createTokenForestNaive();
+//		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName());
+//		m_tokens.addAll(dao.findAll());
+//	}
 
 	/**
 	 * Find the token forest in the given id

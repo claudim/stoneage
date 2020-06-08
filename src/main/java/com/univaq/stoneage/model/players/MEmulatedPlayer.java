@@ -19,7 +19,7 @@ public class MEmulatedPlayer extends MPlayer {
     @Override
     public void playTurn() {
         int nextForestTokenId = MStoneAgeGame.getInstance().getM_grid().getNextForestTokenId();
-        MStoneAgeGame.getInstance().getGameState().waitForTokenForest();
+        MStoneAgeGame.getInstance().getM_gameState().waitForTokenForest();
         //wait 2 seconds before execute MStoneAgeGame.getInstance().playTurn(nextForestTokenId)
         final ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
         executor.schedule(() -> MStoneAgeGame.getInstance().playTurn(nextForestTokenId), 2, TimeUnit.SECONDS);
