@@ -1,7 +1,5 @@
 package com.univaq.stoneage.model;
 
-import com.univaq.stoneage.dao.IGenericDAO;
-import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameGoal.GameGoalStrategyFactory;
@@ -9,7 +7,6 @@ import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategyFactory;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
-import com.univaq.stoneage.model.players.MMarker;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MPlayerFactory;
 import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
@@ -17,12 +14,10 @@ import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MSquare;
-import com.univaq.stoneage.utility.PlayerType;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 // todo modificare classi concrete e funzioni
@@ -71,8 +66,9 @@ public class MStoneAgeGame {
 			startSquare = m_board.getM_squares().get(0);
 		}
 		m_playerFactory = new MPlayerFactory();
-		createPlayers(aMarkerName, startSquare, aNumPlayers);
-
+		m_playerFactory.createPlayers(aNumPlayers, aMarkerName);
+		m_playerFactory.setStartSquare(startSquare);
+		m_players = m_playerFactory.getPlayers();
 
 		IGameGoalStrategyFactory gameGoalStrategyFactory = new GameGoalStrategyFactory();
 		m_gameGoalStrategy = gameGoalStrategyFactory.createGameGoalStrategy();
@@ -101,35 +97,6 @@ public class MStoneAgeGame {
 	//todo se ne deve occupare stone age game di rubare la risorsa?
 	public void stealResource(String playerName) {
 		gameState.stealResource(playerName);
-	}
-
-	private void createPlayers(String aMarkerName, MSquare aStartSquare, int aNumPlayers) {
-		m_players = new ArrayList<>();
-		ArrayList<String> playersNames = this.getPlayersNamesFromDB();
-		MPlayer p = this.m_playerFactory.getPlayer(PlayerType.HumanPlayer);
-		p.createMarker(aMarkerName, aStartSquare);
-		p.createSettlement(aMarkerName);
-		m_players.add(p);
-		Iterator<String> it = playersNames.iterator();
-		for (int i = 0; i < aNumPlayers && it.hasNext(); i++) {
-			String markerName = it.next();
-			if (!markerName.equals(aMarkerName)) {
-				p = this.m_playerFactory.getPlayer(PlayerType.EmulatedPlayer);
-				p.createMarker(markerName, aStartSquare);
-				p.createSettlement(markerName);
-				m_players.add(p);
-			}
-		}
-	}
-
-	private ArrayList<String> getPlayersNamesFromDB() {
-		ArrayList<String> playersNames = new ArrayList<>();
-		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MMarker.class.getSimpleName());
-		ArrayList<MMarker> markers = dao.findAll();
-		for (MMarker marker : markers) {
-			playersNames.add(marker.getM_markerName());
-		}
-		return playersNames;
 	}
 
 	public ArrayList<MTokenForest> getAllTokenForest() {
