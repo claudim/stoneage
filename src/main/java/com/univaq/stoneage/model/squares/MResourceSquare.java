@@ -1,15 +1,17 @@
 package com.univaq.stoneage.model.squares;
 
+import com.univaq.stoneage.model.GameMode;
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.resourceSquareState.ISquareState;
 import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.ISquareStateFactory;
-import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.SimpleSquareStateFactory;
 import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squareSetup.MISquareSetupStrategy;
-import com.univaq.stoneage.model.squares.squareSetup.MSetupResourceSquareStrategyFactory;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -25,6 +27,9 @@ public class MResourceSquare extends MSquare {
     private ArrayList<MResource> m_resources;
     @Transient
     private ISquareState m_squareState;
+
+    @Transient
+    private ISquareStateFactory m_squareStateFactory;
 
     public MResourceSquare() {
         m_resources = new ArrayList<>();
@@ -73,18 +78,30 @@ public class MResourceSquare extends MSquare {
         }
     }
 
-    // after object creation from Hibernate this method is called
-    @PostLoad
-    public void createResources() {
+    @Override
+    public void setupSquare(GameMode mode) {
         super.support = new PropertyChangeSupport(this); // to implement the observer pattern
 
-        MISetupSquareStrategyFactory squareStrategyFactory = new MSetupResourceSquareStrategyFactory();
+        MISetupSquareStrategyFactory squareStrategyFactory = mode.getSetupSquareStrategyFactory();
         MISquareSetupStrategy setupSquareStrategy = squareStrategyFactory.getSetupSquareStrategy(m_resourceType);
         setupSquareStrategy.setupSquare(this);
 
-        ISquareStateFactory squareStateFactory = new SimpleSquareStateFactory();
-        m_squareState = squareStateFactory.createState("Rossa", this);
+        m_squareStateFactory = mode.getSquareStateFactory();
+        m_squareState = m_squareStateFactory.createState(this, null);
     }
+
+    // after object creation from Hibernate this method is called
+//    @PostLoad
+//    public void createResources() {
+//        super.support = new PropertyChangeSupport(this); // to implement the observer pattern
+//
+//        MISetupSquareStrategyFactory squareStrategyFactory = new MSetupResourceSquareStrategyFactory();
+//        MISquareSetupStrategy setupSquareStrategy = squareStrategyFactory.getSetupSquareStrategy(m_resourceType);
+//        setupSquareStrategy.setupSquare(this);
+//
+//        ISquareStateFactory squareStateFactory = new SimpleSquareStateFactory();
+//        m_squareState = squareStateFactory.createState("Rossa", this);
+//    }
 
     public ISquareState getM_squareState() {
         return m_squareState;
@@ -101,5 +118,13 @@ public class MResourceSquare extends MSquare {
     @Override
     public ActionResult doAction(MPlayer player) {
         return m_squareState.doSquareAction(player);
+    }
+
+    public ISquareStateFactory getM_squareStateFactory() {
+        return m_squareStateFactory;
+    }
+
+    public void setM_squareStateFactory(ISquareStateFactory m_squareStateFactory) {
+        this.m_squareStateFactory = m_squareStateFactory;
     }
 }

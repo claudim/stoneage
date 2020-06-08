@@ -25,7 +25,7 @@ public class MBoard {
 		//m_squares = new ArrayList<>();
 
 		ISquareFactory squareFactory = mode.getSquareFactory();
-		m_squares = squareFactory.createSquares();
+		m_squares = squareFactory.createSquares(mode);
 		//this.createBoardSquares();
 	}
 

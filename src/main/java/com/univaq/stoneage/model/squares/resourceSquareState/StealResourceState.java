@@ -22,6 +22,5 @@ public class StealResourceState implements ISquareState {
         if (m_ResourceSquareState.getM_resources().size() > 0) {
             m_ResourceSquareState.changeState(new WithResourceState(m_ResourceSquareState));
         }
-        //m_ResourceSquareState.changeState(new WithResourceState(m_ResourceSquareState));
     }
 }

@@ -1,5 +1,6 @@
 package com.univaq.stoneage.model.squares;
 
+import com.univaq.stoneage.model.GameMode;
 import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.nextId.RandomStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
@@ -7,7 +8,6 @@ import com.univaq.stoneage.model.squares.surpriseToken.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PostLoad;
 import javax.persistence.Transient;
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
@@ -21,8 +21,8 @@ public class MSurpriseSquare extends MSquare {
     private ArrayList<ISurpriseTokenCommand> m_supriseTokens;
 
     // after object creation from Hibernate this method is called
-    @PostLoad
-    public void setupSquare() {
+    //@PostLoad
+    public void setupSquare(GameMode mode) {
         // super.support = new PropertyChangeSupport(this); // to implement the observer pattern
 
         m_supriseTokens = new ArrayList<>();

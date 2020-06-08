@@ -2,8 +2,12 @@ package com.univaq.stoneage.model;
 
 import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MINextForestTokenStrategy;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
+import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
+import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
+import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.ISquareStateFactory;
+import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
 
 public class GameMode {
     private IModeState modeState;
@@ -50,5 +54,21 @@ public class GameMode {
 
     public MINextForestTokenStrategy getNextForestTokenStrategy() {
         return modeState.getNextForestTokenStrategy();
+    }
+
+    public MINextHutTokenStrategy getNextHutIdStrategy() {
+        return modeState.getNextHutIdStrategy();
+    }
+
+    public IGetNextIdStrategy getNextHutTokenIdToBuildStrategy() {
+        return modeState.getNextHutTokenIdToBuildStrategy();
+    }
+
+    public MISetupSquareStrategyFactory getSetupSquareStrategyFactory() {
+        return modeState.getSetupSquareStrategyFactory();
+    }
+
+    public ISquareStateFactory getSquareStateFactory() {
+        return modeState.getSquareStateFactory();
     }
 }

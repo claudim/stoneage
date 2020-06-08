@@ -8,11 +8,13 @@ import java.beans.PropertyChangeSupport;
  */
 public class GameState {
     private IGameState gameState;
+    private IStateFactory gameStateFactory;
     private PropertyChangeSupport support; // to implement the observer pattern
 
     public GameState() {
         // startGameState is the default game state
         this.gameState = new StartGameState(this);
+        this.gameStateFactory = new SimpleStateFactory();
         support = new PropertyChangeSupport(this);
     }
 
@@ -31,6 +33,14 @@ public class GameState {
     public void changeState(IGameState gameState) {
         notifyPropertyChangeListener("changeState", this.gameState, gameState);
         this.gameState = gameState;
+    }
+
+    public IStateFactory getGameStateFactory() {
+        return gameStateFactory;
+    }
+
+    public void setGameStateFactory(IStateFactory gameStateFactory) {
+        this.gameStateFactory = gameStateFactory;
     }
 
     // every method delegate IGameState to handle the method

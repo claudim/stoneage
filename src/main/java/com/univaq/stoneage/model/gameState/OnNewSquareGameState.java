@@ -8,7 +8,6 @@ import com.univaq.stoneage.model.squares.MSquare;
 public class OnNewSquareGameState implements IGameState {
 
     private final GameState gameState;
-
     public OnNewSquareGameState(GameState gameState) {
         this.gameState = gameState;
     }
@@ -45,8 +44,8 @@ public class OnNewSquareGameState implements IGameState {
         MSquare newSquare = activePlayer.getM_marker().getCurrentSquare();
         activePlayer.executeOnSquareAbility(); // esegui l'abilità del player se ne ha una
         ActionResult actionResult = newSquare.doAction(activePlayer);
-        IStateFactory stateFactory = new SimpleStateFactory();
-        gameState.changeState(stateFactory.createState(actionResult, gameState));
+        IStateFactory gameStateFactory = gameState.getGameStateFactory();
+        gameState.changeState(gameStateFactory.createState(actionResult, gameState));
         gameState.initState();
     }
 

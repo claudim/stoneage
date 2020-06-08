@@ -56,9 +56,6 @@ public abstract class MPlayer {
 
 	public boolean isM_winner() {
 
-//		if (m_settlement.getM_builtHutTokens().size() == 3)
-//			m_winner = true;
-		//return m_winner;
 		IGameGoalStrategy gameGoalStrategy = MStoneAgeGame.getInstance().getM_gameGoalStrategy();
 		return gameGoalStrategy.isWinner(this);
 	}

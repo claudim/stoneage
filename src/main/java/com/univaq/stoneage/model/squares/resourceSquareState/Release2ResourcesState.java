@@ -5,8 +5,6 @@ import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.MSettlement;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MResourceSquare;
-import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.ISquareStateFactory;
-import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.SimpleSquareStateFactory;
 
 import java.util.ArrayList;
 
@@ -32,8 +30,7 @@ public class Release2ResourcesState implements ISquareState {
 
         m_ResourceSquareState.notifyPropertyChange("resource", resources.size() + 2, resources.size());
 
-        ISquareStateFactory squareStateFactory = new SimpleSquareStateFactory();
-        m_ResourceSquareState.changeState(squareStateFactory.createState("Rossa", m_ResourceSquareState));
+        m_ResourceSquareState.changeState(m_ResourceSquareState.getM_squareStateFactory().createState(m_ResourceSquareState, null));
 
         return ActionResult.GOT_RESOURCE;
     }

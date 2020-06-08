@@ -5,5 +5,5 @@ import com.univaq.stoneage.model.squares.MSquare;
 import java.util.ArrayList;
 
 public interface ISquareFactory {
-    ArrayList<MSquare> createSquares();
+    ArrayList<MSquare> createSquares(GameMode mode);
 }

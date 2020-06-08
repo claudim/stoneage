@@ -1,5 +1,6 @@
 package com.univaq.stoneage.model.squares;
 
+import com.univaq.stoneage.model.GameMode;
 import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.*;
@@ -74,9 +75,9 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
         support.addPropertyChangeListener(pcl);
     }
 
-    public void removePropertyChangeListener(PropertyChangeListener pcl) {
-        support.removePropertyChangeListener(pcl);
-    }
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
 
 	public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
 		support.firePropertyChange(property, oldObject, newObject);
@@ -84,4 +85,6 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
 
 	@Override
 	public abstract void propertyChange(PropertyChangeEvent evt);
+
+	public abstract void setupSquare(GameMode mode);
 }

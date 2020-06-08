@@ -4,7 +4,6 @@ import com.univaq.stoneage.model.squares.MResourceSquare;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.resourceSquareState.ISquareState;
 import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.ISquareStateFactory;
-import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.SimpleSquareStateFactory;
 
 public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDecorator {
 
@@ -19,10 +18,9 @@ public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDeco
         MSquare currentSquare = player.getM_marker().getCurrentSquare();
         try {
             // cambio lo stato della square
-            ISquareStateFactory squareStateFactory = new SimpleSquareStateFactory();
-            ISquareState squareState = squareStateFactory.createState("Take2", (MResourceSquare) currentSquare);
+            ISquareStateFactory squareStateFactory = ((MResourceSquare) currentSquare).getM_squareStateFactory();
+            ISquareState squareState = squareStateFactory.createState((MResourceSquare) currentSquare, "Take2");
             ((MResourceSquare) currentSquare).changeState(squareState);
-
 
             //rimuovo l'abilità
             removeAbility();
