@@ -59,8 +59,6 @@ public class MStoneAgeGame {
 		setNumPlayer(aNumPlayers);
 
 		// create a board
-		//m_board = new MBoard();
-		//m_grid = new MGrid();
 		m_board = new MBoard(m_mode);
 		// create a grid
 		m_grid = new MGrid(m_mode);

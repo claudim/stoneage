@@ -20,16 +20,24 @@ import java.io.Serializable;
 @DiscriminatorColumn(name = "square_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class MSquare implements Serializable, PropertyChangeListener {
 	@Id
-	//@Column(name = "square_name", nullable = true, unique = true, length = 30)
-	@Column(name = "square_name", unique = true, length = 30)
+	@Column(name = "square_name", length = 30)
 	private String m_name;
 
 	@Column(name = "start_square")
 	private boolean m_startSquare;
 
 	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "next_square_name")
+	//@JoinColumn(name = "next_square_name")
+	@JoinColumns(
+			{
+					@JoinColumn(name = "next_square_name", referencedColumnName = "square_name"),
+					@JoinColumn(name = "next_square_mode", referencedColumnName = "mode")
+			})
 	private MSquare m_nextSquare;
+
+	@Id
+	@Column(name = "mode")
+	private String m_mode;
 
 	@Transient // ignore this property/field
 	protected PropertyChangeSupport support = new PropertyChangeSupport(this);

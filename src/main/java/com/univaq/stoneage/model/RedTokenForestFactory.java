@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class RedTokenForestFactory implements ITokenForestFactory {
 
     public ArrayList<MTokenForest> createForestTokens() {
-        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName());
+        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName(), "rossa");
         return dao.findAll();
     }
 }

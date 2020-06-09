@@ -13,13 +13,20 @@ import java.io.Serializable;
 @Table(name = "Marker")
 public class MMarker implements Serializable {
 
-	@Id
-	@Column(name = "marker_name", nullable = true, unique = true, length = 30)
-	private String m_markerName;
+    @Id
+    private int id;
 
-	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "square_name")
-	private MSquare m_square;
+    @Column(name = "marker_name", length = 30)
+    private String m_markerName;
+
+    @OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
+    //@JoinColumn(name = "square_name")
+    @JoinColumns(
+            {
+                    @JoinColumn(name = "square_name", referencedColumnName = "square_name"),
+                    @JoinColumn(name = "mode", referencedColumnName = "mode")
+            })
+    private MSquare m_square;
 
     @Transient // ignore this property/field
     private final PropertyChangeSupport support; // to implement the observer pattern

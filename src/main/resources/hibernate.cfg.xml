@@ -39,6 +39,5 @@
         <mapping class="com.univaq.stoneage.model.hutTokens.MHutToken"/>
         <mapping class="com.univaq.stoneage.model.MResource"/>
 
-
     </session-factory>
 </hibernate-configuration>

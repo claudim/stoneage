@@ -11,7 +11,6 @@ import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
  * MDieFaceTokenForest is a persistence entity, concrete subclass of MTokenForest<Integer>.
  */
 @Entity
-//@Table(name = "diefacetokenforest")
 @DiscriminatorValue("diefacetokenforest")
 public class MDieFaceTokenForest extends MTokenForest<Integer> {
     public MDieFaceTokenForest() {

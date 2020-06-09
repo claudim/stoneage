@@ -10,7 +10,7 @@ public class RedSquareFactory implements ISquareFactory {
 
     @Override
     public ArrayList<MSquare> createSquares(GameMode mode) {
-        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MSquare.class.getSimpleName());
+        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MSquare.class.getSimpleName(), "rossa");
         ArrayList<MSquare> squares = dao.findAll();
         for (MSquare square : squares) {
             square.setupSquare(mode);

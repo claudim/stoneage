@@ -27,6 +27,9 @@ public abstract class MTokenForest<T> implements Serializable {
     @Column(name = "state")
     protected TokenState m_state;
 
+    @Column(name = "mode")
+    private String m_mode;
+
     /**
      * Default constructor.
      */

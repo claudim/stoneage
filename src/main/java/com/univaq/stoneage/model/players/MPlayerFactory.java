@@ -40,7 +40,7 @@ public class MPlayerFactory implements IPlayerFactory {
 
     private ArrayList<String> getPlayersNamesFromDB() {
         ArrayList<String> playersNames = new ArrayList<>();
-        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MMarker.class.getSimpleName());
+        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MMarker.class.getSimpleName(), null);
         ArrayList<MMarker> markers = dao.findAll();
         for (MMarker marker : markers) {
             playersNames.add(marker.getM_markerName());

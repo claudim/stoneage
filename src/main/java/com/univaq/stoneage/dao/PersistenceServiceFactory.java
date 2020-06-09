@@ -28,7 +28,7 @@ public class PersistenceServiceFactory {
      * @param className String The simple name of the model class
      * @return The DAO class for a model class if exists, otherwise null
      */
-    public IGenericDAO<?> getDao(String className) {
+    public IGenericDAO<?> getDao(String className, String nameMode) {
         IGenericDAO<?> genericDAO;
         switch (className) {
             case "MMarker": {
@@ -37,10 +37,22 @@ public class PersistenceServiceFactory {
             }
             case "MSquare": {
                 genericDAO = new SquareDAO();
+                if (nameMode.equals("rossa")) {
+                    genericDAO = new RedSquareDAO();
+                }
+                if (nameMode.equals("verde")) {
+                    genericDAO = new GreenSquareDAO();
+                }
                 break;
             }
             case "MTokenForest": {
                 genericDAO = new TokenForestDAO();
+                if (nameMode.equals("rossa")) {
+                    genericDAO = new RedTokenForestDAO();
+                }
+                if (nameMode.equals("verde")) {
+                    genericDAO = new GreenTokenForestDAO();
+                }
                 break;
             }
             case "MResource": {
