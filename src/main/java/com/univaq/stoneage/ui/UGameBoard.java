@@ -31,43 +31,38 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         this.uBoard = new UBoard();
         this.uBoard.initSquares();
 
-        double i =  this.uBoard.getSquareNumber()/4.0;
-        int inf = (int)i;
-        int sup = inf+1;
+        double i = this.uBoard.getSquareNumber() / 4.0;
+        double mod = this.uBoard.getSquareNumber() % 4.0;
+        int squaresOnShortSide = (int) (((int) i) - 1 + (mod / 2));
+        int squaresOnLongSide = squaresOnShortSide + 2 - (int) mod / 2;
 
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout());
-        centerPanel.add(uGrid.getGridPanel(), BorderLayout.CENTER );
+        centerPanel.add(uGrid.getGridPanel(), BorderLayout.CENTER);
 
         JPanel westPanel = new JPanel();
-        westPanel.setLayout(new GridLayout(inf, 1));
+        westPanel.setLayout(new GridLayout(squaresOnShortSide, 1));
 
         JPanel northPanel = new JPanel();
-        northPanel.setLayout(new GridLayout(1, sup));
+        northPanel.setLayout(new GridLayout(1, squaresOnLongSide));
 
         JPanel eastPanel = new JPanel();
-        eastPanel.setLayout(new GridLayout(inf, 1));
+        eastPanel.setLayout(new GridLayout(squaresOnShortSide, 1));
 
         JPanel southPanel = new JPanel();
-        southPanel.setLayout(new GridLayout(1, sup));
+        southPanel.setLayout(new GridLayout(1, squaresOnLongSide));
 
         int num =  this.uBoard.getSquareNumber();
         for(int j = 0; j<num; j++)
         {
-            if (j<sup)
-            {
-                southPanel.add(this.uBoard.getBoardPanel().getComponent(0),0); // cantiere, cane, sorpresa
-            }
-            else if (j<(inf+sup))
-            {
-                westPanel.add(this.uBoard.getBoardPanel().getComponent(0),0); // prateria e foresta
-            }
-            else if(j<(2*sup+inf))
-            {
+            if (j < squaresOnLongSide) {
+                southPanel.add(this.uBoard.getBoardPanel().getComponent(0), 0);
+            } else if (j < (squaresOnShortSide + squaresOnLongSide)) {
+                westPanel.add(this.uBoard.getBoardPanel().getComponent(0), 0);
+            } else if (j < (2 * squaresOnLongSide + squaresOnShortSide)) {
                 northPanel.add(this.uBoard.getBoardPanel().getComponent(0));
-            }
-            else {
-                eastPanel.add(this.uBoard.getBoardPanel().getComponent(0)); // battaglia, fiume
+            } else {
+                eastPanel.add(this.uBoard.getBoardPanel().getComponent(0));
             }
         }
         centerPanel.add(westPanel, BorderLayout.WEST);
