@@ -10,8 +10,8 @@ import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.nextId.MinNumberStrategy;
 import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
 import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
-import com.univaq.stoneage.model.shuffle.CollectionsShuffleStrategy;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
+import com.univaq.stoneage.model.shuffle.NoShuffleStrategy;
 import com.univaq.stoneage.model.squares.resourceSquareState.squareStateFactory.ISquareStateFactory;
 import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squareSetup.MSetupResourceSquareStrategyFactory;
@@ -39,7 +39,7 @@ public class GreenModeState implements IModeState {
 
     @Override
     public IShuffleStrategy getShuffleStrategy() {
-        return new CollectionsShuffleStrategy();
+        return new NoShuffleStrategy();
     }
 
     @Override
