@@ -70,11 +70,8 @@ public class MStoneAgeGame {
 		m_playerFactory.setStartSquare(startSquare);
 		m_players = m_playerFactory.getPlayers();
 
-		//IGameGoalStrategyFactory gameGoalStrategyFactory = new GameGoalStrategyFactory();
-		//m_gameGoalStrategy = gameGoalStrategyFactory.createGameGoalStrategy();
 		m_gameGoalStrategy = m_mode.getGameGoalStrategy();
 
-		//m_nextPlayerStrategy = new MHumanPlayersFirstStrategy(m_players.size()); // set the right strategy to identify the players order
 		m_nextPlayerStrategy = m_mode.getNextPlayerStrategy(aNumPlayers);  // set the right strategy to identify the players order
 		m_players = m_nextPlayerStrategy.sortPlayers(m_players);
 	}

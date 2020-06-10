@@ -58,7 +58,6 @@ public class MPlayerFactory implements IPlayerFactory {
     }
 
     public MPlayer getPlayer(MPlayer player, ISurpriseTokenCommand ability) {
-
         IPlayerAbilityCombiningStrategyFactory playerAbilityCombiningStrategyFactory = new PlayerAbilityCombiningStrategyConcreteFactory();
         IPlayerAbilityCombiningStrategy combiningStrategy = playerAbilityCombiningStrategyFactory.getStrategy(player, ability);
         return combiningStrategy.combineAbilities(player, ability);

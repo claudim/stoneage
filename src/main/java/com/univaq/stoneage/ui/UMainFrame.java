@@ -1,10 +1,7 @@
 package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.gameState.EndGameState;
-import com.univaq.stoneage.model.gameState.OnNewSquareGameState;
-import com.univaq.stoneage.model.gameState.WaitingForPreyGameState;
-import com.univaq.stoneage.model.gameState.WaitingForTokenForest;
+import com.univaq.stoneage.model.gameState.*;
 import com.univaq.stoneage.model.players.ExtraAbilityPlayerDecorator;
 import com.univaq.stoneage.model.players.MHumanPlayer;
 import com.univaq.stoneage.model.players.MPlayer;
@@ -136,7 +133,10 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
             if (evt.getNewValue().getClass().getSimpleName().equals(OnNewSquareGameState.class.getSimpleName())) {
                 // disabilita i buttoni dei token
                 UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
-
+            }
+            if (evt.getNewValue().getClass().getSimpleName().equals(EndTurnGameState.class.getSimpleName())) {
+                // disabilita i buttoni dei token
+                UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
             }
 
             if (evt.getNewValue().getClass().getSimpleName().equals(EndGameState.class.getSimpleName())) {

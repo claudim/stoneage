@@ -22,11 +22,8 @@ public class MBoard {
 	 * @param mode
 	 */
 	public MBoard(GameMode mode) {
-		//m_squares = new ArrayList<>();
-
 		ISquareFactory squareFactory = mode.getSquareFactory();
 		m_squares = squareFactory.createSquares(mode);
-		//this.createBoardSquares();
 	}
 
 	/**
