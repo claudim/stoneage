@@ -2,7 +2,7 @@ package com.univaq.stoneage.model.squares.squareSetup;
 
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.squares.MResourceSquare;
+import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
 /**
  * MNumPlayersSquareSetupStrategy is a class responsible to setup a MResourceSquare

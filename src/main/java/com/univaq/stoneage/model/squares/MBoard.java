@@ -1,7 +1,8 @@
 package com.univaq.stoneage.model.squares;
 
-import com.univaq.stoneage.model.GameMode;
-import com.univaq.stoneage.model.ISquareFactory;
+import com.univaq.stoneage.model.gameMode.GameMode;
+import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
+import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,7 @@
 package com.univaq.stoneage.model.squares.squareSetup;
 
 import com.univaq.stoneage.model.MResource;
-import com.univaq.stoneage.model.squares.MResourceSquare;
+import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
 /**
  * NumberResourceSquareSetupStrategy is a class responsible to setup a MResourceSquare

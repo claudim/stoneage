@@ -8,4 +8,9 @@ public class CollectionsShuffleStrategy implements IShuffleStrategy {
     public void shuffle(List<?> list) {
         Collections.shuffle(list);
     }
+
+    @Override
+    public boolean getStatus() {
+        return true;
+    }
 }

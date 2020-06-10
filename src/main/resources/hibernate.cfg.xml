@@ -29,10 +29,10 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mapping -->
-        <mapping class="com.univaq.stoneage.model.squares.MResourceSquare"/>
+        <mapping class="com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare"/>
         <mapping class="com.univaq.stoneage.model.squares.MRegularSquare"/>
-        <mapping class="com.univaq.stoneage.model.squares.MBuildingSiteSquare"/>
-        <mapping class="com.univaq.stoneage.model.squares.MSurpriseSquare"/>
+        <mapping class="com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare"/>
+        <mapping class="com.univaq.stoneage.model.squares.surpriseSquare.MSurpriseSquare"/>
         <mapping class="com.univaq.stoneage.model.players.MMarker"/>
         <mapping class="com.univaq.stoneage.model.forestTokens.MDieFaceTokenForest"/>
         <mapping class="com.univaq.stoneage.model.forestTokens.MSquareTokenForest"/>

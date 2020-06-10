@@ -1,8 +1,8 @@
 package com.univaq.stoneage.model.forestTokens;
 
-import com.univaq.stoneage.model.GameMode;
-import com.univaq.stoneage.model.ITokenForestFactory;
+import com.univaq.stoneage.model.forestTokens.forestTokenFactory.ITokenForestFactory;
 import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MINextForestTokenStrategy;
+import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.utility.TokenState;
 
@@ -157,7 +157,7 @@ public class MGrid {
 	 * Shuffle, set to face down and change position to all forest token.
 	 */
 	public void forestTokenShuffle() {
-		this.m_shuffleStrategy.shuffle(m_tokens);
+		m_shuffleStrategy.shuffle(m_tokens);
 		m_tokens.forEach(tokenForest -> tokenForest.setState(FACEDOWN));
 		notifyPropertyChangeListener("shuffleForestToken", null, this.m_tokens);
 	}

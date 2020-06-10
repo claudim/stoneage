@@ -1,0 +1,8 @@
+package com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.surpriseTokenExecutionStrategyFactory;
+
+import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.ISurpriseTokenCommand;
+import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.surpriseTokenExecutionStrategies.SurpriseCommandExecutionStrategy;
+
+public interface MSurpriseCommandExecutionStrategyFactory {
+    SurpriseCommandExecutionStrategy createExecutionStrategy(ISurpriseTokenCommand SurpriseTokenCommand);
+}

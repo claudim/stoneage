@@ -1,6 +1,6 @@
 package com.univaq.stoneage.model.gameGoal;
 
-import com.univaq.stoneage.model.GameMode;
+import com.univaq.stoneage.model.gameMode.GameMode;
 
 /**
  * Concrete factory to create the right game goal strategy.

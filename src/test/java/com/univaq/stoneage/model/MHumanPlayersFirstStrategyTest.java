@@ -1,11 +1,11 @@
 package com.univaq.stoneage.model;
 
+import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
+import com.univaq.stoneage.model.playerTurning.MHumanPlayersFirstStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
-import com.univaq.stoneage.model.players.MPlayerFactory;
-import com.univaq.stoneage.model.players.playerTurning.MHumanPlayersFirstStrategy;
-import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
-import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
+import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 import com.univaq.stoneage.utility.PlayerType;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ class MHumanPlayersFirstStrategyTest {
     private MPlayerFactory m_playerFactory;
     private ArrayList<MPlayer> m_players;
     private MSquare m_startSquare;
-    private MINextPlayerStrategy m_nextPlayerStrategy;
+    private INextPlayerStrategy m_nextPlayerStrategy;
 
     @Test
     void sort() {

@@ -3,14 +3,15 @@ package com.univaq.stoneage.model;
 import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
+import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
+import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
-import com.univaq.stoneage.model.players.MPlayerFactory;
-import com.univaq.stoneage.model.players.playerTurning.MINextPlayerStrategy;
+import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
 import com.univaq.stoneage.model.squares.MBoard;
-import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -30,7 +31,7 @@ public class MStoneAgeGame {
 	private ArrayList<MPlayer> m_players;
 	private MBoard m_board;
 	private MPlayerFactory m_playerFactory;
-	private MINextPlayerStrategy m_nextPlayerStrategy;
+	private INextPlayerStrategy m_nextPlayerStrategy;
 	private int numPlayer;
 	private GameState m_gameState;
 	private IGameGoalStrategy m_gameGoalStrategy;
@@ -108,7 +109,7 @@ public class MStoneAgeGame {
 		this.m_players = m_players;
 	}
 
-	public MINextPlayerStrategy getM_nextPlayerStrategy() {
+	public INextPlayerStrategy getM_nextPlayerStrategy() {
 		return m_nextPlayerStrategy;
 	}
 

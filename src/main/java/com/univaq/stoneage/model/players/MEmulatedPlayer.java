@@ -4,7 +4,7 @@ import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.RobbedPlayer.MIRobbedPlayerStrategy;
 import com.univaq.stoneage.model.players.RobbedPlayer.MRandomRobberPlayerStrategy;
-import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
+import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 
 import java.util.ArrayList;
 import java.util.concurrent.ScheduledThreadPoolExecutor;

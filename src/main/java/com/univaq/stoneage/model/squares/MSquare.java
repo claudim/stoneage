@@ -1,6 +1,6 @@
 package com.univaq.stoneage.model.squares;
 
-import com.univaq.stoneage.model.GameMode;
+import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.*;

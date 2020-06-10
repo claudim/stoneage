@@ -2,9 +2,9 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MMarker;
-import com.univaq.stoneage.model.squares.MBuildingSiteSquare;
-import com.univaq.stoneage.model.squares.MResourceSquare;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
+import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
 import javax.swing.*;
 import java.awt.*;

@@ -2,9 +2,9 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.gameState.*;
-import com.univaq.stoneage.model.players.ExtraAbilityPlayerDecorator;
 import com.univaq.stoneage.model.players.MHumanPlayer;
 import com.univaq.stoneage.model.players.MPlayer;
+import com.univaq.stoneage.model.players.extraAbilityPlayer.ExtraAbilityPlayerDecorator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -151,6 +151,7 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
                 this.setStartPage(winnerName.toString());
                 this.setVisible(true);
             }
+
         }
     }
 

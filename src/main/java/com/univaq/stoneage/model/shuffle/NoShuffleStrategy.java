@@ -7,4 +7,9 @@ public class NoShuffleStrategy implements IShuffleStrategy {
     public void shuffle(List<?> list) {
         //NO-OP
     }
+
+    @Override
+    public boolean getStatus() {
+        return true;
+    }
 }

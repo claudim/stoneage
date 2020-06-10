@@ -7,4 +7,9 @@ public class RandomOrgAdapter implements IShuffleStrategy {
     public void shuffle(List<?> list) {
         //todo implementare la richiesta alla api di random.org
     }
+
+    @Override
+    public boolean getStatus() {
+        return false;
+    }
 }
