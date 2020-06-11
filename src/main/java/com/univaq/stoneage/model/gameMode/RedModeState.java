@@ -12,7 +12,9 @@ import com.univaq.stoneage.model.nextId.GetFirstIdStrategy;
 import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.playerTurning.MHumanPlayersFirstStrategy;
+import com.univaq.stoneage.model.shuffle.CollectionsShuffleStrategy;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
+import com.univaq.stoneage.model.shuffle.RandomOrgAdapter;
 import com.univaq.stoneage.model.shuffle.ShufflingRedirectionProxy;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.RedResourceSquareStateFactory;
@@ -44,7 +46,9 @@ public class RedModeState implements IModeState {
 
     @Override
     public IShuffleStrategy getShuffleStrategy() {
-        return new ShufflingRedirectionProxy();
+        IShuffleStrategy externalShuffling = new RandomOrgAdapter();
+        IShuffleStrategy localShuffling = new CollectionsShuffleStrategy();
+        return new ShufflingRedirectionProxy(externalShuffling, localShuffling);
     }
 
     @Override

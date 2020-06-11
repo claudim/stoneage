@@ -3,12 +3,12 @@ package com.univaq.stoneage.model.shuffle;
 import java.util.List;
 
 public class ShufflingRedirectionProxy implements IShuffleStrategy {
-    IShuffleStrategy externalShuffling;
-    IShuffleStrategy localShuffling;
+    private final IShuffleStrategy externalShuffling;
+    private final IShuffleStrategy localShuffling;
 
-    public ShufflingRedirectionProxy() {
-        this.externalShuffling = new RandomOrgAdapter();
-        this.localShuffling = new CollectionsShuffleStrategy();
+    public ShufflingRedirectionProxy(IShuffleStrategy externalShuffling, IShuffleStrategy localShuffling) {
+        this.externalShuffling = externalShuffling;
+        this.localShuffling = localShuffling;
     }
 
     @Override
