@@ -6,7 +6,7 @@ import com.univaq.stoneage.model.players.extraAbilityPlayer.Take2ResourcesAbilit
 import com.univaq.stoneage.model.players.extraAbilityPlayer.TakeAnotherTurnAbilityPlayerDecorator;
 import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.ISurpriseTokenCommand;
 
-public class SetOnlyTheNewAbilityStrategy implements IPlayerAbilityCombiningStrategy {
+public class SetOnlyNewAbilityStrategy implements IPlayerAbilityCombiningStrategy {
     @Override
     public MPlayer combineAbilities(MPlayer player, ISurpriseTokenCommand surpriseTokenCommand) {
         MPlayer playerWithNoAbility = player.getPlayer();

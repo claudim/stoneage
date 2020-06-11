@@ -8,10 +8,10 @@ public class PlayerAbilityCombiningStrategyConcreteFactory implements IPlayerAbi
     @Override
     public IPlayerAbilityCombiningStrategy getStrategy(MPlayer player, ISurpriseTokenCommand surpriseTokenCommand) {
         if (player.getClass().getSuperclass().getSimpleName().equals(MPlayer.class.getSimpleName()))
-            return new SetOnlyTheNewAbilityStrategy(); // dota il player (CHE è SENZA ABILITà) di una abilità
+            return new SetOnlyNewAbilityStrategy(); // dota il player (CHE è SENZA ABILITà) di una abilità
         else
             // scegli in base ai parametri quale strategia adottare
-            return new SetOnlyTheNewAbilityStrategy();
+            return new SetOnlyNewAbilityStrategy();
     }
 
 }
