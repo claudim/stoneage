@@ -149,6 +149,11 @@ public class MStoneAgeGame {
 		return m_players.get(m_nextPlayerStrategy.getIndexActivePlayer());
 	}
 
+	public void setActivePlayer(MPlayer player) {
+		int indexActivePlayer = m_nextPlayerStrategy.getIndexActivePlayer();
+		m_players.set(indexActivePlayer, player);
+	}
+
 	public void setNextPlayerAsActivePlayer() {
 		MPlayer activePlayer = m_players.get(m_nextPlayerStrategy.getIndexActivePlayer());
 		MPlayer nextPlayer = getNextPlayer();

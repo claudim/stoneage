@@ -6,5 +6,4 @@ import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.ISurpriseT
 public interface IPlayerAbilityCombiningStrategy {
 
     MPlayer combineAbilities(MPlayer player, ISurpriseTokenCommand surpriseTokenCommand);
-
 }
