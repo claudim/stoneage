@@ -4,6 +4,9 @@ import com.univaq.stoneage.model.MStoneAgeGame;
 
 import javax.swing.*;
 
+/**
+ * Page shown when player is going to steal a resource
+ */
 public class UStealResource {
     public JPanel getStealResourcePanel() {
         return stealResourcePanel;
@@ -15,8 +18,12 @@ public class UStealResource {
 
     private JPanel stealResourcePanel;
     private JLabel stealResourceLabel;
+    /* Holds button to choose from which player steal*/
     private JPanel stealResourceButtonsPanel;
 
+    /**
+     * Constructor
+     */
     public UStealResource() {
         setLabel("Da chi vuoi prendere la risorsa?");
         intiButtons();
@@ -26,6 +33,9 @@ public class UStealResource {
         stealResourceLabel.setText(label);
     }
 
+    /**
+     * Display buttons to choose from which player steal a resource
+     */
     public void intiButtons() {
         MStoneAgeGame.getInstance().getM_players().forEach(mPlayer -> {
             if (!mPlayer.getMarkerName().equals(MStoneAgeGame.getInstance().getActivePlayer().getMarkerName())) {

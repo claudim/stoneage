@@ -6,6 +6,9 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
+/**
+ * Superclass for all kind of squares
+ */
 public class USquare extends JPanel implements PropertyChangeListener {
 
     private JPanel squarePanel;
@@ -19,16 +22,8 @@ public class USquare extends JPanel implements PropertyChangeListener {
         this.uMarkers = new ArrayList<>();
         this.squareName.setText(name);
         squareName.setPreferredSize(new Dimension(-1, 100));
-//        this.setUSquareStyle();
         childPanel.setLayout(new GridLayout());
     }
-
-
-//    private void setUSquareStyle() {
-//        squarePanel.setLayout(new GridLayout(0, 1));
-//        squareName.setHorizontalAlignment(JLabel.CENTER);
-//        this.squarePanel.setPreferredSize(new Dimension(100, 150));
-//    }
 
     public JPanel getMarkersPanel() {
         return markersPanel;
@@ -38,8 +33,7 @@ public class USquare extends JPanel implements PropertyChangeListener {
         return squarePanel;
     }
 
-    public String getSquareName()
-    {
+    public String getSquareName() {
         return this.squareName.getText();
     }
 
@@ -51,6 +45,12 @@ public class USquare extends JPanel implements PropertyChangeListener {
         this.uMarkers = uMarkers;
     }
 
+    /**
+     * Search markers on the square with the given name
+     *
+     * @param markerName the name of the marker
+     * @return the marker found if is on the square, null otherwise
+     */
     public UMarker getUMarkerByName(String markerName) {
         for (UMarker uMarker : uMarkers) {
             if (uMarker.getMarkerName().equals(markerName))
@@ -59,37 +59,7 @@ public class USquare extends JPanel implements PropertyChangeListener {
         return null;
     }
 
-
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
-//        if (evt.getPropertyName().equals("square")) {
-//            try {
-//                MMarker marker = (MMarker) evt.getSource();
-//                String newUSquareName = (String) evt.getNewValue();
-//                String oldUSquareName = (String) evt.getOldValue();
-//                if (newUSquareName.equals(this.squareName.getText()))
-//                {
-//
-//                    this.getMarkersPanel().add(uMarker.getMarkerPanel());
-//                }
-//                if (oldUSquareName.equals(this.squareName.getText()))
-//                {
-//                    UMarker uMarker = this.getUMarkerByName(marker.getM_markerName());
-//                    this.getMarkersPanel().remove(uMarker.getMarkerPanel());
-//                    this.getuMarkers().remove(uMarker);
-//
-//                }
-//                UMarker uMarker = oldusq.getUMarkerByName(marker.getM_markerName());
-//                newusq.getuMarkers().add(uMarker);
-//                oldusq.getuMarkers().remove(uMarker);
-//                newusq.getMarkersPanel().setLayout(new GridLayout());
-//                newusq.getMarkersPanel().add(uMarker.getMarkerPanel());
-//
-//            } catch (Exception e) {
-//
-//            }
-//        }
-
     }
 }

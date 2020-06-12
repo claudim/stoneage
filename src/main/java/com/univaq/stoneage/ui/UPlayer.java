@@ -8,6 +8,9 @@ import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+/**
+ * Player settlement class, shows held resources
+ */
 public class UPlayer extends JPanel implements PropertyChangeListener {
 
     private JLabel playerName;
@@ -44,6 +47,9 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
 
     private String name;
 
+    /**
+     * Set style for player settlement
+     */
     public void playerStyle() {
         String n = name.toUpperCase();
         this.playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -77,15 +83,6 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
         if (evt.getPropertyName().equals("addedHut")) {
             hutCounter.setText(evt.getNewValue().toString());
         }
-//        if(!SwingUtilities.isEventDispatchThread())
-//        {
-//            SwingUtilities.invokeLater(new Runnable() {
-//                @Override
-//                public void run() {
-//                    propertyChange(evt);
-//                }
-//            });
-//        }
         if (evt.getPropertyName().equals("resource") || evt.getPropertyName().equals("stealResource")) {
             if (evt.getNewValue() == null) {
                 switch (((MResource) evt.getOldValue()).getM_type()) {
@@ -172,35 +169,5 @@ public class UPlayer extends JPanel implements PropertyChangeListener {
             }
         }
 
-//        if (evt.getPropertyName().equals("removeResource")|| evt.getPropertyName().equals("insertResource")) {
-//            MSettlement mSettlement = (MSettlement) evt.getSource();
-//            if (mSettlement.getM_name().equals(name)) {
-//                //switch (evt.getPropertyName()) {
-//                switch (((MResource) evt.getOldValue()).getM_type()) {
-//                    case "pesce": {
-//                        pesceCounter.setText(evt.getNewValue().toString());
-//                        break;
-//                    }
-//                    case "anfora": {
-//                        anforaCounter.setText(evt.getNewValue().toString());
-//                        break;
-//                    }
-//                    case "bacca": {
-//                        baccaCounter.setText(evt.getNewValue().toString());
-//                        break;
-//                    }
-//                    case "dente": {
-//                        denteCounter.setText(evt.getNewValue().toString());
-//                        break;
-//                    }
-//                    case "freccia": {
-//                        frecciaCounter.setText(evt.getNewValue().toString());
-//                        break;
-//                    }
-//                    default:
-//                        break;
-//                }
-//            }
-//        }
     }
 }

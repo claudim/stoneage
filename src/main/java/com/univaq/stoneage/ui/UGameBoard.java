@@ -9,19 +9,28 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
+/**
+ * Class containing the board, players' settlements and forest token grid
+ */
 public class UGameBoard extends JPanel implements PropertyChangeListener {
 
+    /* Player list */
     private final ArrayList<UPlayer> uPlayers = new ArrayList<>();
 
     private JPanel gameContentPane;
+    /* the board containing squares */
     private UBoard uBoard;
+    /* grid containing forest tokens */
     private UGrid uGrid;
 
     public UGrid getuGrid() {
         return uGrid;
     }
 
-    public void initGameBoard(){
+    /**
+     * Initializer for the game board. Initializes GUI players, squares, token grids.
+     */
+    public void initGameBoard() {
 
         MStoneAgeGame.getInstance().addPropertyChangeListener(this); // add uboard as a MMarker observer
         this.uGrid = new UGrid();
@@ -53,8 +62,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         southPanel.setLayout(new GridLayout(1, squaresOnLongSide));
 
         int num =  this.uBoard.getSquareNumber();
-        for(int j = 0; j<num; j++)
-        {
+        for(int j = 0; j<num; j++) {
             if (j < squaresOnLongSide) {
                 southPanel.add(this.uBoard.getBoardPanel().getComponent(0), 0);
             } else if (j < (squaresOnShortSide + squaresOnLongSide)) {
@@ -69,19 +77,22 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         centerPanel.add(northPanel, BorderLayout.NORTH);
         centerPanel.add(eastPanel, BorderLayout.EAST);
         centerPanel.add(southPanel, BorderLayout.SOUTH);
-        gameContentPane.add(centerPanel,BorderLayout.CENTER);
+        gameContentPane.add(centerPanel, BorderLayout.CENTER);
         this.initPlayers();
-     }
+    }
 
     public JPanel getGameContentPane() {
         return this.gameContentPane;
     }
 
-    public void initPlayers(){
+    /**
+     * Initializes players settlement on the screen asking model facade for players list
+     */
+    public void initPlayers() {
         int i = 1;
         ArrayList<MPlayer> mPlayers = MStoneAgeGame.getInstance().getM_players();
         MPlayer currentPlayer = MStoneAgeGame.getInstance().getActivePlayer();
-        for (MPlayer p: mPlayers){
+        for (MPlayer p : mPlayers) {
             UPlayer uPlayer = new UPlayer();
             uPlayer.setName(p.getMarkerName());
             uPlayer.playerStyle();
@@ -90,8 +101,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
             uMarker.setMarkerName(p.getMarkerName());
             uMarker.markerStyle();
 
-            if(currentPlayer.equals(p))
-            {
+            if(currentPlayer.equals(p)) {
                 uPlayer.setCurrentPlayer(true);
             }
             p.getM_settlement().addPropertyChangeListener(uPlayer);
@@ -113,8 +123,7 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
                     i++;
                     break;
                 }
-                case 3:
-                {
+                case 3: {
                     gameContentPane.add(uPlayer.getPlayerPanel(), BorderLayout.NORTH);
                     i++;
                     break;
@@ -127,6 +136,11 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         }
     }
 
+    /**
+     * Observer listening for changes in player turning. Sets current player for each turn
+     *
+     * @param evt
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("activePlayer")) {
@@ -137,6 +151,12 @@ public class UGameBoard extends JPanel implements PropertyChangeListener {
         }
     }
 
+    /**
+     * Searches for the player with the given name
+     *
+     * @param name name of the player to search
+     * @return found player if present , null otherwise
+     */
     public UPlayer findUPlayerByName(String name) {
         for (UPlayer player : uPlayers) {
             if (player.getName().equals(name)) {

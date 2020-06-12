@@ -10,11 +10,20 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+/**
+ * Represents the single forest token on the grid
+ */
 public class UTokenForest extends JButton implements PropertyChangeListener {
     private String tokenValue;
     private int idToken;
     private TokenState state = TokenState.FACEDOWN;
 
+    /**
+     * Constructor
+     *
+     * @param tokenValue value of the token
+     * @param idToken    id of the token
+     */
     public UTokenForest(String tokenValue, int idToken) {
         super();
         this.tokenValue = tokenValue;
@@ -51,14 +60,15 @@ public class UTokenForest extends JButton implements PropertyChangeListener {
         this.tokenValue = tokenValue;
     }
 
-
     private void onClick() {
-        //UMainFrame.getInstance().getuGameBoard().getuGrid().disableAllTokens();
         MStoneAgeGame.getInstance().playTurn(this.idToken);
-        //UMainFrame.getInstance().getuGameBoard().getuGrid().enableAllTokensFaceDown();
     }
 
-
+    /**
+     * Listener to know when show or hide the token value
+     *
+     * @param evt event of face up or face down a token
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
