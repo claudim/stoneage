@@ -22,9 +22,7 @@ import java.util.ArrayList;
 /**
  * It is responsible for the creation of all the Resource of the same type of the square.
  * Delegate the actual square state to perform the action if the marker's player lands on it.
- * It knows how to setup the square.
- * It knows its type.
- * It knows all the resources on the square.
+ * It knows its type, all the resources on the square and how to setup the square..
  * It has a number of internal states and has a reference to the actual internal state.
  * It is the context of the STATE PATTERN.
  * It is the observable of the OBSERVER PATTERN (between MSquare and UResourceSquare).

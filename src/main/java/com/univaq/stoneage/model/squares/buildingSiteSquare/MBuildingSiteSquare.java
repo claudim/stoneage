@@ -30,28 +30,59 @@ import java.util.stream.Collectors;
 @DiscriminatorValue(value = "buildingsitesquare")
 public class MBuildingSiteSquare extends MSquare {
 
+    /**
+     * List of hut token not built yet.
+     */
     @Transient
     ArrayList<MHutToken> m_hutTokens = new ArrayList<>();
 
+    /**
+     * List of hut token buildable by the active player
+     */
     @Transient
     ArrayList<MHutToken> m_playerBuildableMHutTokens;
 
+    /**
+     * Reference to the strategy to choose the next hut token id for the (emulated) player.
+     */
     @Transient
     MINextHutTokenStrategy m_nextHutTokenIdForPlayerStrategy;
 
+    /**
+     * Reference to the strategy to choose the next hut token to face up on the square.
+     */
     @Transient
     IGetNextIdStrategy m_nextHutTokenIdToBuildStrategy;
 
+    /**
+     * Reference to the strategy for control which hut token is buildable for a player.
+     */
     @Transient
     ICheckBuildableHutStrategy checkBuildableHutAlgorithm;
 
+    /**
+     * Default constructor.
+     */
     public MBuildingSiteSquare() {
     }
 
+    /**
+     * Constructor.
+     *
+     * @param a_squareName The square name
+     */
     public MBuildingSiteSquare(String a_squareName) {
         super(a_squareName);
     }
 
+    /**
+     * Action to perform if the marker's player lands on it.
+     * Check if the player can build one or more hut tokens.
+     * If he cannot build any hut tokens, ask to the grid to perform the forest tokens shuffle.
+     *
+     * @param mPlayer The player who lands on the square
+     * @return The action result
+     */
     @Override
     public ActionResult doAction(MPlayer mPlayer) {
 
@@ -64,15 +95,59 @@ public class MBuildingSiteSquare extends MSquare {
         }
     }
 
+    /**
+     * Get the square type.
+     *
+     * @return the square type
+     */
     @Override
     public String getSquareType() {
         return this.getClass().getSimpleName();
     }
 
+    /**
+     * Get the next hut token id (for the emulated player) that could be built chosen from the list of the hut token buildable by the player.
+     *
+     * @param playerBuildableHutTokens The list of the hut token buildable by the player
+     * @return The hut token id chosen
+     */
+    public int getNextHutTokenId(ArrayList<MHutToken> playerBuildableHutTokens) {
+        return m_nextHutTokenIdForPlayerStrategy.getNextHutTokenId(playerBuildableHutTokens);
+    }
+
+    /**
+     * Get the hut token buildable by the active player.
+     *
+     * @return List of hut token buildable by the active player
+     */
+    public ArrayList<MHutToken> getM_playerBuildableMHutTokens() {
+        return m_playerBuildableMHutTokens;
+    }
+
+    /**
+     * Set the hut token buildable by the active player.
+     *
+     * @param m_playerBuildableMHutTokens List of hut token buildable by the active player
+     */
+    public void setM_playerBuildableMHutTokens(ArrayList<MHutToken> m_playerBuildableMHutTokens) {
+        this.m_playerBuildableMHutTokens = m_playerBuildableMHutTokens;
+    }
+
+    /**
+     * How to manage a notify from the observable.
+     *
+     * @param evt The notify
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
     }
 
+    /**
+     * Initial square setup.
+     * Create the all hut tokens and set the square strategies
+     *
+     * @param mode The game mode
+     */
     public void setupSquare(GameMode mode) {
         support = new PropertyChangeSupport(this); // to implement the oberver pattern
         IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MHutToken.class.getSimpleName(), null);
@@ -83,6 +158,11 @@ public class MBuildingSiteSquare extends MSquare {
         checkBuildableHutAlgorithm = new CheckBuildableHutStrategy();
     }
 
+    /**
+     * Get all the hut tokens not built yet which are in face up state.
+     *
+     * @return The face up hut tokens
+     */
     public ArrayList<MHutToken> getFaceUpHutTokens() {
         ArrayList<MHutToken> faceUpHutTokens = new ArrayList<>();
         for (MHutToken hutToken : m_hutTokens) {
@@ -93,6 +173,12 @@ public class MBuildingSiteSquare extends MSquare {
         return faceUpHutTokens;
     }
 
+    /**
+     * Remove a hut token and notify all the observer.
+     *
+     * @param idHutToken the id of the hut token to remove
+     * @return The hut token removed
+     */
     public MHutToken removeHutToken(int idHutToken) {
         MHutToken hutTokenToRemove = null;
         for (int i = 0; i < m_hutTokens.size(); i++) {
@@ -108,6 +194,11 @@ public class MBuildingSiteSquare extends MSquare {
         return hutTokenToRemove;
     }
 
+    /**
+     * Get the next hut token to face up on the board.
+     *
+     * @return The hut token to face up
+     */
     public MHutToken getNextHutTokenToBuild() {
         List<MHutToken> result = m_hutTokens.stream()                // convert list to stream
                 .filter(buildableHutToken -> buildableHutToken.getM_state().equals(TokenState.FACEDOWN))     // we want only facedown
@@ -120,16 +211,5 @@ public class MBuildingSiteSquare extends MSquare {
         return buildableFaceDownHutTokens.get(nextId);
     }
 
-    // get next hut token id for the emulated player
-    public int getNextHutTokenId(ArrayList<MHutToken> playerBuildableHutTokens) {
-        return m_nextHutTokenIdForPlayerStrategy.getNextHutTokenId(playerBuildableHutTokens);
-    }
 
-    public ArrayList<MHutToken> getM_playerBuildableMHutTokens() {
-        return m_playerBuildableMHutTokens;
-    }
-
-    public void setM_playerBuildableMHutTokens(ArrayList<MHutToken> m_playerBuildableMHutTokens) {
-        this.m_playerBuildableMHutTokens = m_playerBuildableMHutTokens;
-    }
 }

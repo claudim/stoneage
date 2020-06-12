@@ -1,6 +1,5 @@
 package com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory;
 
-
 import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.ISquareState;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.Release2ResourcesState;
@@ -8,7 +7,17 @@ import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.Stea
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.WithResourceState;
 import org.springframework.lang.Nullable;
 
+/**
+ * RedResourceSquareStateFactory is responsible for the resource square state creation if the game mode is red.
+ */
 public class RedResourceSquareStateFactory implements IResourceSquareStateFactory {
+    /**
+     * Create the resource square state for the red mode.
+     *
+     * @param square The resource square
+     * @param type   It could be nullable
+     * @return The resource square state
+     */
     @Override
     public ISquareState createState(MResourceSquare square, @Nullable String type) {
         ISquareState iSquareState;
@@ -39,7 +48,6 @@ public class RedResourceSquareStateFactory implements IResourceSquareStateFactor
                 iSquareState = new WithResourceState(square);
             }
         }
-
 
         return iSquareState;
 

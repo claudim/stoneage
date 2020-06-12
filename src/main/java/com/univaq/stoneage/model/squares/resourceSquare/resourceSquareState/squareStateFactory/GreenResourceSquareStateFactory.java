@@ -5,7 +5,18 @@ import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.ISqu
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.NoResourceState;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.WithResourceState;
 
+/**
+ * GreenResourceSquareStateFactory is responsible for the resource square state creation if the game mode is green.
+ */
 public class GreenResourceSquareStateFactory implements IResourceSquareStateFactory {
+
+    /**
+     * Create the resource square state for the green mode.
+     *
+     * @param square The resource square
+     * @param type   It could be nullable
+     * @return The resource square state
+     */
     @Override
     public ISquareState createState(MResourceSquare square, String type) {
         ISquareState iSquareState;

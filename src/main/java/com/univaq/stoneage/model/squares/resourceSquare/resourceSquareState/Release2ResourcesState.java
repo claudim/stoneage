@@ -8,13 +8,29 @@ import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
 import java.util.ArrayList;
 
+/**
+ * It is a concrete state of the STATE PATTERN of the resource square.
+ * Concrete state when the resource square has to release 2 resources.
+ * It has a reference to the square.
+ */
 public class Release2ResourcesState implements ISquareState {
     private final MResourceSquare m_ResourceSquareState;
 
+    /**
+     * Constructor.
+     *
+     * @param m_ResourceSquareState The resource square
+     */
     public Release2ResourcesState(MResourceSquare m_ResourceSquareState) {
         this.m_ResourceSquareState = m_ResourceSquareState;
     }
 
+    /**
+     * Perform the action if the marker's player lands on the resource square and the square has at least 2 resources.
+     *
+     * @param player The player who lands on the square
+     * @return The action result
+     */
     @Override
     public ActionResult doSquareAction(MPlayer player) {
         MSettlement settlement = player.getM_settlement();
@@ -35,6 +51,9 @@ public class Release2ResourcesState implements ISquareState {
         return ActionResult.GOT_RESOURCE;
     }
 
+    /**
+     * The action to perform when a resource is added to the square.
+     */
     @Override
     public void addedResource() {
 

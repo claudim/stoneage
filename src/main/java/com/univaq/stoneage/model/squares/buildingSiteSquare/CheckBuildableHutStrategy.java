@@ -8,7 +8,17 @@ import com.univaq.stoneage.utility.TokenState;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * Strategy for the control of the buildable hut strategy according to resources and dog jolly resource.
+ */
 public class CheckBuildableHutStrategy implements ICheckBuildableHutStrategy {
+    /**
+     * Check if a list of hut tokens are buildable for the player according to the player resources and the dog resource(the jolly).
+     *
+     * @param player           The player who want to build a hut.
+     * @param hutTokensToCheck The list of the all hut tokens not buildable yet
+     * @return The hut token buildable
+     */
     @Override
     public ArrayList<MHutToken> checkBuildableHut(MPlayer player, ArrayList<MHutToken> hutTokensToCheck) {
         ArrayList<MHutToken> playerBuildableMHutTokens = new ArrayList<>();
@@ -32,10 +42,6 @@ public class CheckBuildableHutStrategy implements ICheckBuildableHutStrategy {
                     mHutToken.setM_buildableByActivePlayer(false);
                 if (mHutToken.isM_buildableByActivePlayer())
                     playerBuildableMHutTokens.add(mHutToken);
-
-                //todo il reset è da fare quando termina il turno un giocatore.
-                //reset for the next active player
-                //mHutToken.setM_buildableByActivePlayer(false);
             }
         }
         return playerBuildableMHutTokens;

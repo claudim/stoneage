@@ -7,6 +7,9 @@ import com.univaq.stoneage.model.squares.MSquare;
  * MSquareTFFindNewSquareStrategy is a class responsible to find the new square if the forest token value is a square name.
  */
 public class MSquareTFFindNewSquareStrategy implements MIFindNewSquareStrategy {
+    /**
+     * Default constructor.
+     */
     public MSquareTFFindNewSquareStrategy() {
     }
 

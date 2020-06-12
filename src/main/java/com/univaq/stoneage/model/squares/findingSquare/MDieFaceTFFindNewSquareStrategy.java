@@ -7,6 +7,9 @@ import com.univaq.stoneage.model.squares.MSquare;
  * MDieFaceTFFindNewSquareStrategy is a class responsible to find the new square if the forest token value is a number.
  */
 public class MDieFaceTFFindNewSquareStrategy implements MIFindNewSquareStrategy {
+    /**
+     * Default constructor.
+     */
     public MDieFaceTFFindNewSquareStrategy() {
     }
 

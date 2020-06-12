@@ -7,6 +7,9 @@ import com.univaq.stoneage.model.squares.MSquare;
  * MNoFindNewSquareStrategy is a class responsible to find the new square when the forest token is not of MDieFaceTokenForest or MSquareTokenForest type.
  */
 public class MNoFindNewSquareStrategy implements MIFindNewSquareStrategy {
+    /**
+     * Default constructor.
+     */
     public MNoFindNewSquareStrategy() {
     }
 
