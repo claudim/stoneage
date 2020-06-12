@@ -1,5 +1,8 @@
 package com.univaq.stoneage.model.squares;
 
+/**
+ * List of action result.
+ */
 public enum ActionResult {
     GOT_RESOURCE,
     MISSING_RESOURCE,

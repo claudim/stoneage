@@ -15,6 +15,11 @@ import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * It is responsible for the creation of all the Surprise Token.
+ * It knows the action to perform if the marker lands on it and how to setup the square.
+ * It knows its type.
+ */
 @Entity
 @DiscriminatorValue(value = "surprisesquare")
 public class MSurpriseSquare extends MSquare {
@@ -22,8 +27,12 @@ public class MSurpriseSquare extends MSquare {
     @Transient
     private ArrayList<ISurpriseTokenCommand> m_supriseTokens;
 
-    // after object creation from Hibernate this method is called
-    //@PostLoad
+    /**
+     * Initial square setup.
+     * Create all the Surprise Token.
+     *
+     * @param mode The game mode
+     */
     public void setupSquare(GameMode mode) {
         // super.support = new PropertyChangeSupport(this); // to implement the observer pattern
 
@@ -36,6 +45,13 @@ public class MSurpriseSquare extends MSquare {
 
     }
 
+    /**
+     * Action to perform if the marker's player lands on it.
+     * Pic a surprise token and execute it.
+     *
+     * @param mPlayer The player who lands on the square
+     * @return The action result
+     */
     @Override
     public ActionResult doAction(MPlayer mPlayer) {
 
@@ -44,19 +60,24 @@ public class MSurpriseSquare extends MSquare {
         int nextId = getNextIdStrategy.getNextId(Collections.singletonList(m_supriseTokens));
 
         ISurpriseTokenCommand supriseToken = m_supriseTokens.get(nextId);
-
-
-        //TwoResourcesSupriseTokenCommand supriseToken = new TwoResourcesSupriseTokenCommand(mPlayer);
-            // SkipTurnSurpriseTokenCommand supriseToken = new SkipTurnSurpriseTokenCommand(mPlayer);
-            //GoToBuildingSiteSquareSurpriseTokenCommand supriseToken = new GoToBuildingSiteSquareSurpriseTokenCommand();
         return supriseToken.execute();
     }
 
+    /**
+     * Get the square type.
+     *
+     * @return the square type
+     */
     @Override
     public String getSquareType() {
         return this.getClass().getSimpleName();
     }
 
+    /**
+     * How to manage a notify from the observable.
+     *
+     * @param evt The notify
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 

@@ -6,32 +6,33 @@ import com.univaq.stoneage.model.players.playerFactory.IPlayerFactory;
 import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
 import com.univaq.stoneage.model.squares.ActionResult;
 
+/**
+ * It is a concreteCommand component of the COMMAND PATTERN.
+ * It knows to who tell to perform the action and which is the action.
+ */
 public class TwoResourcesSupriseTokenCommand implements ISurpriseTokenCommand {
     private MPlayer player;
 
+    /**
+     * Constructor.
+     *
+     * @param player The receiver
+     */
     public TwoResourcesSupriseTokenCommand(MPlayer player) {
         this.player = player;
     }
 
-
+    /**
+     * Execute the command.
+     * Delegate the playerFactory for the creation of the player with the ability to get 2 resources from the resource square.
+     *
+     * @return The action result
+     */
     @Override
     public ActionResult execute() {
-        // cambia abilità al player
-//        player = new Take2ResourcesAbilityPlayerDecorator(player);
-//        int indexActivePlayer = MStoneAgeGame.getInstance().getM_nextPlayerStrategy().getIndexActivePlayer();
-//        MStoneAgeGame.getInstance().getM_players().set(indexActivePlayer, player);
-
-//        Take2ResourcesAbilityPlayerDecorator take2ResourcesAbilityPlayerDecorator = new Take2ResourcesAbilityPlayerDecorator(player.getPlayer());
-//        player.addAbility(take2ResourcesAbilityPlayerDecorator);
-
-
-//        ArrayList<MPlayer> players = MStoneAgeGame.getInstance().getM_players();
-//        int indexActivePlayer = MStoneAgeGame.getInstance().getM_nextPlayerStrategy().getIndexActivePlayer();
-//        player = players.get(indexActivePlayer);
         player = MStoneAgeGame.getInstance().getActivePlayer();
         IPlayerFactory playerFactory = new MPlayerFactory();
         MPlayer playerWithAbility = playerFactory.getPlayer(this.player, this);
-        // players.set(indexActivePlayer, playerWithAbility);
         MStoneAgeGame.getInstance().setActivePlayer(playerWithAbility);
         System.out.println(player.getMarkerName() + " ha preso l'abilità : + 2 risorse nel prox turno");
         return ActionResult.ACTION_DONE;

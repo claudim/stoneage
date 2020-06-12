@@ -7,7 +7,7 @@ import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
 import java.util.ArrayList;
 
 /**
- * MBoard class is responsible for the square creation.
+ * MBoard class is responsible to delegate the SquareFactory for the square creation.
  * MBoard class knows all board squares, how they are connected and which is the start square.
  */
 public class MBoard {
@@ -35,21 +35,6 @@ public class MBoard {
 	public ArrayList<MSquare> getM_squares() {
 		return m_squares;
 	}
-
-	/**
-	 * Create the squares.
-	 */
-//	private void createBoardSquares() {
-//		this.createSquareFromDB();
-//	}
-
-	/**
-	 * Create the squares by accessing the DB.
-	 */
-//	private void createSquareFromDB() {
-//		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MSquare.class.getSimpleName());
-//		m_squares.addAll(dao.findAll());
-//	}
 
 	/**
 	 * Search and get a square by name if exists otherwise it returns null
