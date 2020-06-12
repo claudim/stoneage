@@ -20,9 +20,9 @@ public class GameMode {
 
     public GameMode(String nameMode) {
         if (nameMode.equals("Verde") || nameMode.equals("Green")) {
-            this.modeState = new GreenModeState();
+            this.modeState = new GreenModeState(this);
         } else {
-            this.modeState = new RedModeState();
+            this.modeState = new RedModeState(this);
         }
     }
 

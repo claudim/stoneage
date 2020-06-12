@@ -23,9 +23,9 @@ public class MBoard {
 	 * @param mode
 	 */
 	public MBoard(GameMode mode) {
-		ISquareFactory squareFactory = mode.getSquareFactory();
-		m_squares = squareFactory.createSquares(mode);
-	}
+        ISquareFactory squareFactory = mode.getSquareFactory();
+        m_squares = squareFactory.createSquares();
+    }
 
 	/**
 	 * Get a collection of squares.

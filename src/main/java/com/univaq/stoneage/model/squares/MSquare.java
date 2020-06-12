@@ -13,6 +13,7 @@ import java.io.Serializable;
  * MSquare is a persistence entity.
  * It knows its name, its the next square with which it is linked, if it is the start square.
  * It knows the action to perform if the marker lands on it and how to setup the square.
+ * It is the observable of the OBSERVER PATTERN.
  */
 @Entity
 @Table(name = "Square")

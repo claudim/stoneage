@@ -14,7 +14,6 @@ import java.util.Map;
  */
 public class MSettlement {
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
-    //private EnhancedPropertyChangeSupport support = new PropertyChangeSupport(this);
     private final ArrayList<MHutToken> m_builtHutTokens;
     private ArrayList<MResource> m_resources;
     private String m_name;
@@ -24,13 +23,6 @@ public class MSettlement {
         this.m_resources = new ArrayList<>();
         this.m_builtHutTokens = new ArrayList<>();
     }
-
-//    private ArrayList<MResource> getResourcesFormDB() {
-//        ArrayList<MResource> resources = new ArrayList<>();
-//        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MResource.class.getSimpleName());
-//        resources.addAll(dao.findAll());
-//        return resources;
-//    }
 
     public ArrayList<MResource> getM_resources() {
         return m_resources;

@@ -7,9 +7,12 @@ package com.univaq.stoneage.model.squares.squareSetup;
  */
 public class MSetupResourceSquareStrategyFactory implements MISetupSquareStrategyFactory {
 
-    public MSetupResourceSquareStrategyFactory() {
-    }
-
+    /**
+     * Get the square setup strategy.
+     *
+     * @param squareResourceType The resource name of the square
+     * @return The square setup strategy
+     */
     public MISquareSetupStrategy getSetupSquareStrategy(String squareResourceType) {
         switch (squareResourceType) {
             case "cane":

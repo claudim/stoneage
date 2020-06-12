@@ -11,15 +11,21 @@ import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
  * This strategy implements the rule N.5 of the StoneAge Supplementary Specification
  */
 public class NumberResourceSquareSetupStrategy implements MISquareSetupStrategy {
-    private int resourceNumber = 2;
 
+    private final int resourceNumber = 2;
+
+    /**
+     * Default constructor.
+     */
     public NumberResourceSquareSetupStrategy() {
     }
 
-    public NumberResourceSquareSetupStrategy(int resourceNumber) {
-        this.resourceNumber = resourceNumber;
-    }
-
+    /**
+     * Setup a resource square with a constant number (RESOURCENUMBER) of MResource.
+     * RESOURCENUMBER is 2.
+     *
+     * @param square The resource square
+     */
     @Override
     public void setupSquare(MResourceSquare square) {
         for (int i = 0; i < resourceNumber; i++)

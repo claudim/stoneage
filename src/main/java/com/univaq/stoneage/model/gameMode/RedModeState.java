@@ -24,6 +24,12 @@ import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.RedSquareFactory;
 
 public class RedModeState implements IModeState {
+    private final GameMode mode;
+
+    public RedModeState(GameMode mode) {
+        this.mode = mode;
+    }
+
     @Override
     public IGameGoalStrategy getGameGoalStrategy() {
         return new ThreeHutTokenGoalStrategy();
@@ -36,7 +42,7 @@ public class RedModeState implements IModeState {
 
     @Override
     public ISquareFactory getSquareFactory() {
-        return new RedSquareFactory();
+        return new RedSquareFactory(mode);
     }
 
     @Override
