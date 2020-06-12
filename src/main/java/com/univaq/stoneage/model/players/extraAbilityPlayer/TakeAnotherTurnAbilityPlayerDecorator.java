@@ -6,7 +6,6 @@ import com.univaq.stoneage.model.players.MPlayer;
 
 public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDecorator {
 
-
     public TakeAnotherTurnAbilityPlayerDecorator(MPlayer playerWithNoAbility) {
         super(playerWithNoAbility);
         this.m_marker = playerWithNoAbility.getM_marker();
@@ -54,10 +53,5 @@ public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDec
             // next player play his turn
             gameState.takeAnotherTurn();
         }
-    }
-
-    @Override
-    public MPlayer getPlayer() {
-        return null;
     }
 }

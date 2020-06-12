@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * MTokenForest is a generic, persistence abstract super class.
  * It knows its state and value.
- * MTokenForest is obersevable.
+ * MTokenForest is obersevable (by UTokenForest).
  */
 @Entity
 @Table(name = "tokenforest")

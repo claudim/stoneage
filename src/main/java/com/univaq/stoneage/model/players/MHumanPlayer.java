@@ -23,10 +23,10 @@ public class MHumanPlayer extends MPlayer {
         //NO-OP
     }
 
-    @Override
-    public void executeAbility() {
-
-    }
+//    @Override
+//    public void executeAbility() {
+//
+//    }
 
     @Override
     public void executeOnSquareAbility() {

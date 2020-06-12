@@ -14,8 +14,6 @@ import java.util.NoSuchElementException;
 
 import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
 
-//TODO aggiungere una strategy per individuare la strategia giusta per scegliere i token
-
 /**
  * Grid is a Pure Fabrication class to manage forest tokens. It creates, knows and manages them.
  * It is responsible for the forest tokens creations, to face up a single token to get it value.
@@ -74,15 +72,6 @@ public class MGrid {
 	public void setM_shuffleStrategy(IShuffleStrategy m_shuffleStrategy) {
 		this.m_shuffleStrategy = m_shuffleStrategy;
 	}
-
-	/**
-	 * Create the forest token
-	 */
-//	public void createTokenForest() {
-//		//this.createTokenForestNaive();
-//		IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MTokenForest.class.getSimpleName());
-//		m_tokens.addAll(dao.findAll());
-//	}
 
 	/**
 	 * Find the token forest in the given id
@@ -146,12 +135,6 @@ public class MGrid {
 	public int getNextForestTokenId() {
 		return m_nextForestTokenStrategy.getNextForestTokenId(getFACEDOWNTokenForest());
 	}
-
-	/*public int chooseRandomTokenForest() {
-		Random rand = new Random();
-		Integer index = m_idPositionsFaceDownForestTokens.get(rand.nextInt(m_idPositionsFaceDownForestTokens.size()));
-		return m_idPositionsFaceDownForestTokens.get(index);
-	}*/
 
 	/**
 	 * Shuffle, set to face down and change position to all forest token.

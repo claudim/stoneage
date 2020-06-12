@@ -10,7 +10,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Java class to manage player's resources
+ * Java class to manage player's resources.
+ * It is observable (by ResourceSquare and UPlayer).
  */
 public class MSettlement {
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
@@ -18,34 +19,64 @@ public class MSettlement {
     private ArrayList<MResource> m_resources;
     private String m_name;
 
+    /**
+     * Constructor.
+     *
+     * @param a_name The name
+     */
     public MSettlement(String a_name) {
         this.m_name = a_name;
         this.m_resources = new ArrayList<>();
         this.m_builtHutTokens = new ArrayList<>();
     }
 
+    /**
+     * Get the settlement resources.
+     *
+     * @return The settlement resources
+     */
     public ArrayList<MResource> getM_resources() {
         return m_resources;
     }
 
+    /**
+     * Set the resources.
+     *
+     * @param m_resources The resources to set
+     */
     public void setM_resources(ArrayList<MResource> m_resources) {
         this.m_resources = m_resources;
     }
 
+    /**
+     * Get the name.
+     *
+     * @return the name
+     */
     public String getM_name() {
         return m_name;
     }
 
+    /**
+     * Set the name.
+     *
+     * @param m_name the name
+     */
     public void setM_name(String m_name) {
         this.m_name = m_name;
     }
 
+    /**
+     * Get the hut token built.
+     *
+     * @return The hut token built.
+     */
     public ArrayList<MHutToken> getM_builtHutTokens() {
         return m_builtHutTokens;
     }
 
     /**
-     * Add the resource to the settlement and notify all the observer
+     * Add the resource to the settlement and notify all the observer.
      *
      * @param resource The resource to add
      */
@@ -59,9 +90,9 @@ public class MSettlement {
     }
 
     /**
-     * Remove the resource from the settlement and notify all the observer
+     * Remove the resource from the settlement and notify all the observer.
      *
-     * @param resource The reource to remove
+     * @param resource The resource to remove
      */
     public void removeResource(MResource resource) {
         String type = resource.getM_type();
@@ -71,15 +102,21 @@ public class MSettlement {
     }
 
     /**
-     * Steal the resource from the settlement and notify all the observer
+     * Steal the resource from the settlement and notify all the observer.
      *
-     * @param resource The reource to remove
+     * @param resource The resource to remove
      */
     public void stealResource(MResource resource) {
         m_resources.remove(resource);
         notifyPropertyChangeListener("stealResource", resource, null);
     }
 
+    /**
+     * Add an observer to the list only for a specific property.
+     *
+     * @param propertyName The property name
+     * @param pcl          The observer to add
+     */
     public void addPropertyChangeListener(String propertyName, PropertyChangeListener pcl) {
         PropertyChangeListener[] propertyChangeListeners = support.getPropertyChangeListeners(propertyName);
         boolean alreadyAdded = false;
@@ -91,46 +128,52 @@ public class MSettlement {
         if (!alreadyAdded) support.addPropertyChangeListener(propertyName, pcl);
     }
 
+    /**
+     * Add an observer to the list.
+     *
+     * @param pcl The observer to add
+     */
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
     }
 
+    /**
+     * Remove an observer from the list.
+     *
+     * @param pcl The observer to remove
+     */
     public void removePropertyChangeListener(PropertyChangeListener pcl) {
         support.removePropertyChangeListener(pcl);
     }
 
-//    public void notifyPropertyChangeListener(String propertyName, int oldResourceNumber, int newResourceNumber) {
-//        support.firePropertyChange(propertyName, oldResourceNumber, newResourceNumber);
-//    }
-
-    public void notifyPropertyChangeListener(String propertyName, Object oldValue, Object newValue) {
-        support.firePropertyChange(propertyName, oldValue, newValue);
+    /**
+     * Notify all the observer for the change of the property.
+     *
+     * @param property The property name which changed its value
+     * @param oldValue The old value of the property
+     * @param newValue The new value of the property
+     */
+    public void notifyPropertyChangeListener(String property, Object oldValue, Object newValue) {
+        support.firePropertyChange(property, oldValue, newValue);
     }
 
-
-//    public void addHutToken(MHutToken mHutToken) {
-//        m_builtHutTokens.add(mHutToken);
-//        notifyPropertyChangeListener("addedHut", m_builtHutTokens.size() - 1, m_builtHutTokens.size());
-//        Map<MResource, Integer> hutTokenResources = mHutToken.getM_resources();
-//        hutTokenResources.forEach((key, value) -> {
-//            int i = 0;
-//            Iterator it = m_resources.iterator();
-//            while (i < value && it.hasNext()) {
-//                MResource res = (MResource) it.next();
-//                if (res.getM_type().equals(key.getM_type())) {
-//                    removeResource(res);
-//                    i++;
-//                }
-//            }
-//        });
-//    }
-
+    /**
+     * Count the resources of the type which is passed as a parameter.
+     *
+     * @param type The resource type
+     * @return The number of the resource.
+     */
     public int resourceTypeCounter(String type) {
         int x = (int) m_resources.stream().filter(mResource -> mResource.getM_type().equals(type)).count();
-        //System.out.println(type + ": " + x);
         return x;
     }
 
+    /**
+     * Get all the resources of the type passed as a parameter.
+     *
+     * @param type The resource type
+     * @return All the resource of the type type
+     */
     public ArrayList<MResource> getAllResourcesOfType(String type) {
         ArrayList<MResource> resourcesToReturn = new ArrayList<>();
         for (MResource resource : m_resources) {
@@ -141,6 +184,11 @@ public class MSettlement {
         return resourcesToReturn;
     }
 
+    /**
+     * Add a hut token to the settlement.
+     *
+     * @param mHutToken The hut token to add
+     */
     public void addHutToken(MHutToken mHutToken) {
         m_builtHutTokens.add(mHutToken);
         notifyPropertyChangeListener("addedHut", m_builtHutTokens.size() - 1, m_builtHutTokens.size());
