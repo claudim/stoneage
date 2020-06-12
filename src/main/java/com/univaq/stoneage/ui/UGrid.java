@@ -10,14 +10,19 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
+/**
+ * Forest token grid. Display tokens and listen for changes in the model grid
+ */
 public class UGrid extends JPanel implements PropertyChangeListener {
 
     public ArrayList<UTokenForest> getUTokenForests() {
         return uTokenForests;
     }
 
+    /* List of forest tokens */
     private ArrayList<UTokenForest> uTokenForests;
 
+    /* Panel containing buttons representing tokens*/
     private JPanel gridPanel;
 
     public void setGridPanel(JPanel gridPanel) {
@@ -28,7 +33,10 @@ public class UGrid extends JPanel implements PropertyChangeListener {
         return gridPanel;
     }
 
-    public void initGrid(){
+    /**
+     * Initializes tokens grid for displying on the screen
+     */
+    public void initGrid() {
         this.uTokenForests = new ArrayList<>();
         setGridLayoutBorder();
 
@@ -64,6 +72,11 @@ public class UGrid extends JPanel implements PropertyChangeListener {
         }
     }
 
+    /**
+     * Listens for any position change in the model token grid and start the sorting in the ui
+     *
+     * @param evt event fired in the model
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("shuffleForestToken")) {
@@ -78,6 +91,11 @@ public class UGrid extends JPanel implements PropertyChangeListener {
         gridPanel.setBorder(BorderFactory.createEmptyBorder(40, 150, 40, 150));
     }
 
+    /**
+     * Ask for sorting tokens according to model grind and repaint the view
+     *
+     * @param mTokenForests
+     */
     public void updateGrid(ArrayList<MTokenForest> mTokenForests) {
         sortToken(mTokenForests, uTokenForests);
         for (UTokenForest uTokenForest : this.uTokenForests) {
@@ -87,6 +105,12 @@ public class UGrid extends JPanel implements PropertyChangeListener {
         gridPanel.repaint();
     }
 
+    /**
+     * Sorts tokens int he ui according to the list of tokens received by the model
+     *
+     * @param mTokenForests List of tokens received by the model
+     * @param uTokenForests List of tokens in the ui
+     */
     private void sortToken(ArrayList<MTokenForest> mTokenForests, ArrayList<UTokenForest> uTokenForests) {
         for (int j = 0; j < mTokenForests.size(); j++) {
             int idToken = mTokenForests.get(j).getIdToken();

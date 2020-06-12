@@ -13,6 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+/**
+ * Building site square. Holds huts to build
+ */
 public class UBuildingSiteSquare extends USquare {
 
     private JPanel HutTokenPanel;
@@ -28,6 +31,11 @@ public class UBuildingSiteSquare extends USquare {
 
     private final Map<Integer, JButton> buttonHutTokenMapping = new HashMap<>();
 
+    /**
+     * Constructor
+     *
+     * @param name name
+     */
     public UBuildingSiteSquare(String name) {
         super(name);
         childPanel.add(HutTokenPanel);
@@ -54,6 +62,11 @@ public class UBuildingSiteSquare extends USquare {
 
     }
 
+    /**
+     * Display hut tokens that can be built by the players
+     *
+     * @param faceUpHutTokens hut tokens buildable
+     */
     public void setHutTokens(ArrayList<MHutToken> faceUpHutTokens) {
         faceUpHutTokens.forEach(this::subscribe);
         faceUpHutTokens.get(0).getM_resources().forEach((key, value) -> resourcesHut1Panel.add(new JLabel(key.getM_type() + ": " + value)));
@@ -68,6 +81,11 @@ public class UBuildingSiteSquare extends USquare {
         hutToken.addPropertyChangeListener(this); // add uSquare observer to MHutToken
     }
 
+    /**
+     * Listens if the hut is buildable by the player landed on the square.
+     *
+     * @param evt
+     */
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("hutTokenBuildable")) {
             MHutToken mHutToken = (MHutToken) evt.getSource();

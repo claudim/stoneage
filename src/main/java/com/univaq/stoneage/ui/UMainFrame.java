@@ -13,15 +13,24 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
-
+/**
+ * Singleton Class that contains all graphical elements of the application
+ *
+ * @author Riccardo
+ */
 public class UMainFrame extends JFrame implements PropertyChangeListener {
 
-    //private JPanel mainContainer;
     private JPanel mainContainer1;
     private JLayeredPane mainContainer;
+    /**
+     * Singleton instance
+     */
     private static UMainFrame instance;
     private UGameBoard uGameBoard;
 
+    /**
+     * Constructor
+     */
     private UMainFrame() {
         super("Stone Age Game");
         mainContainer1 = new JPanel();
@@ -64,6 +73,9 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
         this.mainContainer = mainContainer;
     }
 
+    /**
+     * initializer for first page
+     */
     public void setGamePage() {
         this.uGameBoard = new UGameBoard();
         this.uGameBoard.initGameBoard();
@@ -102,6 +114,11 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
         return uGameBoard;
     }
 
+    /**
+     * Property change listner
+     *
+     * @param evt fired event
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("changeState")) {

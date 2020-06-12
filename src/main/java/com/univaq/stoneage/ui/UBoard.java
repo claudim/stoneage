@@ -12,8 +12,12 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
+/**
+ * GUI class for representing the board, it contains squares
+ */
 public class UBoard extends JPanel implements PropertyChangeListener {
 
+    /* List containing squares to display on the board */
     private ArrayList<USquare> uSquares;
     private JPanel boardPanel;
 
@@ -23,7 +27,10 @@ public class UBoard extends JPanel implements PropertyChangeListener {
 
     private int squareNumber;
 
-    public void initSquares(){
+    /**
+     * Square initializer, it renders squares in the right way on the board
+     */
+    public void initSquares() {
         uSquares = new ArrayList<>();
         boardPanel.removeAll();
         boardPanel.setLayout(new FlowLayout());
@@ -50,9 +57,14 @@ public class UBoard extends JPanel implements PropertyChangeListener {
         return boardPanel;
     }
 
-    public USquare findUSquareByName(String name)
-    {
-        for(USquare usq: uSquares) {
+    /**
+     * Finds square by name
+     *
+     * @param name name of the square to search
+     * @return the found square
+     */
+    public USquare findUSquareByName(String name) {
+        for (USquare usq : uSquares) {
             if (usq.getSquareName().equals(name)) {
                 return usq;
             }
@@ -60,6 +72,11 @@ public class UBoard extends JPanel implements PropertyChangeListener {
         return null;
     }
 
+    /**
+     * Property change listener, it observes changes on the squares in the model
+     *
+     * @param evt event fired in the model
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
@@ -89,13 +106,5 @@ public class UBoard extends JPanel implements PropertyChangeListener {
 
 
     }
-
-//    public void setCurrentMarker(UMarker uMarker) {
-//        this.currentMarker = uMarker;
-//    }
-//
-//    public UMarker getCurrentMarker(){
-//        return this.currentMarker;
-//    }
 
 }

@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+/**
+ * Start game page
+ */
 public class UStartGame extends JPanel {
     public JPanel getContentPane() {
         return contentPane;
@@ -22,6 +25,9 @@ public class UStartGame extends JPanel {
     private JComboBox playerComboBox;
     private JComboBox modeComboBox;
 
+    /**
+     * Constructor
+     */
     public UStartGame() {
 
         playButton.addActionListener(new ActionListener() {
@@ -29,20 +35,6 @@ public class UStartGame extends JPanel {
                 onPlay();
             }
         });
-
-       /* tutorialButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onTutorial();
-            }
-        });*/
-
-        // call onCancel() when cross is clicked
-//        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-//        addWindowListener(new WindowAdapter() {
-//            public void windowClosing(WindowEvent e) {
-//                onTutorial();
-//            }
-//        });
 
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
