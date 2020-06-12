@@ -12,7 +12,7 @@ import java.io.Serializable;
 /**
  * MSquare is a persistence entity.
  * It knows its name, its the next square with which it is linked, if it is the start square.
- * It also knows the action to perform if the marker lands on it.
+ * It knows the action to perform if the marker lands on it and how to setup the square.
  */
 @Entity
 @Table(name = "Square")
@@ -27,7 +27,6 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
 	private boolean m_startSquare;
 
 	@OneToOne(targetEntity = MSquare.class, cascade = CascadeType.ALL)
-	//@JoinColumn(name = "next_square_name")
 	@JoinColumns(
 			{
 					@JoinColumn(name = "next_square_name", referencedColumnName = "square_name"),
@@ -42,57 +41,135 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
 	@Transient // ignore this property/field
 	protected PropertyChangeSupport support = new PropertyChangeSupport(this);
 
+	/**
+	 * Default constructor.
+	 */
 	public MSquare() {
 	}
 
+	/**
+	 * Constructor.
+	 *
+	 * @param m_name The square name
+	 */
 	public MSquare(String m_name) {
 		this.m_name = m_name;
 		this.m_startSquare = false;
 		this.m_nextSquare = null;
 	}
 
+	/**
+	 * Get the square name.
+	 *
+	 * @return The square name
+	 */
 	public String getM_name() {
 		return m_name;
 	}
 
+	/**
+	 * Set the square name.
+	 *
+	 * @param m_name The square name
+	 */
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
 
+	/**
+	 * Get the next square which the square is linked to.
+	 *
+	 * @return The square which the square is linked to.
+	 */
 	public MSquare getM_nextSquare() {
 		return m_nextSquare;
 	}
 
+	/**
+	 * Set the next square which the square is linked to.
+	 *
+	 * @param m_nextSquare The next square which the square is linked to
+	 */
 	public void setM_nextSquare(MSquare m_nextSquare) {
 		this.m_nextSquare = m_nextSquare;
 	}
 
-    public boolean isM_startSquare() {
-        return m_startSquare;
-    }
+	/**
+	 * Get true if the square is a start square, false otherwise.
+	 *
+	 * @return true if the square is a start square, false otherwise
+	 */
+	public boolean isM_startSquare() {
+		return m_startSquare;
+	}
 
-    public void setM_startSquare(boolean m_startSquare) {
-        this.m_startSquare = m_startSquare;
-    }
+	/**
+	 * Set the square as a start square or not.
+	 *
+	 * @param m_startSquare true to set the square as a start square, false otherwise
+	 */
+	public void setM_startSquare(boolean m_startSquare) {
+		this.m_startSquare = m_startSquare;
+	}
 
-    public abstract ActionResult doAction(MPlayer mPlayer);
+	/**
+	 * Initial square setup.
+	 *
+	 * @param mode The game mode
+	 */
+	public abstract void setupSquare(GameMode mode);
 
-    public abstract String getSquareType();
+	/**
+	 * Action to perform if the marker's player lands on it.
+	 *
+	 * @param mPlayer The player who lands on the square
+	 * @return The action result
+	 */
+	public abstract ActionResult doAction(MPlayer mPlayer);
 
-    public void addPropertyChangeListener(PropertyChangeListener pcl) {
-        support.addPropertyChangeListener(pcl);
-    }
+	/**
+	 * Get the square type.
+	 *
+	 * @return the square type
+	 */
+	public abstract String getSquareType();
 
+	/**
+	 * Add an observer to the list.
+	 *
+	 * @param pcl The observer to add
+	 */
+	public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
+
+	/**
+	 * Remove an observer from the list.
+	 *
+	 * @param pcl The observer to remove
+	 */
 	public void removePropertyChangeListener(PropertyChangeListener pcl) {
 		support.removePropertyChangeListener(pcl);
 	}
 
+	/**
+	 * Notify all the observer for the change of the property.
+	 *
+	 * @param property  The property name which changed its value
+	 * @param oldObject The old value of the property
+	 * @param newObject The new value of the property
+	 */
 	public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
 		support.firePropertyChange(property, oldObject, newObject);
 	}
 
+	/**
+	 * How to manage a notify from the observable.
+	 *
+	 * @param evt The notify
+	 */
 	@Override
 	public abstract void propertyChange(PropertyChangeEvent evt);
 
-	public abstract void setupSquare(GameMode mode);
+
 }

@@ -3,25 +3,40 @@ package com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.players.playerFactory.IPlayerFactory;
-import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
 import com.univaq.stoneage.model.squares.ActionResult;
 
+/**
+ * It is a concreteCommand component of the COMMAND PATTERN.
+ * The ConcreteCommand defines a binding between an action and a Receiver.
+ * It knows to who ask to perform the action and which is the action to perform.
+ * Delegate the playerFactory for the creation of the player with the ability
+ * to take another turn.
+ */
 public class TakeAnotherTurnSurpriseTokenCommand implements ISurpriseTokenCommand {
-    private MPlayer player;
+    /**
+     * The command receiver
+     */
+    private final IPlayerFactory playerFactory;
 
-    public TakeAnotherTurnSurpriseTokenCommand(MPlayer player) {
-        this.player = player;
+    /**
+     * Constructor.
+     *
+     * @param playerFactory The receiver
+     */
+    public TakeAnotherTurnSurpriseTokenCommand(IPlayerFactory playerFactory) {
+        this.playerFactory = playerFactory;
     }
 
+    /**
+     * Execute the command.
+     * Delegate the playerFactory for the creation of the player with the ability to take another turn.
+     *
+     * @return The action result
+     */
     @Override
     public ActionResult execute() {
-//        ArrayList<MPlayer> players = MStoneAgeGame.getInstance().getM_players();
-//        int indexActivePlayer = MStoneAgeGame.getInstance().getM_nextPlayerStrategy().getIndexActivePlayer();
-//        player = players.get(indexActivePlayer);
-        player = MStoneAgeGame.getInstance().getActivePlayer();
-        IPlayerFactory playerFactory = new MPlayerFactory();
-        MPlayer playerWithAbility = playerFactory.getPlayer(this.player, this);
-        //players.set(indexActivePlayer, playerWithAbility);
+        MPlayer player = MStoneAgeGame.getInstance().getActivePlayer();
+        MPlayer playerWithAbility = playerFactory.getPlayer(player, this);
         MStoneAgeGame.getInstance().setActivePlayer(playerWithAbility);
         System.out.println(player.getMarkerName() + " ha preso l'abilità : esegui un altro turno");
         return ActionResult.ACTION_DONE;
