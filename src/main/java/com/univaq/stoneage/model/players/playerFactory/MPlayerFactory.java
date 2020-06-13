@@ -21,8 +21,16 @@ import java.util.Iterator;
  */
 public class MPlayerFactory implements IPlayerFactory {
 
+    /* List of players */
     private ArrayList<MPlayer> players;
 
+    /**
+     * Creates the righ number of players of the right type
+     *
+     * @param aNumPlayers      The number of the player to create
+     * @param nameHumanPlayers The human players' name
+     * @return List of players
+     */
     public ArrayList<MPlayer> createPlayers(int aNumPlayers, String... nameHumanPlayers) {
         players = new ArrayList<>();
         ArrayList<String> playersNames = this.getPlayersNamesFromDB();
@@ -45,6 +53,11 @@ public class MPlayerFactory implements IPlayerFactory {
         return players;
     }
 
+    /**
+     * Returns players names taken from db
+     *
+     * @return list of names
+     */
     private ArrayList<String> getPlayersNamesFromDB() {
         ArrayList<String> playersNames = new ArrayList<>();
         IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MMarker.class.getSimpleName(), null);
@@ -55,6 +68,12 @@ public class MPlayerFactory implements IPlayerFactory {
         return playersNames;
     }
 
+    /**
+     * Create a player of the given type
+     *
+     * @param aPlayerType the player type to create
+     * @return a new player of the given type
+     */
     public MPlayer getPlayer(PlayerType aPlayerType) {
         switch (aPlayerType) {
             case HumanPlayer:
@@ -64,18 +83,35 @@ public class MPlayerFactory implements IPlayerFactory {
         }
     }
 
+    /**
+     * Create a player with abilities starting from a player according to the surprise token.
+     *
+     * @param player  The starting player
+     * @param ability The surprise token command
+     * @return player with new ability
+     */
     public MPlayer getPlayer(MPlayer player, ISurpriseTokenCommand ability) {
         IPlayerAbilityCombiningStrategyFactory playerAbilityCombiningStrategyFactory = new PlayerAbilityCombiningStrategyConcreteFactory();
         IPlayerAbilityCombiningStrategy combiningStrategy = playerAbilityCombiningStrategyFactory.getStrategy(player, ability);
         return combiningStrategy.combineAbilities(player, ability);
     }
 
+    /**
+     * Set starting square for every player
+     *
+     * @param startSquare
+     */
     public void setStartSquare(MSquare startSquare) {
         players.forEach(mPlayer -> {
             mPlayer.getM_marker().setM_square(startSquare);
         });
     }
 
+    /**
+     * Get list of players
+     *
+     * @return list of players
+     */
     public ArrayList<MPlayer> getPlayers() {
         return players;
     }

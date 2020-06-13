@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Interface for the player factory.
  */
 public interface IPlayerFactory {
+
     /**
      * Create a player.
      *
@@ -25,7 +26,6 @@ public interface IPlayerFactory {
      * @param ability The surprise token command
      * @return The new player
      */
-    //crea il player con abilità
     MPlayer getPlayer(MPlayer player, ISurpriseTokenCommand ability);
 
     /**
