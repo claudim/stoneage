@@ -6,10 +6,18 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+/**
+ * Utility class handling hibernate communication
+ */
 public class HibernateUtil {
     private static StandardServiceRegistry registry;
     private static SessionFactory sessionFactory;
 
+    /**
+     * Creates hibernate session factory
+     *
+     * @return A session factory
+     */
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
@@ -35,6 +43,9 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
+    /**
+     * Shutdown Standard service registry
+     */
     public static void shutdown() {
         if (registry != null) {
             StandardServiceRegistryBuilder.destroy(registry);
