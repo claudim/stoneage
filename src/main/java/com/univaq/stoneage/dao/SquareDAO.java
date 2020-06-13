@@ -5,7 +5,7 @@ import com.univaq.stoneage.model.squares.MSquare;
 /**
  * Class that handle persistence for Square objects
  */
-public abstract class SquareDAO extends GenericHibernateDAO<MSquare> {
+public class SquareDAO extends GenericHibernateDAO<MSquare> {
 
     /**
      * Constructor
@@ -14,5 +14,4 @@ public abstract class SquareDAO extends GenericHibernateDAO<MSquare> {
         super();
         this.setClazz(MSquare.class);
     }
-
 }

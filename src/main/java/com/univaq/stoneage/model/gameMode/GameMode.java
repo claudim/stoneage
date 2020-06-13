@@ -83,7 +83,7 @@ public class GameMode {
     /**
      * Delegate the current mode to get the square factory.
      *
-     * @return The square factory according to the currend game mode
+     * @return The square factory according to the current game mode
      */
     public ISquareFactory getSquareFactory() {
         return modeState.getSquareFactory();
