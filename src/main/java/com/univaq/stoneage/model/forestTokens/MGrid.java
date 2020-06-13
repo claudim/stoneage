@@ -17,7 +17,7 @@ import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
 /**
  * Grid is a Pure Fabrication class to manage forest tokens. It creates, knows and manages them.
  * It is responsible for the forest tokens creations, to face up a single token to get it value.
- * scegliere un token forest random
+ * It has a reference to a strategy for choosing the next forest token and for shuffling the tokens.
  */
 public class MGrid {
 
@@ -32,18 +32,16 @@ public class MGrid {
 	 */
 	private IShuffleStrategy m_shuffleStrategy;
 
-	private final MINextForestTokenStrategy m_nextForestTokenStrategy;
-
+	/**
+	 * Reference to a strategy for choosing the next forest token.
+	 */
+	private MINextForestTokenStrategy m_nextForestTokenStrategy;
 
 	/**
 	 * Constructor.
 	 * Create all forest tokens and initialize the grid fields.
 	 */
 	public MGrid(GameMode mode) {
-		//m_tokens = new ArrayList<MTokenForest>()
-		// createTokenForest();
-		//m_shuffleStrategy = new CollectionsShuffleStrategy();
-		//m_nextForestTokenStrategy = new MRandomNextForestTokenStrategy();
 
 		ITokenForestFactory forestTokenFactory = mode.getForestTokenFactory();
 		m_tokens = forestTokenFactory.createForestTokens();
@@ -61,16 +59,49 @@ public class MGrid {
 		return m_tokens;
 	}
 
+	/**
+	 * Set the forest tokens.
+	 *
+	 * @param m_tokens The forest tokens
+	 */
 	public void setM_tokens(ArrayList<MTokenForest> m_tokens) {
 		this.m_tokens = m_tokens;
 	}
 
+	/**
+	 * Get the shuffle strategy.
+	 *
+	 * @return the shuffle strategy
+	 */
 	public IShuffleStrategy getM_shuffleStrategy() {
 		return m_shuffleStrategy;
 	}
 
+	/**
+	 * Set the shuffle strategy.
+	 *
+	 * @param m_shuffleStrategy the shuffle strategy
+	 */
 	public void setM_shuffleStrategy(IShuffleStrategy m_shuffleStrategy) {
 		this.m_shuffleStrategy = m_shuffleStrategy;
+	}
+
+	/**
+	 * Get the strategy for choosing the next forest token.
+	 *
+	 * @return The strategy for choosing the next forest token
+	 */
+	public MINextForestTokenStrategy getM_nextForestTokenStrategy() {
+		return m_nextForestTokenStrategy;
+	}
+
+	/**
+	 * Set the strategy for choosing the next forest token.
+	 *
+	 * @param m_nextForestTokenStrategy The strategy for choosing the next forest token.
+	 */
+	public void setM_nextForestTokenStrategy(MINextForestTokenStrategy m_nextForestTokenStrategy) {
+		this.m_nextForestTokenStrategy = m_nextForestTokenStrategy;
 	}
 
 	/**
@@ -145,15 +176,32 @@ public class MGrid {
 		notifyPropertyChangeListener("shuffleForestToken", null, this.m_tokens);
 	}
 
+	/**
+	 * Add an observer to the list.
+	 *
+	 * @param pcl The observer to add
+	 */
 	public void addPropertyChangeListener(PropertyChangeListener pcl) {
 		support.addPropertyChangeListener(pcl);
 	}
 
+	/**
+	 * Remove an observer from the list.
+	 *
+	 * @param pcl The observer to remove
+	 */
 	public void removePropertyChangeListener(PropertyChangeListener pcl) {
 		support.removePropertyChangeListener(pcl);
 	}
 
-	public void notifyPropertyChangeListener(String propertyName, Object oldValue, Object newValue) {
-		support.firePropertyChange(propertyName, oldValue, newValue);
+	/**
+	 * Notify all the observer for the change of the property.
+	 *
+	 * @param property The property name which changed its value
+	 * @param oldValue The old value of the property
+	 * @param newValue The new value of the property
+	 */
+	public void notifyPropertyChangeListener(String property, Object oldValue, Object newValue) {
+		support.firePropertyChange(property, oldValue, newValue);
 	}
 }

@@ -65,7 +65,7 @@ public class GreenModeState implements IModeState {
     }
 
     @Override
-    public IGetNextIdStrategy getNextHutTokenIdToBuildStrategy() {
+    public IGetNextIdStrategy getNextHutTokenIdToFaceUpStrategy() {
         return new GetFirstIdStrategy();
     }
 

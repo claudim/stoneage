@@ -52,7 +52,7 @@ public class MBuildingSiteSquare extends MSquare {
      * Reference to the strategy to choose the next hut token to face up on the square.
      */
     @Transient
-    IGetNextIdStrategy m_nextHutTokenIdToBuildStrategy;
+    IGetNextIdStrategy m_nextHutTokenIdToFaceUpStrategy;
 
     /**
      * Reference to the strategy for control which hut token is buildable for a player.
@@ -154,7 +154,7 @@ public class MBuildingSiteSquare extends MSquare {
         m_hutTokens.addAll(dao.findAll());
         m_playerBuildableMHutTokens = new ArrayList<>();
         m_nextHutTokenIdForPlayerStrategy = mode.getNextHutIdStrategy();
-        m_nextHutTokenIdToBuildStrategy = mode.getNextHutTokenIdToBuildStrategy();
+        m_nextHutTokenIdToFaceUpStrategy = mode.getNextHutTokenIdToFaceUpStrategy();
         checkBuildableHutAlgorithm = new CheckBuildableHutStrategy();
     }
 
@@ -206,7 +206,7 @@ public class MBuildingSiteSquare extends MSquare {
 
         ArrayList<MHutToken> buildableFaceDownHutTokens = (ArrayList<MHutToken>) result;
 
-        int nextId = m_nextHutTokenIdToBuildStrategy.getNextId(0, buildableFaceDownHutTokens.size());
+        int nextId = m_nextHutTokenIdToFaceUpStrategy.getNextId(0, buildableFaceDownHutTokens.size());
         buildableFaceDownHutTokens.get(nextId).setM_state(TokenState.FACEUP);
         return buildableFaceDownHutTokens.get(nextId);
     }

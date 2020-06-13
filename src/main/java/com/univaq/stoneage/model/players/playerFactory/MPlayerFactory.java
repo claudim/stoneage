@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * PlayerFactory is responsible for the player creation
+ * PlayerFactory is responsible for the player creation.
  */
 public class MPlayerFactory implements IPlayerFactory {
 

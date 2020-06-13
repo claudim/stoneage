@@ -111,7 +111,7 @@ public abstract class MPlayer {
 	}
 
 	/**
-	 * Start a play turn.
+	 * Start a turn.
 	 */
 	public abstract void playTurn();
 
