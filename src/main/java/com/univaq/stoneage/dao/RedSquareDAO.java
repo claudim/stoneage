@@ -10,8 +10,16 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 
+/**
+ * Class that handle persistence for Square objects in red mode
+ */
 public class RedSquareDAO extends SquareDAO {
 
+    /**
+     * Select all tuples of MSquare needed in green mode game present in memory
+     *
+     * @return list of MSquare objects for the green mode
+     */
     public ArrayList<MSquare> findAll() {
         ArrayList<MSquare> list = new ArrayList<>();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

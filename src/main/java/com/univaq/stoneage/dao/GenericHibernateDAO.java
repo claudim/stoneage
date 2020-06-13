@@ -10,20 +10,33 @@ import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Abstract generic class defining parametric crud operations. All other persistent classes extend this
+ *
+ * @param <T> the type of the object over execute operations
+ */
 public abstract class GenericHibernateDAO<T extends Serializable> implements IGenericDAO<T> {
 
+    /* Specific class on which execute operations */
     private Class<T> clazz;
 
+    /**
+     * Setter for the class
+     *
+     * @param clazzToSet class to set
+     */
     public void setClazz(Class<T> clazzToSet) {
         this.clazz = clazzToSet;
     }
 
+    /**
+     * Select all tuples of the parametric object present in memory
+     *
+     * @return list of objects of the requested type
+     */
     public ArrayList<T> findAll() {
         ArrayList<T> list = new ArrayList<>();
-//        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // start a transaction
-//            transaction = session.beginTransaction();
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
             CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
             Root<T> root = criteriaQuery.from(clazz);
@@ -31,13 +44,7 @@ public abstract class GenericHibernateDAO<T extends Serializable> implements IGe
             Query<T> q = session.createQuery(criteriaQuery);
             list = (ArrayList<T>) q.getResultList();
 
-            // list = (ArrayList<T>) session.createQuery("from " + clazz.getName(), this.clazz).list();
-            // commit transaction
-//            transaction.commit();
         } catch (Exception e) {
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
             e.printStackTrace();
         }
         return list;

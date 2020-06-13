@@ -10,7 +10,16 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 
+/**
+ * Class that handle persistence for Forest Token objects in green mode
+ */
 public class GreenTokenForestDAO extends TokenForestDAO {
+
+    /**
+     * Select all tuples of Forest Token needed in green mode present in memory
+     *
+     * @return list of Forest Tokens objects for the green mode
+     */
     public ArrayList<MTokenForest> findAll() {
         ArrayList<MTokenForest> list = new ArrayList<>();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

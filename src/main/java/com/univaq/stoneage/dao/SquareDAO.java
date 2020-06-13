@@ -10,38 +10,35 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 
+/**
+ * Class that handle persistence for Square objects
+ */
 public class SquareDAO extends GenericHibernateDAO<MSquare> {
 
+    /**
+     * Constructor
+     */
     public SquareDAO() {
         super();
         this.setClazz(MSquare.class);
     }
 
+    /**
+     * Select all tuples of MSquare present in memory
+     *
+     * @return list of MSquare objects
+     */
     public ArrayList<MSquare> findAll() {
         ArrayList<MSquare> list = new ArrayList<>();
-//        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // start a transaction
-//            transaction = session.beginTransaction();
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
             CriteriaQuery<MSquare> criteriaQuery = criteriaBuilder.createQuery(MSquare.class);
             Root<MSquare> root = criteriaQuery.from(MSquare.class);
             criteriaQuery.select(root);
-//                    where(criteriaBuilder.equal(root.get("square_type"), "resourcesquare"));
-
-            //   Root<MResourceSquare> resourceSquareRoot = criteriaBuilder.treat(root, MResourceSquare.class);
-            // Root<MBuildingSite> buildingSiteRoot = criteriaBuilder.treat(root, MBuildingSite.class);
-            //criteriaQuery.select(root);
             Query<MSquare> q = session.createQuery(criteriaQuery);
             list = (ArrayList<MSquare>) q.getResultList();
 
-            // list = (ArrayList<T>) session.createQuery("from " + clazz.getName(), this.clazz).list();
-            // commit transaction
-//            transaction.commit();
         } catch (Exception e) {
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
             e.printStackTrace();
         }
         return list;

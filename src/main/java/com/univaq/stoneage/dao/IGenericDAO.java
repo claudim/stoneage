@@ -13,6 +13,11 @@ import java.util.ArrayList;
 public interface IGenericDAO<T extends Serializable> {
 //    T findOne(final long id);
 
+    /**
+     * Select all tuples of the parametric object present in memory
+     *
+     * @return list of objects of the requested type
+     */
     ArrayList<T> findAll();
 
     //  ArrayList<T> findAllId();
