@@ -1,16 +1,16 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.model.squares.MSquare;
 
 /**
  * Class that handle persistence for Square objects
  */
-public class SquareDAO extends GenericHibernateDAO<MSquare> {
+public class PSquare extends PGenericHibernate {
 
     /**
      * Constructor
      */
-    public SquareDAO() {
+    public PSquare() {
         super();
         this.setClazz(MSquare.class);
     }

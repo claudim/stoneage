@@ -1,7 +1,5 @@
 package com.univaq.stoneage.model.squares.buildingSiteSquare;
 
-import com.univaq.stoneage.dao.IGenericDAO;
-import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
@@ -10,6 +8,8 @@ import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.persistence.IPersistentGeneric;
+import com.univaq.stoneage.persistence.PersistenceServiceFactory;
 import com.univaq.stoneage.utility.TokenState;
 
 import javax.persistence.DiscriminatorValue;
@@ -150,7 +150,7 @@ public class MBuildingSiteSquare extends MSquare {
      */
     public void setupSquare(GameMode mode) {
         support = new PropertyChangeSupport(this); // to implement the oberver pattern
-        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MHutToken.class.getSimpleName(), null);
+        IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MHutToken.class.getSimpleName(), null);
         m_hutTokens.addAll(dao.findAll());
         m_playerBuildableMHutTokens = new ArrayList<>();
         m_nextHutTokenIdForPlayerStrategy = mode.getNextHutIdStrategy();

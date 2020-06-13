@@ -1,16 +1,16 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.model.MResource;
 
 /**
  * Class that handle persistence for Resource objects
  */
-public class ResourceDAO extends GenericHibernateDAO<MResource> {
+public class PResource extends PGenericHibernate {
 
     /**
      * Constructor
      */
-    public ResourceDAO() {
+    public PResource() {
         super();
         this.setClazz(MResource.class);
     }

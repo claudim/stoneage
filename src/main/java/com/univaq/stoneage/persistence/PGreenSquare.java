@@ -1,4 +1,4 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.utility.HibernateUtil;
@@ -11,9 +11,9 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 
 /**
- * Class that handle persistence for Square objects in red mode
+ * Class that handle persistence for Square objects in green mode
  */
-public class RedSquareDAO extends SquareDAO {
+public class PGreenSquare extends PSquare {
 
     /**
      * Select all tuples of MSquare needed in green mode game present in memory
@@ -26,9 +26,10 @@ public class RedSquareDAO extends SquareDAO {
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
             CriteriaQuery<MSquare> criteriaQuery = criteriaBuilder.createQuery(MSquare.class);
             Root<MSquare> root = criteriaQuery.from(MSquare.class);
-            criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("m_mode"), "rossa"));
+            criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("m_mode"), "verde"));
             Query<MSquare> q = session.createQuery(criteriaQuery);
             list = (ArrayList<MSquare>) q.getResultList();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

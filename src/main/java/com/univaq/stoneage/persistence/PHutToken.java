@@ -1,16 +1,16 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 
 /**
  * Class that handle persistence for the hut tokens objects
  */
-public class HutTokenDAO extends GenericHibernateDAO<MHutToken> {
+public class PHutToken extends PGenericHibernate {
 
     /**
      * Constructor
      */
-    public HutTokenDAO() {
+    public PHutToken() {
         super();
         this.setClazz(MHutToken.class);
     }

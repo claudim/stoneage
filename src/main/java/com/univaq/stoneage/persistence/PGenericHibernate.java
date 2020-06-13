@@ -1,4 +1,4 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.utility.HibernateUtil;
 import org.hibernate.Session;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @param <T> the type of the object over execute operations
  */
-public abstract class GenericHibernateDAO<T extends Serializable> implements IGenericDAO<T> {
+public abstract class PGenericHibernate<T extends Serializable> implements IPersistentGeneric<T> {
 
     /* Specific class on which execute operations */
     private Class<T> clazz;
