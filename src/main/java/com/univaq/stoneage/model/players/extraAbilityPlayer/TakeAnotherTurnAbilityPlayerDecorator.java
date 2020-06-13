@@ -27,10 +27,10 @@ public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDec
 
     }
 
-    @Override
-    public void executeAbility() {
-
-    }
+//    @Override
+//    public void executeAbility() {
+//
+//    }
 
     @Override
     public void executeOnSquareAbility() {
