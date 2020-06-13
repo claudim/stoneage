@@ -1,16 +1,16 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 
 /**
  * Class that handle persistence for Forest Token objects
  */
-public class TokenForestDAO extends GenericHibernateDAO<MTokenForest> {
+public class PTokenForest extends PGenericHibernate {
 
     /**
      * Constructor
      */
-    public TokenForestDAO() {
+    public PTokenForest() {
         super();
         setClazz(MTokenForest.class);
     }

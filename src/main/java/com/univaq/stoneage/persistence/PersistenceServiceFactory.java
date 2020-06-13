@@ -1,7 +1,7 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 /**
- * PersistenceServiceFactory is a singleton class responsible to get the right class DAO to interact with the DB.
+ * PersistenceServiceFactory is a singleton class responsible to get the right persistence class to interact with the DB.
  */
 public class PersistenceServiceFactory {
 
@@ -23,50 +23,50 @@ public class PersistenceServiceFactory {
     }
 
     /**
-     * Get the DAO class for the model class which simple name is passed by parameter.
-     * If for model class does not exist the DAO class, it returns null.
+     * Get the persistence class for the model class which simple name is passed by parameter.
+     * If for model class does not exist the persistence class, it returns null.
      *
      * @param className String The simple name of the model class
-     * @return The DAO class for a model class if exists, otherwise null
+     * @return The persistence class for a model class if exists, otherwise null
      */
-    public IGenericDAO<?> getDao(String className, String nameMode) {
-        IGenericDAO<?> genericDAO;
+    public IPersistentGeneric<?> getPersistenceClass(String className, String nameMode) {
+        IPersistentGeneric<?> persistentGeneric;
         switch (className) {
             case "MMarker": {
-                genericDAO = new MarkerDAO();
+                persistentGeneric = new PMarker();
                 break;
             }
             case "MSquare": {
-                genericDAO = new SquareDAO();
+                persistentGeneric = new PSquare();
                 if (nameMode.equals("rossa")) {
-                    genericDAO = new RedSquareDAO();
+                    persistentGeneric = new PRedSquare();
                 }
                 if (nameMode.equals("verde")) {
-                    genericDAO = new GreenSquareDAO();
+                    persistentGeneric = new PGreenSquare();
                 }
                 break;
             }
             case "MTokenForest": {
-                genericDAO = new TokenForestDAO();
+                persistentGeneric = new PTokenForest();
                 if (nameMode.equals("rossa")) {
-                    genericDAO = new RedTokenForestDAO();
+                    persistentGeneric = new PRedTokenForest();
                 }
                 if (nameMode.equals("verde")) {
-                    genericDAO = new GreenTokenForestDAO();
+                    persistentGeneric = new PGreenTokenForest();
                 }
                 break;
             }
             case "MResource": {
-                genericDAO = new ResourceDAO();
+                persistentGeneric = new PResource();
                 break;
             }
             case "MHutToken": {
-                genericDAO = new HutTokenDAO();
+                persistentGeneric = new PHutToken();
                 break;
             }
             default:
-                genericDAO = null;
+                persistentGeneric = null;
         }
-        return genericDAO;
+        return persistentGeneric;
     }
 }

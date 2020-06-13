@@ -1,16 +1,16 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.model.players.MMarker;
 
 /**
  * Class that handle persistence for markers objects
  */
-public class MarkerDAO extends GenericHibernateDAO<MMarker> {
+public class PMarker extends PGenericHibernate {
 
     /**
      * Constructor
      */
-    public MarkerDAO() {
+    public PMarker() {
         super();
         this.setClazz(MMarker.class);
     }

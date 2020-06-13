@@ -1,7 +1,5 @@
 package com.univaq.stoneage.model.players.playerFactory;
 
-import com.univaq.stoneage.dao.IGenericDAO;
-import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.players.MEmulatedPlayer;
 import com.univaq.stoneage.model.players.MHumanPlayer;
 import com.univaq.stoneage.model.players.MMarker;
@@ -11,6 +9,8 @@ import com.univaq.stoneage.model.players.playerAbilityCombining.IPlayerAbilityCo
 import com.univaq.stoneage.model.players.playerAbilityCombining.PlayerAbilityCombiningStrategyConcreteFactory;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.ISurpriseTokenCommand;
+import com.univaq.stoneage.persistence.IPersistentGeneric;
+import com.univaq.stoneage.persistence.PersistenceServiceFactory;
 import com.univaq.stoneage.utility.PlayerType;
 
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class MPlayerFactory implements IPlayerFactory {
      */
     private ArrayList<String> getPlayersNamesFromDB() {
         ArrayList<String> playersNames = new ArrayList<>();
-        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MMarker.class.getSimpleName(), null);
+        IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MMarker.class.getSimpleName(), null);
         ArrayList<MMarker> markers = dao.findAll();
         for (MMarker marker : markers) {
             playersNames.add(marker.getM_markerName());

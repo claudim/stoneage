@@ -1,4 +1,4 @@
-package com.univaq.stoneage.dao;
+package com.univaq.stoneage.persistence;
 
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.utility.HibernateUtil;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Class that handle persistence for Forest Token objects in red mode
  */
-public class RedTokenForestDAO extends TokenForestDAO {
+public class PRedTokenForest extends PTokenForest {
 
     /**
      * Select all tuples of Forest Token needed in red mode present in memory

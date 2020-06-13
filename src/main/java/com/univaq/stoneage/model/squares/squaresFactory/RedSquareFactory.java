@@ -1,9 +1,9 @@
 package com.univaq.stoneage.model.squares.squaresFactory;
 
-import com.univaq.stoneage.dao.IGenericDAO;
-import com.univaq.stoneage.dao.PersistenceServiceFactory;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.persistence.IPersistentGeneric;
+import com.univaq.stoneage.persistence.PersistenceServiceFactory;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class RedSquareFactory implements ISquareFactory {
      */
     @Override
     public ArrayList<MSquare> createSquares() {
-        IGenericDAO dao = PersistenceServiceFactory.getInstance().getDao(MSquare.class.getSimpleName(), "rossa");
+        IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MSquare.class.getSimpleName(), "rossa");
         ArrayList<MSquare> squares = dao.findAll();
         for (MSquare square : squares) {
             square.setupSquare(mode);
