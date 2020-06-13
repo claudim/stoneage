@@ -19,6 +19,11 @@ public class MSquareTokenForest extends MTokenForest<String> {
     @Column(name = "square_value")
     private String m_squareName;
 
+    /**
+     * Constructor.
+     *
+     * @param tokenForestValue The value
+     */
     public MSquareTokenForest(String tokenForestValue) {
         super();
         super.m_state = FACEDOWN;

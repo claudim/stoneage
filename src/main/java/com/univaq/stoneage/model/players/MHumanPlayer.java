@@ -2,6 +2,9 @@ package com.univaq.stoneage.model.players;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 
+/**
+ *
+ */
 public class MHumanPlayer extends MPlayer {
     public MHumanPlayer() {
         super();
@@ -22,11 +25,6 @@ public class MHumanPlayer extends MPlayer {
     public void stealResource() {
         //NO-OP
     }
-
-//    @Override
-//    public void executeAbility() {
-//
-//    }
 
     @Override
     public void executeOnSquareAbility() {

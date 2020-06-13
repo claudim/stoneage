@@ -32,13 +32,26 @@ import java.util.ArrayList;
 @DiscriminatorValue(value = "resourcesquare")
 public class MResourceSquare extends MSquare {
 
+    /**
+     * The resource type held by this square.
+     */
     @Column(name = "resource_type")
     private String m_resourceType;
+
+    /**
+     * All the resources hend by the square.
+     */
     @Transient
     private ArrayList<MResource> m_resources;
+    /**
+     * The resource square state.
+     */
     @Transient
     private ISquareState m_squareState;
 
+    /**
+     * Reference to the resource square state factory.
+     */
     @Transient
     private IResourceSquareStateFactory m_squareStateFactory;
 

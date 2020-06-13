@@ -1,7 +1,5 @@
 package com.univaq.stoneage.model.gameGoal;
 
-import com.univaq.stoneage.model.gameMode.GameMode;
-
 /**
  * Concrete factory to create the right game goal strategy.
  */
@@ -18,9 +16,4 @@ public class GameGoalStrategyFactory implements IGameGoalStrategyFactory {
         return new ThreeHutTokenGoalStrategy();
     }
 
-    @Override
-    public IGameGoalStrategy createGameGoalStrategy(GameMode mode) {
-
-        return null;
-    }
 }

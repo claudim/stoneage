@@ -20,6 +20,11 @@ public class MDieFaceTokenForest extends MTokenForest<Integer> {
     @Column(name = "die_value")
     private int m_dieFace;
 
+    /**
+     * Constructor.
+     *
+     * @param tokenForestValue The value
+     */
     public MDieFaceTokenForest(int tokenForestValue) {
         super();
         super.m_state = FACEDOWN;

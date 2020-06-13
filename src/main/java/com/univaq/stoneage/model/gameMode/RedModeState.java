@@ -68,7 +68,7 @@ public class RedModeState implements IModeState {
     }
 
     @Override
-    public IGetNextIdStrategy getNextHutTokenIdToBuildStrategy() {
+    public IGetNextIdStrategy getNextHutTokenIdToFaceUpStrategy() {
         return new GetFirstIdStrategy();
     }
 

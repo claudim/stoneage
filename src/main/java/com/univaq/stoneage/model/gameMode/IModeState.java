@@ -27,7 +27,7 @@ public interface IModeState {
 
     MINextHutTokenStrategy getNextHutIdStrategy();
 
-    IGetNextIdStrategy getNextHutTokenIdToBuildStrategy();
+    IGetNextIdStrategy getNextHutTokenIdToFaceUpStrategy();
 
     MISetupSquareStrategyFactory getSetupSquareStrategyFactory();
 

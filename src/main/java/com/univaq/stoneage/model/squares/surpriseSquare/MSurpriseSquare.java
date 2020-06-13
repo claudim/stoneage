@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * It is responsible for the creation of all the Surprise Token.
+ * It is responsible for the creation of all the Surprise Tokens.
  * It knows the action to perform if the marker lands on it and how to setup the square.
  * It knows its type.
  */
@@ -26,12 +26,15 @@ import java.util.Collections;
 @DiscriminatorValue(value = "surprisesquare")
 public class MSurpriseSquare extends MSquare {
 
+    /**
+     * All the surprise tokens.
+     */
     @Transient
     private ArrayList<ISurpriseTokenCommand> m_supriseTokens;
 
     /**
      * Initial square setup.
-     * Create all the Surprise Token and set the receiver.
+     * Create all the surprise tokens and set the receiver.
      *
      * @param mode The game mode
      */

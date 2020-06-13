@@ -9,7 +9,9 @@ import java.beans.PropertyChangeEvent;
 
 import static com.univaq.stoneage.model.squares.ActionResult.ACTION_DONE;
 
-
+/**
+ * It knows its type, the action to perform if the marker lands on it and how to setup the square.
+ */
 @Entity
 @DiscriminatorValue(value = "regularsquare")
 public class MRegularSquare extends MSquare {

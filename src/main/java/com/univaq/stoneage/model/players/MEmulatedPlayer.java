@@ -10,12 +10,18 @@ import java.util.ArrayList;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * A specific player. The system emulates the human actions.
+ */
 public class MEmulatedPlayer extends MPlayer {
 
     public MEmulatedPlayer() {
         super();
     }
 
+    /**
+     * Start a turn. The system chooses a forest token for the emulated player and then calls the play turn system's operation after waited 2 seconds.
+     */
     @Override
     public void playTurn() {
         int nextForestTokenId = MStoneAgeGame.getInstance().getM_grid().getNextForestTokenId();
@@ -25,6 +31,9 @@ public class MEmulatedPlayer extends MPlayer {
         executor.schedule(() -> MStoneAgeGame.getInstance().playTurn(nextForestTokenId), 2, TimeUnit.SECONDS);
     }
 
+    /**
+     * Start to build a hut. The system chooses a hut token for the emulated player and then calls the buildBut system's operation.
+     */
     @Override
     public void buildHut() {
         MStoneAgeGame stoneAgeGame = MStoneAgeGame.getInstance();
@@ -33,14 +42,13 @@ public class MEmulatedPlayer extends MPlayer {
         //has already been done the check if playerBuildableHutTokens.size is zero
         int idHutToken = bsSquare.getNextHutTokenId(playerBuildableHutTokens);
         stoneAgeGame.buildHut(idHutToken);
-
     }
 
+    /**
+     *
+     */
     @Override
     public void stealResource() {
-
-        // todo strategia 
-        //scegliere a caso
         ArrayList<MPlayer> gamePlayers = MStoneAgeGame.getInstance().getM_players();
         ArrayList<MPlayer> players = new ArrayList<>();
         gamePlayers.forEach(mPlayer -> {

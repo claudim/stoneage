@@ -85,16 +85,33 @@ public abstract class MTokenForest<T> implements Serializable {
      */
     public abstract void setValue(T value);
 
+    /**
+     * Add an observer to the list.
+     *
+     * @param pcl The observer to add
+     */
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
     }
 
+    /**
+     * Remove an observer from the list.
+     *
+     * @param pcl The observer to remove
+     */
     public void removePropertyChangeListener(PropertyChangeListener pcl) {
         support.removePropertyChangeListener(pcl);
     }
 
-    public void notifyPropertyChangeListener(String propertyName, Object oldValue, Object newValue) {
-        support.firePropertyChange(propertyName, oldValue, newValue);
+    /**
+     * Notify all the observer for the change of the property.
+     *
+     * @param property The property name which changed its value
+     * @param oldValue The old value of the property
+     * @param newValue The new value of the property
+     */
+    public void notifyPropertyChangeListener(String property, Object oldValue, Object newValue) {
+        support.firePropertyChange(property, oldValue, newValue);
     }
 
 }
