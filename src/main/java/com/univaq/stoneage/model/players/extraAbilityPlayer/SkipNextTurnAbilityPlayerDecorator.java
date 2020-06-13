@@ -26,10 +26,10 @@ public class SkipNextTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDecora
 
     }
 
-    @Override
-    public void executeAbility() {
-
-    }
+//    @Override
+//    public void executeAbility() {
+//
+//    }
 
     @Override
     public void executeOnSquareAbility() {

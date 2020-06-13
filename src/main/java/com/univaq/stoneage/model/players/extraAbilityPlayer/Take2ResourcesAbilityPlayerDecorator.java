@@ -55,10 +55,10 @@ public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDeco
         player.stealResource();
     }
 
-    @Override
-    public void executeAbility() {
-
-    }
+//    @Override
+//    public void executeAbility() {
+//
+//    }
 
 
 }
