@@ -14,5 +14,4 @@ public class PSquare extends PGenericHibernate {
         super();
         this.setClazz(MSquare.class);
     }
-
 }

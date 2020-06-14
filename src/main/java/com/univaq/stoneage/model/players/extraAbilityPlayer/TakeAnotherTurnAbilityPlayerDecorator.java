@@ -4,8 +4,16 @@ import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.players.MPlayer;
 
+/**
+ * Define a player with the ability to take another turn.
+ */
 public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDecorator {
 
+    /**
+     * Constructor.
+     *
+     * @param playerWithNoAbility The player to add the ability
+     */
     public TakeAnotherTurnAbilityPlayerDecorator(MPlayer playerWithNoAbility) {
         super(playerWithNoAbility);
         this.m_marker = playerWithNoAbility.getM_marker();
@@ -27,21 +35,25 @@ public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDec
 
     }
 
-//    @Override
-//    public void executeAbility() {
-//
-//    }
-
+    /**
+     * Execute the ability when the player is on a square.
+     */
     @Override
     public void executeOnSquareAbility() {
 
     }
 
+    /**
+     * Execute the ability on start turn.
+     */
     @Override
     public void executeOnStartTurnAbility() {
 
     }
 
+    /**
+     * Execute the ability on end turn.
+     */
     @Override
     public void executeOnEndTurnAbility() {
         removeAbility();

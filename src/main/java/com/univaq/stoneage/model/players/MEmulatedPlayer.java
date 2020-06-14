@@ -3,7 +3,7 @@ package com.univaq.stoneage.model.players;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.RobbedPlayer.MIRobbedPlayerStrategy;
-import com.univaq.stoneage.model.players.RobbedPlayer.MRandomRobberPlayerStrategy;
+import com.univaq.stoneage.model.players.RobbedPlayer.MRandomRobbedPlayerStrategy;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 
 import java.util.ArrayList;
@@ -15,6 +15,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class MEmulatedPlayer extends MPlayer {
 
+    /**
+     * Constructor.
+     */
     public MEmulatedPlayer() {
         super();
     }
@@ -46,7 +49,7 @@ public class MEmulatedPlayer extends MPlayer {
     }
 
     /**
-     *
+     * Choose the robbed and call the stealresource system operation.
      */
     @Override
     public void stealResource() {
@@ -57,27 +60,33 @@ public class MEmulatedPlayer extends MPlayer {
                 players.add(mPlayer);
             }
         });
-        MIRobbedPlayerStrategy robbedPlayerStrategy = new MRandomRobberPlayerStrategy();
+        MIRobbedPlayerStrategy robbedPlayerStrategy = new MRandomRobbedPlayerStrategy();
         String robbedPlayerName = robbedPlayerStrategy.getRobbedPlayerName(players);
         // ruba
         MStoneAgeGame.getInstance().stealResource(robbedPlayerName);
     }
 
-//    @Override
-//    public void executeAbility() {
-//
-//    }
-
+    /**
+     * Execute the ability when the player is on a square.
+     */
     @Override
     public void executeOnSquareAbility() {
 
     }
 
+    /**
+     * Execute the ability on start turn.
+     */
     @Override
     public void executeOnStartTurnAbility() {
 
     }
 
+    /**
+     * Get the player with no ability.
+     *
+     * @return The player with no ability
+     */
     @Override
     public MPlayer getPlayer() {
         return this;

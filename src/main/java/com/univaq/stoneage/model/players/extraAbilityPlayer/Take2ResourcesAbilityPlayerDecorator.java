@@ -6,14 +6,25 @@ import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.ISquareState;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
 
+/**
+ * Define a player with the ability to take 2 resource when the player is on a resource square.
+ */
 public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDecorator {
 
+    /**
+     * Constructor.
+     *
+     * @param player The player to add the ability
+     */
     public Take2ResourcesAbilityPlayerDecorator(MPlayer player) {
         super(player);
         this.m_marker = player.getM_marker();
         this.m_settlement = player.getM_settlement();
     }
 
+    /**
+     * Execute the ability when the player is on a square.
+     */
     @Override
     public void executeOnSquareAbility() {
         MSquare currentSquare = player.getM_marker().getCurrentSquare();
@@ -29,36 +40,43 @@ public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDeco
         }
     }
 
+    /**
+     * Execute the ability on start turn.
+     */
     @Override
     public void executeOnStartTurnAbility() {
         player.executeOnStartTurnAbility();
     }
 
+    /**
+     * Execute the ability on end turn.
+     */
     @Override
     public void executeOnEndTurnAbility() {
-
     }
 
+    /**
+     * Delegate the player with no ability to perform the play turn.
+     */
     @Override
     public void playTurn() {
         //execute on start turn ability
         player.playTurn();
     }
 
+    /**
+     * Delegate the player with no ability to perform the build a hut.
+     */
     @Override
     public void buildHut() {
         player.buildHut();
     }
 
+    /**
+     * Delegate the player with no ability to perform the steal resource.
+     */
     @Override
     public void stealResource() {
         player.stealResource();
     }
-
-//    @Override
-//    public void executeAbility() {
-//
-//    }
-
-
 }
