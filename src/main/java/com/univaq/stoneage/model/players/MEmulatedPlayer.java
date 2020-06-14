@@ -20,7 +20,8 @@ public class MEmulatedPlayer extends MPlayer {
     }
 
     /**
-     * Start a turn. The system chooses a forest token for the emulated player and then calls the play turn system's operation after waited 2 seconds.
+     * Start a turn. The system chooses a forest token for the emulated player
+     * then calls the play turn system's operation after waited 2 seconds.
      */
     @Override
     public void playTurn() {

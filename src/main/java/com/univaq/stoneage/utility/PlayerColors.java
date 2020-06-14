@@ -6,7 +6,7 @@ import java.awt.*;
  * Enum class defining association between player names and marker color
  */
 public enum PlayerColors {
-    JONO(Color.blue),
+    JONO(Color.ORANGE),
     JADA(Color.magenta),
     GUFF(Color.green),
     MARTIN(Color.yellow);
