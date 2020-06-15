@@ -3,12 +3,13 @@ package com.univaq.stoneage.model;
 import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
+import com.univaq.stoneage.model.gameInitializer.GameInitializer;
+import com.univaq.stoneage.model.gameInitializer.IGameInitializer;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
-import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
@@ -28,7 +29,6 @@ public class MStoneAgeGame {
 	private MGrid m_grid;
 	private ArrayList<MPlayer> m_players;
 	private MBoard m_board;
-	private MPlayerFactory m_playerFactory;
 	private INextPlayerStrategy m_nextPlayerStrategy;
 	private int numPlayer;
 	private GameState m_gameState;
@@ -59,40 +59,40 @@ public class MStoneAgeGame {
 	 * @param aMarkerName Human player's name
 	 */
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
-		initializeStoneAgeGame(aMode, aNumPlayers, aMarkerName);
-		m_gameState.initialize();
+		IGameInitializer gameInitializer = new GameInitializer();
+		gameInitializer.initializeStoneAgeGame(this, aMode, aNumPlayers, aMarkerName);
 	}
 
-	/**
-	 * Initialize the game.
-	 *
-	 * @param aMode       The game mode
-	 * @param aNumPlayers Number of players
-	 * @param aMarkerName Human player's name
-	 */
-	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
-		m_gameState = new GameState();
-		m_mode = new GameMode(aMode);
-		this.support = new PropertyChangeSupport(this);
-		setNumPlayer(aNumPlayers);
-
-		// create a board
-		m_board = new MBoard(m_mode);
-		// create a grid
-		m_grid = new MGrid(m_mode);
-
-		MSquare startSquare = m_board.getStartSquare();
-
-		m_playerFactory = new MPlayerFactory();
-		m_playerFactory.createPlayers(aNumPlayers, aMarkerName);
-		m_playerFactory.setStartSquare(startSquare);
-		m_players = m_playerFactory.getPlayers();
-
-		m_gameGoalStrategy = m_mode.getGameGoalStrategy();
-
-		m_nextPlayerStrategy = m_mode.getNextPlayerStrategy(aNumPlayers);  // set the right strategy to identify the players order
-		m_players = m_nextPlayerStrategy.sortPlayers(m_players);
-	}
+//	/**
+//	 * Initialize the game.
+//	 *
+//	 * @param aMode       The game mode
+//	 * @param aNumPlayers Number of players
+//	 * @param aMarkerName Human player's name
+//	 */
+//	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
+//		m_gameState = new GameState();
+//		m_mode = new GameMode(aMode);
+//		this.support = new PropertyChangeSupport(this);
+//		setNumPlayer(aNumPlayers);
+//
+//		// create a board
+//		m_board = new MBoard(m_mode);
+//		// create a grid
+//		m_grid = new MGrid(m_mode);
+//
+//		MSquare startSquare = m_board.getStartSquare();
+//
+//		m_playerFactory = new MPlayerFactory();
+//		m_playerFactory.createPlayers(aNumPlayers, aMarkerName);
+//		m_playerFactory.setStartSquare(startSquare);
+//		m_players = m_playerFactory.getPlayers();
+//
+//		m_gameGoalStrategy = m_mode.getGameGoalStrategy();
+//
+//		m_nextPlayerStrategy = m_mode.getNextPlayerStrategy(aNumPlayers);  // set the right strategy to identify the players order
+//		m_players = m_nextPlayerStrategy.sortPlayers(m_players);
+//	}
 
 	/**
 	 * Play a single player turn.
@@ -311,5 +311,77 @@ public class MStoneAgeGame {
 	 */
 	public void setM_gameGoalStrategy(IGameGoalStrategy m_gameGoalStrategy) {
 		this.m_gameGoalStrategy = m_gameGoalStrategy;
+	}
+
+	/**
+	 * Set the game state.
+	 *
+	 * @param m_gameState The game state
+	 */
+	public void setM_gameState(GameState m_gameState) {
+		this.m_gameState = m_gameState;
+	}
+
+	/**
+	 * Get the game mode.
+	 *
+	 * @return The game mode
+	 */
+	public GameMode getM_mode() {
+		return m_mode;
+	}
+
+	/**
+	 * Set the game mode.
+	 *
+	 * @param m_mode The game mode
+	 */
+	public void setM_mode(GameMode m_mode) {
+		this.m_mode = m_mode;
+	}
+
+	/**
+	 * Get the property change support.
+	 *
+	 * @return The property change support
+	 */
+	public PropertyChangeSupport getSupport() {
+		return support;
+	}
+
+	/**
+	 * Set the property change support.
+	 *
+	 * @param support The property change support
+	 */
+	public void setSupport(PropertyChangeSupport support) {
+		this.support = support;
+	}
+
+	/**
+	 * Set the board.
+	 *
+	 * @param m_board The board.
+	 */
+	public void setM_board(MBoard m_board) {
+		this.m_board = m_board;
+	}
+
+	/**
+	 * Set the grid.
+	 *
+	 * @param m_grid The grid
+	 */
+	public void setM_grid(MGrid m_grid) {
+		this.m_grid = m_grid;
+	}
+
+	/**
+	 * Set the turning strategy
+	 *
+	 * @param m_nextPlayerStrategy The turning strategy
+	 */
+	public void setM_nextPlayerStrategy(INextPlayerStrategy m_nextPlayerStrategy) {
+		this.m_nextPlayerStrategy = m_nextPlayerStrategy;
 	}
 }
