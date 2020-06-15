@@ -93,6 +93,9 @@
                 <properties>
                   <model>
                     <item value="Martin"/>
+                    <item value="Jono"/>
+                    <item value="Jada"/>
+                    <item value="Guff"/>
                   </model>
                 </properties>
               </component>

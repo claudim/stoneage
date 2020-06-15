@@ -62,37 +62,6 @@ public class MStoneAgeGame {
 		gameInitializer.initializeStoneAgeGame(this, aMode, aNumPlayers, aMarkerName);
 	}
 
-//	/**
-//	 * Initialize the game.
-//	 *
-//	 * @param aMode       The game mode
-//	 * @param aNumPlayers Number of players
-//	 * @param aMarkerName Human player's name
-//	 */
-//	public void initializeStoneAgeGame(String aMode, int aNumPlayers, String aMarkerName) {
-//		m_gameState = new GameState();
-//		m_mode = new GameMode(aMode);
-//		this.support = new PropertyChangeSupport(this);
-//		setNumPlayer(aNumPlayers);
-//
-//		// create a board
-//		m_board = new MBoard(m_mode);
-//		// create a grid
-//		m_grid = new MGrid(m_mode);
-//
-//		MSquare startSquare = m_board.getStartSquare();
-//
-//		m_playerFactory = new MPlayerFactory();
-//		m_playerFactory.createPlayers(aNumPlayers, aMarkerName);
-//		m_playerFactory.setStartSquare(startSquare);
-//		m_players = m_playerFactory.getPlayers();
-//
-//		m_gameGoalStrategy = m_mode.getGameGoalStrategy();
-//
-//		m_nextPlayerStrategy = m_mode.getNextPlayerStrategy(aNumPlayers);  // set the right strategy to identify the players order
-//		m_players = m_nextPlayerStrategy.sortPlayers(m_players);
-//	}
-
 	/**
 	 * Play a single player turn.
 	 * System operation.
@@ -139,7 +108,6 @@ public class MStoneAgeGame {
 	 */
 	public ArrayList<MSquare> getAllSquare() {
 		return m_board.getM_squares();
-
 	}
 
 	/**
