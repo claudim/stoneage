@@ -20,8 +20,7 @@ import java.util.ArrayList;
 
 /**
  * MStoneAgeGame is a singleton facade controller.
- * It is responsible for the game initialization; to play a single player turn, build a hut token, steal a resource from a player.
- * It is responsible for the creation of the board, grid and manages the players creation.
+ * It is responsible to play a single player turn, build a hut token, steal a resource from a player.
  * It knows board, grid, players, game state, game mode, game goal, the game strategy to get the next player.
  */
 public class MStoneAgeGame {

@@ -11,11 +11,14 @@ import com.univaq.stoneage.model.squares.MSquare;
 
 import java.beans.PropertyChangeSupport;
 
+/**
+ * It is responsible for the game initialization,for the creation of the board, grid; for the creation of game goal and turning strateg and manages the players creation.
+ */
 public class GameInitializer implements IGameInitializer {
     /**
      * Initialize the game.
      *
-     * @param mStoneAgeGame
+     * @param mStoneAgeGame The game
      * @param aMode         The game mode
      * @param aNumPlayers   Number of players
      * @param aMarkerName   Human player's name
