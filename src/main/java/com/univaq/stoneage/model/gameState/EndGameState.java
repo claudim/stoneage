@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
+import com.univaq.stoneage.model.players.MPlayer;
+
 public class EndGameState implements IGameState {
     public EndGameState(GameState gameState) {
     }
@@ -46,7 +48,7 @@ public class EndGameState implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer player) {
 
     }
 

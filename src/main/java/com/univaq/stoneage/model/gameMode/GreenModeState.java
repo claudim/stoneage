@@ -8,18 +8,18 @@ import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameGoal.ThreeHutTokenGoalStrategy;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MRandomNextHutTokenStrategy;
-import com.univaq.stoneage.model.nextId.GetFirstIdStrategy;
-import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.playerTurning.MHumanPlayersFirstStrategy;
-import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
-import com.univaq.stoneage.model.shuffle.NoShuffleStrategy;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.GreenResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MISetupSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MSetupResourceSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.GreenSquareFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
+import com.univaq.stoneage.utility.nextId.GetFirstIdStrategy;
+import com.univaq.stoneage.utility.nextId.IGetNextIdStrategy;
+import com.univaq.stoneage.utility.shuffle.IShuffleStrategy;
+import com.univaq.stoneage.utility.shuffle.NoShuffleStrategy;
 
 /**
  * Implement the behavior associated with green mode.

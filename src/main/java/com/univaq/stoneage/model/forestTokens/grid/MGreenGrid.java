@@ -2,9 +2,9 @@ package com.univaq.stoneage.model.forestTokens.grid;
 
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MRandomNextForestTokenStrategy;
-import com.univaq.stoneage.model.shuffle.NoShuffleStrategy;
 import com.univaq.stoneage.persistence.IPersistentGeneric;
 import com.univaq.stoneage.persistence.PersistenceServiceFactory;
+import com.univaq.stoneage.utility.shuffle.NoShuffleStrategy;
 
 public class MGreenGrid extends MGrid {
     /**

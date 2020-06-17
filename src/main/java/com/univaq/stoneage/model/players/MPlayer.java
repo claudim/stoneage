@@ -12,11 +12,8 @@ import com.univaq.stoneage.model.squares.findingSquare.MFindNewSquareStrategyFac
 import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
 import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 /**
- * The class Player is responsible for the marker and settlement creation, marker movement, build a hut token, steal a resource.
+ * The class Player is responsible for the marker and settlement creation, marker movement, build a hut token, steal a resource, choose the name player to rob.
  * It knows if is the winner.
  */
 public abstract class MPlayer {
@@ -125,11 +122,6 @@ public abstract class MPlayer {
 	}
 
 	/**
-	 * Start to build a hut.
-	 */
-	public abstract void buildHut();
-
-	/**
 	 * Build a hut token.
 	 *
 	 * @param idHutToken The hut token id to build.
@@ -144,41 +136,29 @@ public abstract class MPlayer {
 	}
 
 	/**
-	 * Start to steal the resource.
+	 * Choose the robbed player name among game players.
+	 *
+	 * @return the robbed player name
 	 */
-	public abstract void stealResource();
+	public abstract String choosePlayerToRob();
 
 	/**
-	 * Steal a resource from the player which has the name passed as parameter.
+	 * Steal a resource from the player passed as parameter.
 	 *
-	 * @param playerName The robbed player
+	 * @param player The robbed player
 	 */
-	public void stealResource(String playerName) {
+	public void stealResource(MPlayer player) {
 		String resourceType = ((MResourceSquare) m_marker.getCurrentSquare()).getm_resourceType();
-		ArrayList<MPlayer> m_players = MStoneAgeGame.getInstance().getM_players();
-		Optional<MPlayer> found = Optional.empty();
-		for (MPlayer p : m_players) {
-			if (p.getMarkerName().equals(playerName)) {
-				found = Optional.of(p);
-				break;
-			}
-		}
-		MPlayer player = found.get();
 		// if there is a resource the player steals it, nothing otherwise
 		for (MResource r : player.getM_settlement().getM_resources()) {
 			if (r.getM_type().equals(resourceType)) {
 				player.getM_settlement().stealResource(r);
 				m_settlement.addResource(r);
-				System.out.println(this.getMarkerName().concat(" ha rubato 1 ").concat(resourceType).concat(" a ").concat(playerName));
+				System.out.println(this.getMarkerName().concat(" ha rubato 1 ").concat(resourceType).concat(" a ").concat(player.getMarkerName()));
 				break;
 			}
 		}
 	}
-
-//	/**
-//	 * Perform end turn actions according to the player abilities.
-//	 */
-//	public abstract void executeAbility();
 
 	/**
 	 * Perform actions according to the player abilities when the player is on the square.
@@ -193,8 +173,8 @@ public abstract class MPlayer {
 	/**
 	 * Perform end turn actions according to the player abilities.
 	 */
-	public void executeOnEndTurnAbility() {
-		GameState gameState = MStoneAgeGame.getInstance().getM_gameState();
+	public void executeOnEndTurnAbility(GameState gameState) {
+		//GameState gameState = MStoneAgeGame.getInstance().getM_gameState();
 		if (isM_winner()) {
 			System.out.println(this.getMarkerName() + " ha vinto la partita");
 			gameState.winner();
@@ -236,4 +216,11 @@ public abstract class MPlayer {
 		m.changeSquare(aNewSquare);
 		this.m_marker = m;
 	}
+
+	/**
+	 * Choose the hut token id to build.
+	 *
+	 * @return the hut token id
+	 */
+	public abstract int chooseIdHutToken();
 }

@@ -4,12 +4,12 @@ import com.univaq.stoneage.model.forestTokens.forestTokenFactory.ITokenForestFac
 import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MINextForestTokenStrategy;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
-import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
-import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MISetupSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
+import com.univaq.stoneage.utility.nextId.IGetNextIdStrategy;
+import com.univaq.stoneage.utility.shuffle.IShuffleStrategy;
 
 /**
  * Define a common interface for any concrete mode.

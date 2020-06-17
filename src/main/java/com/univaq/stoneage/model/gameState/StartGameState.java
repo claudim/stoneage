@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
+import com.univaq.stoneage.model.players.MPlayer;
+
 public class StartGameState implements IGameState {
 
     private final GameState gameState;
@@ -47,7 +49,7 @@ public class StartGameState implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer player) {
 
     }
 

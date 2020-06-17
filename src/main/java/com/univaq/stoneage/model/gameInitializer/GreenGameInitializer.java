@@ -9,12 +9,12 @@ import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.playerTurning.MHumanPlayersFirstStrategy;
 import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
-import com.univaq.stoneage.model.shuffle.GreenShuffleStrategyFactory;
-import com.univaq.stoneage.model.shuffle.IShuffleStrategyFactory;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MGreenBoard;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategy.MResourceSquareGreenSetupStrategy;
+import com.univaq.stoneage.utility.shuffle.GreenShuffleStrategyFactory;
+import com.univaq.stoneage.utility.shuffle.IShuffleStrategyFactory;
 
 import java.beans.PropertyChangeSupport;
 

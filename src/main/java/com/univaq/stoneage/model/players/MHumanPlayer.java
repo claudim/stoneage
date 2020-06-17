@@ -16,14 +16,14 @@ public class MHumanPlayer extends MPlayer {
         //NO-OP
     }
 
+    /**
+     * Choose the robbed player name among game players.
+     *
+     * @return the robbed player name
+     */
     @Override
-    public void buildHut() {
-        //NO-OP
-    }
-
-    @Override
-    public void stealResource() {
-        //NO-OP
+    public String choosePlayerToRob() {
+        return null;
     }
 
     /**
@@ -49,6 +49,16 @@ public class MHumanPlayer extends MPlayer {
     @Override
     public MPlayer getPlayer() {
         return this;
+    }
+
+    /**
+     * Choose the hut token id to build.
+     *
+     * @return the hut token id
+     */
+    @Override
+    public int chooseIdHutToken() {
+        return -1;
     }
 
 }

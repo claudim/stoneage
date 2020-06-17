@@ -63,7 +63,7 @@ public class EndTurnGameState implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer player) {
 
     }
 
@@ -75,6 +75,6 @@ public class EndTurnGameState implements IGameState {
     @Override
     public void initState() {
         MPlayer activePlayer = MStoneAgeGame.getInstance().getActivePlayer();
-        activePlayer.executeOnEndTurnAbility();
+        activePlayer.executeOnEndTurnAbility(gameState);
     }
 }

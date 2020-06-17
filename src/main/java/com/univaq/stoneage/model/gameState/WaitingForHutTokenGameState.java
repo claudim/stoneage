@@ -1,6 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.players.MPlayer;
 
 public class WaitingForHutTokenGameState implements IGameState {
 
@@ -53,7 +54,7 @@ public class WaitingForHutTokenGameState implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer player) {
 
     }
 
@@ -68,7 +69,8 @@ public class WaitingForHutTokenGameState implements IGameState {
     }
 
     public void builtHut() {
-        MStoneAgeGame.getInstance().getActivePlayer().buildHut();
+        int idHutToken = MStoneAgeGame.getInstance().getActivePlayer().chooseIdHutToken();
+        MStoneAgeGame.getInstance().buildHut(idHutToken);
     }
 }
 

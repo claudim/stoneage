@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model.nextId;
+package com.univaq.stoneage.utility.nextId;
 
 import java.util.List;
 

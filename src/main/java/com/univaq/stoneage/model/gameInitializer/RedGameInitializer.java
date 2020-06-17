@@ -9,12 +9,12 @@ import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.playerTurning.MHumanPlayersFirstStrategy;
 import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
-import com.univaq.stoneage.model.shuffle.IShuffleStrategyFactory;
-import com.univaq.stoneage.model.shuffle.RedShuffleStrategyFactory;
 import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MRedBoard;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategy.MResourceSquareRedSetupStrategy;
+import com.univaq.stoneage.utility.shuffle.IShuffleStrategyFactory;
+import com.univaq.stoneage.utility.shuffle.RedShuffleStrategyFactory;
 
 import java.beans.PropertyChangeSupport;
 
@@ -33,8 +33,6 @@ public class RedGameInitializer implements IGameInitializer {
 
         // creates board and squares
         MBoard board = makeBoard();
-//        ArrayList<MSquare> squares = makeSquares();
-//        board.setM_squares(squares);
         mStoneAgeGame.setM_board(board);
 
         MSquare startSquare = board.getStartSquare();
@@ -46,9 +44,6 @@ public class RedGameInitializer implements IGameInitializer {
 
         // creates grid and forestTokens
         MGrid grid = makeGrid();
-//        grid.setM_tokens(makeForestTokens());
-//        grid.setM_shuffleStrategy(makeShuffleStrategy());
-//        grid.setM_nextForestTokenStrategy(makeNextForestTokenStrategy());
 
         IShuffleStrategyFactory shuffleStrategyFactory = new RedShuffleStrategyFactory();
         grid.setM_shuffleStrategy(shuffleStrategyFactory.getShuffleStrategy(mStoneAgeGame.getNumPlayer()));
@@ -71,37 +66,12 @@ public class RedGameInitializer implements IGameInitializer {
         return new MRedBoard();
     }
 
-//    @Override
-//    public ArrayList<MSquare> makeSquares() {
-//        RedSquareFactory redSquareFactory = new RedSquareFactory(new GameMode("rossa"));
-//        return redSquareFactory.createSquares();
-//    }
-
-//    @Override
-//    public MGrid makeGrid() {
-//        return new MGrid(new GameMode("rossa"));
-//    }
 
     @Override
     public MGrid makeGrid() {
         return new MRedGrid();
     }
 
-//    @Override
-//    public ArrayList<MTokenForest> makeForestTokens() {
-//        ITokenForestFactory forestTokenFactory = new RedTokenForestFactory();
-//        return forestTokenFactory.createForestTokens();
-//    }
-
-//    public IShuffleStrategy makeShuffleStrategy() {
-//        IShuffleStrategy externalShuffling = new RandomOrgAdapter();
-//        IShuffleStrategy localShuffling = new CollectionsShuffleStrategy();
-//        return new ShufflingRedirectionProxy(externalShuffling, localShuffling);
-//    }
-
-//    public MINextForestTokenStrategy makeNextForestTokenStrategy() {
-//        return new MRandomNextForestTokenStrategy();
-//    }
 
     public GameState makeGameState() {
         return new GameState();
@@ -113,5 +83,9 @@ public class RedGameInitializer implements IGameInitializer {
 
     public INextPlayerStrategy makeTurningStrategy() {
         return new MHumanPlayersFirstStrategy();
+    }
+
+    public void initializeBoard() {
+
     }
 }

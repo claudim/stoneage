@@ -1,6 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
+import com.univaq.stoneage.model.players.MPlayer;
 
 public class WaitingForPreyGameState implements IGameState {
     private final GameState gameState;
@@ -58,14 +59,15 @@ public class WaitingForPreyGameState implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
-        MStoneAgeGame.getInstance().getActivePlayer().stealResource(playerName);
+    public void stealResource(MPlayer player) {
+        MStoneAgeGame.getInstance().getActivePlayer().stealResource(player);
         this.gameState.changeState(new EndTurnGameState(this.gameState));
     }
 
 
     public void steal() {
-        MStoneAgeGame.getInstance().getActivePlayer().stealResource();
+        String robbedPlayerName = MStoneAgeGame.getInstance().getActivePlayer().choosePlayerToRob();
+        MStoneAgeGame.getInstance().stealResource(robbedPlayerName);
     }
 
 }

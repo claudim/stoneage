@@ -1,20 +1,20 @@
-package com.univaq.stoneage.model.shuffle;
+package com.univaq.stoneage.utility.shuffle;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
- * It is a class responsible to shuffle using the Collection.shuffle() method.
+ * It is a class responsible to no shuffle.
  */
-public class CollectionsShuffleStrategy implements IShuffleStrategy {
+public class NoShuffleStrategy implements IShuffleStrategy {
+
     /**
-     * Shuffle the list of object using the Collection.shuffle() method.
+     * No Shuffle the list of object.
      *
      * @param list The list of object to shuffle
      */
     @Override
     public void shuffle(List<?> list) {
-        Collections.shuffle(list);
+        //NO-OP
     }
 
     /**

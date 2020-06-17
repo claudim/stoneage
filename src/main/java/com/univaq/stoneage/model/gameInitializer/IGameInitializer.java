@@ -20,10 +20,7 @@ public interface IGameInitializer {
     void initializeStoneAgeGame(MStoneAgeGame mStoneAgeGame, int aNumPlayers, String aMarkerName);
 
     MBoard makeBoard();
-
-    // ArrayList<MSquare> makeSquares();
     MGrid makeGrid();
-    // ArrayList<MTokenForest> makeForestTokens();
 
 
 }

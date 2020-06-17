@@ -8,20 +8,20 @@ import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameGoal.ThreeHutTokenGoalStrategy;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MRandomNextHutTokenStrategy;
-import com.univaq.stoneage.model.nextId.GetFirstIdStrategy;
-import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.playerTurning.MHumanPlayersFirstStrategy;
-import com.univaq.stoneage.model.shuffle.CollectionsShuffleStrategy;
-import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
-import com.univaq.stoneage.model.shuffle.RandomOrgAdapter;
-import com.univaq.stoneage.model.shuffle.ShufflingRedirectionProxy;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.RedResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MISetupSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MSetupResourceSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.RedSquareFactory;
+import com.univaq.stoneage.utility.nextId.GetFirstIdStrategy;
+import com.univaq.stoneage.utility.nextId.IGetNextIdStrategy;
+import com.univaq.stoneage.utility.shuffle.CollectionsShuffleStrategy;
+import com.univaq.stoneage.utility.shuffle.IShuffleStrategy;
+import com.univaq.stoneage.utility.shuffle.RandomOrgAdapter;
+import com.univaq.stoneage.utility.shuffle.ShufflingRedirectionProxy;
 
 /**
  * Implement the behavior associated with red mode.

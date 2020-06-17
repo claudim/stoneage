@@ -21,7 +21,7 @@ public class RedResourceSquareStateFactory implements IResourceSquareStateFactor
     @Override
     public ISquareState createState(MResourceSquare square, @Nullable String type) {
         ISquareState iSquareState;
-        if (type.equals("Take2")) {
+        if (type != null && type.equals("Take2")) {
             if (square.getM_resources().size() >= 2) {
                 iSquareState = new Release2ResourcesState(square);
             } else {

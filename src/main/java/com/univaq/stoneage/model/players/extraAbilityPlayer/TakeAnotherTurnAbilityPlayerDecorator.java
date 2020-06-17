@@ -1,6 +1,5 @@
 package com.univaq.stoneage.model.players.extraAbilityPlayer;
 
-import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.players.MPlayer;
 
@@ -25,14 +24,14 @@ public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDec
 
     }
 
+    /**
+     * Choose the robbed player name among game players.
+     *
+     * @return the robbed player name
+     */
     @Override
-    public void buildHut() {
-
-    }
-
-    @Override
-    public void stealResource() {
-
+    public String choosePlayerToRob() {
+        return player.choosePlayerToRob();
     }
 
     /**
@@ -55,9 +54,8 @@ public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDec
      * Execute the ability on end turn.
      */
     @Override
-    public void executeOnEndTurnAbility() {
+    public void executeOnEndTurnAbility(GameState gameState) {
         removeAbility();
-        GameState gameState = MStoneAgeGame.getInstance().getM_gameState();
         if (isM_winner()) {
             gameState.winner();
             // visualizza vittoria
@@ -65,5 +63,15 @@ public class TakeAnotherTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDec
             // next player play his turn
             gameState.takeAnotherTurn();
         }
+    }
+
+    /**
+     * Choose the hut token id to build.
+     *
+     * @return the hut token id
+     */
+    @Override
+    public int chooseIdHutToken() {
+        return player.chooseIdHutToken();
     }
 }

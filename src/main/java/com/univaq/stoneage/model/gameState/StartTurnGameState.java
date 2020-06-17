@@ -52,7 +52,7 @@ public class StartTurnGameState implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer player) {
 
     }
 

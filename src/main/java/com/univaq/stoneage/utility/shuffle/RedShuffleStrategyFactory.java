@@ -1,6 +1,6 @@
-package com.univaq.stoneage.model.shuffle;
+package com.univaq.stoneage.utility.shuffle;
 
-public class GreenShuffleStrategyFactory implements IShuffleStrategyFactory {
+public class RedShuffleStrategyFactory implements IShuffleStrategyFactory {
     @Override
     public IShuffleStrategy getShuffleStrategy(int playersNumber) {
         IShuffleStrategy shuffleStrategy;
@@ -10,7 +10,9 @@ public class GreenShuffleStrategyFactory implements IShuffleStrategyFactory {
 //            case 3:
 //                break;
             case 4:
-                shuffleStrategy = new CollectionsShuffleStrategy();
+                IShuffleStrategy externalShuffling = new RandomOrgAdapter();
+                IShuffleStrategy localShuffling = new CollectionsShuffleStrategy();
+                shuffleStrategy = new ShufflingRedirectionProxy(externalShuffling, localShuffling);
                 break;
             default:
                 shuffleStrategy = new NoShuffleStrategy();

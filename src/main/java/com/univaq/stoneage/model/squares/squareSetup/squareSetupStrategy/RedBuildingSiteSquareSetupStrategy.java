@@ -2,12 +2,12 @@ package com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategy;
 
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MRandomNextHutTokenStrategy;
-import com.univaq.stoneage.model.nextId.GetFirstIdStrategy;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.CheckBuildableHutStrategy;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 import com.univaq.stoneage.persistence.IPersistentGeneric;
 import com.univaq.stoneage.persistence.PersistenceServiceFactory;
+import com.univaq.stoneage.utility.nextId.GetFirstIdStrategy;
 
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;

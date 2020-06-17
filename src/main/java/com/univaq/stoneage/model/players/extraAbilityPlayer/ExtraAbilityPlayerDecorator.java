@@ -36,8 +36,6 @@ public abstract class ExtraAbilityPlayerDecorator extends MPlayer {
      * Remove the ability.
      */
     public void removeAbility() {
-        //int indexActivePlayer = MStoneAgeGame.getInstance().getM_nextPlayerStrategy().getIndexActivePlayer();
-        //MStoneAgeGame.getInstance().getM_players().set(indexActivePlayer, player);
         MStoneAgeGame.getInstance().setActivePlayer(player);
         System.out.println("Abilità rimossa a " + player.getMarkerName());
     }

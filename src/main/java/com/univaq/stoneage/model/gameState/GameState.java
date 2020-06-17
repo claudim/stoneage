@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
+import com.univaq.stoneage.model.players.MPlayer;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -86,7 +88,7 @@ public class GameState {
         this.gameState.initState();
     }
 
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer playerName) {
         this.gameState.stealResource(playerName);
         this.gameState.initState();
     }

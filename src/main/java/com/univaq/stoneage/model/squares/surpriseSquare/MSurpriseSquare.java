@@ -1,11 +1,11 @@
 package com.univaq.stoneage.model.squares.surpriseSquare;
 
-import com.univaq.stoneage.model.nextId.GetRandomIdStrategy;
-import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.ISurpriseTokenCommand;
+import com.univaq.stoneage.utility.nextId.GetRandomIdStrategy;
+import com.univaq.stoneage.utility.nextId.IGetNextIdStrategy;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

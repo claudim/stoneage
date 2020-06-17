@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model.gameState;
 
+import com.univaq.stoneage.model.players.MPlayer;
+
 public interface IGameState {
 
     // inserire un metodo per ogni comportamento da richiamare
@@ -16,7 +18,7 @@ public interface IGameState {
 
     void hutBuilt(int idHutToken);
 
-    void stealResource(String playerName);
+    void stealResource(MPlayer player);
 
     void endAction();
 

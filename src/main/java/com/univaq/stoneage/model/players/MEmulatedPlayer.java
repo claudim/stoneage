@@ -1,7 +1,6 @@
 package com.univaq.stoneage.model.players;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.RobbedPlayer.MIRobbedPlayerStrategy;
 import com.univaq.stoneage.model.players.RobbedPlayer.MRandomRobbedPlayerStrategy;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
@@ -14,6 +13,11 @@ import java.util.concurrent.TimeUnit;
  * A specific player. The system emulates the human actions.
  */
 public class MEmulatedPlayer extends MPlayer {
+
+    /**
+     * Strategy to choose
+     */
+    private MIRobbedPlayerStrategy robbedPlayerStrategy;
 
     /**
      * Constructor.
@@ -36,23 +40,11 @@ public class MEmulatedPlayer extends MPlayer {
     }
 
     /**
-     * Start to build a hut. The system chooses a hut token for the emulated player and then calls the buildBut system's operation.
+     * Choose the robbed player name among game players.
+     *
+     * @return the robbed player name
      */
-    @Override
-    public void buildHut() {
-        MStoneAgeGame stoneAgeGame = MStoneAgeGame.getInstance();
-        MBuildingSiteSquare bsSquare = stoneAgeGame.getM_board().getBuildingSiteSquare();
-        ArrayList<MHutToken> playerBuildableHutTokens = bsSquare.getM_playerBuildableMHutTokens();
-        //has already been done the check if playerBuildableHutTokens.size is zero
-        int idHutToken = bsSquare.getNextHutTokenId(playerBuildableHutTokens);
-        stoneAgeGame.buildHut(idHutToken);
-    }
-
-    /**
-     * Choose the robbed and call the stealresource system operation.
-     */
-    @Override
-    public void stealResource() {
+    public String choosePlayerToRob() {
         ArrayList<MPlayer> gamePlayers = MStoneAgeGame.getInstance().getM_players();
         ArrayList<MPlayer> players = new ArrayList<>();
         gamePlayers.forEach(mPlayer -> {
@@ -60,10 +52,9 @@ public class MEmulatedPlayer extends MPlayer {
                 players.add(mPlayer);
             }
         });
-        MIRobbedPlayerStrategy robbedPlayerStrategy = new MRandomRobbedPlayerStrategy();
-        String robbedPlayerName = robbedPlayerStrategy.getRobbedPlayerName(players);
-        // ruba
-        MStoneAgeGame.getInstance().stealResource(robbedPlayerName);
+        //TODO inserire nella factory
+        robbedPlayerStrategy = new MRandomRobbedPlayerStrategy();
+        return robbedPlayerStrategy.getRobbedPlayerName(players);
     }
 
     /**
@@ -92,5 +83,18 @@ public class MEmulatedPlayer extends MPlayer {
         return this;
     }
 
+    /**
+     * Choose the hut token id to build.
+     *
+     * @return the hut token id
+     */
+    @Override
+    public int chooseIdHutToken() {
+        MBuildingSiteSquare bsSquare = MStoneAgeGame.getInstance().getM_board().getBuildingSiteSquare();
+        //ArrayList<MHutToken> playerBuildableHutTokens = bsSquare.getM_playerBuildableMHutTokens();
+        //has already been done the check if playerBuildableHutTokens.size is zero
+        // int idHutToken = bsSquare.getNextHutTokenId(playerBuildableHutTokens);
 
+        return bsSquare.getNextHutTokenId(bsSquare.getM_playerBuildableMHutTokens());
+    }
 }

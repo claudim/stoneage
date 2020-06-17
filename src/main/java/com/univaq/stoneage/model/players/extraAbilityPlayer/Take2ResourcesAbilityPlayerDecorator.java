@@ -1,5 +1,6 @@
 package com.univaq.stoneage.model.players.extraAbilityPlayer;
 
+import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
@@ -52,7 +53,7 @@ public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDeco
      * Execute the ability on end turn.
      */
     @Override
-    public void executeOnEndTurnAbility() {
+    public void executeOnEndTurnAbility(GameState gameState) {
     }
 
     /**
@@ -65,18 +66,23 @@ public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDeco
     }
 
     /**
-     * Delegate the player with no ability to perform the build a hut.
+     * Choose the robbed player name among game players.
+     *
+     * @return the robbed player name
      */
     @Override
-    public void buildHut() {
-        player.buildHut();
+    public String choosePlayerToRob() {
+        return player.choosePlayerToRob();
     }
 
     /**
-     * Delegate the player with no ability to perform the steal resource.
+     * Choose the hut token id to build.
+     *
+     * @return the hut token id
      */
     @Override
-    public void stealResource() {
-        player.stealResource();
+    public int chooseIdHutToken() {
+        return player.chooseIdHutToken();
     }
+
 }

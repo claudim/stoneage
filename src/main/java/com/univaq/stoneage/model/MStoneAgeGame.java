@@ -3,9 +3,8 @@ package com.univaq.stoneage.model;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.forestTokens.grid.MGrid;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
-import com.univaq.stoneage.model.gameInitializer.GreenGameInitializer;
 import com.univaq.stoneage.model.gameInitializer.IGameInitializer;
-import com.univaq.stoneage.model.gameInitializer.RedGameInitializer;
+import com.univaq.stoneage.model.gameInitializer.gameInitializerFactory.GameInitializerFactory;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
@@ -59,13 +58,7 @@ public class MStoneAgeGame {
 	 * @param aMarkerName Human player's name
 	 */
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
-		IGameInitializer gameInitializer;
-		if (aMode.equals("Rossa")) {
-			gameInitializer = new RedGameInitializer();
-		} else {
-			gameInitializer = new GreenGameInitializer();
-		}
-		//IGameInitializer gameInitializer = new GameInitializer();
+		IGameInitializer gameInitializer = GameInitializerFactory.getInstance().getGameInitializer(aMode);
 		gameInitializer.initializeStoneAgeGame(this, aNumPlayers, aMarkerName);
 	}
 
@@ -86,7 +79,8 @@ public class MStoneAgeGame {
 	 * @param idHutToken The hut token id
 	 */
 	public void buildHut(int idHutToken) {
-		m_gameState.hutBuilt(idHutToken);
+		if (idHutToken != -1)
+			m_gameState.hutBuilt(idHutToken);
 	}
 
 	/**
@@ -96,7 +90,9 @@ public class MStoneAgeGame {
 	 * @param playerName The player name to be robbed
 	 */
 	public void stealResource(String playerName) {
-		m_gameState.stealResource(playerName);
+		MPlayer playerToRob = getPlayerByName(playerName);
+		if (playerToRob != null)
+			m_gameState.stealResource(playerToRob);
 	}
 
 	/**
@@ -357,5 +353,22 @@ public class MStoneAgeGame {
 	 */
 	public void setM_nextPlayerStrategy(INextPlayerStrategy m_nextPlayerStrategy) {
 		this.m_nextPlayerStrategy = m_nextPlayerStrategy;
+	}
+
+	/**
+	 * Find the player by its name.
+	 *
+	 * @param playerName The player name
+	 * @return The player if exist, null otherwise.
+	 */
+	public MPlayer getPlayerByName(String playerName) {
+		MPlayer playerToFind = null;
+		for (MPlayer p : m_players) {
+			if (p.getMarkerName().equals(playerName)) {
+				playerToFind = p;
+				break;
+			}
+		}
+		return playerToFind;
 	}
 }

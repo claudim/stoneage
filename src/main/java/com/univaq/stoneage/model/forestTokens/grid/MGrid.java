@@ -2,8 +2,8 @@ package com.univaq.stoneage.model.forestTokens.grid;
 
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MINextForestTokenStrategy;
-import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.utility.TokenState;
+import com.univaq.stoneage.utility.shuffle.IShuffleStrategy;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

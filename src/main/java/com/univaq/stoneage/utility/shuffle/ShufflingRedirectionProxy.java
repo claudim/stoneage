@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model.shuffle;
+package com.univaq.stoneage.utility.shuffle;
 
 import java.util.List;
 

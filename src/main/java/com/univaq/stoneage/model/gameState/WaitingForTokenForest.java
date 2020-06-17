@@ -74,7 +74,7 @@ public class WaitingForTokenForest implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer player) {
 
     }
 

@@ -22,7 +22,6 @@ public class OnNewSquareGameState implements IGameState {
 
     @Override
     public void takeAnotherTurn() {
-
     }
 
     @Override
@@ -35,7 +34,6 @@ public class OnNewSquareGameState implements IGameState {
 
     @Override
     public void initialize() {
-
     }
 
     @Override
@@ -54,7 +52,7 @@ public class OnNewSquareGameState implements IGameState {
     }
 
     @Override
-    public void stealResource(String playerName) {
+    public void stealResource(MPlayer player) {
 
     }
 

@@ -23,12 +23,14 @@ public class SkipNextTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDecora
     public void playTurn() {
     }
 
+    /**
+     * Choose the robbed player name among game players.
+     *
+     * @return the robbed player name
+     */
     @Override
-    public void buildHut() {
-    }
-
-    @Override
-    public void stealResource() {
+    public String choosePlayerToRob() {
+        return player.choosePlayerToRob();
     }
 
     /**
@@ -47,5 +49,15 @@ public class SkipNextTurnAbilityPlayerDecorator extends ExtraAbilityPlayerDecora
         removeAbility();
         MStoneAgeGame.getInstance().getM_gameState().skipTurn();
         System.out.println(player.getMarkerName() + " ha saltato il turno");
+    }
+
+    /**
+     * Choose the hut token id to build.
+     *
+     * @return the hut token id
+     */
+    @Override
+    public int chooseIdHutToken() {
+        return player.chooseIdHutToken();
     }
 }
