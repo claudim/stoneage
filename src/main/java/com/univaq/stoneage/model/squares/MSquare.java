@@ -1,6 +1,5 @@
 package com.univaq.stoneage.model.squares;
 
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.*;
@@ -104,31 +103,31 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
 		return m_startSquare;
 	}
 
-	/**
-	 * Set the square as a start square or not.
-	 *
-	 * @param m_startSquare true to set the square as a start square, false otherwise
-	 */
-	public void setM_startSquare(boolean m_startSquare) {
-		this.m_startSquare = m_startSquare;
-	}
+    /**
+     * Set the square as a start square or not.
+     *
+     * @param m_startSquare true to set the square as a start square, false otherwise
+     */
+    public void setM_startSquare(boolean m_startSquare) {
+        this.m_startSquare = m_startSquare;
+    }
 
-	/**
-	 * Initial square setup.
-	 *
-	 * @param mode The game mode
-	 */
-	public abstract void setupSquare(GameMode mode);
+//	/**
+//	 * Initial square setup.
+//	 *
+//	 * @param mode The game mode
+//	 */
+//	public abstract void setupSquare(GameMode mode);
 
-	/**
-	 * Action to perform if the marker's player lands on it.
-	 *
-	 * @param mPlayer The player who lands on the square
-	 * @return The action result
-	 */
-	public abstract ActionResult doAction(MPlayer mPlayer);
+    /**
+     * Action to perform if the marker's player lands on it.
+     *
+     * @param mPlayer The player who lands on the square
+     * @return The action result
+     */
+    public abstract ActionResult doAction(MPlayer mPlayer);
 
-	/**
+    /**
 	 * Get the square type.
 	 *
 	 * @return the square type
@@ -162,15 +161,17 @@ public abstract class MSquare implements Serializable, PropertyChangeListener {
 	 */
 	public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
 		support.firePropertyChange(property, oldObject, newObject);
+    }
+
+    /**
+     * How to manage a notify from the observable.
+     *
+     * @param evt The notify
+     */
+    @Override
+    public abstract void propertyChange(PropertyChangeEvent evt);
+
+    public void setSupport(PropertyChangeSupport support) {
+        this.support = support;
 	}
-
-	/**
-	 * How to manage a notify from the observable.
-	 *
-	 * @param evt The notify
-	 */
-	@Override
-	public abstract void propertyChange(PropertyChangeEvent evt);
-
-
 }

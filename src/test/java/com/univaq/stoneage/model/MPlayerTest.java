@@ -6,6 +6,7 @@ import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.players.MHumanPlayer;
 import com.univaq.stoneage.model.squares.MBoard;
+import com.univaq.stoneage.model.squares.MRedBoard;
 import com.univaq.stoneage.model.squares.MSquare;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +17,8 @@ class MPlayerTest {
     @Test
     void moveMarker() {
         GameMode m_mode = new GameMode("Rossa");
-        MBoard MBoard = new MBoard(m_mode);
+        //MBoard MBoard = new MBoard(m_mode);
+        MBoard MBoard = new MRedBoard();
         MHumanPlayer player = new MHumanPlayer();
         MSquare startSquare = MBoard.getStartSquare();
         if (startSquare != null) {

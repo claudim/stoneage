@@ -1,8 +1,7 @@
-package com.univaq.stoneage.model.forestTokens;
+package com.univaq.stoneage.model.forestTokens.grid;
 
-import com.univaq.stoneage.model.forestTokens.forestTokenFactory.ITokenForestFactory;
+import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.forestTokens.nextForestTokenChoosing.MINextForestTokenStrategy;
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.utility.TokenState;
 
@@ -19,45 +18,45 @@ import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
  * It is responsible for the forest tokens creations, to face up a single token to get it value.
  * It has a reference to a strategy for choosing the next forest token and for shuffling the tokens.
  */
-public class MGrid {
+public abstract class MGrid {
 
-	/**
-	 * Field for a list of all forest tokens.
-	 */
-	private ArrayList<MTokenForest> m_tokens;
+    /**
+     * Field for a list of all forest tokens.
+     */
+    protected ArrayList<MTokenForest> m_tokens;
 
-	private final PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the observer pattern between MGrid and UGrid
-	/**
-	 * Field for the shuffle strategy.
-	 */
-	private IShuffleStrategy m_shuffleStrategy;
+    protected PropertyChangeSupport support = new PropertyChangeSupport(this); // to implement the observer pattern between MGrid and UGrid
+    /**
+     * Field for the shuffle strategy.
+     */
+    protected IShuffleStrategy m_shuffleStrategy;
 
-	/**
-	 * Reference to a strategy for choosing the next forest token.
-	 */
-	private MINextForestTokenStrategy m_nextForestTokenStrategy;
+    /**
+     * Reference to a strategy for choosing the next forest token.
+     */
+    protected MINextForestTokenStrategy m_nextForestTokenStrategy;
 
-	/**
-	 * Constructor.
-	 * Create all forest tokens and initialize the grid fields.
-	 */
-	public MGrid(GameMode mode) {
+//	/**
+//	 * Constructor.
+//	 * Create all forest tokens and initialize the grid fields.
+//	 */
+//	public MGrid(GameMode mode) {
+//
+//		ITokenForestFactory forestTokenFactory = mode.getForestTokenFactory();
+//		m_tokens = forestTokenFactory.createForestTokens();
+//		m_shuffleStrategy = mode.getShuffleStrategy();
+//		m_nextForestTokenStrategy = mode.getNextForestTokenStrategy();
+//
+//	}
 
-		ITokenForestFactory forestTokenFactory = mode.getForestTokenFactory();
-		m_tokens = forestTokenFactory.createForestTokens();
-		m_shuffleStrategy = mode.getShuffleStrategy();
-		m_nextForestTokenStrategy = mode.getNextForestTokenStrategy();
-
-	}
-
-	/**
-	 * Get a collection of forest token.
-	 *
-	 * @return ArrayList<MTokenForest> A collection of forest token
-	 */
-	public ArrayList<MTokenForest> getM_tokens() {
-		return m_tokens;
-	}
+    /**
+     * Get a collection of forest token.
+     *
+     * @return ArrayList<MTokenForest> A collection of forest token
+     */
+    public ArrayList<MTokenForest> getM_tokens() {
+        return m_tokens;
+    }
 
 	/**
 	 * Set the forest tokens.
@@ -192,16 +191,24 @@ public class MGrid {
 	 */
 	public void removePropertyChangeListener(PropertyChangeListener pcl) {
 		support.removePropertyChangeListener(pcl);
-	}
+    }
 
-	/**
-	 * Notify all the observer for the change of the property.
-	 *
-	 * @param property The property name which changed its value
-	 * @param oldValue The old value of the property
-	 * @param newValue The new value of the property
-	 */
-	public void notifyPropertyChangeListener(String property, Object oldValue, Object newValue) {
-		support.firePropertyChange(property, oldValue, newValue);
-	}
+    /**
+     * Notify all the observer for the change of the property.
+     *
+     * @param property The property name which changed its value
+     * @param oldValue The old value of the property
+     * @param newValue The new value of the property
+     */
+    public void notifyPropertyChangeListener(String property, Object oldValue, Object newValue) {
+        support.firePropertyChange(property, oldValue, newValue);
+    }
+
+    public PropertyChangeSupport getSupport() {
+        return support;
+    }
+
+    public void setSupport(PropertyChangeSupport support) {
+        this.support = support;
+    }
 }

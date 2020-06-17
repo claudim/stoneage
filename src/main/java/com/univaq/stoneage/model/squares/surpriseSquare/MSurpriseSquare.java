@@ -1,14 +1,11 @@
 package com.univaq.stoneage.model.squares.surpriseSquare;
 
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.nextId.GetRandomIdStrategy;
 import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
-import com.univaq.stoneage.model.players.playerFactory.IPlayerFactory;
-import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
-import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.*;
+import com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken.ISurpriseTokenCommand;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -32,23 +29,23 @@ public class MSurpriseSquare extends MSquare {
     @Transient
     private ArrayList<ISurpriseTokenCommand> m_supriseTokens;
 
-    /**
-     * Initial square setup.
-     * Create all the surprise tokens and set the receiver.
-     *
-     * @param mode The game mode
-     */
-    public void setupSquare(GameMode mode) {
-        // super.support = new PropertyChangeSupport(this); // to implement the observer pattern
-        IPlayerFactory playerFactory = new MPlayerFactory();
-        m_supriseTokens = new ArrayList<>();
-
-        m_supriseTokens.add(new TakeAnotherTurnSurpriseTokenCommand(playerFactory));
-        m_supriseTokens.add(new GoToBuildingSiteSquareSurpriseTokenCommand(null));
-        m_supriseTokens.add(new TwoResourcesSupriseTokenCommand(playerFactory));
-        m_supriseTokens.add(new SkipTurnSurpriseTokenCommand(playerFactory));
-
-    }
+//    /**
+//     * Initial square setup.
+//     * Create all the surprise tokens and set the receiver.
+//     *
+//     * @param mode The game mode
+//     */
+//    public void setupSquare(GameMode mode) {
+//        // super.support = new PropertyChangeSupport(this); // to implement the observer pattern
+//        IPlayerFactory playerFactory = new MPlayerFactory();
+//        m_supriseTokens = new ArrayList<>();
+//
+//        m_supriseTokens.add(new TakeAnotherTurnSurpriseTokenCommand(playerFactory));
+//        m_supriseTokens.add(new GoToBuildingSiteSquareSurpriseTokenCommand(null));
+//        m_supriseTokens.add(new TwoResourcesSupriseTokenCommand(playerFactory));
+//        m_supriseTokens.add(new SkipTurnSurpriseTokenCommand(playerFactory));
+//
+//    }
 
     /**
      * Action to perform if the marker's player lands on it.
@@ -86,5 +83,13 @@ public class MSurpriseSquare extends MSquare {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
+    }
+
+    public ArrayList<ISurpriseTokenCommand> getM_supriseTokens() {
+        return m_supriseTokens;
+    }
+
+    public void setM_supriseTokens(ArrayList<ISurpriseTokenCommand> m_supriseTokens) {
+        this.m_supriseTokens = m_supriseTokens;
     }
 }

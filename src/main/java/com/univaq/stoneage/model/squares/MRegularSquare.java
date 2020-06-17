@@ -1,6 +1,5 @@
 package com.univaq.stoneage.model.squares;
 
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.players.MPlayer;
 
 import javax.persistence.DiscriminatorValue;
@@ -27,14 +26,14 @@ public class MRegularSquare extends MSquare {
         return ACTION_DONE;
     }
 
-    /**
-     * Initial square setup.
-     *
-     * @param mode The game mode
-     */
-    @Override
-    public void setupSquare(GameMode mode) {
-    }
+//    /**
+//     * Initial square setup.
+//     *
+//     * @param mode The game mode
+//     */
+//    @Override
+//    public void setupSquare(GameMode mode) {
+//    }
 
     /**
      * Get the square type.

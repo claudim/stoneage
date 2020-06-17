@@ -1,8 +1,8 @@
 package com.univaq.stoneage.model.squares.surpriseSquare.surpriseToken;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.forestTokens.grid.MGrid;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
@@ -15,7 +15,7 @@ import com.univaq.stoneage.model.squares.MSquare;
  */
 
 public class GoToBuildingSiteSquareSurpriseTokenCommand implements ISurpriseTokenCommand {
-    private final String squareName = "Cantiere";
+    private static final String squareName = "Cantiere";
     /**
      * The command receiver
      */

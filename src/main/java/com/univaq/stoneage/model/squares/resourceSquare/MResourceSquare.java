@@ -1,14 +1,11 @@
 package com.univaq.stoneage.model.squares.resourceSquare;
 
 import com.univaq.stoneage.model.MResource;
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.ISquareState;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
-import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
-import com.univaq.stoneage.model.squares.squareSetup.MISquareSetupStrategy;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -16,7 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 /**
@@ -145,22 +141,22 @@ public class MResourceSquare extends MSquare {
         }
     }
 
-    /**
-     * Initial square setup.
-     *
-     * @param mode The game mode
-     */
-    @Override
-    public void setupSquare(GameMode mode) {
-        super.support = new PropertyChangeSupport(this); // to implement the observer pattern
-
-        MISetupSquareStrategyFactory squareStrategyFactory = mode.getSetupSquareStrategyFactory();
-        MISquareSetupStrategy setupSquareStrategy = squareStrategyFactory.getSetupSquareStrategy(m_resourceType);
-        setupSquareStrategy.setupSquare(this);
-
-        m_squareStateFactory = mode.getSquareStateFactory();
-        m_squareState = m_squareStateFactory.createState(this, null);
-    }
+//    /**
+//     * Initial square setup.
+//     *
+//     * @param mode The game mode
+//     */
+//    @Override
+//    public void setupSquare(GameMode mode) {
+//        super.support = new PropertyChangeSupport(this); // to implement the observer pattern
+//
+//        MISetupSquareStrategyFactory squareStrategyFactory = mode.getSetupSquareStrategyFactory();
+//        MISquareSetupStrategy setupSquareStrategy = squareStrategyFactory.getSetupSquareStrategy(m_resourceType);
+//        setupSquareStrategy.setupSquare(this);
+//
+//        m_squareStateFactory = mode.getSquareStateFactory();
+//        m_squareState = m_squareStateFactory.createState(this, null);
+//    }
 
     /**
      * Get the square state.

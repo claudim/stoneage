@@ -1,10 +1,11 @@
 package com.univaq.stoneage.model;
 
-import com.univaq.stoneage.model.forestTokens.MGrid;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
+import com.univaq.stoneage.model.forestTokens.grid.MGrid;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
-import com.univaq.stoneage.model.gameInitializer.GameInitializer;
+import com.univaq.stoneage.model.gameInitializer.GreenGameInitializer;
 import com.univaq.stoneage.model.gameInitializer.IGameInitializer;
+import com.univaq.stoneage.model.gameInitializer.RedGameInitializer;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
@@ -58,8 +59,14 @@ public class MStoneAgeGame {
 	 * @param aMarkerName Human player's name
 	 */
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
-		IGameInitializer gameInitializer = new GameInitializer();
-		gameInitializer.initializeStoneAgeGame(this, aMode, aNumPlayers, aMarkerName);
+		IGameInitializer gameInitializer;
+		if (aMode.equals("Rossa")) {
+			gameInitializer = new RedGameInitializer();
+		} else {
+			gameInitializer = new GreenGameInitializer();
+		}
+		//IGameInitializer gameInitializer = new GameInitializer();
+		gameInitializer.initializeStoneAgeGame(this, aNumPlayers, aMarkerName);
 	}
 
 	/**

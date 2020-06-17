@@ -12,7 +12,7 @@ import java.util.Comparator;
  */
 public class MHumanPlayersFirstStrategy implements INextPlayerStrategy {
     private int indexOfCurrentPlayer;
-    private final int numberOfPlayer;
+    private int numberOfPlayer;
 
     /**
      * Constructor.
@@ -21,6 +21,11 @@ public class MHumanPlayersFirstStrategy implements INextPlayerStrategy {
      */
     public MHumanPlayersFirstStrategy(int numberOfPlayer) {
         this.numberOfPlayer = numberOfPlayer;
+        indexOfCurrentPlayer = 0;
+    }
+
+    public MHumanPlayersFirstStrategy() {
+        this.numberOfPlayer = 0;
         indexOfCurrentPlayer = 0;
     }
 
@@ -53,7 +58,6 @@ public class MHumanPlayersFirstStrategy implements INextPlayerStrategy {
      */
     @Override
     public ArrayList<MPlayer> sortPlayers(ArrayList<MPlayer> players) {
-        int j = 0;
         Collections.sort(players, new Comparator<MPlayer>() {
             @Override
             public int compare(MPlayer mPlayer, MPlayer t1) {
@@ -63,5 +67,12 @@ public class MHumanPlayersFirstStrategy implements INextPlayerStrategy {
         return players;
     }
 
-
+    /**
+     * Set the number of players.
+     *
+     * @param numberOfPlayer the number of players
+     */
+    public void setNumberOfPlayer(int numberOfPlayer) {
+        this.numberOfPlayer = numberOfPlayer;
+    }
 }

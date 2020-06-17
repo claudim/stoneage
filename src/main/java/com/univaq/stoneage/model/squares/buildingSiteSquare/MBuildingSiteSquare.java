@@ -1,22 +1,18 @@
 package com.univaq.stoneage.model.squares.buildingSiteSquare;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
 import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
-import com.univaq.stoneage.persistence.IPersistentGeneric;
-import com.univaq.stoneage.persistence.PersistenceServiceFactory;
 import com.univaq.stoneage.utility.TokenState;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,31 +30,31 @@ public class MBuildingSiteSquare extends MSquare {
      * List of hut token not built yet.
      */
     @Transient
-    ArrayList<MHutToken> m_hutTokens = new ArrayList<>();
+    private ArrayList<MHutToken> m_hutTokens = new ArrayList<>();
 
     /**
      * List of hut token buildable by the active player
      */
     @Transient
-    ArrayList<MHutToken> m_playerBuildableMHutTokens;
+    private ArrayList<MHutToken> m_playerBuildableMHutTokens;
 
     /**
      * Reference to the strategy to choose the next hut token id for the (emulated) player.
      */
     @Transient
-    MINextHutTokenStrategy m_nextHutTokenIdForPlayerStrategy;
+    private MINextHutTokenStrategy m_nextHutTokenIdForPlayerStrategy;
 
     /**
      * Reference to the strategy to choose the next hut token to face up on the square.
      */
     @Transient
-    IGetNextIdStrategy m_nextHutTokenIdToFaceUpStrategy;
+    private IGetNextIdStrategy m_nextHutTokenIdToFaceUpStrategy;
 
     /**
      * Reference to the strategy for control which hut token is buildable for a player.
      */
     @Transient
-    ICheckBuildableHutStrategy checkBuildableHutAlgorithm;
+    private ICheckBuildableHutStrategy checkBuildableHutAlgorithm;
 
     /**
      * Default constructor.
@@ -142,21 +138,22 @@ public class MBuildingSiteSquare extends MSquare {
     public void propertyChange(PropertyChangeEvent evt) {
     }
 
-    /**
-     * Initial square setup.
-     * Create the all hut tokens and set the square strategies
-     *
-     * @param mode The game mode
-     */
-    public void setupSquare(GameMode mode) {
-        support = new PropertyChangeSupport(this); // to implement the oberver pattern
-        IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MHutToken.class.getSimpleName(), null);
-        m_hutTokens.addAll(dao.findAll());
-        m_playerBuildableMHutTokens = new ArrayList<>();
-        m_nextHutTokenIdForPlayerStrategy = mode.getNextHutIdStrategy();
-        m_nextHutTokenIdToFaceUpStrategy = mode.getNextHutTokenIdToFaceUpStrategy();
-        checkBuildableHutAlgorithm = new CheckBuildableHutStrategy();
-    }
+//    /**
+//     * Initial square setup.
+//     * Create the all hut tokens and set the square strategies
+//     *
+//     * @param mode The game mode
+//     */
+//    public void setupSquare(GameMode mode) {
+//        support = new PropertyChangeSupport(this); // to implement the oberver pattern
+//        IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MHutToken.class.getSimpleName(), null);
+//        m_hutTokens.addAll(dao.findAll());
+//        m_playerBuildableMHutTokens = new ArrayList<>();
+//        m_nextHutTokenIdForPlayerStrategy = mode.getNextHutIdStrategy();
+//        m_nextHutTokenIdToFaceUpStrategy = mode.getNextHutTokenIdToFaceUpStrategy();
+//        checkBuildableHutAlgorithm = new CheckBuildableHutStrategy();
+//    }
+
 
     /**
      * Get all the hut tokens not built yet which are in face up state.
@@ -209,6 +206,38 @@ public class MBuildingSiteSquare extends MSquare {
         int nextId = m_nextHutTokenIdToFaceUpStrategy.getNextId(0, buildableFaceDownHutTokens.size());
         buildableFaceDownHutTokens.get(nextId).setM_state(TokenState.FACEUP);
         return buildableFaceDownHutTokens.get(nextId);
+    }
+
+    public ArrayList<MHutToken> getM_hutTokens() {
+        return m_hutTokens;
+    }
+
+    public void setM_hutTokens(ArrayList<MHutToken> m_hutTokens) {
+        this.m_hutTokens = m_hutTokens;
+    }
+
+    public MINextHutTokenStrategy getM_nextHutTokenIdForPlayerStrategy() {
+        return m_nextHutTokenIdForPlayerStrategy;
+    }
+
+    public void setM_nextHutTokenIdForPlayerStrategy(MINextHutTokenStrategy m_nextHutTokenIdForPlayerStrategy) {
+        this.m_nextHutTokenIdForPlayerStrategy = m_nextHutTokenIdForPlayerStrategy;
+    }
+
+    public IGetNextIdStrategy getM_nextHutTokenIdToFaceUpStrategy() {
+        return m_nextHutTokenIdToFaceUpStrategy;
+    }
+
+    public void setM_nextHutTokenIdToFaceUpStrategy(IGetNextIdStrategy m_nextHutTokenIdToFaceUpStrategy) {
+        this.m_nextHutTokenIdToFaceUpStrategy = m_nextHutTokenIdToFaceUpStrategy;
+    }
+
+    public ICheckBuildableHutStrategy getCheckBuildableHutAlgorithm() {
+        return checkBuildableHutAlgorithm;
+    }
+
+    public void setCheckBuildableHutAlgorithm(ICheckBuildableHutStrategy checkBuildableHutAlgorithm) {
+        this.checkBuildableHutAlgorithm = checkBuildableHutAlgorithm;
     }
 
 

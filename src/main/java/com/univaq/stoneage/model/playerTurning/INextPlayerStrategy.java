@@ -30,4 +30,11 @@ public interface INextPlayerStrategy {
      */
     ArrayList<MPlayer> sortPlayers(ArrayList<MPlayer> players);
 
+    /**
+     * Set the number of players.
+     *
+     * @param numberOfPlayer the number of players
+     */
+    void setNumberOfPlayer(int numberOfPlayer);
+
 }

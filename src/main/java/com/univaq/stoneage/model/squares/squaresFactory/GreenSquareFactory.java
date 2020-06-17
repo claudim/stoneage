@@ -35,7 +35,7 @@ public class GreenSquareFactory implements ISquareFactory {
         IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MSquare.class.getSimpleName(), "verde");
         ArrayList<MSquare> squares = dao.findAll();
         for (MSquare square : squares) {
-            square.setupSquare(mode);
+            //square.setupSquare(mode);
         }
         return squares;
     }

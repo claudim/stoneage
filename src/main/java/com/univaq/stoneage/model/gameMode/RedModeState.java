@@ -18,8 +18,8 @@ import com.univaq.stoneage.model.shuffle.RandomOrgAdapter;
 import com.univaq.stoneage.model.shuffle.ShufflingRedirectionProxy;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.RedResourceSquareStateFactory;
-import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
-import com.univaq.stoneage.model.squares.squareSetup.MSetupResourceSquareStrategyFactory;
+import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MISetupSquareStrategyFactory;
+import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MSetupResourceSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.RedSquareFactory;
 

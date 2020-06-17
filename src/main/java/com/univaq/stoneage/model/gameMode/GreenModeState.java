@@ -16,8 +16,8 @@ import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.model.shuffle.NoShuffleStrategy;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.GreenResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
-import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
-import com.univaq.stoneage.model.squares.squareSetup.MSetupResourceSquareStrategyFactory;
+import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MISetupSquareStrategyFactory;
+import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MSetupResourceSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.GreenSquareFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
 

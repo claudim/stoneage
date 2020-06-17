@@ -3,7 +3,6 @@ package com.univaq.stoneage.model.gameState;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.players.MPlayer;
-import com.univaq.stoneage.model.squares.MSquare;
 
 public class WaitingForTokenForest implements IGameState {
     private final GameState gameState;
@@ -29,7 +28,7 @@ public class WaitingForTokenForest implements IGameState {
         if (mTokenForest != null) {
             MPlayer activePlayer = sag.getActivePlayer();
             System.out.println(activePlayer.getMarkerName() + " ha scelto il token " + mTokenForest.getValue());
-            MSquare newSquare = activePlayer.moveMarker(mTokenForest);
+            activePlayer.moveMarker(mTokenForest);
             this.gameState.changeState(new OnNewSquareGameState(this.gameState));
         } else {
             this.gameState.changeState(new EndTurnGameState(this.gameState));

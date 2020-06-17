@@ -8,7 +8,7 @@ import com.univaq.stoneage.model.nextId.IGetNextIdStrategy;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.shuffle.IShuffleStrategy;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
-import com.univaq.stoneage.model.squares.squareSetup.MISetupSquareStrategyFactory;
+import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MISetupSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.squaresFactory.ISquareFactory;
 
 /**

@@ -81,8 +81,6 @@ public class MSettlement {
      * @param resource The resource to add
      */
     public void addResource(MResource resource) {
-        String type = resource.getM_type();
-        int count = resourceTypeCounter(type);
         m_resources.add(resource);
         //notifyPropertyChangeListener("insertResource", resource, count + 1);
         notifyPropertyChangeListener("resource", null, resource);
@@ -95,8 +93,6 @@ public class MSettlement {
      * @param resource The resource to remove
      */
     public void removeResource(MResource resource) {
-        String type = resource.getM_type();
-        int count = resourceTypeCounter(type);
         m_resources.remove(resource);
         notifyPropertyChangeListener("resource", resource, null);
     }
@@ -164,8 +160,7 @@ public class MSettlement {
      * @return The number of the resource.
      */
     public int resourceTypeCounter(String type) {
-        int x = (int) m_resources.stream().filter(mResource -> mResource.getM_type().equals(type)).count();
-        return x;
+        return (int) m_resources.stream().filter(mResource -> mResource.getM_type().equals(type)).count();
     }
 
     /**
