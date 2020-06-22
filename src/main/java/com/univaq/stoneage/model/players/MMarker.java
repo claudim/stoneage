@@ -2,6 +2,7 @@ package com.univaq.stoneage.model.players;
 
 
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
 import javax.persistence.*;
 import java.beans.PropertyChangeListener;
@@ -103,6 +104,17 @@ public class MMarker implements Serializable {
 	 */
 	public MSquare getCurrentSquare() {
 		return this.m_square;
+	}
+
+	public String getResourceTypeOfCurrentSquare() {
+		String resourceType = "";
+		try {
+			resourceType = ((MResourceSquare) this.getCurrentSquare()).getm_resourceType();
+
+		} catch (Exception e) {
+			// it is not a resource square
+		}
+		return resourceType;
 	}
 
 	/**

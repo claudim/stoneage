@@ -10,7 +10,7 @@ import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.findingSquare.MFindNewSquareStrategyFactory;
 import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
-import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
+//import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
 /**
  * The class Player is responsible for the marker and settlement creation, marker movement, build a hut token, steal a resource, choose the name player to rob.
@@ -148,7 +148,7 @@ public abstract class MPlayer {
 	 * @param player The robbed player
 	 */
 	public void stealResource(MPlayer player) {
-		String resourceType = ((MResourceSquare) m_marker.getCurrentSquare()).getm_resourceType();
+		String resourceType = m_marker.getResourceTypeOfCurrentSquare();
 		// if there is a resource the player steals it, nothing otherwise
 		for (MResource r : player.getM_settlement().getM_resources()) {
 			if (r.getM_type().equals(resourceType)) {
