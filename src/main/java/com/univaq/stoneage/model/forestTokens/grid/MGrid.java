@@ -36,19 +36,6 @@ public abstract class MGrid {
      */
     protected MINextForestTokenStrategy m_nextForestTokenStrategy;
 
-//	/**
-//	 * Constructor.
-//	 * Create all forest tokens and initialize the grid fields.
-//	 */
-//	public MGrid(GameMode mode) {
-//
-//		ITokenForestFactory forestTokenFactory = mode.getForestTokenFactory();
-//		m_tokens = forestTokenFactory.createForestTokens();
-//		m_shuffleStrategy = mode.getShuffleStrategy();
-//		m_nextForestTokenStrategy = mode.getNextForestTokenStrategy();
-//
-//	}
-
     /**
      * Get a collection of forest token.
      *

@@ -18,7 +18,19 @@ import com.univaq.stoneage.utility.shuffle.RedShuffleStrategyFactory;
 
 import java.beans.PropertyChangeSupport;
 
+/**
+ * It is responsible for the red mode game initialization,for the creation of the board, grid; for the creation of game goal and
+ * turning strategy and manages the players creation.
+ */
 public class RedGameInitializer implements IGameInitializer {
+
+    /**
+     * Initializes stone age game in red mode and it's elements.
+     *
+     * @param mStoneAgeGame The game
+     * @param aNumPlayers   Number of players
+     * @param aMarkerName   Human player's name
+     */
     @Override
     public void initializeStoneAgeGame(MStoneAgeGame mStoneAgeGame, int aNumPlayers, String aMarkerName) {
         //creates gamestate
@@ -61,30 +73,57 @@ public class RedGameInitializer implements IGameInitializer {
         gameState.initialize();
     }
 
+    /**
+     * Initialize the appropriate board
+     *
+     * @return The appropriate board according to the mode
+     */
     @Override
     public MBoard makeBoard() {
         return new MRedBoard();
     }
 
 
+    /**
+     * Initialize the appropriate grid
+     *
+     * @return The appropriate grid according to the mode
+     */
     @Override
     public MGrid makeGrid() {
         return new MRedGrid();
     }
 
-
+    /**
+     * Initialize the appropriate game state
+     *
+     * @return The appropriate game state according to the mode
+     */
     public GameState makeGameState() {
         return new GameState();
     }
 
+    /**
+     * Initialize the appropriate game goal strategy
+     *
+     * @return The appropriate gaem Goal strategy according to the mode
+     */
     public IGameGoalStrategy makeGameGoalStrategy() {
         return new ThreeHutTokenGoalStrategy();
     }
 
+    /**
+     * Initialize the appropriate turning strategy
+     *
+     * @return The appropriate turning strategy according to the mode
+     */
     public INextPlayerStrategy makeTurningStrategy() {
         return new MHumanPlayersFirstStrategy();
     }
 
+    /**
+     *
+     */
     public void initializeBoard() {
 
     }
