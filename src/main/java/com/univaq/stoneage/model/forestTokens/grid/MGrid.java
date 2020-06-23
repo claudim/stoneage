@@ -163,6 +163,11 @@ public abstract class MGrid {
 	}
 
 	/**
+	 * Create token forest from db by ORM
+	 */
+	abstract void makeForestTokens();
+
+	/**
 	 * Add an observer to the list.
 	 *
 	 * @param pcl The observer to add

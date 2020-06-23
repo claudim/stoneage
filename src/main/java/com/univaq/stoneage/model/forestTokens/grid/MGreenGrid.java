@@ -23,7 +23,7 @@ public class MGreenGrid extends MGrid {
     /**
      * Create token forest for green mode from db by ORM
      */
-    private void makeForestTokens() {
+    protected void makeForestTokens() {
         IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MTokenForest.class.getSimpleName(), "verde");
         m_tokens = dao.findAll();
     }

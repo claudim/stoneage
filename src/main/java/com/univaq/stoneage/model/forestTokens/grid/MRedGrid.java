@@ -24,7 +24,7 @@ public class MRedGrid extends MGrid {
     /**
      * Create token forest for red mode from db by ORM
      */
-    private void makeForestTokens() {
+    protected void makeForestTokens() {
         IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MTokenForest.class.getSimpleName(), "rossa");
         m_tokens = dao.findAll();
     }

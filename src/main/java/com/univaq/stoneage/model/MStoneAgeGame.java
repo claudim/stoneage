@@ -3,7 +3,7 @@ package com.univaq.stoneage.model;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.forestTokens.grid.MGrid;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
-import com.univaq.stoneage.model.gameInitializer.IGameInitializer;
+import com.univaq.stoneage.model.gameInitializer.GameInitializer;
 import com.univaq.stoneage.model.gameInitializer.gameInitializerFactory.GameInitializerFactory;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.gameState.GameState;
@@ -58,7 +58,7 @@ public class MStoneAgeGame {
 	 * @param aMarkerName Human player's name
 	 */
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
-		IGameInitializer gameInitializer = GameInitializerFactory.getInstance().getGameInitializer(aMode);
+		GameInitializer gameInitializer = GameInitializerFactory.getInstance().getGameInitializer(aMode);
 		gameInitializer.initializeStoneAgeGame(this, aNumPlayers, aMarkerName);
 	}
 
