@@ -1,7 +1,7 @@
 package com.univaq.stoneage.model.gameInitializer.gameInitializerFactory;
 
+import com.univaq.stoneage.model.gameInitializer.GameInitializer;
 import com.univaq.stoneage.model.gameInitializer.GreenGameInitializer;
-import com.univaq.stoneage.model.gameInitializer.IGameInitializer;
 import com.univaq.stoneage.model.gameInitializer.RedGameInitializer;
 
 /**
@@ -32,8 +32,8 @@ public class GameInitializerFactory implements IGameInitializerFactory {
      * @return GameInitializer for the provided mode
      */
     @Override
-    public IGameInitializer getGameInitializer(String gameMode) {
-        IGameInitializer gameInitializer;
+    public GameInitializer getGameInitializer(String gameMode) {
+        GameInitializer gameInitializer;
         if (gameMode.equals("Rossa")) {
             gameInitializer = new RedGameInitializer();
         } else {
