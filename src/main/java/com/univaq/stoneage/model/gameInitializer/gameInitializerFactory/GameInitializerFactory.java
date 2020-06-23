@@ -5,7 +5,7 @@ import com.univaq.stoneage.model.gameInitializer.IGameInitializer;
 import com.univaq.stoneage.model.gameInitializer.RedGameInitializer;
 
 /**
- * Concrete game initializer factory. Factory Method + Singleton Pattern
+ * Concrete game initializer factory. Simple Factory + Singleton Pattern
  */
 public class GameInitializerFactory implements IGameInitializerFactory {
 
