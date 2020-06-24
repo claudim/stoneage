@@ -1,4 +1,4 @@
-package com.univaq.stoneage.model.squares.findingSquare;
+package com.univaq.stoneage.model.players.findingSquare;
 
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.squares.MSquare;

@@ -1,5 +1,6 @@
-package com.univaq.stoneage.model.squares;
+package com.univaq.stoneage.model.squares.board;
 
+import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 
 import java.util.ArrayList;

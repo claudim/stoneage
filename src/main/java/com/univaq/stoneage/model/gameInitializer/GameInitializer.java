@@ -6,8 +6,8 @@ import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.players.playerFactory.MPlayerFactory;
-import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.board.MBoard;
 import com.univaq.stoneage.utility.shuffle.IShuffleStrategyFactory;
 
 import java.beans.PropertyChangeSupport;

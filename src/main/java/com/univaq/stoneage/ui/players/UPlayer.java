@@ -1,4 +1,4 @@
-package com.univaq.stoneage.ui;
+package com.univaq.stoneage.ui.players;
 
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.utility.PlayerColors;

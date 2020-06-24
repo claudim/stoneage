@@ -2,6 +2,11 @@ package com.univaq.stoneage.ui;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MPlayer;
+import com.univaq.stoneage.ui.players.UMarker;
+import com.univaq.stoneage.ui.players.UPlayer;
+import com.univaq.stoneage.ui.squares.UBoard;
+import com.univaq.stoneage.ui.squares.USquare;
+import com.univaq.stoneage.ui.tokens.UGrid;
 
 import javax.swing.*;
 import java.awt.*;

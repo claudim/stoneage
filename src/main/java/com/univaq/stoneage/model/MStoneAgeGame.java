@@ -10,8 +10,8 @@ import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
-import com.univaq.stoneage.model.squares.MBoard;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.board.MBoard;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 
 import java.beans.PropertyChangeListener;

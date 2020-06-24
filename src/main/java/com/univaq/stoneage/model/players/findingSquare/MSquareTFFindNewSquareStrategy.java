@@ -1,16 +1,16 @@
-package com.univaq.stoneage.model.squares.findingSquare;
+package com.univaq.stoneage.model.players.findingSquare;
 
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.squares.MSquare;
 
 /**
- * MDieFaceTFFindNewSquareStrategy is a class responsible to find the new square if the forest token value is a number.
+ * MSquareTFFindNewSquareStrategy is a class responsible to find the new square if the forest token value is a square name.
  */
-public class MDieFaceTFFindNewSquareStrategy implements MIFindNewSquareStrategy {
+public class MSquareTFFindNewSquareStrategy implements MIFindNewSquareStrategy {
     /**
      * Default constructor.
      */
-    public MDieFaceTFFindNewSquareStrategy() {
+    public MSquareTFFindNewSquareStrategy() {
     }
 
     /**
@@ -22,11 +22,9 @@ public class MDieFaceTFFindNewSquareStrategy implements MIFindNewSquareStrategy 
      */
     @Override
     public MSquare findNewSquare(MSquare aCurrentSquare, MTokenForest aMTokenForest) {
-        int tokenForestValue = (int) aMTokenForest.getValue();
         MSquare newSquare = aCurrentSquare;
-        for (int i = 1; i <= tokenForestValue; i++) {
+        while (!newSquare.getM_name().equals(aMTokenForest.getValue()))
             newSquare = newSquare.getM_nextSquare();
-        }
         return newSquare;
     }
 }

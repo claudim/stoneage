@@ -5,9 +5,9 @@ import com.univaq.stoneage.model.forestTokens.MSquareTokenForest;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.players.MHumanPlayer;
-import com.univaq.stoneage.model.squares.MBoard;
-import com.univaq.stoneage.model.squares.MRedBoard;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.board.MBoard;
+import com.univaq.stoneage.model.squares.board.MRedBoard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

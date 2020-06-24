@@ -1,4 +1,4 @@
-package com.univaq.stoneage.ui;
+package com.univaq.stoneage.ui.squares;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.hutTokens.MHutToken;

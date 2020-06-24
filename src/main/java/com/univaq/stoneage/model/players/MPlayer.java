@@ -6,10 +6,10 @@ import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
+import com.univaq.stoneage.model.players.findingSquare.MFindNewSquareStrategyFactory;
+import com.univaq.stoneage.model.players.findingSquare.MIFindNewSquareStrategy;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
-import com.univaq.stoneage.model.squares.findingSquare.MFindNewSquareStrategyFactory;
-import com.univaq.stoneage.model.squares.findingSquare.MIFindNewSquareStrategy;
 //import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
 
 /**

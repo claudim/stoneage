@@ -1,10 +1,11 @@
-package com.univaq.stoneage.ui;
+package com.univaq.stoneage.ui.squares;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.players.MMarker;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
 import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
+import com.univaq.stoneage.ui.players.UMarker;
 
 import javax.swing.*;
 import java.awt.*;

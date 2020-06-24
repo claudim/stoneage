@@ -1,4 +1,4 @@
-package com.univaq.stoneage.ui;
+package com.univaq.stoneage.ui.tokens;
 
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;

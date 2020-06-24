@@ -1,25 +1,24 @@
-package com.univaq.stoneage.model.squares;
+package com.univaq.stoneage.model.squares.board;
 
+import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategy.MISquareSetupStrategy;
+import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.GreenSetupSquareFactory;
 import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.MISetupSquareStrategyFactory;
-import com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategyFactory.RedSetupSquareFactory;
 import com.univaq.stoneage.persistence.IPersistentGeneric;
 import com.univaq.stoneage.persistence.PersistenceServiceFactory;
 
-public class MRedBoard extends MBoard {
-    public MRedBoard() {
+public class MGreenBoard extends MBoard {
+    public MGreenBoard() {
         makeSquares();
     }
 
     private void makeSquares() {
-        IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MSquare.class.getSimpleName(), "rossa");
+        IPersistentGeneric dao = PersistenceServiceFactory.getInstance().getPersistenceClass(MSquare.class.getSimpleName(), "verde");
         m_squares = dao.findAll();
-        MISetupSquareStrategyFactory setupSquareStrategyFactory = new RedSetupSquareFactory();
+        MISetupSquareStrategyFactory setupSquareStrategyFactory = new GreenSetupSquareFactory();
         for (MSquare square : m_squares) {
             MISquareSetupStrategy setupSquareStrategy = setupSquareStrategyFactory.getSetupSquareStrategy(square);
             setupSquareStrategy.setupSquare(square);
         }
     }
-
-
 }

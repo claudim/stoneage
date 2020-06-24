@@ -1,4 +1,6 @@
-package com.univaq.stoneage.ui;
+package com.univaq.stoneage.ui.squares;
+
+import com.univaq.stoneage.ui.players.UMarker;
 
 import javax.swing.*;
 import java.awt.*;
