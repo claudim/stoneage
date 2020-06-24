@@ -3,14 +3,12 @@ package com.univaq.stoneage.model;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.forestTokens.grid.MGrid;
 import com.univaq.stoneage.model.forestTokens.grid.MRedGrid;
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.utility.TokenState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MGridTest {
-    private final GameMode m_mode = new GameMode("Rossa");
     //private final MGrid g = new MGrid(m_mode);
     private final MGrid g = new MRedGrid();
 

@@ -3,7 +3,6 @@ package com.univaq.stoneage.model;
 import com.univaq.stoneage.model.forestTokens.MDieFaceTokenForest;
 import com.univaq.stoneage.model.forestTokens.MSquareTokenForest;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.players.MHumanPlayer;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.board.MBoard;
@@ -16,7 +15,6 @@ class MPlayerTest {
 
     @Test
     void moveMarker() {
-        GameMode m_mode = new GameMode("Rossa");
         //MBoard MBoard = new MBoard(m_mode);
         MBoard MBoard = new MRedBoard();
         MHumanPlayer player = new MHumanPlayer();

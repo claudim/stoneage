@@ -5,7 +5,6 @@ import com.univaq.stoneage.model.forestTokens.grid.MGrid;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameInitializer.GameInitializer;
 import com.univaq.stoneage.model.gameInitializer.gameInitializerFactory.GameInitializerFactory;
-import com.univaq.stoneage.model.gameMode.GameMode;
 import com.univaq.stoneage.model.gameState.GameState;
 import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
@@ -32,7 +31,6 @@ public class MStoneAgeGame {
 	private int numPlayer;
 	private GameState m_gameState;
 	private IGameGoalStrategy m_gameGoalStrategy;
-	private GameMode m_mode;
 	protected PropertyChangeSupport support; // to implement the observer pattern
 
 
@@ -290,24 +288,6 @@ public class MStoneAgeGame {
 	 */
 	public void setM_gameState(GameState m_gameState) {
 		this.m_gameState = m_gameState;
-	}
-
-	/**
-	 * Get the game mode.
-	 *
-	 * @return The game mode
-	 */
-	public GameMode getM_mode() {
-		return m_mode;
-	}
-
-	/**
-	 * Set the game mode.
-	 *
-	 * @param m_mode The game mode
-	 */
-	public void setM_mode(GameMode m_mode) {
-		this.m_mode = m_mode;
 	}
 
 	/**
