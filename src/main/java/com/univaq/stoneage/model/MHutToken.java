@@ -1,6 +1,5 @@
-package com.univaq.stoneage.model.hutTokens;
+package com.univaq.stoneage.model;
 
-import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.utility.TokenState;
 
 import javax.persistence.*;

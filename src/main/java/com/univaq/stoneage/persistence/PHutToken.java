@@ -1,6 +1,6 @@
 package com.univaq.stoneage.persistence;
 
-import com.univaq.stoneage.model.hutTokens.MHutToken;
+import com.univaq.stoneage.model.MHutToken;
 
 /**
  * Class that handle persistence for the hut tokens objects

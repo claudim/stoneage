@@ -1,7 +1,7 @@
 package com.univaq.stoneage.model.squares.buildingSiteSquare;
 
+import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MResource;
-import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.utility.TokenState;
 

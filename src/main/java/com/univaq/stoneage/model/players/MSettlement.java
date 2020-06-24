@@ -1,7 +1,7 @@
 package com.univaq.stoneage.model.players;
 
+import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MResource;
-import com.univaq.stoneage.model.hutTokens.MHutToken;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

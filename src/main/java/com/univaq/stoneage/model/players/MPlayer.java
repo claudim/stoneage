@@ -1,11 +1,11 @@
 package com.univaq.stoneage.model.players;
 
+import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameState.GameState;
-import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.players.findingSquare.MFindNewSquareStrategyFactory;
 import com.univaq.stoneage.model.players.findingSquare.MIFindNewSquareStrategy;
 import com.univaq.stoneage.model.squares.MSquare;

@@ -1,7 +1,7 @@
 package com.univaq.stoneage.ui.squares;
 
+import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.hutTokens.MHutToken;
 
 import javax.swing.*;
 import java.awt.*;

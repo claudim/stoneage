@@ -1,11 +1,11 @@
 package com.univaq.stoneage.model.squares.buildingSiteSquare;
 
+import com.univaq.stoneage.model.MHutToken;
 import com.univaq.stoneage.model.MStoneAgeGame;
-import com.univaq.stoneage.model.hutTokens.MHutToken;
-import com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing.MINextHutTokenStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.ActionResult;
 import com.univaq.stoneage.model.squares.MSquare;
+import com.univaq.stoneage.model.squares.nextHutTokenChoosing.MINextHutTokenStrategy;
 import com.univaq.stoneage.utility.TokenState;
 import com.univaq.stoneage.utility.nextId.IGetNextIdStrategy;
 

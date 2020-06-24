@@ -6,7 +6,6 @@ import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameInitializer.GameInitializer;
 import com.univaq.stoneage.model.gameInitializer.gameInitializerFactory.GameInitializerFactory;
 import com.univaq.stoneage.model.gameState.GameState;
-import com.univaq.stoneage.model.hutTokens.MHutToken;
 import com.univaq.stoneage.model.playerTurning.INextPlayerStrategy;
 import com.univaq.stoneage.model.players.MPlayer;
 import com.univaq.stoneage.model.squares.MSquare;

@@ -1,6 +1,6 @@
-package com.univaq.stoneage.model.hutTokens.nextHutTokenChoosing;
+package com.univaq.stoneage.model.squares.nextHutTokenChoosing;
 
-import com.univaq.stoneage.model.hutTokens.MHutToken;
+import com.univaq.stoneage.model.MHutToken;
 
 import java.util.List;
 
