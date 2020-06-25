@@ -1,5 +1,6 @@
 package com.univaq.stoneage.model.forestTokens;
 
+import com.univaq.stoneage.model.players.findingSquare.MIFindNewSquareStrategy;
 import com.univaq.stoneage.utility.TokenState;
 
 import javax.persistence.*;
@@ -29,6 +30,9 @@ public abstract class MTokenForest<T> implements Serializable {
 
     @Column(name = "mode")
     private String m_mode;
+
+    @Transient
+    protected MIFindNewSquareStrategy findNewSquareStrategy;
 
     /**
      * Default constructor.
@@ -114,4 +118,12 @@ public abstract class MTokenForest<T> implements Serializable {
         support.firePropertyChange(property, oldValue, newValue);
     }
 
+    /**
+     * Get the strategy to identifies the new square where move the marker.
+     *
+     * @return the strategy
+     */
+    public MIFindNewSquareStrategy getFindNewSquareStrategy() {
+        return findNewSquareStrategy;
+    }
 }

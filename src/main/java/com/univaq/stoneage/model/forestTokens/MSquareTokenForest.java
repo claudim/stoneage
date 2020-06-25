@@ -1,5 +1,7 @@
 package com.univaq.stoneage.model.forestTokens;
 
+import com.univaq.stoneage.model.players.findingSquare.MSquareTFFindNewSquareStrategy;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -14,6 +16,7 @@ import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
 public class MSquareTokenForest extends MTokenForest<String> {
     public MSquareTokenForest() {
         super();
+        super.findNewSquareStrategy = new MSquareTFFindNewSquareStrategy();
     }
 
     @Column(name = "square_value")

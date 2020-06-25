@@ -6,7 +6,6 @@ import com.univaq.stoneage.model.MStoneAgeGame;
 import com.univaq.stoneage.model.forestTokens.MTokenForest;
 import com.univaq.stoneage.model.gameGoal.IGameGoalStrategy;
 import com.univaq.stoneage.model.gameState.GameState;
-import com.univaq.stoneage.model.players.findingSquare.MFindNewSquareStrategyFactory;
 import com.univaq.stoneage.model.players.findingSquare.MIFindNewSquareStrategy;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.buildingSiteSquare.MBuildingSiteSquare;
@@ -99,8 +98,9 @@ public abstract class MPlayer {
 	 */
 	public MSquare moveMarker(MTokenForest MTokenForest) {
 		MSquare currentSquare = m_marker.getCurrentSquare();
-		MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
-		MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
+		//MFindNewSquareStrategyFactory instance = MFindNewSquareStrategyFactory.getInstance();
+		//MIFindNewSquareStrategy findNewSquareStrategy = instance.getFindNewSquareStrategy(MTokenForest.getClass().getSimpleName());
+		MIFindNewSquareStrategy findNewSquareStrategy = MTokenForest.getFindNewSquareStrategy();
 		MSquare newSquare = findNewSquareStrategy.findNewSquare(currentSquare, MTokenForest);
 		m_marker.changeSquare(newSquare);
 		System.out.println(this.getMarkerName() + " è ora sulla casella " + newSquare.getM_name());

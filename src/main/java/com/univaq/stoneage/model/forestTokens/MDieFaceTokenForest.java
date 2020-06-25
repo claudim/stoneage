@@ -1,6 +1,8 @@
 package com.univaq.stoneage.model.forestTokens;
 
 
+import com.univaq.stoneage.model.players.findingSquare.MDieFaceTFFindNewSquareStrategy;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -15,6 +17,7 @@ import static com.univaq.stoneage.utility.TokenState.FACEDOWN;
 public class MDieFaceTokenForest extends MTokenForest<Integer> {
     public MDieFaceTokenForest() {
         super();
+        super.findNewSquareStrategy = new MDieFaceTFFindNewSquareStrategy();
     }
 
     @Column(name = "die_value")
