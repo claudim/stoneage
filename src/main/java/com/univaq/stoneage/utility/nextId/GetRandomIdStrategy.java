@@ -30,8 +30,7 @@ public class GetRandomIdStrategy implements IGetNextIdStrategy {
      */
     @Override
     public int getNextId(List<?> list) {
-//        Random rand = new Random();
-//        return rand.nextInt(list.size());
-        return 2;
+        Random rand = new Random();
+        return rand.nextInt(list.size());
     }
 }
