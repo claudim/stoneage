@@ -17,5 +17,6 @@ public class ThreeHutTokenGoalStrategy implements IGameGoalStrategy {
     public boolean isWinner(MPlayer player) {
         // player.setM_winner(true);
         return player.getM_settlement().getM_builtHutTokens().size() == 3;
+        //return true;
     }
 }

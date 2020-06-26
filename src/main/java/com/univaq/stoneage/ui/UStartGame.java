@@ -50,6 +50,7 @@ public class UStartGame extends JPanel {
 
     private void onPlay() {
         playButton.setEnabled(false);
+        MStoneAgeGame.resetInstance();
         MStoneAgeGame.getInstance().playStoneAge(modeComboBox.getSelectedItem().toString(), 4, playerComboBox.getSelectedItem().toString());
         UMainFrame.getInstance().setGamePage();
         MStoneAgeGame.getInstance().getM_gameState().addPropertyChangeListener(UMainFrame.getInstance());

@@ -46,6 +46,10 @@ public class MStoneAgeGame {
 		return instance;
 	}
 
+	public static void resetInstance() {
+		instance = null;
+	}
+
 	/**
 	 * Play to Stone Age game.
 	 * System operation.
@@ -55,6 +59,7 @@ public class MStoneAgeGame {
 	 * @param aMarkerName Human player's name
 	 */
 	public void playStoneAge(String aMode, int aNumPlayers, String aMarkerName) {
+
 		GameInitializer gameInitializer = GameInitializerFactory.getInstance().getGameInitializer(aMode);
 		gameInitializer.initializeStoneAgeGame(this, aNumPlayers, aMarkerName);
 	}

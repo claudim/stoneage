@@ -86,6 +86,7 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
         int width = frameDimension.getWidth();
         this.uGameBoard.getGameContentPane().setBounds(0, 0, width, height);
 
+        mainContainer = new JLayeredPane();
         mainContainer.add(this.uGameBoard.getGameContentPane(), JLayeredPane.DEFAULT_LAYER);
         this.getContentPane().add(mainContainer);
     }
@@ -165,6 +166,7 @@ public class UMainFrame extends JFrame implements PropertyChangeListener {
                         winnerName.set(mPlayer.getMarkerName());
                     }
                 });
+
                 this.setStartPage(winnerName.toString());
                 this.setVisible(true);
             }
