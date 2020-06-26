@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * It is responsible for the creation of all the Surprise Tokens.
@@ -59,8 +58,9 @@ public class MSurpriseSquare extends MSquare {
 
         // scegli una sorpresa
         IGetNextIdStrategy getNextIdStrategy = new GetRandomIdStrategy(); // todo meglio una factory??
-        int nextId = getNextIdStrategy.getNextId(Collections.singletonList(m_supriseTokens));
+        int nextId = getNextIdStrategy.getNextId(m_supriseTokens);
 
+        System.out.println("id supriseToken scelto " + nextId);
         ISurpriseTokenCommand supriseToken = m_supriseTokens.get(nextId);
         return supriseToken.execute();
     }

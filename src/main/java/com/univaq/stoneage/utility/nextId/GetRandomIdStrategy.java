@@ -29,8 +29,9 @@ public class GetRandomIdStrategy implements IGetNextIdStrategy {
      * @return random index in given list
      */
     @Override
-    public int getNextId(List<Object> list) {
-        Random rand = new Random();
-        return rand.nextInt(list.size());
+    public int getNextId(List<?> list) {
+//        Random rand = new Random();
+//        return rand.nextInt(list.size());
+        return 2;
     }
 }

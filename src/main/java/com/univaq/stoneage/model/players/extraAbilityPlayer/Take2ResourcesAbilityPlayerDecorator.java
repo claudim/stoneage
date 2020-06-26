@@ -54,6 +54,7 @@ public class Take2ResourcesAbilityPlayerDecorator extends ExtraAbilityPlayerDeco
      */
     @Override
     public void executeOnEndTurnAbility(GameState gameState) {
+        player.executeOnEndTurnAbility(gameState);
     }
 
     /**

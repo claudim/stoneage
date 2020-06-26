@@ -22,5 +22,6 @@ public interface IGetNextIdStrategy {
      * @param list list in which search the next id
      * @return id
      */
-    int getNextId(List<Object> list);
+    int getNextId(List<?> list);
+
 }

@@ -26,7 +26,7 @@ public class GetFirstIdStrategy implements IGetNextIdStrategy {
      * @return first index in given list
      */
     @Override
-    public int getNextId(List<Object> list) {
+    public int getNextId(List<?> list) {
         return 0;
     }
 }
