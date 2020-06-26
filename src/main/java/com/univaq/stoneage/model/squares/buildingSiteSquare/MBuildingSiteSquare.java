@@ -84,9 +84,11 @@ public class MBuildingSiteSquare extends MSquare {
 
         m_playerBuildableMHutTokens = checkBuildableHutAlgorithm.checkBuildableHut(mPlayer, m_hutTokens);
         if (m_playerBuildableMHutTokens.size() == 0) {
+            System.out.println(mPlayer.getMarkerName() + "  non  può costruire");
             MStoneAgeGame.getInstance().getM_grid().forestTokenShuffle();
             return ActionResult.ACTION_DONE;
         } else {
+            System.out.println(mPlayer.getMarkerName() + " può costruire");
             return ActionResult.HUT_TOKEN_CHECK_DONE;
         }
     }
