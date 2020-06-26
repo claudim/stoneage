@@ -3,8 +3,8 @@ package com.univaq.stoneage.model.squares.squareSetup.squareSetupStrategy;
 import com.univaq.stoneage.model.MResource;
 import com.univaq.stoneage.model.squares.MSquare;
 import com.univaq.stoneage.model.squares.resourceSquare.MResourceSquare;
+import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.GreenResourceSquareStateFactory;
 import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.IResourceSquareStateFactory;
-import com.univaq.stoneage.model.squares.resourceSquare.resourceSquareState.squareStateFactory.RedResourceSquareStateFactory;
 
 public class FixedNumberResourceSquareGreenSetupStrategy implements MISquareSetupStrategy {
 
@@ -37,7 +37,7 @@ public class FixedNumberResourceSquareGreenSetupStrategy implements MISquareSetu
         for (int i = 0; i < resourceNumber; i++) {
             resourceSquare.getM_resources().add(new MResource(resourceSquare.getm_resourceType()));
         }
-        IResourceSquareStateFactory resourceSquareStateFactory = new RedResourceSquareStateFactory();
+        IResourceSquareStateFactory resourceSquareStateFactory = new GreenResourceSquareStateFactory();
         resourceSquare.setM_squareStateFactory(resourceSquareStateFactory);
         resourceSquare.setM_squareState(resourceSquareStateFactory.createState(resourceSquare, null));
 
