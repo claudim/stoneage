@@ -1,0 +1,1903 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Class Diagram - Squares Class Diagram IT3</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_jtMHKw6FYFAUBQb9.html" class="PageParentTitle">Design Model : Model</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Model_CwHO5U6FYFAUBVSg.html" class="PageParentTitle">Iteration3 : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Class Diagram - Squares Class Diagram IT3		</span>
+<a onclick="javascript: showVpLink('StoneAgeIT3_24.vpp://diagram/ZbQOp06FYFAUAiVc', 'Squares Class Diagram IT3\nStoneAgeIT3_24.vpp://diagram/ZbQOp06FYFAUAiVc', 'Squares Class Diagram IT3', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|2178.0|24.0|234.0|127.0|Class_HHgVR06FYFAUAg_3.html|Class_HHgVR06FYFAUAg_3.html|aREOp06FYFAUAifU" id="optionaREOp06FYFAUAifU">MSquare : Class</option>
+<option value="shape|839.0|990.0|112.0|59.0|Class__zYOp06FYFAUAiV5.html|Class__zYOp06FYFAUAiV5.html|GREOp06FYFAUAifW" id="optionGREOp06FYFAUAifW">ActionResult : Class</option>
+<option value="shape|2323.0|256.0|141.0|47.0|Class_SLYOp06FYFAUAiWB.html|Class_SLYOp06FYFAUAiWB.html|WREOp06FYFAUAifY" id="optionWREOp06FYFAUAifY">MRegularSquare : Class</option>
+<option value="shape|59.0|50.0|156.0|77.0|Class_lLYOp06FYFAUAiWN.html|Class_lLYOp06FYFAUAiWN.html|2REOp06FYFAUAifa" id="option2REOp06FYFAUAifa">MBoard : Class</option>
+<option value="shape|1.0|259.0|131.0|38.0|Class_wrYOp06FYFAUAiWg.html|Class_wrYOp06FYFAUAiWg.html|OREOp06FYFAUAifc" id="optionOREOp06FYFAUAifc">MRedBoard : Class</option>
+<option value="shape|142.0|259.0|131.0|38.0|Class_yrYOp06FYFAUAiWn.html|Class_yrYOp06FYFAUAiWn.html|OREOp06FYFAUAife" id="optionOREOp06FYFAUAife">MGreenBoard : Class</option>
+<option value="shape|2977.0|201.0|179.0|123.0|Class_prYOp06FYFAUAiWv.html|Class_prYOp06FYFAUAiWv.html|uREOp06FYFAUAifg" id="optionuREOp06FYFAUAifg">MResourceSquare : Class</option>
+<option value="shape|2475.0|256.0|215.0|38.0|Class_QbYOp06FYFAUAiXi.html|Class_QbYOp06FYFAUAiXi.html|eREOp06FYFAUAifi" id="optioneREOp06FYFAUAifi">ISquareState : Class</option>
+<option value="shape|2643.0|497.0|215.0|47.0|Class_4bYOp06FYFAUAiXq.html|Class_4bYOp06FYFAUAiXq.html|BREOp06FYFAUAifk" id="optionBREOp06FYFAUAifk">Release2ResourcesState : Class</option>
+<option value="shape|3094.0|497.0|215.0|47.0|Class_SbYOp06FYFAUAiX3.html|Class_SbYOp06FYFAUAiX3.html|hREOp06FYFAUAifm" id="optionhREOp06FYFAUAifm">StealResourceState : Class</option>
+<option value="shape|2869.0|497.0|215.0|47.0|Class_2bYOp06FYFAUAiYE.html|Class_2bYOp06FYFAUAiYE.html|RREOp06FYFAUAifo" id="optionRREOp06FYFAUAifo">WithResourceState : Class</option>
+<option value="shape|3319.0|497.0|215.0|47.0|Class_xbYOp06FYFAUAiYR.html|Class_xbYOp06FYFAUAiYR.html|RREOp06FYFAUAifq" id="optionRREOp06FYFAUAifq">NoResourceState : Class</option>
+<option value="shape|3689.0|259.0|268.0|31.0|Class_dbYOp06FYFAUAiYf.html|Class_dbYOp06FYFAUAiYf.html|xREOp06FYFAUAifs" id="optionxREOp06FYFAUAifs">IResourceSquareStateFactory : Class</option>
+<option value="shape|3824.0|509.0|268.0|24.0|Class_rbYOp06FYFAUAiYm.html|Class_rbYOp06FYFAUAiYm.html|ZREOp06FYFAUAifu" id="optionZREOp06FYFAUAifu">RedResourceSquareStateFactory : Class</option>
+<option value="shape|3545.0|509.0|268.0|24.0|Class_3bYOp06FYFAUAiYt.html|Class_3bYOp06FYFAUAiYt.html|5REOp06FYFAUAifw" id="option5REOp06FYFAUAifw">GreenResourceSquareStateFactory : Class</option>
+<option value="shape|2078.0|245.0|235.0|69.0|Class_xHgVR06FYFAUAg_l.html|Class_xHgVR06FYFAUAg_l.html|5REOp06FYFAUAify" id="option5REOp06FYFAUAify">MSurpriseSquare : Class</option>
+<option value="shape|1711.0|259.0|197.0|40.0|Class_cHgVR06FYFAUAg_U.html|Class_cHgVR06FYFAUAg_U.html|lREOp06FYFAUAif0" id="optionlREOp06FYFAUAif0">ISurpriseTokenCommand : Class</option>
+<option value="shape|1399.0|412.0|197.0|40.0|Class_wHgVR06FYFAUAg_K.html|Class_wHgVR06FYFAUAg_K.html|1REOp06FYFAUAif2" id="option1REOp06FYFAUAif2">SkipTurnSurpriseTokenCommand : Class</option>
+<option value="shape|1610.0|412.0|197.0|47.0|Class_qHgVR06FYFAUAg_Z.html|Class_qHgVR06FYFAUAg_Z.html|NREOp06FYFAUAif4" id="optionNREOp06FYFAUAif4">GoToBuildingSiteSquareSurpriseTokenCommand : Class</option>
+<option value="shape|1816.0|412.0|203.0|40.0|Class_37gVR06FYFAUAg_A.html|Class_37gVR06FYFAUAg_A.html|NREOp06FYFAUAif6" id="optionNREOp06FYFAUAif6">TakeAnotherTurnSurpriseTokenCommand : Class</option>
+<option value="shape|2042.0|412.0|197.0|45.0|Class_T7gVR06FYFAUAg92.html|Class_T7gVR06FYFAUAg92.html|tREOp06FYFAUAif8" id="optiontREOp06FYFAUAif8">TwoResourcesSupriseTokenCommand : Class</option>
+<option value="shape|284.0|259.0|179.0|31.0|Class_67YOp06FYFAUAiY1.html|Class_67YOp06FYFAUAiY1.html|dREOp06FYFAUAif." id="optiondREOp06FYFAUAif.">MINextHutTokenStrategy : Class</option>
+<option value="shape|284.0|509.0|179.0|24.0|Class_u7YOp06FYFAUAiY7.html|Class_u7YOp06FYFAUAiY7.html|9REOp06FYFAUAigA" id="option9REOp06FYFAUAigA">MRandomNextHutTokenStrategy : Class</option>
+<option value="shape|852.0|803.0|207.0|54.0|Class_l7YOp06FYFAUAiZD.html|Class_l7YOp06FYFAUAiZD.html|DREOp06FYFAUAigC" id="optionDREOp06FYFAUAigC">MResourceSquareGreenSetupStrategy : Class</option>
+<option value="shape|389.0|803.0|207.0|40.0|Class_j7YOp06FYFAUAiZS.html|Class_j7YOp06FYFAUAiZS.html|jREOp06FYFAUAigE" id="optionjREOp06FYFAUAigE">FixedNumberResourceSquareRedSetupStrategy : Class</option>
+<option value="shape|1075.0|803.0|207.0|54.0|Class_37YOp06FYFAUAiZf.html|Class_37YOp06FYFAUAiZf.html|TREOp06FYFAUAigG" id="optionTREOp06FYFAUAigG">MResourceSquareRedSetupStrategy : Class</option>
+<option value="shape|158.0|803.0|207.0|40.0|Class_oHYOp06FYFAUAiZu.html|Class_oHYOp06FYFAUAiZu.html|zREOp06FYFAUAigI" id="optionzREOp06FYFAUAigI">FixedNumberResourceSquareGreenSetupStrategy : Class</option>
+<option value="shape|1756.0|854.0|207.0|33.0|Class_cHYOp06FYFAUAiZ7.html|Class_cHYOp06FYFAUAiZ7.html|LREOp06FYFAUAigK" id="optionLREOp06FYFAUAigK">CompositeSetupSquareStrategy : Class</option>
+<option value="shape|1525.0|803.0|207.0|24.0|Class_aHYOp06FYFAUAiaD.html|Class_aHYOp06FYFAUAiaD.html|LREOp06FYFAUAigM" id="optionLREOp06FYFAUAigM">RedBuildingSiteSquareSetupStrategy : Class</option>
+<option value="shape|620.0|803.0|207.0|24.0|Class_WHYOp06FYFAUAiaJ.html|Class_WHYOp06FYFAUAiaJ.html|rREOp06FYFAUAigO" id="optionrREOp06FYFAUAigO">GreenBuildingSiteSquareSetupStrategy : Class</option>
+<option value="shape|1742.0|803.0|207.0|24.0|Class_BHYOp06FYFAUAiaP.html|Class_BHYOp06FYFAUAiaP.html|bREOp06FYFAUAigQ" id="optionbREOp06FYFAUAigQ">RedSurpriseSquareSetupStrategy : Class</option>
+<option value="shape|1296.0|803.0|207.0|24.0|Class_FHYOp06FYFAUAiaV.html|Class_FHYOp06FYFAUAiaV.html|7REOp06FYFAUAigS" id="option7REOp06FYFAUAigS">NoSetupSquareStrategy : Class</option>
+<option value="shape|962.0|634.0|207.0|31.0|Class_dHYOp06FYFAUAiab.html|Class_dHYOp06FYFAUAiab.html|HREOp06FYFAUAigU" id="optionHREOp06FYFAUAigU">MISquareSetupStrategy : Class</option>
+<option value="shape|509.0|1038.0|231.0|31.0|Class_HHYOp06FYFAUAiai.html|Class_HHYOp06FYFAUAiai.html|XREOp06FYFAUAigW" id="optionXREOp06FYFAUAigW">RedSetupSquareFactory : Class</option>
+<option value="shape|4.0|1038.0|231.0|31.0|Class__HYOp06FYFAUAiar.html|Class__HYOp06FYFAUAiar.html|3REOp06FYFAUAigY" id="option3REOp06FYFAUAigY">GreenSetupSquareFactory : Class</option>
+<option value="shape|244.0|1038.0|231.0|31.0|Class_4nYOp06FYFAUAia0.html|Class_4nYOp06FYFAUAia0.html|PREOp06FYFAUAiga" id="optionPREOp06FYFAUAiga">MSetupResourceSquareStrategyFactory : Class</option>
+<option value="shape|238.0|911.0|231.0|44.0|Class_8nYOp06FYFAUAia9.html|Class_8nYOp06FYFAUAia9.html|vREOp06FYFAUAigc" id="optionvREOp06FYFAUAigc">MISetupSquareStrategyFactory : Class</option>
+<option value="shape|1095.0|259.0|293.0|31.0|Class_WnYOp06FYFAUAibH.html|Class_WnYOp06FYFAUAibH.html|fREOp06FYFAUAige" id="optionfREOp06FYFAUAige">ICheckBuildableHutStrategy : Class</option>
+<option value="shape|1095.0|509.0|293.0|24.0|Class_BnYOp06FYFAUAibO.html|Class_BnYOp06FYFAUAibO.html|gxEOp06FYFAUAigg" id="optiongxEOp06FYFAUAigg">CheckBuildableHutStrategy : Class</option>
+<option value="shape|683.0|217.0|212.0|117.0|Class_5nYOp06FYFAUAibV.html|Class_5nYOp06FYFAUAibV.html|QxEOp06FYFAUAigi" id="optionQxEOp06FYFAUAigi">MBuildingSiteSquare : Class</option>
+<option value="shape|1.0|567.0|371.0|264.0|Package_N7gVR06FYFAUAg9z.html|Package_N7gVR06FYFAUAg9z.html|wxEOp06FYFAUAigk" id="optionwxEOp06FYFAUAigk">squares : Package</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Squares_Class_Diagram_IT3.png" usemap="#diagram_map" class="Image" width="4094" height="1073"/>
+					<map name="diagram_map">
+<area coords="2311,1052,2341,1066" coords2="2311,1052,2341,1066" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="2311,566,2341,580" coords2="2311,566,2341,580" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="619,1878,653,1892" coords2="619,1878,653,1892" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="704,1892,738,1906" coords2="704,1892,738,1906" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="631,2116,665,2130" coords2="631,2116,665,2130" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="716,2130,750,2144" coords2="716,2130,750,2144" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="149,2116,183,2130" coords2="149,2116,183,2130" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="234,2130,268,2144" coords2="234,2130,268,2144" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="1163,2116,1197,2130" coords2="1163,2116,1197,2130" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="1248,2130,1282,2144" coords2="1248,2130,1282,2144" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="2015,1318,2049,1332" coords2="2015,1318,2049,1332" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="2686,1644,2720,1658" coords2="2686,1644,2720,1658" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="3581,1644,3615,1658" coords2="3581,1644,3615,1658" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="1328,1644,1362,1658" coords2="1328,1644,1362,1658" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="3145,1644,3179,1658" coords2="3145,1644,3179,1658" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="400,1676,434,1690" coords2="400,1676,434,1690" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="2241,1704,2275,1718" coords2="2241,1704,2275,1718" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="864,1676,898,1690" coords2="864,1676,898,1690" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="1794,1704,1828,1718" coords2="1794,1704,1828,1718" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="3364,873,3405,887" coords2="3364,873,3405,887" shape="rect" alt="Cantiere" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9_5CGw6FYFAUBRAX"/>
+<area coords="3247,887,3277,901" coords2="3247,887,3277,901" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="3496,905,3526,919" coords2="3496,905,3526,919" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="7194,1052,7228,1066" coords2="7194,1052,7228,1066" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="7754,1052,7788,1066" coords2="7754,1052,7788,1066" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="7483,566,7517,580" coords2="7483,566,7517,580" shape="rect" alt="Square" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="6764,1061,6794,1075" coords2="6764,1061,6794,1075" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="5860,1061,5890,1075" coords2="5860,1061,5890,1075" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="6312,1061,6342,1075" coords2="6312,1061,6342,1075" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="5405,1061,5435,1075" coords2="5405,1061,5435,1075" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="5069,559,5099,573" coords2="5069,559,5099,573" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="6041,580,6071,594" coords2="6041,580,6071,594" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="1725,2046,1787,2060" coords2="1725,2046,1787,2060" shape="rect" alt="Resource" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A"/>
+<area coords="1747,2060,1809,2074" coords2="1747,2060,1809,2074" shape="rect" alt="Resource" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A"/>
+<area coords="1777,2102,1820,2116" coords2="1777,2102,1820,2116" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="4403,123,4430,137" coords2="4403,123,4430,137" shape="rect" alt="Mode" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09"/>
+<area imageId="diagram" coords="2146.0, -10.0, 2146.0, -7.0, 2143.0, -7.0, 2143.0, 7.0, 2146.0, 7.0, 2146.0, 46.0, 2143.0, 46.0, 2143.0, 60.0, 2146.0, 60.0, 2146.0, 63.0, 2160.0, 63.0, 2160.0, 60.0, 2178.0, 60.0, 2178.0, 46.0, 2160.0, 46.0, 2160.0, 7.0, 2288.0, 7.0, 2288.0, 24.0, 2302.0, 24.0, 2302.0, 7.0, 2305.0, 7.0, 2305.0, -7.0, 2302.0, -7.0, 2302.0, -10.0, 2288.0, -10.0, 2288.0, -7.0, 2160.0, -7.0, 2160.0, -10.0" coords2="2146.0, -10.0, 2146.0, -7.0, 2143.0, -7.0, 2143.0, 7.0, 2146.0, 7.0, 2146.0, 46.0, 2143.0, 46.0, 2143.0, 60.0, 2146.0, 60.0, 2146.0, 63.0, 2160.0, 63.0, 2160.0, 60.0, 2178.0, 60.0, 2178.0, 46.0, 2160.0, 46.0, 2160.0, 7.0, 2288.0, 7.0, 2288.0, 24.0, 2302.0, 24.0, 2302.0, 7.0, 2305.0, 7.0, 2305.0, -7.0, 2302.0, -7.0, 2302.0, -10.0, 2288.0, -10.0, 2288.0, -7.0, 2160.0, -7.0, 2160.0, -10.0" shape="poly" alt=":Association" id="areadiagram_map_IxEOp06FYFAUAigm_default" href="Association_5fgVR06FYFAUAhBJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="215.0, 116.0, 215.0, 127.0, 207.0, 127.0, 207.0, 130.0, 2178.0, 130.0, 2178.0, 116.0" coords2="215.0, 116.0, 215.0, 127.0, 207.0, 127.0, 207.0, 130.0, 2178.0, 130.0, 2178.0, 116.0" shape="poly" alt=":Association" id="areadiagram_map_IxEOp06FYFAUAigo_default" href="Association_9XYOp06FYFAUAicZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2188.0, 151.0, 2188.0, 245.0, 2202.0, 245.0, 2202.0, 151.0" coords2="2188.0, 151.0, 2188.0, 245.0, 2202.0, 245.0, 2202.0, 151.0" shape="poly" alt=":Generalization" id="areadiagram_map_IxEOp06FYFAUAigq_default" href="Generalization_DvgVR06FYFAUAhA4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2387.0, 151.0, 2387.0, 256.0, 2401.0, 256.0, 2401.0, 151.0" coords2="2387.0, 151.0, 2387.0, 256.0, 2401.0, 256.0, 2401.0, 151.0" shape="poly" alt=":Generalization" id="areadiagram_map_oxEOp06FYFAUAigs_default" href="Generalization_eXYOp06FYFAUAicV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2412.0, 145.6747, 2412.0, 151.0, 2404.0, 151.0, 2404.0, 159.0, 2977.0, 207.3253, 2977.0, 201.0, 2985.0, 201.0, 2985.0, 194.0, 2412.0, 145.6747" coords2="2412.0, 145.6747, 2412.0, 151.0, 2404.0, 151.0, 2404.0, 159.0, 2977.0, 207.3253, 2977.0, 201.0, 2985.0, 201.0, 2985.0, 194.0, 2412.0, 145.6747" shape="poly" alt=":Generalization" id="areadiagram_map_oxEOp06FYFAUAigu_default" href="Generalization_63YOp06FYFAUAicp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2178.0, 145.40031, 887.0, 210.0, 887.0, 217.0, 895.0, 217.0, 895.0, 223.59969, 895.0, 223.59969, 2186.0, 159.0, 2186.0, 151.0, 2178.0, 151.0, 2178.0, 145.40031" coords2="2178.0, 145.40031, 887.0, 210.0, 887.0, 217.0, 895.0, 217.0, 895.0, 223.59969, 895.0, 223.59969, 2186.0, 159.0, 2186.0, 151.0, 2178.0, 151.0, 2178.0, 145.40031" shape="poly" alt=":Generalization" id="areadiagram_map_YxEOp06FYFAUAigw_default" href="Generalization_Ig4Op06FYFAUAiex.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="60.0, 127.0, 60.0, 259.0, 74.0, 259.0, 74.0, 127.0" coords2="60.0, 127.0, 60.0, 259.0, 74.0, 259.0, 74.0, 127.0" shape="poly" alt=":Generalization" id="areadiagram_map_YxEOp06FYFAUAigy_default" href="Generalization_E3YOp06FYFAUAicl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="201.0, 127.0, 201.0, 259.0, 215.0, 259.0, 215.0, 127.0" coords2="201.0, 127.0, 201.0, 259.0, 215.0, 259.0, 215.0, 127.0" shape="poly" alt=":Generalization" id="areadiagram_map_YxEOp06FYFAUAig0_default" href="Generalization_C3YOp06FYFAUAicn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2975.0, 312.0, 2849.0425, 497.0, 2858.0, 497.0, 2858.0, 508.0, 2983.2766, 324.0, 2977.0, 324.0, 2977.0, 313.45456, 2975.0, 312.0" coords2="2975.0, 312.0, 2849.0425, 497.0, 2858.0, 497.0, 2858.0, 508.0, 2983.2766, 324.0, 2977.0, 324.0, 2977.0, 313.45456, 2975.0, 312.0" shape="poly" alt=":Association" id="areadiagram_map_4xEOp06FYFAUAig2_default" href="Association_RPYOp06FYFAUAic_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3087.0, 324.0, 3087.0, 507.0, 3094.0, 507.0, 3094.0, 497.0, 3101.0, 497.0, 3101.0, 324.0" coords2="3087.0, 324.0, 3087.0, 507.0, 3094.0, 507.0, 3094.0, 497.0, 3101.0, 497.0, 3101.0, 324.0" shape="poly" alt=":Association" id="areadiagram_map_ExEOp06FYFAUAig4_default" href="Association_LPYOp06FYFAUAidG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3034.0, 324.0, 3034.0, 497.0, 3048.0, 497.0, 3048.0, 324.0" coords2="3034.0, 324.0, 3034.0, 497.0, 3048.0, 497.0, 3048.0, 324.0" shape="poly" alt=":Association" id="areadiagram_map_UxEOp06FYFAUAig6_default" href="Association_gvYOp06FYFAUAidN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3156.0, 313.06287, 3156.0, 324.0, 3146.8818, 324.0, 3319.0, 506.93713, 3319.0, 497.0, 3329.059, 497.0, 3156.0, 313.06287" coords2="3156.0, 313.06287, 3156.0, 324.0, 3146.8818, 324.0, 3319.0, 506.93713, 3319.0, 497.0, 3329.059, 497.0, 3156.0, 313.06287" shape="poly" alt=":Association" id="areadiagram_map_MxEOp06FYFAUAig8_default" href="Association_avYOp06FYFAUAidU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2690.0, 268.0, 2690.0, 282.0, 2977.0, 282.0, 2977.0, 268.0" coords2="2690.0, 268.0, 2690.0, 282.0, 2977.0, 282.0, 2977.0, 268.0" shape="poly" alt=":Association" id="areadiagram_map_sxEOp06FYFAUAig._default" href="Association_B3YOp06FYFAUAict.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2690.0, 285.0, 2690.0, 294.0, 2683.0, 294.0, 2683.0, 497.0, 2697.0, 497.0, 2697.0, 285.0" coords2="2690.0, 285.0, 2690.0, 294.0, 2683.0, 294.0, 2683.0, 497.0, 2697.0, 497.0, 2697.0, 285.0" shape="poly" alt=":Realization" id="areadiagram_map_cxEOp06FYFAUAihA_default" href="Realization_GPYOp06FYFAUAic_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2690.0, 286.99286, 2690.0, 294.0, 2680.1538, 294.0, 2679.0, 297.0, 3094.0, 504.00714, 3094.0, 497.0, 3103.8462, 497.0, 3105.0, 494.0, 2690.0, 286.99286" coords2="2690.0, 286.99286, 2690.0, 294.0, 2680.1538, 294.0, 2679.0, 297.0, 3094.0, 504.00714, 3094.0, 497.0, 3103.8462, 497.0, 3105.0, 494.0, 2690.0, 286.99286" shape="poly" alt=":Realization" id="areadiagram_map_cxEOp06FYFAUAihC_default" href="Realization_dPYOp06FYFAUAidF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2690.0, 282.0, 2690.0, 294.0, 2681.6147, 294.0, 2869.0, 509.0, 2869.0, 497.0, 2877.3853, 497.0, 2690.0, 282.0" coords2="2690.0, 282.0, 2690.0, 294.0, 2681.6147, 294.0, 2869.0, 509.0, 2869.0, 497.0, 2877.3853, 497.0, 2690.0, 282.0" shape="poly" alt=":Realization" id="areadiagram_map_cxEOp06FYFAUAihE_default" href="Realization_3PYOp06FYFAUAidM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2690.0, 286.92557, 2690.0, 294.0, 2681.4285, 294.0, 2680.0, 299.0, 3319.0, 503.75696, 3319.0, 497.0, 3327.9285, 497.0, 3329.0, 492.0, 2690.0, 286.92557" coords2="2690.0, 286.92557, 2690.0, 294.0, 2681.4285, 294.0, 2680.0, 299.0, 3319.0, 503.75696, 3319.0, 497.0, 3327.9285, 497.0, 3329.0, 492.0, 2690.0, 286.92557" shape="poly" alt=":Realization" id="areadiagram_map_cxEOp06FYFAUAihG_default" href="Realization_CvYOp06FYFAUAidT.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3156.0, 268.0, 3156.0, 282.0, 3689.0, 282.0, 3689.0, 268.0" coords2="3156.0, 268.0, 3156.0, 282.0, 3689.0, 282.0, 3689.0, 268.0" shape="poly" alt=":Association" id="areadiagram_map_cxEOp06FYFAUAihI_default" href="Association_53YOp06FYFAUAicy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3879.0, 290.0, 3879.0, 509.0, 3893.0, 509.0, 3893.0, 290.0" coords2="3879.0, 290.0, 3879.0, 509.0, 3893.0, 509.0, 3893.0, 290.0" shape="poly" alt=":Realization" id="areadiagram_map_8xEOp06FYFAUAihK_default" href="Realization_BvYOp06FYFAUAida.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3757.0, 290.0, 3757.0, 509.0, 3771.0, 509.0, 3771.0, 290.0" coords2="3757.0, 290.0, 3757.0, 509.0, 3771.0, 509.0, 3771.0, 290.0" shape="poly" alt=":Realization" id="areadiagram_map_8xEOp06FYFAUAihM_default" href="Realization_FvYOp06FYFAUAidc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1908.0, 268.0, 1908.0, 282.0, 2078.0, 282.0, 2078.0, 268.0" coords2="1908.0, 268.0, 1908.0, 282.0, 2078.0, 282.0, 2078.0, 268.0" shape="poly" alt=":Association" id="areadiagram_map_8xEOp06FYFAUAihO_default" href="Association_0fgVR06FYFAUAhA8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1908.0, 290.51352, 1908.0, 299.0, 1896.0, 299.0, 2042.0, 421.3243, 2042.0, 412.0, 2053.0, 412.0, 1908.0, 290.51352" coords2="1908.0, 290.51352, 1908.0, 299.0, 1896.0, 299.0, 2042.0, 421.3243, 2042.0, 412.0, 2053.0, 412.0, 1908.0, 290.51352" shape="poly" alt=":Realization" id="areadiagram_map_8xEOp06FYFAUAihQ_default" href="Realization_bPgVR06FYFAUAhAr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1851.0, 299.0, 1851.0, 412.0, 1865.0, 412.0, 1865.0, 299.0" coords2="1851.0, 299.0, 1851.0, 412.0, 1865.0, 412.0, 1865.0, 299.0" shape="poly" alt=":Realization" id="areadiagram_map_8xEOp06FYFAUAihS_default" href="Realization_0vgVR06FYFAUAhAt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1711.0, 288.97656, 1585.024, 412.0, 1596.0, 412.0, 1596.0, 421.04688, 1720.976, 299.0, 1711.0, 299.0, 1711.0, 288.97656" coords2="1711.0, 288.97656, 1585.024, 412.0, 1596.0, 412.0, 1596.0, 421.04688, 1720.976, 299.0, 1711.0, 299.0, 1711.0, 288.97656" shape="poly" alt=":Realization" id="areadiagram_map_CxEOp06FYFAUAihU_default" href="Realization_8vgVR06FYFAUAhAv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1759.0, 299.0, 1759.0, 412.0, 1773.0, 412.0, 1773.0, 299.0" coords2="1759.0, 299.0, 1759.0, 412.0, 1773.0, 412.0, 1773.0, 299.0" shape="poly" alt=":Realization" id="areadiagram_map_ixEOp06FYFAUAihW_default" href="Realization_2vgVR06FYFAUAhAx.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="463.0, 268.0, 463.0, 282.0, 683.0, 282.0, 683.0, 268.0" coords2="463.0, 268.0, 463.0, 282.0, 683.0, 282.0, 683.0, 268.0" shape="poly" alt=":Association" id="areadiagram_map_ixEOp06FYFAUAihY_default" href="Association_Mg4Op06FYFAUAie4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="367.0, 290.0, 367.0, 509.0, 381.0, 509.0, 381.0, 290.0" coords2="367.0, 290.0, 367.0, 509.0, 381.0, 509.0, 381.0, 290.0" shape="poly" alt=":Realization" id="areadiagram_map_ixEOp06FYFAUAiha_default" href="Realization_JfYOp06FYFAUAid_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1169.0, 657.9204, 1169.0, 665.0, 1160.4286, 665.0, 1159.0, 670.0, 1756.0, 860.76324, 1756.0, 854.0, 1764.9286, 854.0, 1766.0, 849.0, 1169.0, 657.9204" coords2="1169.0, 657.9204, 1169.0, 665.0, 1160.4286, 665.0, 1159.0, 670.0, 1756.0, 860.76324, 1756.0, 854.0, 1764.9286, 854.0, 1766.0, 849.0, 1169.0, 657.9204" shape="poly" alt=":Association" id="areadiagram_map_ixEOp06FYFAUAihc_default" href="Association_v_YOp06FYFAUAieP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="990.0, 665.0, 990.0, 803.0, 1004.0, 803.0, 1004.0, 665.0" coords2="990.0, 665.0, 990.0, 803.0, 1004.0, 803.0, 1004.0, 665.0" shape="poly" alt=":Realization" id="areadiagram_map_SxEOp06FYFAUAihe_default" href="Realization_rfYOp06FYFAUAieD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="962.0, 658.5953, 586.0, 798.0, 587.4286, 803.0, 596.0, 803.0, 596.0, 809.76965, 972.0, 670.0, 970.9286, 665.0, 962.0, 665.0, 962.0, 658.5953" coords2="962.0, 658.5953, 586.0, 798.0, 587.4286, 803.0, 596.0, 803.0, 596.0, 809.76965, 972.0, 670.0, 970.9286, 665.0, 962.0, 665.0, 962.0, 658.5953" shape="poly" alt=":Realization" id="areadiagram_map_SxEOp06FYFAUAihg_default" href="Realization_ffYOp06FYFAUAieF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1094.0, 665.0, 1094.0, 803.0, 1108.0, 803.0, 1108.0, 665.0" coords2="1094.0, 665.0, 1094.0, 803.0, 1108.0, 803.0, 1108.0, 665.0" shape="poly" alt=":Realization" id="areadiagram_map_SxEOp06FYFAUAihi_default" href="Realization_C_YOp06FYFAUAieH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="962.0, 658.5987, 356.0, 797.0, 356.85715, 803.0, 365.0, 803.0, 365.0, 809.4013, 971.0, 671.0, 970.1429, 665.0, 962.0, 665.0, 962.0, 658.5987" coords2="962.0, 658.5987, 356.0, 797.0, 356.85715, 803.0, 365.0, 803.0, 365.0, 809.4013, 971.0, 671.0, 970.1429, 665.0, 962.0, 665.0, 962.0, 658.5987" shape="poly" alt=":Realization" id="areadiagram_map_yxEOp06FYFAUAihk_default" href="Realization_B_YOp06FYFAUAieJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1169.0, 657.9204, 1169.0, 665.0, 1160.4286, 665.0, 1159.0, 670.0, 1756.0, 860.76324, 1756.0, 854.0, 1764.9286, 854.0, 1766.0, 849.0, 1169.0, 657.9204" coords2="1169.0, 657.9204, 1169.0, 665.0, 1160.4286, 665.0, 1159.0, 670.0, 1756.0, 860.76324, 1756.0, 854.0, 1764.9286, 854.0, 1766.0, 849.0, 1169.0, 657.9204" shape="poly" alt=":Realization" id="areadiagram_map_qxEOp06FYFAUAihm_default" href="Realization_N_YOp06FYFAUAieL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1169.0, 658.29034, 1169.0, 665.0, 1160.4286, 665.0, 1159.0, 670.0, 1525.0, 809.33514, 1525.0, 803.0, 1533.9286, 803.0, 1535.0, 798.0, 1169.0, 658.29034" coords2="1169.0, 658.29034, 1169.0, 665.0, 1160.4286, 665.0, 1159.0, 670.0, 1525.0, 809.33514, 1525.0, 803.0, 1533.9286, 803.0, 1535.0, 798.0, 1169.0, 658.29034" shape="poly" alt=":Realization" id="areadiagram_map_qxEOp06FYFAUAiho_default" href="Realization_yA4Op06FYFAUAieV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="962.0, 655.0204, 816.98, 803.0, 827.0, 803.0, 827.0, 812.9796, 972.02, 665.0, 962.0, 665.0, 962.0, 655.0204" coords2="962.0, 655.0204, 816.98, 803.0, 827.0, 803.0, 827.0, 812.9796, 972.02, 665.0, 962.0, 665.0, 962.0, 655.0204" shape="poly" alt=":Realization" id="areadiagram_map_qxEOp06FYFAUAihq_default" href="Realization_RA4Op06FYFAUAieX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1169.0, 658.6638, 1169.0, 665.0, 1160.8572, 665.0, 1160.0, 671.0, 1742.0, 809.3362, 1742.0, 803.0, 1750.1428, 803.0, 1751.0, 797.0, 1169.0, 658.6638" coords2="1169.0, 658.6638, 1169.0, 665.0, 1160.8572, 665.0, 1160.0, 671.0, 1742.0, 809.3362, 1742.0, 803.0, 1750.1428, 803.0, 1751.0, 797.0, 1169.0, 658.6638" shape="poly" alt=":Realization" id="areadiagram_map_qxEOp06FYFAUAihs_default" href="Realization_pA4Op06FYFAUAieZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1169.0, 655.07916, 1169.0, 665.0, 1158.9266, 665.0, 1296.0, 812.92084, 1296.0, 803.0, 1306.0734, 803.0, 1169.0, 655.07916" coords2="1169.0, 655.07916, 1169.0, 665.0, 1158.9266, 665.0, 1296.0, 812.92084, 1296.0, 803.0, 1306.0734, 803.0, 1169.0, 655.07916" shape="poly" alt=":Realization" id="areadiagram_map_axEOp06FYFAUAihu_default" href="Realization_1A4Op06FYFAUAieb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="471.0, 944.0, 469.0, 944.7692, 469.0, 944.7692, 469.0, 955.0, 460.88, 955.0, 506.0, 1049.0, 509.0, 1047.8462, 509.0, 1047.8462, 509.0, 1038.0, 516.12, 1038.0, 471.0, 944.0" coords2="471.0, 944.0, 469.0, 944.7692, 469.0, 944.7692, 469.0, 955.0, 460.88, 955.0, 506.0, 1049.0, 509.0, 1047.8462, 509.0, 1047.8462, 509.0, 1038.0, 516.12, 1038.0, 471.0, 944.0" shape="poly" alt=":Realization" id="areadiagram_map_axEOp06FYFAUAihw_default" href="Realization_9A4Op06FYFAUAied.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="231.0, 946.0, 228.29411, 1038.0, 235.0, 1038.0, 235.0, 1048.0, 242.0, 1048.0, 244.73529, 955.0, 238.0, 955.0, 238.0, 946.0" coords2="231.0, 946.0, 228.29411, 1038.0, 235.0, 1038.0, 235.0, 1048.0, 242.0, 1048.0, 244.73529, 955.0, 238.0, 955.0, 238.0, 946.0" shape="poly" alt=":Realization" id="areadiagram_map_axEOp06FYFAUAihy_default" href="Realization_bA4Op06FYFAUAief.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="351.0, 955.0, 351.0, 1038.0, 365.0, 1038.0, 365.0, 955.0" coords2="351.0, 955.0, 351.0, 1038.0, 365.0, 1038.0, 365.0, 955.0" shape="poly" alt=":Realization" id="areadiagram_map_6xEOp06FYFAUAih0_default" href="Realization_3A4Op06FYFAUAieh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="895.0, 268.0, 895.0, 282.0, 1095.0, 282.0, 1095.0, 268.0" coords2="895.0, 268.0, 895.0, 282.0, 1095.0, 282.0, 1095.0, 268.0" shape="poly" alt=":Association" id="areadiagram_map_6xEOp06FYFAUAih2_default" href="Association_Wg4Op06FYFAUAie9.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1235.0, 290.0, 1235.0, 509.0, 1249.0, 509.0, 1249.0, 290.0" coords2="1235.0, 290.0, 1235.0, 509.0, 1249.0, 509.0, 1249.0, 290.0" shape="poly" alt=":Realization" id="areadiagram_map_6xEOp06FYFAUAih4_default" href="Realization_gg4Op06FYFAUAiep.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MSquare is a persistence entity.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows its name, its the next &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      with which it is linked, if it is the start &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows the action to perform if the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      lands on it and how to setup the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is the observable of the OBSERVER PATTERN.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2178, 24, 2412, 151" coords2="2178, 24, 2412, 151" shape="rect" alt="MSquare:Class" id="areadiagram_map_aREOp06FYFAUAifU_default" href="Class_HHgVR06FYFAUAg_3.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2178, 24, 2412, 151',new Array('MSquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/MSquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2178, 24, 2412, 151'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      List of action result.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="839, 990, 951, 1049" coords2="839, 990, 951, 1049" shape="rect" alt="ActionResult:Class" id="areadiagram_map_GREOp06FYFAUAifW_default" href="Class__zYOp06FYFAUAiV5.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','839, 990, 951, 1049',new Array('ActionResult.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/ActionResult.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '839, 990, 951, 1049'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows its type, the action to perform if the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      lands on it and how to setup the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2323, 256, 2464, 303" coords2="2323, 256, 2464, 303" shape="rect" alt="MRegularSquare:Class" id="areadiagram_map_WREOp06FYFAUAifY_default" href="Class_SLYOp06FYFAUAiWB.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2323, 256, 2464, 303',new Array('MRegularSquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/MRegularSquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2323, 256, 2464, 303'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MBoard class is responsible to delegate the SquareFactory for the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      creation.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MBoard class knows all &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;board&amp;lt;/a&amp;gt; 
+      squares, how they are connected and which is the start &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="59, 50, 215, 127" coords2="59, 50, 215, 127" shape="rect" alt="MBoard:Class" id="areadiagram_map_2REOp06FYFAUAifa_default" href="Class_lLYOp06FYFAUAiWN.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','59, 50, 215, 127',new Array('MBoard.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/board/MBoard.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '59, 50, 215, 127'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="1, 259, 132, 297" coords2="1, 259, 132, 297" shape="rect" alt="MRedBoard:Class" id="areadiagram_map_OREOp06FYFAUAifc_default" href="Class_wrYOp06FYFAUAiWg.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1, 259, 132, 297',new Array('MRedBoard.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/board/MRedBoard.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1, 259, 132, 297'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="142, 259, 273, 297" coords2="142, 259, 273, 297" shape="rect" alt="MGreenBoard:Class" id="areadiagram_map_OREOp06FYFAUAife_default" href="Class_yrYOp06FYFAUAiWn.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','142, 259, 273, 297',new Array('MGreenBoard.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/board/MGreenBoard.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '142, 259, 273, 297'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is responsible for the creation of all the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;Resource&amp;lt;/a&amp;gt; 
+      of the same type of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Delegate the actual &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      state to perform the action if the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt;'s 
+      &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      lands on it.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows its type, all the resources on the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      and how to setup the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;..
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It has a number of internal states and has a reference to the actual 
+      internal state.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is the context of the STATE PATTERN.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is the observable of the OBSERVER PATTERN (between MSquare and 
+      UResourceSquare).
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is the observer of the OBSERVER PATTER (between MSEttelment and 
+      MREsourceSquare).
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2977, 201, 3156, 324" coords2="2977, 201, 3156, 324" shape="rect" alt="MResourceSquare:Class" id="areadiagram_map_uREOp06FYFAUAifg_default" href="Class_prYOp06FYFAUAiWv.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2977, 201, 3156, 324',new Array('MResourceSquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/MResourceSquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2977, 201, 3156, 324'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface to define all the behaviour of a &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      state.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2475, 256, 2690, 294" coords2="2475, 256, 2690, 294" shape="rect" alt="ISquareState:Class" id="areadiagram_map_eREOp06FYFAUAifi_default" href="Class_QbYOp06FYFAUAiXi.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2475, 256, 2690, 294',new Array('ISquareState.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/ISquareState.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2475, 256, 2690, 294'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concrete state of the STATE PATTERN of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Concrete state when the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      has to release 2 resources.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It has a reference to the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2643, 497, 2858, 544" coords2="2643, 497, 2858, 544" shape="rect" alt="Release2ResourcesState:Class" id="areadiagram_map_BREOp06FYFAUAifk_default" href="Class_4bYOp06FYFAUAiXq.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2643, 497, 2858, 544',new Array('Release2ResourcesState.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/Release2ResourcesState.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2643, 497, 2858, 544'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concrete state of the STATE PATTERN of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Concrete state when the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      has no &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt; 
+      and the game &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;mode&amp;lt;/a&amp;gt; 
+      is red.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It has a reference to the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="3094, 497, 3309, 544" coords2="3094, 497, 3309, 544" shape="rect" alt="StealResourceState:Class" id="areadiagram_map_hREOp06FYFAUAifm_default" href="Class_SbYOp06FYFAUAiX3.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','3094, 497, 3309, 544',new Array('StealResourceState.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/StealResourceState.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '3094, 497, 3309, 544'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concrete state of the STATE PATTERN of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Concrete state when the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      has at least a &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It has a reference to the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2869, 497, 3084, 544" coords2="2869, 497, 3084, 544" shape="rect" alt="WithResourceState:Class" id="areadiagram_map_RREOp06FYFAUAifo_default" href="Class_2bYOp06FYFAUAiYE.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2869, 497, 3084, 544',new Array('WithResourceState.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/WithResourceState.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2869, 497, 3084, 544'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concrete state of the STATE PATTERN of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Concrete state when the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      has no &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt; 
+      and the game &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;mode&amp;lt;/a&amp;gt; 
+      is &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1.&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('Q_mt5U6FYFAUBV1.');&amp;quot;&amp;gt;green&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It has a reference to the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="3319, 497, 3534, 544" coords2="3319, 497, 3534, 544" shape="rect" alt="NoResourceState:Class" id="areadiagram_map_RREOp06FYFAUAifq_default" href="Class_xbYOp06FYFAUAiYR.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','3319, 497, 3534, 544',new Array('NoResourceState.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/NoResourceState.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '3319, 497, 3534, 544'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface for all the ResourceSquareStateFactory. 
+      ResourceSquareStateFactory is responsible for the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      state creation.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="3689, 259, 3957, 290" coords2="3689, 259, 3957, 290" shape="rect" alt="IResourceSquareStateFactory:Class" id="areadiagram_map_xREOp06FYFAUAifs_default" href="Class_dbYOp06FYFAUAiYf.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','3689, 259, 3957, 290',new Array('IResourceSquareStateFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/squareStateFactory/IResourceSquareStateFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '3689, 259, 3957, 290'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      RedResourceSquareStateFactory is responsible for the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      state creation if the game &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;mode&amp;lt;/a&amp;gt; 
+      is red.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="3824, 509, 4092, 533" coords2="3824, 509, 4092, 533" shape="rect" alt="RedResourceSquareStateFactory:Class" id="areadiagram_map_ZREOp06FYFAUAifu_default" href="Class_rbYOp06FYFAUAiYm.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','3824, 509, 4092, 533',new Array('RedResourceSquareStateFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/squareStateFactory/RedResourceSquareStateFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '3824, 509, 4092, 533'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      GreenResourceSquareStateFactory is responsible for the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      state creation if the game &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;mode&amp;lt;/a&amp;gt; 
+      is &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1.&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('Q_mt5U6FYFAUBV1.');&amp;quot;&amp;gt;green&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="3545, 509, 3813, 533" coords2="3545, 509, 3813, 533" shape="rect" alt="GreenResourceSquareStateFactory:Class" id="areadiagram_map_5REOp06FYFAUAifw_default" href="Class_3bYOp06FYFAUAiYt.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','3545, 509, 3813, 533',new Array('GreenResourceSquareStateFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/resourceSquare/resourceSquareState/squareStateFactory/GreenResourceSquareStateFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '3545, 509, 3813, 533'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is responsible for the creation of all the Surprise Tokens.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows the action to perform if the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      lands on it and how to setup the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows its type.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2078, 245, 2313, 314" coords2="2078, 245, 2313, 314" shape="rect" alt="MSurpriseSquare:Class" id="areadiagram_map_5REOp06FYFAUAify_default" href="Class_xHgVR06FYFAUAg_l.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2078, 245, 2313, 314',new Array('MSurpriseSquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/surpriseSquare/MSurpriseSquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2078, 245, 2313, 314'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface for all the surprise token to perform a generic operation.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      COMMAND PATTERN
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1711, 259, 1908, 299" coords2="1711, 259, 1908, 299" shape="rect" alt="ISurpriseTokenCommand:Class" id="areadiagram_map_lREOp06FYFAUAif0_default" href="Class_cHgVR06FYFAUAg_U.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1711, 259, 1908, 299',new Array('ISurpriseTokenCommand.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/surpriseSquare/surpriseToken/ISurpriseTokenCommand.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1711, 259, 1908, 299'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concreteCommand component of the COMMAND PATTERN.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Delegate the playerFactory for the creation of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      with the ability
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      to skip the next &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');&amp;quot;&amp;gt;turn&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1399, 412, 1596, 452" coords2="1399, 412, 1596, 452" shape="rect" alt="SkipTurnSurpriseTokenCommand:Class" id="areadiagram_map_1REOp06FYFAUAif2_default" href="Class_wHgVR06FYFAUAg_K.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1399, 412, 1596, 452',new Array('SkipTurnSurpriseTokenCommand.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/surpriseSquare/surpriseToken/SkipTurnSurpriseTokenCommand.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1399, 412, 1596, 452'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concreteCommand component of the COMMAND PATTERN.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Delegate the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      to land its &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      on the building site &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1610, 412, 1807, 459" coords2="1610, 412, 1807, 459" shape="rect" alt="GoToBuildingSiteSquareSurpriseTokenCommand:Class" id="areadiagram_map_NREOp06FYFAUAif4_default" href="Class_qHgVR06FYFAUAg_Z.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1610, 412, 1807, 459',new Array('GoToBuildingSiteSquareSurpriseTokenCommand.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/surpriseSquare/surpriseToken/GoToBuildingSiteSquareSurpriseTokenCommand.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1610, 412, 1807, 459'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concreteCommand component of the COMMAND PATTERN.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Delegate the playerFactory for the creation of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      with the ability
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      to take another &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');&amp;quot;&amp;gt;turn&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1816, 412, 2019, 452" coords2="1816, 412, 2019, 452" shape="rect" alt="TakeAnotherTurnSurpriseTokenCommand:Class" id="areadiagram_map_NREOp06FYFAUAif6_default" href="Class_37gVR06FYFAUAg_A.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1816, 412, 2019, 452',new Array('TakeAnotherTurnSurpriseTokenCommand.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/surpriseSquare/surpriseToken/TakeAnotherTurnSurpriseTokenCommand.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1816, 412, 2019, 452'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a concreteCommand component of the COMMAND PATTERN.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Delegate the playerFactory for the creation of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      with the ability
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      to get 2 resources from the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2042, 412, 2239, 457" coords2="2042, 412, 2239, 457" shape="rect" alt="TwoResourcesSupriseTokenCommand:Class" id="areadiagram_map_tREOp06FYFAUAif8_default" href="Class_T7gVR06FYFAUAg92.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2042, 412, 2239, 457',new Array('TwoResourcesSupriseTokenCommand.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/surpriseSquare/surpriseToken/TwoResourcesSupriseTokenCommand.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2042, 412, 2239, 457'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface defining methods for any strategy to find next hut token
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="284, 259, 463, 290" coords2="284, 259, 463, 290" shape="rect" alt="MINextHutTokenStrategy:Class" id="areadiagram_map_dREOp06FYFAUAif._default" href="Class_67YOp06FYFAUAiY1.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','284, 259, 463, 290',new Array('MINextHutTokenStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/nextHutTokenChoosing/MINextHutTokenStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '284, 259, 463, 290'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Strategy that return random index in a list of hut tokens
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="284, 509, 463, 533" coords2="284, 509, 463, 533" shape="rect" alt="MRandomNextHutTokenStrategy:Class" id="areadiagram_map_9REOp06FYFAUAigA_default" href="Class_u7YOp06FYFAUAiY7.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','284, 509, 463, 533',new Array('MRandomNextHutTokenStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/nextHutTokenChoosing/MRandomNextHutTokenStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '284, 509, 463, 533'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="852, 803, 1059, 857" coords2="852, 803, 1059, 857" shape="rect" alt="MResourceSquareGreenSetupStrategy:Class" id="areadiagram_map_DREOp06FYFAUAigC_default" href="Class_l7YOp06FYFAUAiZD.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','852, 803, 1059, 857',new Array('MResourceSquareGreenSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/MResourceSquareGreenSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '852, 803, 1059, 857'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      NumberResourceSquareSetupStrategy is a class responsible to setup a 
+      MResourceSquare
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      with a constant number (RESOURCENUMBER) of MResource.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      RESOURCENUMBER is 2
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MResource type is the same type of the resourceType of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      This strategy implements the rule N.5 of the StoneAge Supplementary 
+      Specification
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="389, 803, 596, 843" coords2="389, 803, 596, 843" shape="rect" alt="FixedNumberResourceSquareRedSetupStrategy:Class" id="areadiagram_map_jREOp06FYFAUAigE_default" href="Class_j7YOp06FYFAUAiZS.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','389, 803, 596, 843',new Array('FixedNumberResourceSquareRedSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/FixedNumberResourceSquareRedSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '389, 803, 596, 843'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MNumPlayersSquareSetupStrategy is a class responsible to setup a 
+      MResourceSquare
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      with a NumGamePlayers + ADDNUMBER of MResource.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      ADDNUMBER is 1
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MResource type is the same type of the resourceType of the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      This strategy implements the rule N.5 of the StoneAge Supplementary 
+      Specification
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1075, 803, 1282, 857" coords2="1075, 803, 1282, 857" shape="rect" alt="MResourceSquareRedSetupStrategy:Class" id="areadiagram_map_TREOp06FYFAUAigG_default" href="Class_37YOp06FYFAUAiZf.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1075, 803, 1282, 857',new Array('MResourceSquareRedSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/MResourceSquareRedSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1075, 803, 1282, 857'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="158, 803, 365, 843" coords2="158, 803, 365, 843" shape="rect" alt="FixedNumberResourceSquareGreenSetupStrategy:Class" id="areadiagram_map_zREOp06FYFAUAigI_default" href="Class_oHYOp06FYFAUAiZu.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','158, 803, 365, 843',new Array('FixedNumberResourceSquareGreenSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/FixedNumberResourceSquareGreenSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '158, 803, 365, 843'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1756, 854, 1963, 887" coords2="1756, 854, 1963, 887" shape="rect" alt="CompositeSetupSquareStrategy:Class" id="areadiagram_map_LREOp06FYFAUAigK_default" href="Class_cHYOp06FYFAUAiZ7.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1756, 854, 1963, 887',new Array('CompositeSetupSquareStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/CompositeSetupSquareStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1756, 854, 1963, 887'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1525, 803, 1732, 827" coords2="1525, 803, 1732, 827" shape="rect" alt="RedBuildingSiteSquareSetupStrategy:Class" id="areadiagram_map_LREOp06FYFAUAigM_default" href="Class_aHYOp06FYFAUAiaD.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1525, 803, 1732, 827',new Array('RedBuildingSiteSquareSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/RedBuildingSiteSquareSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1525, 803, 1732, 827'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="620, 803, 827, 827" coords2="620, 803, 827, 827" shape="rect" alt="GreenBuildingSiteSquareSetupStrategy:Class" id="areadiagram_map_rREOp06FYFAUAigO_default" href="Class_WHYOp06FYFAUAiaJ.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','620, 803, 827, 827',new Array('GreenBuildingSiteSquareSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/GreenBuildingSiteSquareSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '620, 803, 827, 827'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1742, 803, 1949, 827" coords2="1742, 803, 1949, 827" shape="rect" alt="RedSurpriseSquareSetupStrategy:Class" id="areadiagram_map_bREOp06FYFAUAigQ_default" href="Class_BHYOp06FYFAUAiaP.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1742, 803, 1949, 827',new Array('RedSurpriseSquareSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/RedSurpriseSquareSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1742, 803, 1949, 827'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1296, 803, 1503, 827" coords2="1296, 803, 1503, 827" shape="rect" alt="NoSetupSquareStrategy:Class" id="areadiagram_map_7REOp06FYFAUAigS_default" href="Class_FHYOp06FYFAUAiaV.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1296, 803, 1503, 827',new Array('NoSetupSquareStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/NoSetupSquareStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1296, 803, 1503, 827'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MISquareSetupStrategy is Strategy Interface to setup the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="962, 634, 1169, 665" coords2="962, 634, 1169, 665" shape="rect" alt="MISquareSetupStrategy:Class" id="areadiagram_map_HREOp06FYFAUAigU_default" href="Class_dHYOp06FYFAUAiab.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','962, 634, 1169, 665',new Array('MISquareSetupStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategy/MISquareSetupStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '962, 634, 1169, 665'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="509, 1038, 740, 1069" coords2="509, 1038, 740, 1069" shape="rect" alt="RedSetupSquareFactory:Class" id="areadiagram_map_XREOp06FYFAUAigW_default" href="Class_HHYOp06FYFAUAiai.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','509, 1038, 740, 1069',new Array('RedSetupSquareFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategyFactory/RedSetupSquareFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '509, 1038, 740, 1069'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="4, 1038, 235, 1069" coords2="4, 1038, 235, 1069" shape="rect" alt="GreenSetupSquareFactory:Class" id="areadiagram_map_3REOp06FYFAUAigY_default" href="Class__HYOp06FYFAUAiar.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','4, 1038, 235, 1069',new Array('GreenSetupSquareFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategyFactory/GreenSetupSquareFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '4, 1038, 235, 1069'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Java class responsible for creating strategies to setup the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      With this class it is possible to dynamically modify the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      setup policy
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      by specifying a different Strategy class to be created.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="244, 1038, 475, 1069" coords2="244, 1038, 475, 1069" shape="rect" alt="MSetupResourceSquareStrategyFactory:Class" id="areadiagram_map_PREOp06FYFAUAiga_default" href="Class_4nYOp06FYFAUAia0.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','244, 1038, 475, 1069',new Array('MSetupResourceSquareStrategyFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategyFactory/MSetupResourceSquareStrategyFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '244, 1038, 475, 1069'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface responsible for creating strategies to identifies the right 
+      setup &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      strategy.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="238, 911, 469, 955" coords2="238, 911, 469, 955" shape="rect" alt="MISetupSquareStrategyFactory:Class" id="areadiagram_map_vREOp06FYFAUAigc_default" href="Class_8nYOp06FYFAUAia9.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','238, 911, 469, 955',new Array('MISetupSquareStrategyFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/squareSetup/squareSetupStrategyFactory/MISetupSquareStrategyFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '238, 911, 469, 955'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface for the control of the buildable hut strategy.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1095, 259, 1388, 290" coords2="1095, 259, 1388, 290" shape="rect" alt="ICheckBuildableHutStrategy:Class" id="areadiagram_map_fREOp06FYFAUAige_default" href="Class_WnYOp06FYFAUAibH.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1095, 259, 1388, 290',new Array('ICheckBuildableHutStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/buildingSiteSquare/ICheckBuildableHutStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1095, 259, 1388, 290'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Strategy for the control of the buildable hut strategy according to 
+      resources and &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#dE_CGw6FYFAUBRAn&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('dE_CGw6FYFAUBRAn');&amp;quot;&amp;gt;dog&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#l2bEGw6FYFAUBQ83&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('l2bEGw6FYFAUBQ83');&amp;quot;&amp;gt;jolly&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1095, 509, 1388, 533" coords2="1095, 509, 1388, 533" shape="rect" alt="CheckBuildableHutStrategy:Class" id="areadiagram_map_gxEOp06FYFAUAigg_default" href="Class_BnYOp06FYFAUAibO.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1095, 509, 1388, 533',new Array('CheckBuildableHutStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/buildingSiteSquare/CheckBuildableHutStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1095, 509, 1388, 533'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      MBuildingSiteSquare is a persistence entity.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It also knows the action to perform if the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      lands on it. Indeed, it manage the action.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is responsible for the creation of all hut tokens and it knows them 
+      and handle them until they are built.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="683, 217, 895, 334" coords2="683, 217, 895, 334" shape="rect" alt="MBuildingSiteSquare:Class" id="areadiagram_map_QxEOp06FYFAUAigi_default" href="Class_5nYOp06FYFAUAibV.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','683, 217, 895, 334',new Array('MBuildingSiteSquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/squares/buildingSiteSquare/MBuildingSiteSquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '683, 217, 895, 334'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="1, 567, 372, 831" coords2="1, 567, 372, 831" shape="rect" alt="squares:Package" id="areadiagram_map_wxEOp06FYFAUAigk_default" href="Package_N7gVR06FYFAUAg9z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_HHgVR06FYFAUAg_3.html" class="ItemLink">MSquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      MSquare is a persistence entity.
+    </p>
+    <p style="margin-top:0;">
+      It knows its name, its the next <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      with which it is linked, if it is the start <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      It knows the action to perform if the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      lands on it and how to setup the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      It is the observable of the OBSERVER PATTERN.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class__zYOp06FYFAUAiV5.html" class="ItemLink">ActionResult : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      List of action result.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_SLYOp06FYFAUAiWB.html" class="ItemLink">MRegularSquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It knows its type, the action to perform if the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      lands on it and how to setup the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_lLYOp06FYFAUAiWN.html" class="ItemLink">MBoard : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      MBoard class is responsible to delegate the SquareFactory for the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      creation.
+    </p>
+    <p style="margin-top:0;">
+      MBoard class knows all <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6" name="" onclick="javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');">board</a> 
+      squares, how they are connected and which is the start <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_wrYOp06FYFAUAiWg.html" class="ItemLink">MRedBoard : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_yrYOp06FYFAUAiWn.html" class="ItemLink">MGreenBoard : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_prYOp06FYFAUAiWv.html" class="ItemLink">MResourceSquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is responsible for the creation of all the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">Resource</a> 
+      of the same type of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      Delegate the actual <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      state to perform the action if the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>'s 
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      lands on it.
+    </p>
+    <p style="margin-top:0;">
+      It knows its type, all the resources on the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      and how to setup the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>..
+    </p>
+    <p style="margin-top:0;">
+      It has a number of internal states and has a reference to the actual 
+      internal state.
+    </p>
+    <p style="margin-top:0;">
+      It is the context of the STATE PATTERN.
+    </p>
+    <p style="margin-top:0;">
+      It is the observable of the OBSERVER PATTERN (between MSquare and 
+      UResourceSquare).
+    </p>
+    <p style="margin-top:0;">
+      It is the observer of the OBSERVER PATTER (between MSEttelment and 
+      MREsourceSquare).
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_QbYOp06FYFAUAiXi.html" class="ItemLink">ISquareState : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface to define all the behaviour of a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      state.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_4bYOp06FYFAUAiXq.html" class="ItemLink">Release2ResourcesState : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concrete state of the STATE PATTERN of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      Concrete state when the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      has to release 2 resources.
+    </p>
+    <p style="margin-top:0;">
+      It has a reference to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_SbYOp06FYFAUAiX3.html" class="ItemLink">StealResourceState : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concrete state of the STATE PATTERN of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      Concrete state when the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      has no <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a> 
+      and the game <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');">mode</a> 
+      is red.
+    </p>
+    <p style="margin-top:0;">
+      It has a reference to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_2bYOp06FYFAUAiYE.html" class="ItemLink">WithResourceState : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concrete state of the STATE PATTERN of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      Concrete state when the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      has at least a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>.
+    </p>
+    <p style="margin-top:0;">
+      It has a reference to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_xbYOp06FYFAUAiYR.html" class="ItemLink">NoResourceState : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concrete state of the STATE PATTERN of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      Concrete state when the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      has no <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a> 
+      and the game <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');">mode</a> 
+      is <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1." name="" onclick="javascript: highlightGridModelSelection('Q_mt5U6FYFAUBV1.');">green</a>.
+    </p>
+    <p style="margin-top:0;">
+      It has a reference to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_dbYOp06FYFAUAiYf.html" class="ItemLink">IResourceSquareStateFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface for all the ResourceSquareStateFactory. 
+      ResourceSquareStateFactory is responsible for the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      state creation.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_rbYOp06FYFAUAiYm.html" class="ItemLink">RedResourceSquareStateFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      RedResourceSquareStateFactory is responsible for the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      state creation if the game <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');">mode</a> 
+      is red.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_3bYOp06FYFAUAiYt.html" class="ItemLink">GreenResourceSquareStateFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      GreenResourceSquareStateFactory is responsible for the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      state creation if the game <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');">mode</a> 
+      is <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1." name="" onclick="javascript: highlightGridModelSelection('Q_mt5U6FYFAUBV1.');">green</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_xHgVR06FYFAUAg_l.html" class="ItemLink">MSurpriseSquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is responsible for the creation of all the Surprise Tokens.
+    </p>
+    <p style="margin-top:0;">
+      It knows the action to perform if the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      lands on it and how to setup the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      It knows its type.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_cHgVR06FYFAUAg_U.html" class="ItemLink">ISurpriseTokenCommand : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface for all the surprise token to perform a generic operation.
+    </p>
+    <p style="margin-top:0;">
+      COMMAND PATTERN
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_wHgVR06FYFAUAg_K.html" class="ItemLink">SkipTurnSurpriseTokenCommand : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concreteCommand component of the COMMAND PATTERN.
+    </p>
+    <p style="margin-top:0;">
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    </p>
+    <p style="margin-top:0;">
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    </p>
+    <p style="margin-top:0;">
+      Delegate the playerFactory for the creation of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      with the ability
+    </p>
+    <p style="margin-top:0;">
+      to skip the next <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_qHgVR06FYFAUAg_Z.html" class="ItemLink">GoToBuildingSiteSquareSurpriseTokenCommand : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concreteCommand component of the COMMAND PATTERN.
+    </p>
+    <p style="margin-top:0;">
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    </p>
+    <p style="margin-top:0;">
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    </p>
+    <p style="margin-top:0;">
+      Delegate the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      to land its <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      on the building site <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_37gVR06FYFAUAg_A.html" class="ItemLink">TakeAnotherTurnSurpriseTokenCommand : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concreteCommand component of the COMMAND PATTERN.
+    </p>
+    <p style="margin-top:0;">
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    </p>
+    <p style="margin-top:0;">
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    </p>
+    <p style="margin-top:0;">
+      Delegate the playerFactory for the creation of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      with the ability
+    </p>
+    <p style="margin-top:0;">
+      to take another <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_T7gVR06FYFAUAg92.html" class="ItemLink">TwoResourcesSupriseTokenCommand : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a concreteCommand component of the COMMAND PATTERN.
+    </p>
+    <p style="margin-top:0;">
+      The ConcreteCommand defines a binding between an action and a Receiver.
+    </p>
+    <p style="margin-top:0;">
+      It knows to who ask to perform the action and which is the action to 
+      perform.
+    </p>
+    <p style="margin-top:0;">
+      Delegate the playerFactory for the creation of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      with the ability
+    </p>
+    <p style="margin-top:0;">
+      to get 2 resources from the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_67YOp06FYFAUAiY1.html" class="ItemLink">MINextHutTokenStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface defining methods for any strategy to find next hut token
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_u7YOp06FYFAUAiY7.html" class="ItemLink">MRandomNextHutTokenStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Strategy that return random index in a list of hut tokens
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_l7YOp06FYFAUAiZD.html" class="ItemLink">MResourceSquareGreenSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_j7YOp06FYFAUAiZS.html" class="ItemLink">FixedNumberResourceSquareRedSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      NumberResourceSquareSetupStrategy is a class responsible to setup a 
+      MResourceSquare
+    </p>
+    <p style="margin-top:0;">
+      with a constant number (RESOURCENUMBER) of MResource.
+    </p>
+    <p style="margin-top:0;">
+      RESOURCENUMBER is 2
+    </p>
+    <p style="margin-top:0;">
+      MResource type is the same type of the resourceType of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>
+    </p>
+    <p style="margin-top:0;">
+      This strategy implements the rule N.5 of the StoneAge Supplementary 
+      Specification
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_37YOp06FYFAUAiZf.html" class="ItemLink">MResourceSquareRedSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      MNumPlayersSquareSetupStrategy is a class responsible to setup a 
+      MResourceSquare
+    </p>
+    <p style="margin-top:0;">
+      with a NumGamePlayers + ADDNUMBER of MResource.
+    </p>
+    <p style="margin-top:0;">
+      ADDNUMBER is 1
+    </p>
+    <p style="margin-top:0;">
+      MResource type is the same type of the resourceType of the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>
+    </p>
+    <p style="margin-top:0;">
+      This strategy implements the rule N.5 of the StoneAge Supplementary 
+      Specification
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_oHYOp06FYFAUAiZu.html" class="ItemLink">FixedNumberResourceSquareGreenSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_cHYOp06FYFAUAiZ7.html" class="ItemLink">CompositeSetupSquareStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_aHYOp06FYFAUAiaD.html" class="ItemLink">RedBuildingSiteSquareSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_WHYOp06FYFAUAiaJ.html" class="ItemLink">GreenBuildingSiteSquareSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_BHYOp06FYFAUAiaP.html" class="ItemLink">RedSurpriseSquareSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_FHYOp06FYFAUAiaV.html" class="ItemLink">NoSetupSquareStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_dHYOp06FYFAUAiab.html" class="ItemLink">MISquareSetupStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      MISquareSetupStrategy is Strategy Interface to setup the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_HHYOp06FYFAUAiai.html" class="ItemLink">RedSetupSquareFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class__HYOp06FYFAUAiar.html" class="ItemLink">GreenSetupSquareFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_4nYOp06FYFAUAia0.html" class="ItemLink">MSetupResourceSquareStrategyFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Java class responsible for creating strategies to setup the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+    <p style="margin-top:0;">
+      With this class it is possible to dynamically modify the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      setup policy
+    </p>
+    <p style="margin-top:0;">
+      by specifying a different Strategy class to be created.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_8nYOp06FYFAUAia9.html" class="ItemLink">MISetupSquareStrategyFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface responsible for creating strategies to identifies the right 
+      setup <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      strategy.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_WnYOp06FYFAUAibH.html" class="ItemLink">ICheckBuildableHutStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface for the control of the buildable hut strategy.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_BnYOp06FYFAUAibO.html" class="ItemLink">CheckBuildableHutStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Strategy for the control of the buildable hut strategy according to 
+      resources and <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#dE_CGw6FYFAUBRAn" name="" onclick="javascript: highlightGridModelSelection('dE_CGw6FYFAUBRAn');">dog</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#l2bEGw6FYFAUBQ83" name="" onclick="javascript: highlightGridModelSelection('l2bEGw6FYFAUBQ83');">jolly</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_5nYOp06FYFAUAibV.html" class="ItemLink">MBuildingSiteSquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      MBuildingSiteSquare is a persistence entity.
+    </p>
+    <p style="margin-top:0;">
+      It also knows the action to perform if the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      lands on it. Indeed, it manage the action.
+    </p>
+    <p style="margin-top:0;">
+      It is responsible for the creation of all hut tokens and it knows them 
+      and handle them until they are built.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_N7gVR06FYFAUAg9z.html" class="ItemLink">squares : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Class Diagram - Utility Class Diagram IT3</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_jtMHKw6FYFAUBQb9.html" class="PageParentTitle">Design Model : Model</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Model_CwHO5U6FYFAUBVSg.html" class="PageParentTitle">Iteration3 : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Class Diagram - Utility Class Diagram IT3		</span>
+<a onclick="javascript: showVpLink('StoneAgeIT3_24.vpp://diagram/rY_tZ06FYFAUBiZZ', 'Utility Class Diagram IT3\nStoneAgeIT3_24.vpp://diagram/rY_tZ06FYFAUBiZZ', 'Utility Class Diagram IT3', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|576.0|495.0|178.0|86.0|Class_Cq4dZ06FYFAUBiZj.html|Class_Cq4dZ06FYFAUBiZj.html|USEdZ06FYFAUBicv" id="optionUSEdZ06FYFAUBicv">HibernateUtil : Class</option>
+<option value="shape|1194.0|484.0|160.0|150.0|Class__q4dZ06FYFAUBiZu.html|Class__q4dZ06FYFAUBiZu.html|USEdZ06FYFAUBicx" id="optionUSEdZ06FYFAUBicx">PlayerColors : Class</option>
+<option value="shape|824.0|499.0|160.0|82.0|Class_ea4dZ06FYFAUBiZ_.html|Class_ea4dZ06FYFAUBiZ_.html|USEdZ06FYFAUBicz" id="optionUSEdZ06FYFAUBicz">PlayerType : Class</option>
+<option value="shape|1009.0|497.0|160.0|82.0|Class_da4dZ06FYFAUBiaD.html|Class_da4dZ06FYFAUBiaD.html|WSEdZ06FYFAUBic1" id="optionWSEdZ06FYFAUBic1">TokenState : Class</option>
+<option value="shape|2.0|573.0|196.0|68.0|Class_fa4dZ06FYFAUBiaI.html|Class_fa4dZ06FYFAUBiaI.html|WSEdZ06FYFAUBic3" id="optionWSEdZ06FYFAUBic3">GetFirstIdStrategy : Class</option>
+<option value="shape|218.0|573.0|196.0|68.0|Class_9hGeZ06FYFAUBh11.html|Class_9hGeZ06FYFAUBh11.html|WSEdZ06FYFAUBic5" id="optionWSEdZ06FYFAUBic5">GetRandomIdStrategy : Class</option>
+<option value="shape|110.0|361.0|196.0|82.0|Class_8hGeZ06FYFAUBh1o.html|Class_8hGeZ06FYFAUBh1o.html|WSEdZ06FYFAUBic7" id="optionWSEdZ06FYFAUBic7">IGetNextIdStrategy : Class</option>
+<option value="shape|2.0|248.0|198.0|68.0|Class_1EaFR06FYFAUAgyt.html|Class_1EaFR06FYFAUAgyt.html|WSEdZ06FYFAUBic9" id="optionWSEdZ06FYFAUBic9">CollectionsShuffleStrategy : Class</option>
+<option value="shape|754.0|374.0|294.0|52.0|Class_u64dZ06FYFAUBia3.html|Class_u64dZ06FYFAUBia3.html|WSEdZ06FYFAUBic_" id="optionWSEdZ06FYFAUBic_">GreenShuffleStrategyFactory : Class</option>
+<option value="shape|219.0|19.0|198.0|82.0|Class_LEaFR06FYFAUAgy1.html|Class_LEaFR06FYFAUAgy1.html|WSEdZ06FYFAUBidB" id="optionWSEdZ06FYFAUBidB">IShuffleStrategy : Class</option>
+<option value="shape|911.0|176.0|294.0|68.0|Class_N64dZ06FYFAUBibI.html|Class_N64dZ06FYFAUBibI.html|lSEdZ06FYFAUBidQ" id="optionlSEdZ06FYFAUBidQ">IShuffleStrategyFactory : Class</option>
+<option value="shape|219.0|248.0|198.0|68.0|Class_CkaFR06FYFAUAgzF.html|Class_CkaFR06FYFAUAgzF.html|lSEdZ06FYFAUBidS" id="optionlSEdZ06FYFAUBidS">NoShuffleStrategy : Class</option>
+<option value="shape|437.0|248.0|198.0|68.0|Class_IkaFR06FYFAUAgy9.html|Class_IkaFR06FYFAUAgy9.html|lSEdZ06FYFAUBidU" id="optionlSEdZ06FYFAUBidU">RandomOrgAdapter : Class</option>
+<option value="shape|1068.0|374.0|294.0|52.0|Class_MG4dZ06FYFAUBibk.html|Class_MG4dZ06FYFAUBibk.html|lSEdZ06FYFAUBidW" id="optionlSEdZ06FYFAUBidW">RedShuffleStrategyFactory : Class</option>
+<option value="shape|843.0|2.0|476.0|116.0|Class_OkaFR06FYFAUAgzN.html|Class_OkaFR06FYFAUAgzN.html|lSEdZ06FYFAUBidY" id="optionlSEdZ06FYFAUBidY">ShufflingRedirectionProxy : Class</option>
+<option value="shape|630.0|744.0|758.0|215.0|Package_JEaFR06FYFAUAgyr.html|Package_JEaFR06FYFAUAgyr.html|lSEdZ06FYFAUBida" id="optionlSEdZ06FYFAUBida">utility : Package</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Utility_Class_Diagram_IT3.png" usemap="#diagram_map" class="Image" width="1392" height="963"/>
+					<map name="diagram_map">
+<area coords="826,546,893,561" coords2="826,546,893,561" shape="rect" alt="HumanPlayer" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#SOmgaI6FYFAUAg6y"/>
+<area coords="826,561,904,576" coords2="826,561,904,576" shape="rect" alt="EmulatedPlayer" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#CFl1DY6FYFAUAh91"/>
+<area imageId="diagram" coords="201.0, 443.0, 201.0, 486.0, 198.0, 486.0, 198.0, 500.0, 201.0, 500.0, 201.0, 503.0, 215.0, 503.0, 215.0, 500.0, 309.0, 500.0, 309.0, 573.0, 323.0, 573.0, 323.0, 500.0, 326.0, 500.0, 326.0, 486.0, 323.0, 486.0, 323.0, 483.0, 309.0, 483.0, 309.0, 486.0, 215.0, 486.0, 215.0, 443.0" coords2="201.0, 443.0, 201.0, 486.0, 198.0, 486.0, 198.0, 500.0, 201.0, 500.0, 201.0, 503.0, 215.0, 503.0, 215.0, 500.0, 309.0, 500.0, 309.0, 573.0, 323.0, 573.0, 323.0, 500.0, 326.0, 500.0, 326.0, 486.0, 323.0, 486.0, 323.0, 483.0, 309.0, 483.0, 309.0, 486.0, 215.0, 486.0, 215.0, 443.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBidc_default" href="Realization_fhGeZ06FYFAUBh1_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="201.0, 443.0, 201.0, 486.0, 107.0, 486.0, 107.0, 483.0, 93.0, 483.0, 93.0, 486.0, 90.0, 486.0, 90.0, 500.0, 93.0, 500.0, 93.0, 573.0, 107.0, 573.0, 107.0, 500.0, 201.0, 500.0, 201.0, 503.0, 215.0, 503.0, 215.0, 500.0, 218.0, 500.0, 218.0, 486.0, 215.0, 486.0, 215.0, 443.0" coords2="201.0, 443.0, 201.0, 486.0, 107.0, 486.0, 107.0, 483.0, 93.0, 483.0, 93.0, 486.0, 90.0, 486.0, 90.0, 500.0, 93.0, 500.0, 93.0, 573.0, 107.0, 573.0, 107.0, 500.0, 201.0, 500.0, 201.0, 503.0, 215.0, 503.0, 215.0, 500.0, 218.0, 500.0, 218.0, 486.0, 215.0, 486.0, 215.0, 443.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBide_default" href="Realization_1G4dZ06FYFAUBib_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="417.0, 53.0, 417.0, 67.0, 843.0, 67.0, 843.0, 53.0" coords2="417.0, 53.0, 417.0, 67.0, 843.0, 67.0, 843.0, 53.0" shape="poly" alt=":Association" id="areadiagram_map_lSEdZ06FYFAUBidg_default" href="Association_eMaFR06FYFAUAg0M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="623.0, 77.0, 623.0, 80.0, 417.0, 80.0, 417.0, 94.0, 620.0, 94.0, 620.0, 105.0, 623.0, 105.0, 623.0, 108.0, 637.0, 108.0, 637.0, 105.0, 843.0, 105.0, 843.0, 91.0, 640.0, 91.0, 640.0, 80.0, 637.0, 80.0, 637.0, 77.0" coords2="623.0, 77.0, 623.0, 80.0, 417.0, 80.0, 417.0, 94.0, 620.0, 94.0, 620.0, 105.0, 623.0, 105.0, 623.0, 108.0, 637.0, 108.0, 637.0, 105.0, 843.0, 105.0, 843.0, 91.0, 640.0, 91.0, 640.0, 80.0, 637.0, 80.0, 637.0, 77.0" shape="poly" alt=":Association" id="areadiagram_map_lSEdZ06FYFAUBidi_default" href="Association_RMaFR06FYFAUAg0R.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="311.0, 101.0, 311.0, 161.0, 107.0, 161.0, 107.0, 158.0, 93.0, 158.0, 93.0, 161.0, 90.0, 161.0, 90.0, 175.0, 93.0, 175.0, 93.0, 248.0, 107.0, 248.0, 107.0, 175.0, 311.0, 175.0, 311.0, 178.0, 325.0, 178.0, 325.0, 175.0, 328.0, 175.0, 328.0, 161.0, 325.0, 161.0, 325.0, 101.0" coords2="311.0, 101.0, 311.0, 161.0, 107.0, 161.0, 107.0, 158.0, 93.0, 158.0, 93.0, 161.0, 90.0, 161.0, 90.0, 175.0, 93.0, 175.0, 93.0, 248.0, 107.0, 248.0, 107.0, 175.0, 311.0, 175.0, 311.0, 178.0, 325.0, 178.0, 325.0, 175.0, 328.0, 175.0, 328.0, 161.0, 325.0, 161.0, 325.0, 101.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBidk_default" href="Realization_d0aFR06FYFAUAgz4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="311.0, 101.0, 311.0, 161.0, 308.0, 161.0, 308.0, 175.0, 311.0, 175.0, 311.0, 178.0, 325.0, 178.0, 325.0, 175.0, 529.0, 175.0, 529.0, 248.0, 543.0, 248.0, 543.0, 175.0, 546.0, 175.0, 546.0, 161.0, 543.0, 161.0, 543.0, 158.0, 529.0, 158.0, 529.0, 161.0, 325.0, 161.0, 325.0, 101.0" coords2="311.0, 101.0, 311.0, 161.0, 308.0, 161.0, 308.0, 175.0, 311.0, 175.0, 311.0, 178.0, 325.0, 178.0, 325.0, 175.0, 529.0, 175.0, 529.0, 248.0, 543.0, 248.0, 543.0, 175.0, 546.0, 175.0, 546.0, 161.0, 543.0, 161.0, 543.0, 158.0, 529.0, 158.0, 529.0, 161.0, 325.0, 161.0, 325.0, 101.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBidm_default" href="Realization_cMaFR06FYFAUAg0B.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="311.0, 101.0, 311.0, 248.0, 325.0, 248.0, 325.0, 101.0" coords2="311.0, 101.0, 311.0, 248.0, 325.0, 248.0, 325.0, 101.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBido_default" href="Realization_6MaFR06FYFAUAg0G.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="623.0, 11.0, 623.0, 14.0, 620.0, 14.0, 620.0, 25.0, 417.0, 25.0, 417.0, 39.0, 623.0, 39.0, 623.0, 42.0, 637.0, 42.0, 637.0, 39.0, 640.0, 39.0, 640.0, 28.0, 843.0, 28.0, 843.0, 14.0, 637.0, 14.0, 637.0, 11.0" coords2="623.0, 11.0, 623.0, 14.0, 620.0, 14.0, 620.0, 25.0, 417.0, 25.0, 417.0, 39.0, 623.0, 39.0, 623.0, 42.0, 637.0, 42.0, 637.0, 39.0, 640.0, 39.0, 640.0, 28.0, 843.0, 28.0, 843.0, 14.0, 637.0, 14.0, 637.0, 11.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBidq_default" href="Realization_OMaFR06FYFAUAg0L.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1051.0, 244.0, 1051.0, 287.0, 908.0, 287.0, 908.0, 284.0, 894.0, 284.0, 894.0, 287.0, 891.0, 287.0, 891.0, 301.0, 894.0, 301.0, 894.0, 374.0, 908.0, 374.0, 908.0, 301.0, 1051.0, 301.0, 1051.0, 304.0, 1065.0, 304.0, 1065.0, 301.0, 1068.0, 301.0, 1068.0, 287.0, 1065.0, 287.0, 1065.0, 244.0" coords2="1051.0, 244.0, 1051.0, 287.0, 908.0, 287.0, 908.0, 284.0, 894.0, 284.0, 894.0, 287.0, 891.0, 287.0, 891.0, 301.0, 894.0, 301.0, 894.0, 374.0, 908.0, 374.0, 908.0, 301.0, 1051.0, 301.0, 1051.0, 304.0, 1065.0, 304.0, 1065.0, 301.0, 1068.0, 301.0, 1068.0, 287.0, 1065.0, 287.0, 1065.0, 244.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBids_default" href="Realization_3G4dZ06FYFAUBicT.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1051.0, 244.0, 1051.0, 287.0, 1048.0, 287.0, 1048.0, 301.0, 1051.0, 301.0, 1051.0, 304.0, 1065.0, 304.0, 1065.0, 301.0, 1208.0, 301.0, 1208.0, 374.0, 1222.0, 374.0, 1222.0, 301.0, 1225.0, 301.0, 1225.0, 287.0, 1222.0, 287.0, 1222.0, 284.0, 1208.0, 284.0, 1208.0, 287.0, 1065.0, 287.0, 1065.0, 244.0" coords2="1051.0, 244.0, 1051.0, 287.0, 1048.0, 287.0, 1048.0, 301.0, 1051.0, 301.0, 1051.0, 304.0, 1065.0, 304.0, 1065.0, 301.0, 1208.0, 301.0, 1208.0, 374.0, 1222.0, 374.0, 1222.0, 301.0, 1225.0, 301.0, 1225.0, 287.0, 1222.0, 287.0, 1222.0, 284.0, 1208.0, 284.0, 1208.0, 287.0, 1065.0, 287.0, 1065.0, 244.0" shape="poly" alt=":Realization" id="areadiagram_map_lSEdZ06FYFAUBidu_default" href="Realization_Um4dZ06FYFAUBicg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Utility class handling hibernate communication
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="576, 495, 754, 581" coords2="576, 495, 754, 581" shape="rect" alt="HibernateUtil:Class" id="areadiagram_map_USEdZ06FYFAUBicv_default" href="Class_Cq4dZ06FYFAUBiZj.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','576, 495, 754, 581',new Array('HibernateUtil.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/HibernateUtil.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '576, 495, 754, 581'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Enum class defining association between &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      names and &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      color
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1194, 484, 1354, 634" coords2="1194, 484, 1354, 634" shape="rect" alt="PlayerColors:Class" id="areadiagram_map_USEdZ06FYFAUBicx_default" href="Class__q4dZ06FYFAUBiZu.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1194, 484, 1354, 634',new Array('PlayerColors.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/PlayerColors.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1194, 484, 1354, 634'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Enum class defining constants for &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      types
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="824, 499, 984, 581" coords2="824, 499, 984, 581" shape="rect" alt="PlayerType:Class" id="areadiagram_map_USEdZ06FYFAUBicz_default" href="Class_ea4dZ06FYFAUBiZ_.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','824, 499, 984, 581',new Array('PlayerType.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/PlayerType.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '824, 499, 984, 581'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Enum class defining constants for token states
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1009, 497, 1169, 579" coords2="1009, 497, 1169, 579" shape="rect" alt="TokenState:Class" id="areadiagram_map_WSEdZ06FYFAUBic1_default" href="Class_da4dZ06FYFAUBiaD.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1009, 497, 1169, 579',new Array('TokenState.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/TokenState.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1009, 497, 1169, 579'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Strategy that returns first index
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2, 573, 198, 641" coords2="2, 573, 198, 641" shape="rect" alt="GetFirstIdStrategy:Class" id="areadiagram_map_WSEdZ06FYFAUBic3_default" href="Class_fa4dZ06FYFAUBiaI.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2, 573, 198, 641',new Array('GetFirstIdStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/nextId/GetFirstIdStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2, 573, 198, 641'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Strategy that provide a random index for a list if passed, it can also 
+      provide random int in a range
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="218, 573, 414, 641" coords2="218, 573, 414, 641" shape="rect" alt="GetRandomIdStrategy:Class" id="areadiagram_map_WSEdZ06FYFAUBic5_default" href="Class_9hGeZ06FYFAUBh11.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','218, 573, 414, 641',new Array('GetRandomIdStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/nextId/GetRandomIdStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '218, 573, 414, 641'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface defining methods implemented in every strategy responsible to 
+      find the next element or id
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      in a list of objects
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="110, 361, 306, 443" coords2="110, 361, 306, 443" shape="rect" alt="IGetNextIdStrategy:Class" id="areadiagram_map_WSEdZ06FYFAUBic7_default" href="Class_8hGeZ06FYFAUBh1o.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','110, 361, 306, 443',new Array('IGetNextIdStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/nextId/IGetNextIdStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '110, 361, 306, 443'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a class responsible to shuffle using the Collection.shuffle() 
+      method.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2, 248, 200, 316" coords2="2, 248, 200, 316" shape="rect" alt="CollectionsShuffleStrategy:Class" id="areadiagram_map_WSEdZ06FYFAUBic9_default" href="Class_1EaFR06FYFAUAgyt.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2, 248, 200, 316',new Array('CollectionsShuffleStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/CollectionsShuffleStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2, 248, 200, 316'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="754, 374, 1048, 426" coords2="754, 374, 1048, 426" shape="rect" alt="GreenShuffleStrategyFactory:Class" id="areadiagram_map_WSEdZ06FYFAUBic__default" href="Class_u64dZ06FYFAUBia3.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','754, 374, 1048, 426',new Array('GreenShuffleStrategyFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/GreenShuffleStrategyFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '754, 374, 1048, 426'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a Strategy Interface to shuffle.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="219, 19, 417, 101" coords2="219, 19, 417, 101" shape="rect" alt="IShuffleStrategy:Class" id="areadiagram_map_WSEdZ06FYFAUBidB_default" href="Class_LEaFR06FYFAUAgy1.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','219, 19, 417, 101',new Array('IShuffleStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/IShuffleStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '219, 19, 417, 101'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="911, 176, 1205, 244" coords2="911, 176, 1205, 244" shape="rect" alt="IShuffleStrategyFactory:Class" id="areadiagram_map_lSEdZ06FYFAUBidQ_default" href="Class_N64dZ06FYFAUBibI.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','911, 176, 1205, 244',new Array('IShuffleStrategyFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/IShuffleStrategyFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '911, 176, 1205, 244'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a class responsible to no shuffle.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="219, 248, 417, 316" coords2="219, 248, 417, 316" shape="rect" alt="NoShuffleStrategy:Class" id="areadiagram_map_lSEdZ06FYFAUBidS_default" href="Class_CkaFR06FYFAUAgzF.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','219, 248, 417, 316',new Array('NoShuffleStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/NoShuffleStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '219, 248, 417, 316'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is a class responsible to shuffle using the Random.org external 
+      service.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="437, 248, 635, 316" coords2="437, 248, 635, 316" shape="rect" alt="RandomOrgAdapter:Class" id="areadiagram_map_lSEdZ06FYFAUBidU_default" href="Class_IkaFR06FYFAUAgy9.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','437, 248, 635, 316',new Array('RandomOrgAdapter.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/RandomOrgAdapter.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '437, 248, 635, 316'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="1068, 374, 1362, 426" coords2="1068, 374, 1362, 426" shape="rect" alt="RedShuffleStrategyFactory:Class" id="areadiagram_map_lSEdZ06FYFAUBidW_default" href="Class_MG4dZ06FYFAUBibk.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1068, 374, 1362, 426',new Array('RedShuffleStrategyFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/RedShuffleStrategyFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1068, 374, 1362, 426'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      It is responsible to make a redirection proxy for the shuffing.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="843, 2, 1319, 118" coords2="843, 2, 1319, 118" shape="rect" alt="ShufflingRedirectionProxy:Class" id="areadiagram_map_lSEdZ06FYFAUBidY_default" href="Class_OkaFR06FYFAUAgzN.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','843, 2, 1319, 118',new Array('ShufflingRedirectionProxy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/utility/shuffle/ShufflingRedirectionProxy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '843, 2, 1319, 118'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="630, 744, 1388, 959" coords2="630, 744, 1388, 959" shape="rect" alt="utility:Package" id="areadiagram_map_lSEdZ06FYFAUBida_default" href="Package_JEaFR06FYFAUAgyr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_Cq4dZ06FYFAUBiZj.html" class="ItemLink">HibernateUtil : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Utility class handling hibernate communication
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class__q4dZ06FYFAUBiZu.html" class="ItemLink">PlayerColors : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Enum class defining association between <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      names and <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      color
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_ea4dZ06FYFAUBiZ_.html" class="ItemLink">PlayerType : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Enum class defining constants for <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      types
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_da4dZ06FYFAUBiaD.html" class="ItemLink">TokenState : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Enum class defining constants for token states
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_fa4dZ06FYFAUBiaI.html" class="ItemLink">GetFirstIdStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Strategy that returns first index
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_9hGeZ06FYFAUBh11.html" class="ItemLink">GetRandomIdStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Strategy that provide a random index for a list if passed, it can also 
+      provide random int in a range
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_8hGeZ06FYFAUBh1o.html" class="ItemLink">IGetNextIdStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface defining methods implemented in every strategy responsible to 
+      find the next element or id
+    </p>
+    <p style="margin-top:0;">
+      in a list of objects
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_1EaFR06FYFAUAgyt.html" class="ItemLink">CollectionsShuffleStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a class responsible to shuffle using the Collection.shuffle() 
+      method.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_u64dZ06FYFAUBia3.html" class="ItemLink">GreenShuffleStrategyFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_LEaFR06FYFAUAgy1.html" class="ItemLink">IShuffleStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a Strategy Interface to shuffle.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_N64dZ06FYFAUBibI.html" class="ItemLink">IShuffleStrategyFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_CkaFR06FYFAUAgzF.html" class="ItemLink">NoShuffleStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a class responsible to no shuffle.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_IkaFR06FYFAUAgy9.html" class="ItemLink">RandomOrgAdapter : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is a class responsible to shuffle using the Random.org external 
+      service.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_MG4dZ06FYFAUBibk.html" class="ItemLink">RedShuffleStrategyFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_OkaFR06FYFAUAgzN.html" class="ItemLink">ShufflingRedirectionProxy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      It is responsible to make a redirection proxy for the shuffing.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_JEaFR06FYFAUAgyr.html" class="ItemLink">utility : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

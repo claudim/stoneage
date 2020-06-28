@@ -1,0 +1,897 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Package Diagram - Package Diagram IT3</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Package Diagram - Package Diagram IT3		</span>
+<a onclick="showVpLink('StoneAgeIT3_24.vpp://diagram/qg3jZ06FYFAUBjCC', 'Package Diagram IT3\nStoneAgeIT3_24.vpp://diagram/qg3jZ06FYFAUBjCC', 'Package Diagram IT3', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|823.0|48.0|140.0|100.0|Package_vH5NZ06FYFAUBiQl.html|Package_vH5NZ06FYFAUBiQl.html|yQ3jZ06FYFAUBjDQ" id="optionyQ3jZ06FYFAUBjDQ">squares : Package</option>
+<option value="shape|3250.0|1645.0|140.0|100.0|Package_sdOIR06FYFAUAnIa.html|Package_sdOIR06FYFAUAnIa.html|yQ3jZ06FYFAUBjDO" id="optionyQ3jZ06FYFAUBjDO">stoneage : Package</option>
+<option value="shape|1375.0|1166.0|140.0|100.0|Package_RyCWp06FYFAUAiMk.html|Package_RyCWp06FYFAUAiMk.html|yQ3jZ06FYFAUBjDM" id="optionyQ3jZ06FYFAUBjDM">playerFactory : Package</option>
+<option value="shape|1005.0|468.0|140.0|100.0|Package_3d32p06FYFAUAiT_.html|Package_3d32p06FYFAUAiT_.html|IQ3jZ06FYFAUBjC4" id="optionIQ3jZ06FYFAUBjC4">playerTurning : Package</option>
+<option value="shape|746.0|823.0|140.0|100.0|Package_wM5Gp06FYFAUAh_0.html|Package_wM5Gp06FYFAUAh_0.html|IQ3jZ06FYFAUBjC8" id="optionIQ3jZ06FYFAUBjC8">gameGoal : Package</option>
+<option value="shape|1673.0|1215.0|140.0|100.0|Package_RngVR06FYFAUAg_u.html|Package_RngVR06FYFAUAg_u.html|IQ3jZ06FYFAUBjDA" id="optionIQ3jZ06FYFAUBjDA">playerAbilityCombining : Package</option>
+<option value="shape|1906.0|1436.0|140.0|100.0|Package_fyCWp06FYFAUAiNK.html|Package_fyCWp06FYFAUAiNK.html|IQ3jZ06FYFAUBjC0" id="optionIQ3jZ06FYFAUBjC0">RobbedPlayer : Package</option>
+<option value="shape|1936.0|1248.0|140.0|100.0|Package_yCCWp06FYFAUAiKA.html|Package_yCCWp06FYFAUAiKA.html|Jg3jZ06FYFAUBjCe" id="optionJg3jZ06FYFAUBjCe">findingSquare : Package</option>
+<option value="shape|1506.0|1386.0|140.0|100.0|Package_PLgVR06FYFAUAg7O.html|Package_PLgVR06FYFAUAg7O.html|Jg3jZ06FYFAUBjCQ" id="optionJg3jZ06FYFAUBjCQ">extraAbilityPlayer : Package</option>
+<option value="shape|1133.0|48.0|140.0|100.0|Package_hb5NZ06FYFAUBiPF.html|Package_hb5NZ06FYFAUBiPF.html|Lg3jZ06FYFAUBjCs" id="optionLg3jZ06FYFAUBjCs">players : Package</option>
+<option value="shape|978.0|136.0|140.0|100.0|Package_EP5NZ06FYFAUBiSm.html|Package_EP5NZ06FYFAUBiSm.html|Jg3jZ06FYFAUBjCU" id="optionJg3jZ06FYFAUBjCU">tokens : Package</option>
+<option value="shape|805.0|3.0|487.0|256.0|Package_5T5NZ06FYFAUBiM5.html|Package_5T5NZ06FYFAUBiM5.html|Lg3jZ06FYFAUBjCq" id="optionLg3jZ06FYFAUBjCq">ui : Package</option>
+<option value="shape|1343.0|1126.0|801.0|486.0|Package_bLgVR06FYFAUAg7N.html|Package_bLgVR06FYFAUAg7N.html|Jg3jZ06FYFAUBjCc" id="optionJg3jZ06FYFAUBjCc">players : Package</option>
+<option value="shape|1023.0|798.0|140.0|100.0|Package_qE4mp06FYFAUAiAe.html|Package_qE4mp06FYFAUAiAe.html|IQ3jZ06FYFAUBjDG" id="optionIQ3jZ06FYFAUBjDG">gameState : Package</option>
+<option value="shape|1876.0|599.0|140.0|100.0|Package_1bYOp06FYFAUAiYe.html|Package_1bYOp06FYFAUAiYe.html|IQ3jZ06FYFAUBjC6" id="optionIQ3jZ06FYFAUBjC6">squareStateFactory : Package</option>
+<option value="shape|1834.0|553.0|241.0|162.0|Package__rYOp06FYFAUAiXh.html|Package__rYOp06FYFAUAiXh.html|IQ3jZ06FYFAUBjDE" id="optionIQ3jZ06FYFAUBjDE">resourceSquareState : Package</option>
+<option value="shape|1592.0|496.0|140.0|100.0|Package_bHYOp06FYFAUAiah.html|Package_bHYOp06FYFAUAiah.html|IQ3jZ06FYFAUBjDC" id="optionIQ3jZ06FYFAUBjDC">squareSetupStrategyFactory : Package</option>
+<option value="shape|1427.0|577.0|140.0|100.0|Package_57YOp06FYFAUAiZC.html|Package_57YOp06FYFAUAiZC.html|qg3jZ06FYFAUBjCG" id="optionqg3jZ06FYFAUBjCG">squareSetupStrategy : Package</option>
+<option value="shape|1398.0|761.0|140.0|100.0|Package_ZLYOp06FYFAUAiWM.html|Package_ZLYOp06FYFAUAiWM.html|Lg3jZ06FYFAUBjCw" id="optionLg3jZ06FYFAUBjCw">board : Package</option>
+<option value="shape|1666.0|758.0|140.0|100.0|Package_6nYOp06FYFAUAibG.html|Package_6nYOp06FYFAUAibG.html|Lg3jZ06FYFAUBjCu" id="optionLg3jZ06FYFAUBjCu">buildingSiteSquare : Package</option>
+<option value="shape|1360.0|443.0|385.0|285.0|Package_p7YOp06FYFAUAiZB.html|Package_p7YOp06FYFAUAiZB.html|IQ3jZ06FYFAUBjC." id="optionIQ3jZ06FYFAUBjC.">squareSetup : Package</option>
+<option value="shape|1806.0|468.0|320.0|275.0|Package_hrYOp06FYFAUAiWu.html|Package_hrYOp06FYFAUAiWu.html|Lg3jZ06FYFAUBjCy" id="optionLg3jZ06FYFAUBjCy">resourceSquare : Package</option>
+<option value="shape|2190.0|693.0|140.0|100.0|Package_D7gVR06FYFAUAg91.html|Package_D7gVR06FYFAUAg91.html|qg3jZ06FYFAUBjCE" id="optionqg3jZ06FYFAUBjCE">surpriseToken : Package</option>
+<option value="shape|2145.0|656.0|245.0|201.0|Package_d7gVR06FYFAUAg90.html|Package_d7gVR06FYFAUAg90.html|Lg3jZ06FYFAUBjCo" id="optionLg3jZ06FYFAUBjCo">surpriseSquare : Package</option>
+<option value="shape|2250.0|488.0|140.0|100.0|Package_K7YOp06FYFAUAiY0.html|Package_K7YOp06FYFAUAiY0.html|Lg3jZ06FYFAUBjCm" id="optionLg3jZ06FYFAUBjCm">nextHutTokenChoosing : Package</option>
+<option value="shape|1320.0|401.0|1105.0|482.0|Package_N7gVR06FYFAUAg9z.html|Package_N7gVR06FYFAUAg9z.html|Jg3jZ06FYFAUBjCO" id="optionJg3jZ06FYFAUBjCO">squares : Package</option>
+<option value="shape|649.0|488.0|140.0|100.0|Package_u9OIR06FYFAUAnJY.html|Package_u9OIR06FYFAUAnJY.html|Jg3jZ06FYFAUBjCK" id="optionJg3jZ06FYFAUBjCK">gameInitializerFactory : Package</option>
+<option value="shape|593.0|443.0|212.0|174.0|Package_CdOIR06FYFAUAnIc.html|Package_CdOIR06FYFAUAnIc.html|Jg3jZ06FYFAUBjCW" id="optionJg3jZ06FYFAUBjCW">gameInitializer : Package</option>
+<option value="shape|629.0|1215.0|140.0|100.0|Package_bD46p06FYFAUAh1W.html|Package_bD46p06FYFAUAh1W.html|IQ3jZ06FYFAUBjDI" id="optionIQ3jZ06FYFAUBjDI">forestTokenFactory : Package</option>
+<option value="shape|865.0|1208.0|140.0|100.0|Package_poaFR06FYFAUAgxv.html|Package_poaFR06FYFAUAgxv.html|Lg3jZ06FYFAUBjCk" id="optionLg3jZ06FYFAUBjCk">grid : Package</option>
+<option value="shape|643.0|1346.0|140.0|100.0|Package_yj46p06FYFAUAh1m.html|Package_yj46p06FYFAUAh1m.html|Jg3jZ06FYFAUBjCI" id="optionJg3jZ06FYFAUBjCI">nextForestTokenChoosing : Package</option>
+<option value="shape|591.0|1165.0|452.0|322.0|Package_YoaFR06FYFAUAgxu.html|Package_YoaFR06FYFAUAgxu.html|Lg3jZ06FYFAUBjCi" id="optionLg3jZ06FYFAUBjCi">forestTokens : Package</option>
+<option value="shape|320.0|1832.0|140.0|100.0|Package_8hGeZ06FYFAUBh1n.html|Package_8hGeZ06FYFAUBh1n.html|Jg3jZ06FYFAUBjCM" id="optionJg3jZ06FYFAUBjCM">nextId : Package</option>
+<option value="shape|519.0|1896.0|140.0|100.0|Package_FEaFR06FYFAUAgys.html|Package_FEaFR06FYFAUAgys.html|Jg3jZ06FYFAUBjCY" id="optionJg3jZ06FYFAUBjCY">shuffle : Package</option>
+<option value="shape|261.0|1790.0|424.0|245.0|Package_JEaFR06FYFAUAgyr.html|Package_JEaFR06FYFAUAgyr.html|IQ3jZ06FYFAUBjC2" id="optionIQ3jZ06FYFAUBjC2">utility : Package</option>
+<option value="shape|461.0|335.0|1983.0|1365.0|Package_cdOIR06FYFAUAnIb.html|Package_cdOIR06FYFAUAnIb.html|IQ3jZ06FYFAUBjDK" id="optionIQ3jZ06FYFAUBjDK">model : Package</option>
+<option value="shape|3250.0|1795.0|140.0|100.0|Package_0dOIR06FYFAUAnIZ.html|Package_0dOIR06FYFAUAnIZ.html|Lg3jZ06FYFAUBjCg" id="optionLg3jZ06FYFAUBjCg">univaq : Package</option>
+<option value="shape|3500.0|1795.0|140.0|100.0|Package_4dOIR06FYFAUAnIY.html|Package_4dOIR06FYFAUAnIY.html|Jg3jZ06FYFAUBjCa" id="optionJg3jZ06FYFAUBjCa">com : Package</option>
+<option value="shape|1320.0|1841.0|285.0|210.0|Package_zUddZ06FYFAUBih1.html|Package_zUddZ06FYFAUBih1.html|Jg3jZ06FYFAUBjCS" id="optionJg3jZ06FYFAUBjCS">persistence : Package</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Package_Diagram_IT3.png" usemap="#diagram_map" class="Image" width="3644" height="2055"/>
+					<map name="diagram_map">
+<area coords="925,1228,943,1243" coords2="925,1228,943,1243" shape="rect" alt="Grid" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_"/>
+<area coords="2230,676,2305,691" coords2="2230,676,2305,691" shape="rect" alt="SurpriseSquare" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#VToiGw6FYFAUBRAy"/>
+<area coords="2225,713,2295,728" coords2="2225,713,2295,728" shape="rect" alt="SurpriseToken" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#k.niGw6FYFAUBRCI"/>
+<area coords="1926,488,2004,503" coords2="1926,488,2004,503" shape="rect" alt="ResourceSquare" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz"/>
+<area coords="1689,778,1781,793" coords2="1689,778,1781,793" shape="rect" alt="BuildingSiteSquare" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9_5CGw6FYFAUBRAX"/>
+<area coords="1453,781,1481,796" coords2="1453,781,1481,796" shape="rect" alt="Board" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6"/>
+<area imageId="diagram" coords="963.0, 91.0, 963.0, 105.0, 1133.0, 105.0, 1133.0, 91.0" coords2="963.0, 91.0, 963.0, 105.0, 1133.0, 105.0, 1133.0, 91.0" shape="poly" alt=":Dependency" id="areadiagram_map_bc3jZ06FYFAUBjD__default" href="Dependency_VyXjZ06FYFAUBjCA.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2190.0, 785.30347, 1504.0, 1163.0, 1505.1538, 1166.0, 1515.0, 1166.0, 1515.0, 1172.6965, 2201.0, 795.0, 2200.2307, 793.0, 2190.0, 793.0, 2190.0, 785.30347" coords2="2190.0, 785.30347, 1504.0, 1163.0, 1505.1538, 1166.0, 1515.0, 1166.0, 1515.0, 1172.6965, 2201.0, 795.0, 2200.2307, 793.0, 2190.0, 793.0, 2190.0, 785.30347" shape="poly" alt=":Dependency" id="areadiagram_map_r83jZ06FYFAUBjEO_default" href="Dependency_0yXjZ06FYFAUBjB_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1499.0, 1116.0, 1499.0, 1126.0, 1513.0, 1126.0, 1513.0, 1116.0" coords2="1499.0, 1116.0, 1499.0, 1126.0, 1513.0, 1126.0, 1513.0, 1116.0" shape="poly" alt=":Dependency" id="areadiagram_map_IC3jZ06FYFAUBjER_default" href="Dependency_foXjZ06FYFAUBjBm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1219.0, 1228.0, 1219.0, 1231.0, 1216.0, 1231.0, 1216.0, 1245.0, 1219.0, 1245.0, 1219.0, 1904.0, 685.0, 1904.0, 685.0, 1918.0, 1219.0, 1918.0, 1219.0, 1921.0, 1233.0, 1921.0, 1233.0, 1918.0, 1236.0, 1918.0, 1236.0, 1904.0, 1233.0, 1904.0, 1233.0, 1245.0, 1375.0, 1245.0, 1375.0, 1231.0, 1233.0, 1231.0, 1233.0, 1228.0" coords2="1219.0, 1228.0, 1219.0, 1231.0, 1216.0, 1231.0, 1216.0, 1245.0, 1219.0, 1245.0, 1219.0, 1904.0, 685.0, 1904.0, 685.0, 1918.0, 1219.0, 1918.0, 1219.0, 1921.0, 1233.0, 1921.0, 1233.0, 1918.0, 1236.0, 1918.0, 1236.0, 1904.0, 1233.0, 1904.0, 1233.0, 1245.0, 1375.0, 1245.0, 1375.0, 1231.0, 1233.0, 1231.0, 1233.0, 1228.0" shape="poly" alt=":Dependency" id="areadiagram_map_IC3jZ06FYFAUBjEU_default" href="Dependency_uYXjZ06FYFAUBjBn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2187.0, 781.0, 2036.0597, 1056.1317, 2036.0597, 1056.1317, 1503.0, 1160.0, 1503.8572, 1166.0, 1515.0, 1166.0, 1515.0, 1172.0515, 1515.0, 1172.0515, 2033.9995, 1070.9229, 2033.9995, 1070.9229, 2042.0, 1074.0, 2044.8478, 1068.8091, 2044.8478, 1068.8091, 2049.0, 1068.0, 2048.234, 1062.637, 2196.1597, 793.0, 2190.0, 793.0, 2190.0, 782.1539, 2187.0, 781.0" coords2="2187.0, 781.0, 2036.0597, 1056.1317, 2036.0597, 1056.1317, 1503.0, 1160.0, 1503.8572, 1166.0, 1515.0, 1166.0, 1515.0, 1172.0515, 1515.0, 1172.0515, 2033.9995, 1070.9229, 2033.9995, 1070.9229, 2042.0, 1074.0, 2044.8478, 1068.8091, 2044.8478, 1068.8091, 2049.0, 1068.0, 2048.234, 1062.637, 2196.1597, 793.0, 2190.0, 793.0, 2190.0, 782.1539, 2187.0, 781.0" shape="poly" alt=":Dependency" id="areadiagram_map_KC3jZ06FYFAUBjEX_default" href="Dependency_PYXjZ06FYFAUBjBo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1467.0, 883.0, 1467.0, 1166.0, 1481.0, 1166.0, 1481.0, 883.0" coords2="1467.0, 883.0, 1467.0, 1166.0, 1481.0, 1166.0, 1481.0, 883.0" shape="poly" alt=":Dependency" id="areadiagram_map_JC3jZ06FYFAUBjEa_default" href="Dependency_u4XjZ06FYFAUBjBp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="451.0, 461.0, 451.0, 475.0, 461.0, 475.0, 461.0, 461.0" coords2="451.0, 461.0, 451.0, 475.0, 461.0, 475.0, 461.0, 461.0" shape="poly" alt=":Dependency" id="areadiagram_map_zC3jZ06FYFAUBjEf_default" href="Dependency_gnnjZ06FYFAUBjBR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1844.0, 1700.0, 1844.0, 1710.0, 1858.0, 1710.0, 1858.0, 1700.0" coords2="1844.0, 1700.0, 1844.0, 1710.0, 1858.0, 1710.0, 1858.0, 1700.0" shape="poly" alt=":Dependency" id="areadiagram_map_zC3jZ06FYFAUBjEi_default" href="Dependency_LgXjZ06FYFAUBjBf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="604.0, 1700.0, 604.0, 1790.0, 618.0, 1790.0, 618.0, 1700.0" coords2="604.0, 1700.0, 604.0, 1790.0, 618.0, 1790.0, 618.0, 1700.0" shape="poly" alt=":Dependency" id="areadiagram_map_wi3jZ06FYFAUBjEl_default" href="Dependency_ojnjZ06FYFAUBjBF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="921.0, 1700.0, 921.0, 1710.0, 935.0, 1710.0, 935.0, 1700.0" coords2="921.0, 1700.0, 921.0, 1710.0, 935.0, 1710.0, 935.0, 1700.0" shape="poly" alt=":Dependency" id="areadiagram_map_wi3jZ06FYFAUBjEo_default" href="Dependency_LjnjZ06FYFAUBjBG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2444.0, 854.0, 2444.0, 868.0, 2455.0, 868.0, 2455.0, 854.0" coords2="2444.0, 854.0, 2444.0, 868.0, 2455.0, 868.0, 2455.0, 854.0" shape="poly" alt=":Dependency" id="areadiagram_map_wi3jZ06FYFAUBjEr_default" href="Dependency_xTnjZ06FYFAUBjBH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1044.0, 324.0, 1044.0, 335.0, 1058.0, 335.0, 1058.0, 324.0" coords2="1044.0, 324.0, 1044.0, 335.0, 1058.0, 335.0, 1058.0, 324.0" shape="poly" alt=":Dependency" id="areadiagram_map_Si3jZ06FYFAUBjEu_default" href="Dependency_QznjZ06FYFAUBjBI.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="" coords2="" shape="poly" alt=":Dependency" id="areadiagram_map_Si3jZ06FYFAUBjEx_default" href="Dependency_RznjZ06FYFAUBjBJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="451.0, 871.0, 451.0, 885.0, 461.0, 885.0, 461.0, 871.0" coords2="451.0, 871.0, 451.0, 885.0, 461.0, 885.0, 461.0, 871.0" shape="poly" alt=":Dependency" id="areadiagram_map_Si3jZ06FYFAUBjE0_default" href="Dependency_gLnjZ06FYFAUBjBK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1806.0, 1700.0, 1806.0, 1710.0, 1820.0, 1710.0, 1820.0, 1700.0" coords2="1806.0, 1700.0, 1806.0, 1710.0, 1820.0, 1710.0, 1820.0, 1700.0" shape="poly" alt=":Dependency" id="areadiagram_map_Ri3jZ06FYFAUBjE3_default" href="Dependency_DLnjZ06FYFAUBjBL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="805.0, 607.3162, 805.0, 607.3162, 805.0, 607.3162, 805.0, 607.3162, 805.0, 617.0, 794.41235, 617.0, 1023.0, 806.5128, 1023.0, 806.5128, 1023.0, 798.0, 1035.0, 798.0, 805.0, 607.3162" coords2="805.0, 607.3162, 805.0, 607.3162, 805.0, 607.3162, 805.0, 607.3162, 805.0, 617.0, 794.41235, 617.0, 1023.0, 806.5128, 1023.0, 806.5128, 1023.0, 798.0, 1035.0, 798.0, 805.0, 607.3162" shape="poly" alt=":Dependency" id="areadiagram_map_iS3jZ06FYFAUBjFK_default" href="Dependency_c3njZ06FYFAUBjBU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1163.0, 886.0, 1163.0, 898.0, 1155.1276, 898.0, 1342.0, 1137.0, 1343.0, 1136.2727, 1343.0, 1126.0, 1350.6543, 1126.0, 1163.0, 886.0" coords2="1163.0, 886.0, 1163.0, 898.0, 1155.1276, 898.0, 1342.0, 1137.0, 1343.0, 1136.2727, 1343.0, 1126.0, 1350.6543, 1126.0, 1163.0, 886.0" shape="poly" alt=":Dependency" id="areadiagram_map_iS3jZ06FYFAUBjFN_default" href="Dependency_ogXjZ06FYFAUBjBe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1074.0, 898.0, 1074.0, 1479.0, 1071.0, 1479.0, 1071.0, 1493.0, 1074.0, 1493.0, 1074.0, 1496.0, 1088.0, 1496.0, 1088.0, 1493.0, 1516.0, 1493.0, 1516.0, 1486.0, 1506.0, 1486.0, 1506.0, 1479.0, 1088.0, 1479.0, 1088.0, 898.0" coords2="1074.0, 898.0, 1074.0, 1479.0, 1071.0, 1479.0, 1071.0, 1493.0, 1074.0, 1493.0, 1074.0, 1496.0, 1088.0, 1496.0, 1088.0, 1493.0, 1516.0, 1493.0, 1516.0, 1486.0, 1506.0, 1486.0, 1506.0, 1479.0, 1088.0, 1479.0, 1088.0, 898.0" shape="poly" alt=":Dependency" id="areadiagram_map_hS3jZ06FYFAUBjFQ_default" href="Dependency_TQXjZ06FYFAUBjBh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1163.0, 886.0, 1163.0, 898.0, 1155.1276, 898.0, 1342.0, 1137.0, 1343.0, 1136.2727, 1343.0, 1126.0, 1350.6543, 1126.0, 1163.0, 886.0" coords2="1163.0, 886.0, 1163.0, 898.0, 1155.1276, 898.0, 1342.0, 1137.0, 1343.0, 1136.2727, 1343.0, 1126.0, 1350.6543, 1126.0, 1163.0, 886.0" shape="poly" alt=":Dependency" id="areadiagram_map_hS3jZ06FYFAUBjFT_default" href="Dependency_UfnjZ06FYFAUBjBZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1163.0, 836.0, 1163.0, 850.0, 1320.0, 850.0, 1320.0, 836.0" coords2="1163.0, 836.0, 1163.0, 850.0, 1320.0, 850.0, 1320.0, 836.0" shape="poly" alt=":Dependency" id="areadiagram_map_DS3jZ06FYFAUBjFW_default" href="Dependency_lfnjZ06FYFAUBjBa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1947.0, 458.0, 1947.0, 468.0, 1961.0, 468.0, 1961.0, 458.0" coords2="1947.0, 458.0, 1947.0, 468.0, 1961.0, 468.0, 1961.0, 458.0" shape="poly" alt=":Dependency" id="areadiagram_map_DS3jZ06FYFAUBjFZ_default" href="Dependency_E0XjZ06FYFAUBjBw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1884.0, 543.0, 1884.0, 553.0, 1898.0, 553.0, 1898.0, 543.0" coords2="1884.0, 543.0, 1884.0, 553.0, 1898.0, 553.0, 1898.0, 543.0" shape="poly" alt=":Dependency" id="areadiagram_map_DS3jZ06FYFAUBjFc_default" href="Dependency_ycXjZ06FYFAUBjB2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1984.0, 391.0, 1984.0, 401.0, 1998.0, 401.0, 1998.0, 391.0" coords2="1984.0, 391.0, 1984.0, 401.0, 1998.0, 401.0, 1998.0, 391.0" shape="poly" alt=":Dependency" id="areadiagram_map_Ay3jZ06FYFAUBjFf_default" href="Dependency_rMXjZ06FYFAUBjBz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1827.0, 705.0, 1827.0, 1126.0, 1841.0, 1126.0, 1841.0, 715.0, 1834.0, 715.0, 1834.0, 705.0" coords2="1827.0, 705.0, 1827.0, 1126.0, 1841.0, 1126.0, 1841.0, 715.0, 1834.0, 715.0, 1834.0, 705.0" shape="poly" alt=":Dependency" id="areadiagram_map_Ay3jZ06FYFAUBjFi_default" href="Dependency_KsXjZ06FYFAUBjB0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1973.0, 458.0, 1973.0, 468.0, 1987.0, 468.0, 1987.0, 458.0" coords2="1973.0, 458.0, 1973.0, 468.0, 1987.0, 468.0, 1987.0, 458.0" shape="poly" alt=":Dependency" id="areadiagram_map_iy3jZ06FYFAUBjFl_default" href="Dependency_zsXjZ06FYFAUBjB1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1666.0, 596.0, 1666.0, 645.0, 1567.0, 645.0, 1567.0, 659.0, 1666.0, 659.0, 1666.0, 662.0, 1680.0, 662.0, 1680.0, 659.0, 1683.0, 659.0, 1683.0, 645.0, 1680.0, 645.0, 1680.0, 596.0" coords2="1666.0, 596.0, 1666.0, 645.0, 1567.0, 645.0, 1567.0, 659.0, 1666.0, 659.0, 1666.0, 662.0, 1680.0, 662.0, 1680.0, 659.0, 1683.0, 659.0, 1683.0, 645.0, 1680.0, 645.0, 1680.0, 596.0" shape="poly" alt=":Dependency" id="areadiagram_map_2y3jZ06FYFAUBjFs_default" href="Dependency_ACXjZ06FYFAUBjB5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1711.0, 391.0, 1711.0, 401.0, 1725.0, 401.0, 1725.0, 391.0" coords2="1711.0, 391.0, 1711.0, 401.0, 1725.0, 401.0, 1725.0, 391.0" shape="poly" alt=":Dependency" id="areadiagram_map_2y3jZ06FYFAUBjFv_default" href="Dependency__CXjZ06FYFAUBjB6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1333.0, 1267.0, 1333.0, 1281.0, 1343.0, 1281.0, 1343.0, 1267.0" coords2="1333.0, 1267.0, 1333.0, 1281.0, 1343.0, 1281.0, 1343.0, 1267.0" shape="poly" alt=":Dependency" id="areadiagram_map_1y3jZ06FYFAUBjF0_default" href="Dependency_9IXjZ06FYFAUBjBk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1813.0, 1307.4462, 1813.0, 1307.4462, 1813.0, 1307.4462, 1813.0, 1307.4462, 2309.0, 793.0, 2309.0, 1397.1077, 1813.0, 1307.4462, 1813.0, 1307.4462, 1813.0, 1315.0, 1803.7142, 1315.0, 1803.0, 1320.0, 2309.0, 1411.4692, 2309.0, 1416.0, 2323.0, 1416.0, 2323.0, 1414.0, 2325.0, 1400.0, 2323.0, 1399.6384, 2323.0, 793.0" coords2="1813.0, 1307.4462, 1813.0, 1307.4462, 1813.0, 1307.4462, 1813.0, 1307.4462, 2309.0, 793.0, 2309.0, 1397.1077, 1813.0, 1307.4462, 1813.0, 1307.4462, 1813.0, 1315.0, 1803.7142, 1315.0, 1803.0, 1320.0, 2309.0, 1411.4692, 2309.0, 1416.0, 2323.0, 1416.0, 2323.0, 1414.0, 2325.0, 1400.0, 2323.0, 1399.6384, 2323.0, 793.0" shape="poly" alt=":Dependency" id="areadiagram_map_1y3jZ06FYFAUBjF3_default" href="Dependency_8oXjZ06FYFAUBjBl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="788.0, 617.0, 788.0, 823.0, 802.0, 823.0, 802.0, 617.0" coords2="788.0, 617.0, 788.0, 823.0, 802.0, 823.0, 802.0, 617.0" shape="poly" alt=":Dependency" id="areadiagram_map_UK3jZ06FYFAUBjGA_default" href="Dependency_v3njZ06FYFAUBjBV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="824.0, 923.0, 824.0, 1143.0, 821.0, 1143.0, 821.0, 1157.0, 824.0, 1157.0, 824.0, 1160.0, 838.0, 1160.0, 838.0, 1157.0, 1343.0, 1157.0, 1343.0, 1143.0, 838.0, 1143.0, 838.0, 923.0" coords2="824.0, 923.0, 824.0, 1143.0, 821.0, 1143.0, 821.0, 1157.0, 824.0, 1157.0, 824.0, 1160.0, 838.0, 1160.0, 838.0, 1157.0, 1343.0, 1157.0, 1343.0, 1143.0, 838.0, 1143.0, 838.0, 923.0" shape="poly" alt=":Dependency" id="areadiagram_map_UK3jZ06FYFAUBjGD_default" href="Dependency_RHnjZ06FYFAUBjBQ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1891.0, 458.0, 1891.0, 468.0, 1905.0, 468.0, 1905.0, 458.0" coords2="1891.0, 458.0, 1891.0, 468.0, 1905.0, 468.0, 1905.0, 458.0" shape="poly" alt=":Dependency" id="areadiagram_map_UK3jZ06FYFAUBjGG_default" href="Dependency_50XjZ06FYFAUBjBx.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1926.0, 458.0, 1926.0, 468.0, 1940.0, 468.0, 1940.0, 458.0" coords2="1926.0, 458.0, 1926.0, 468.0, 1940.0, 468.0, 1940.0, 458.0" shape="poly" alt=":Dependency" id="areadiagram_map_WK3jZ06FYFAUBjGJ_default" href="Dependency_TcXjZ06FYFAUBjB3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="805.0, 514.0, 805.0, 528.0, 1005.0, 528.0, 1005.0, 514.0" coords2="805.0, 514.0, 805.0, 528.0, 1005.0, 528.0, 1005.0, 514.0" shape="poly" alt=":Dependency" id="areadiagram_map_WK3jZ06FYFAUBjGM_default" href="Dependency_OPnjZ06FYFAUBjBW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="596.0, 1487.0, 596.0, 1790.0, 610.0, 1790.0, 610.0, 1487.0" coords2="596.0, 1487.0, 596.0, 1790.0, 610.0, 1790.0, 610.0, 1487.0" shape="poly" alt=":Dependency" id="areadiagram_map_VK3jZ06FYFAUBjGP_default" href="Dependency_5rnjZ06FYFAUBjBM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="229.0, 196.0, 228.98257, 199.0, 226.0, 199.0, 226.0, 213.0, 228.90128, 213.0, 219.09872, 1901.0, 216.0, 1901.0, 216.0, 1915.0, 219.01743, 1915.0, 219.0, 1918.0, 233.0, 1918.0, 233.01743, 1915.0, 261.0, 1915.0, 261.0, 1901.0, 233.09872, 1901.0, 242.90128, 213.0, 978.0, 213.0, 978.0, 199.0, 242.98257, 199.0, 243.0, 196.0" coords2="229.0, 196.0, 228.98257, 199.0, 226.0, 199.0, 226.0, 213.0, 228.90128, 213.0, 219.09872, 1901.0, 216.0, 1901.0, 216.0, 1915.0, 219.01743, 1915.0, 219.0, 1918.0, 233.0, 1918.0, 233.01743, 1915.0, 261.0, 1915.0, 261.0, 1901.0, 233.09872, 1901.0, 242.90128, 213.0, 978.0, 213.0, 978.0, 199.0, 242.98257, 199.0, 243.0, 196.0" shape="poly" alt=":Dependency" id="areadiagram_map_VK3jZ06FYFAUBjGS_default" href="Dependency_UKXjZ06FYFAUBjCB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1333.0, 1479.0, 1333.0, 1493.0, 1343.0, 1493.0, 1343.0, 1479.0" coords2="1333.0, 1479.0, 1333.0, 1493.0, 1343.0, 1493.0, 1343.0, 1479.0" shape="poly" alt=":Dependency" id="areadiagram_map_nK3jZ06FYFAUBjGZ_default" href="Dependency_G_njZ06FYFAUBjBb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1826.0, 391.0, 1826.0, 401.0, 1840.0, 401.0, 1840.0, 391.0" coords2="1826.0, 391.0, 1826.0, 401.0, 1840.0, 401.0, 1840.0, 391.0" shape="poly" alt=":Dependency" id="areadiagram_map_kq3jZ06FYFAUBjGe_default" href="Dependency_FUXjZ06FYFAUBjBv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1844.0, 743.0, 1844.0, 1126.0, 1858.0, 1126.0, 1858.0, 743.0" coords2="1844.0, 743.0, 1844.0, 1126.0, 1858.0, 1126.0, 1858.0, 743.0" shape="poly" alt=":Dependency" id="areadiagram_map_kq3jZ06FYFAUBjGh_default" href="Dependency_YMXjZ06FYFAUBjBy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="805.0, 558.2876, 805.0, 573.5889, 805.0, 573.5889, 1398.0, 767.0636, 1398.0, 761.0, 1408.9286, 761.0, 1410.0, 756.0, 805.0, 558.2876" coords2="805.0, 558.2876, 805.0, 573.5889, 805.0, 573.5889, 1398.0, 767.0636, 1398.0, 761.0, 1408.9286, 761.0, 1410.0, 756.0, 805.0, 558.2876" shape="poly" alt=":Dependency" id="areadiagram_map_Gq3jZ06FYFAUBjGm_default" href="Dependency_DnnjZ06FYFAUBjBS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1310.0, 851.0, 1310.0, 865.0, 1320.0, 865.0, 1320.0, 851.0" coords2="1310.0, 851.0, 1310.0, 865.0, 1320.0, 865.0, 1320.0, 851.0" shape="poly" alt=":Dependency" id="areadiagram_map_Fq3jZ06FYFAUBjGp_default" href="Dependency_OEXjZ06FYFAUBjBr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1538.0, 836.0, 1538.0, 850.0, 1666.0, 850.0, 1666.0, 836.0" coords2="1538.0, 836.0, 1538.0, 850.0, 1666.0, 850.0, 1666.0, 836.0" shape="poly" alt=":Dependency" id="areadiagram_map_Fq3jZ06FYFAUBjGs_default" href="Dependency_0kXjZ06FYFAUBjBs.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1674.0, 858.0, 1674.0, 1126.0, 1688.0, 1126.0, 1688.0, 858.0" coords2="1674.0, 858.0, 1674.0, 1126.0, 1688.0, 1126.0, 1688.0, 858.0" shape="poly" alt=":Dependency" id="areadiagram_map_Hq3jZ06FYFAUBjGx_default" href="Dependency_VkXjZ06FYFAUBjBt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1694.0, 883.0, 1694.0, 893.0, 1708.0, 893.0, 1708.0, 883.0" coords2="1694.0, 883.0, 1694.0, 893.0, 1708.0, 893.0, 1708.0, 883.0" shape="poly" alt=":Dependency" id="areadiagram_map_Hq3jZ06FYFAUBjG0_default" href="Dependency_kUXjZ06FYFAUBjBu.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2425.0, 709.0, 2425.0, 723.0, 2435.0, 723.0, 2435.0, 709.0" coords2="2425.0, 709.0, 2425.0, 723.0, 2435.0, 723.0, 2435.0, 709.0" shape="poly" alt=":Dependency" id="areadiagram_map_6a3jZ06FYFAUBjG9_default" href="Dependency__CXjZ06FYFAUBjB7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2138.0, 848.0, 2138.0, 1126.0, 2144.0, 1126.0, 2144.0, 1136.0, 2152.0, 1136.0, 2152.0, 857.0, 2145.0, 857.0, 2145.0, 848.0" coords2="2138.0, 848.0, 2138.0, 1126.0, 2144.0, 1126.0, 2144.0, 1136.0, 2152.0, 1136.0, 2152.0, 857.0, 2145.0, 857.0, 2145.0, 848.0" shape="poly" alt=":Dependency" id="areadiagram_map_5a3jZ06FYFAUBjHA_default" href="Dependency_eiXjZ06FYFAUBjB8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="626.0, 617.0, 626.0, 962.0, 621.0, 967.0, 626.0, 972.1429, 626.0, 979.0, 632.6667, 979.0, 865.0, 1217.9714, 865.0, 1208.0, 875.0278, 1208.0, 640.0, 966.25714, 640.0, 617.0" coords2="626.0, 617.0, 626.0, 962.0, 621.0, 967.0, 626.0, 972.1429, 626.0, 979.0, 632.6667, 979.0, 865.0, 1217.9714, 865.0, 1208.0, 875.0278, 1208.0, 640.0, 966.25714, 640.0, 617.0" shape="poly" alt=":Dependency" id="areadiagram_map_ba3jZ06FYFAUBjHJ_default" href="Dependency__XnjZ06FYFAUBjBT.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="893.0, 1308.0, 893.0, 1889.0, 650.0, 1889.0, 650.0, 1896.0, 659.0, 1896.0, 659.0, 1903.0, 893.0, 1903.0, 893.0, 1906.0, 907.0, 1906.0, 907.0, 1903.0, 910.0, 1903.0, 910.0, 1889.0, 907.0, 1889.0, 907.0, 1308.0" coords2="893.0, 1308.0, 893.0, 1889.0, 650.0, 1889.0, 650.0, 1896.0, 659.0, 1896.0, 659.0, 1903.0, 893.0, 1903.0, 893.0, 1906.0, 907.0, 1906.0, 907.0, 1903.0, 910.0, 1903.0, 910.0, 1889.0, 907.0, 1889.0, 907.0, 1308.0" shape="poly" alt=":Dependency" id="areadiagram_map_Y63jZ06FYFAUBjHM_default" href="Dependency_abnjZ06FYFAUBjBN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="865.0, 1299.76, 771.0, 1343.0, 772.1539, 1346.0, 783.0, 1346.0, 783.0, 1352.78, 876.0, 1310.0, 875.2308, 1308.0, 865.0, 1308.0, 865.0, 1299.76" coords2="865.0, 1299.76, 771.0, 1343.0, 772.1539, 1346.0, 783.0, 1346.0, 783.0, 1352.78, 876.0, 1310.0, 875.2308, 1308.0, 865.0, 1308.0, 865.0, 1299.76" shape="poly" alt=":Dependency" id="areadiagram_map_Y63jZ06FYFAUBjHP_default" href="Dependency_I7njZ06FYFAUBjBO.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="938.0, 1487.0, 938.0, 1496.0, 952.0, 1496.0, 952.0, 1487.0" coords2="938.0, 1487.0, 938.0, 1496.0, 952.0, 1496.0, 952.0, 1487.0" shape="poly" alt=":Dependency" id="areadiagram_map_q63jZ06FYFAUBjHS_default" href="Dependency_z7njZ06FYFAUBjBP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1043.0, 1352.0, 1043.0, 1366.0, 1343.0, 1366.0, 1343.0, 1352.0" coords2="1043.0, 1352.0, 1043.0, 1366.0, 1343.0, 1366.0, 1343.0, 1352.0" shape="poly" alt=":Dependency" id="areadiagram_map_q63jZ06FYFAUBjHX_default" href="Dependency_ZAXjZ06FYFAUBjBd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1043.0, 1282.0, 1043.0, 1296.0, 1936.0, 1296.0, 1936.0, 1282.0" coords2="1043.0, 1282.0, 1043.0, 1296.0, 1936.0, 1296.0, 1936.0, 1282.0" shape="poly" alt=":Dependency" id="areadiagram_map_p63jZ06FYFAUBjHa_default" href="Dependency_gIXjZ06FYFAUBjBj.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2029.0, 883.0, 2029.0, 1248.0, 2043.0, 1248.0, 2043.0, 883.0" coords2="2029.0, 883.0, 2029.0, 1248.0, 2043.0, 1248.0, 2043.0, 883.0" shape="poly" alt=":Dependency" id="areadiagram_map_r63jZ06FYFAUBjHh_default" href="Dependency_hwXjZ06FYFAUBjBi.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1616.0, 1612.0, 1616.0, 1623.0, 1630.0, 1623.0, 1630.0, 1612.0" coords2="1616.0, 1612.0, 1616.0, 1623.0, 1630.0, 1623.0, 1630.0, 1612.0" shape="poly" alt=":Dependency" id="areadiagram_map_r63jZ06FYFAUBjHm_default" href="Dependency_yQXjZ06FYFAUBjBg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1466.0, 883.0, 1466.0, 1126.0, 1480.0, 1126.0, 1480.0, 883.0" coords2="1466.0, 883.0, 1466.0, 1126.0, 1480.0, 1126.0, 1480.0, 883.0" shape="poly" alt=":Dependency" id="areadiagram_map_IG3jZ06FYFAUBjHp_default" href="Dependency_P4XjZ06FYFAUBjBq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2184.0, 783.0, 2137.8823, 1126.0, 2144.0, 1126.0, 2144.0, 1141.1428, 2150.0, 1142.0, 2196.9243, 793.0, 2190.0, 793.0, 2190.0, 783.8571, 2184.0, 783.0" coords2="2184.0, 783.0, 2137.8823, 1126.0, 2144.0, 1126.0, 2144.0, 1141.1428, 2150.0, 1142.0, 2196.9243, 793.0, 2190.0, 793.0, 2190.0, 783.8571, 2184.0, 783.0" shape="poly" alt=":Dependency" id="areadiagram_map_IG3jZ06FYFAUBjHs_default" href="Dependency_viXjZ06FYFAUBjB9.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1531.0, 883.0, 1531.0, 1126.0, 1545.0, 1126.0, 1545.0, 883.0" coords2="1531.0, 883.0, 1531.0, 1126.0, 1545.0, 1126.0, 1545.0, 883.0" shape="poly" alt=":Dependency" id="areadiagram_map_KG3jZ06FYFAUBjHv_default" href="Dependency_4AXjZ06FYFAUBjBc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="527.0, 530.0, 527.0, 533.0, 524.0, 533.0, 524.0, 547.0, 527.0, 547.0, 527.0, 1896.0, 541.0, 1896.0, 541.0, 547.0, 593.0, 547.0, 593.0, 533.0, 541.0, 533.0, 541.0, 530.0" coords2="527.0, 530.0, 527.0, 533.0, 524.0, 533.0, 524.0, 547.0, 527.0, 547.0, 527.0, 1896.0, 541.0, 1896.0, 541.0, 547.0, 593.0, 547.0, 593.0, 533.0, 541.0, 533.0, 541.0, 530.0" shape="poly" alt=":Dependency" id="areadiagram_map_JG3jZ06FYFAUBjH0_default" href="Dependency_0vnjZ06FYFAUBjBX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="583.0, 526.0, 583.0, 540.0, 593.0, 540.0, 593.0, 526.0" coords2="583.0, 526.0, 583.0, 540.0, 593.0, 540.0, 593.0, 526.0" shape="poly" alt=":Dependency" id="areadiagram_map_JG3jZ06FYFAUBjH3_default" href="Dependency_VvnjZ06FYFAUBjBY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="113.077736, 478.0, -1238.0, 741.87506, -1238.0, 478.0, 1259.0, 460.0, 1256.091, 464.0, 195.28572, 464.0, 195.0, 462.0, 184.75972, 464.0, -1238.0, 464.0, -1238.0, 461.0, -1252.0, 461.0, -1252.0, 464.0, -1255.0, 464.0, -1255.0, 478.0, -1252.0, 478.0, -1252.0, 744.6094, -1254.0, 745.0, -1252.0, 759.0, -1252.0, 761.0, -1238.0, 761.0, -1238.0, 756.2657, 186.75972, 478.0, 1261.7693, 478.0, 1320.0, 515.85, 1320.0, 499.65, 1320.0, 499.65, 1286.6923, 478.0, 1320.0, 478.0, 1320.0, 464.0, 1265.1538, 464.0, 1259.0, 460.0" coords2="113.077736, 478.0, -1238.0, 741.87506, -1238.0, 478.0, 1259.0, 460.0, 1256.091, 464.0, 195.28572, 464.0, 195.0, 462.0, 184.75972, 464.0, -1238.0, 464.0, -1238.0, 461.0, -1252.0, 461.0, -1252.0, 464.0, -1255.0, 464.0, -1255.0, 478.0, -1252.0, 478.0, -1252.0, 744.6094, -1254.0, 745.0, -1252.0, 759.0, -1252.0, 761.0, -1238.0, 761.0, -1238.0, 756.2657, 186.75972, 478.0, 1261.7693, 478.0, 1320.0, 515.85, 1320.0, 499.65, 1320.0, 499.65, 1286.6923, 478.0, 1320.0, 478.0, 1320.0, 464.0, 1265.1538, 464.0, 1259.0, 460.0" shape="poly" alt=":Dependency" id="areadiagram_map_zG3jZ06FYFAUBjH8_default" href="Dependency_i8XjZ06FYFAUBjB4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2225.7273, 883.0, 2226.0, 893.0, 2240.0, 893.0, 2239.7273, 883.0" coords2="2225.7273, 883.0, 2226.0, 893.0, 2240.0, 893.0, 2239.7273, 883.0" shape="poly" alt=":Dependency" id="areadiagram_map_zG3jZ06FYFAUBjH__default" href="Dependency_NSXjZ06FYFAUBjB_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1041.0, 259.0, 1041.0, 335.0, 1055.0, 335.0, 1055.0, 259.0" coords2="1041.0, 259.0, 1041.0, 335.0, 1055.0, 335.0, 1055.0, 259.0" shape="poly" alt=":Dependency" id="areadiagram_map_WIR3Z06FYFAUBjea_default" href="Dependency_3wR3Z06FYFAUBjeZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1442.0, 1700.0, 1442.0, 1841.0, 1456.0, 1841.0, 1456.0, 1700.0" coords2="1442.0, 1700.0, 1442.0, 1841.0, 1456.0, 1841.0, 1456.0, 1700.0" shape="poly" alt=":Dependency" id="areadiagram_map_Xy8vZ06FYFAUBjgC_default" href="Dependency_0y8vZ06FYFAUBjgB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="823, 48, 963, 148" coords2="823, 48, 963, 148" shape="rect" alt="squares:Package" id="areadiagram_map_yQ3jZ06FYFAUBjDQ_default" href="Package_vH5NZ06FYFAUBiQl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3250, 1645, 3390, 1745" coords2="3250, 1645, 3390, 1745" shape="rect" alt="stoneage:Package" id="areadiagram_map_yQ3jZ06FYFAUBjDO_default" href="Package_sdOIR06FYFAUAnIa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1375, 1166, 1515, 1266" coords2="1375, 1166, 1515, 1266" shape="rect" alt="playerFactory:Package" id="areadiagram_map_yQ3jZ06FYFAUBjDM_default" href="Package_RyCWp06FYFAUAiMk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1005, 468, 1145, 568" coords2="1005, 468, 1145, 568" shape="rect" alt="playerTurning:Package" id="areadiagram_map_IQ3jZ06FYFAUBjC4_default" href="Package_3d32p06FYFAUAiT_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="746, 823, 886, 923" coords2="746, 823, 886, 923" shape="rect" alt="gameGoal:Package" id="areadiagram_map_IQ3jZ06FYFAUBjC8_default" href="Package_wM5Gp06FYFAUAh_0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1673, 1215, 1813, 1315" coords2="1673, 1215, 1813, 1315" shape="rect" alt="playerAbilityCombining:Package" id="areadiagram_map_IQ3jZ06FYFAUBjDA_default" href="Package_RngVR06FYFAUAg_u.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1906, 1436, 2046, 1536" coords2="1906, 1436, 2046, 1536" shape="rect" alt="RobbedPlayer:Package" id="areadiagram_map_IQ3jZ06FYFAUBjC0_default" href="Package_fyCWp06FYFAUAiNK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1936, 1248, 2076, 1348" coords2="1936, 1248, 2076, 1348" shape="rect" alt="findingSquare:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCe_default" href="Package_yCCWp06FYFAUAiKA.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1506, 1386, 1646, 1486" coords2="1506, 1386, 1646, 1486" shape="rect" alt="extraAbilityPlayer:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCQ_default" href="Package_PLgVR06FYFAUAg7O.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1133, 48, 1273, 148" coords2="1133, 48, 1273, 148" shape="rect" alt="players:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCs_default" href="Package_hb5NZ06FYFAUBiPF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="978, 136, 1118, 236" coords2="978, 136, 1118, 236" shape="rect" alt="tokens:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCU_default" href="Package_EP5NZ06FYFAUBiSm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="805, 3, 1292, 259" coords2="805, 3, 1292, 259" shape="rect" alt="ui:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCq_default" href="Package_5T5NZ06FYFAUBiM5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1343, 1126, 2144, 1612" coords2="1343, 1126, 2144, 1612" shape="rect" alt="players:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCc_default" href="Package_bLgVR06FYFAUAg7N.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1023, 798, 1163, 898" coords2="1023, 798, 1163, 898" shape="rect" alt="gameState:Package" id="areadiagram_map_IQ3jZ06FYFAUBjDG_default" href="Package_qE4mp06FYFAUAiAe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1876, 599, 2016, 699" coords2="1876, 599, 2016, 699" shape="rect" alt="squareStateFactory:Package" id="areadiagram_map_IQ3jZ06FYFAUBjC6_default" href="Package_1bYOp06FYFAUAiYe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1834, 553, 2075, 715" coords2="1834, 553, 2075, 715" shape="rect" alt="resourceSquareState:Package" id="areadiagram_map_IQ3jZ06FYFAUBjDE_default" href="Package__rYOp06FYFAUAiXh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1592, 496, 1732, 596" coords2="1592, 496, 1732, 596" shape="rect" alt="squareSetupStrategyFactory:Package" id="areadiagram_map_IQ3jZ06FYFAUBjDC_default" href="Package_bHYOp06FYFAUAiah.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1427, 577, 1567, 677" coords2="1427, 577, 1567, 677" shape="rect" alt="squareSetupStrategy:Package" id="areadiagram_map_qg3jZ06FYFAUBjCG_default" href="Package_57YOp06FYFAUAiZC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1398, 761, 1538, 861" coords2="1398, 761, 1538, 861" shape="rect" alt="board:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCw_default" href="Package_ZLYOp06FYFAUAiWM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1666, 758, 1806, 858" coords2="1666, 758, 1806, 858" shape="rect" alt="buildingSiteSquare:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCu_default" href="Package_6nYOp06FYFAUAibG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1360, 443, 1745, 728" coords2="1360, 443, 1745, 728" shape="rect" alt="squareSetup:Package" id="areadiagram_map_IQ3jZ06FYFAUBjC._default" href="Package_p7YOp06FYFAUAiZB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1806, 468, 2126, 743" coords2="1806, 468, 2126, 743" shape="rect" alt="resourceSquare:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCy_default" href="Package_hrYOp06FYFAUAiWu.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2190, 693, 2330, 793" coords2="2190, 693, 2330, 793" shape="rect" alt="surpriseToken:Package" id="areadiagram_map_qg3jZ06FYFAUBjCE_default" href="Package_D7gVR06FYFAUAg91.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2145, 656, 2390, 857" coords2="2145, 656, 2390, 857" shape="rect" alt="surpriseSquare:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCo_default" href="Package_d7gVR06FYFAUAg90.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2250, 488, 2390, 588" coords2="2250, 488, 2390, 588" shape="rect" alt="nextHutTokenChoosing:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCm_default" href="Package_K7YOp06FYFAUAiY0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1320, 401, 2425, 883" coords2="1320, 401, 2425, 883" shape="rect" alt="squares:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCO_default" href="Package_N7gVR06FYFAUAg9z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="649, 488, 789, 588" coords2="649, 488, 789, 588" shape="rect" alt="gameInitializerFactory:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCK_default" href="Package_u9OIR06FYFAUAnJY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="593, 443, 805, 617" coords2="593, 443, 805, 617" shape="rect" alt="gameInitializer:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCW_default" href="Package_CdOIR06FYFAUAnIc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="629, 1215, 769, 1315" coords2="629, 1215, 769, 1315" shape="rect" alt="forestTokenFactory:Package" id="areadiagram_map_IQ3jZ06FYFAUBjDI_default" href="Package_bD46p06FYFAUAh1W.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="865, 1208, 1005, 1308" coords2="865, 1208, 1005, 1308" shape="rect" alt="grid:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCk_default" href="Package_poaFR06FYFAUAgxv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="643, 1346, 783, 1446" coords2="643, 1346, 783, 1446" shape="rect" alt="nextForestTokenChoosing:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCI_default" href="Package_yj46p06FYFAUAh1m.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="591, 1165, 1043, 1487" coords2="591, 1165, 1043, 1487" shape="rect" alt="forestTokens:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCi_default" href="Package_YoaFR06FYFAUAgxu.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="320, 1832, 460, 1932" coords2="320, 1832, 460, 1932" shape="rect" alt="nextId:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCM_default" href="Package_8hGeZ06FYFAUBh1n.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="519, 1896, 659, 1996" coords2="519, 1896, 659, 1996" shape="rect" alt="shuffle:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCY_default" href="Package_FEaFR06FYFAUAgys.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="261, 1790, 685, 2035" coords2="261, 1790, 685, 2035" shape="rect" alt="utility:Package" id="areadiagram_map_IQ3jZ06FYFAUBjC2_default" href="Package_JEaFR06FYFAUAgyr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="461, 335, 2444, 1700" coords2="461, 335, 2444, 1700" shape="rect" alt="model:Package" id="areadiagram_map_IQ3jZ06FYFAUBjDK_default" href="Package_cdOIR06FYFAUAnIb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3250, 1795, 3390, 1895" coords2="3250, 1795, 3390, 1895" shape="rect" alt="univaq:Package" id="areadiagram_map_Lg3jZ06FYFAUBjCg_default" href="Package_0dOIR06FYFAUAnIZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="3500, 1795, 3640, 1895" coords2="3500, 1795, 3640, 1895" shape="rect" alt="com:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCa_default" href="Package_4dOIR06FYFAUAnIY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1320, 1841, 1605, 2051" coords2="1320, 1841, 1605, 2051" shape="rect" alt="persistence:Package" id="areadiagram_map_Jg3jZ06FYFAUBjCS_default" href="Package_zUddZ06FYFAUBih1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_vH5NZ06FYFAUBiQl.html" class="ItemLink">squares : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_sdOIR06FYFAUAnIa.html" class="ItemLink">stoneage : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_RyCWp06FYFAUAiMk.html" class="ItemLink">playerFactory : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_3d32p06FYFAUAiT_.html" class="ItemLink">playerTurning : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_wM5Gp06FYFAUAh_0.html" class="ItemLink">gameGoal : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_RngVR06FYFAUAg_u.html" class="ItemLink">playerAbilityCombining : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_fyCWp06FYFAUAiNK.html" class="ItemLink">RobbedPlayer : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_yCCWp06FYFAUAiKA.html" class="ItemLink">findingSquare : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_PLgVR06FYFAUAg7O.html" class="ItemLink">extraAbilityPlayer : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_hb5NZ06FYFAUBiPF.html" class="ItemLink">players : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_EP5NZ06FYFAUBiSm.html" class="ItemLink">tokens : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_5T5NZ06FYFAUBiM5.html" class="ItemLink">ui : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_bLgVR06FYFAUAg7N.html" class="ItemLink">players : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_qE4mp06FYFAUAiAe.html" class="ItemLink">gameState : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_1bYOp06FYFAUAiYe.html" class="ItemLink">squareStateFactory : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package__rYOp06FYFAUAiXh.html" class="ItemLink">resourceSquareState : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_bHYOp06FYFAUAiah.html" class="ItemLink">squareSetupStrategyFactory : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_57YOp06FYFAUAiZC.html" class="ItemLink">squareSetupStrategy : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_ZLYOp06FYFAUAiWM.html" class="ItemLink">board : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_6nYOp06FYFAUAibG.html" class="ItemLink">buildingSiteSquare : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_p7YOp06FYFAUAiZB.html" class="ItemLink">squareSetup : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_hrYOp06FYFAUAiWu.html" class="ItemLink">resourceSquare : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_D7gVR06FYFAUAg91.html" class="ItemLink">surpriseToken : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_d7gVR06FYFAUAg90.html" class="ItemLink">surpriseSquare : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_K7YOp06FYFAUAiY0.html" class="ItemLink">nextHutTokenChoosing : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_N7gVR06FYFAUAg9z.html" class="ItemLink">squares : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_u9OIR06FYFAUAnJY.html" class="ItemLink">gameInitializerFactory : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_CdOIR06FYFAUAnIc.html" class="ItemLink">gameInitializer : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_bD46p06FYFAUAh1W.html" class="ItemLink">forestTokenFactory : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_poaFR06FYFAUAgxv.html" class="ItemLink">grid : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_yj46p06FYFAUAh1m.html" class="ItemLink">nextForestTokenChoosing : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_YoaFR06FYFAUAgxu.html" class="ItemLink">forestTokens : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_8hGeZ06FYFAUBh1n.html" class="ItemLink">nextId : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_FEaFR06FYFAUAgys.html" class="ItemLink">shuffle : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_JEaFR06FYFAUAgyr.html" class="ItemLink">utility : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_cdOIR06FYFAUAnIb.html" class="ItemLink">model : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_0dOIR06FYFAUAnIZ.html" class="ItemLink">univaq : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_4dOIR06FYFAUAnIY.html" class="ItemLink">com : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_zUddZ06FYFAUBih1.html" class="ItemLink">persistence : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

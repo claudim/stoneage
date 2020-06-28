@@ -1,0 +1,393 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>State Machine Diagram - Game State Machine Diagram  IT2</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_jtMHKw6FYFAUBQb9.html" class="PageParentTitle">Design Model : Model</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Model_6VAf2k6FYFAUAgqr.html" class="PageParentTitle">Iteration2 : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			State Machine Diagram - Game State Machine Diagram  IT2		</span>
+<a onclick="showVpLink('StoneAgeIT3_24.vpp://diagram/lGxwOk6FYFAUAg5a', 'Game State Machine Diagram  IT2\nStoneAgeIT3_24.vpp://diagram/lGxwOk6FYFAUAg5a', 'Game State Machine Diagram  IT2', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|2.0|319.0|174.0|40.0|State2_619IOk6FYFAUAg75.html|State2_619IOk6FYFAUAg75.html|a19IOk6FYFAUAg74" id="optiona19IOk6FYFAUAg74">End_Game : State</option>
+<option value="shape|234.0|319.0|174.0|40.0|State2_KX1IOk6FYFAUAg7u.html|State2_KX1IOk6FYFAUAg7u.html|KX1IOk6FYFAUAg7t" id="optionKX1IOk6FYFAUAg7t">End_Turn : State</option>
+<option value="shape|848.0|319.0|174.0|40.0|State2_Te5IOk6FYFAUAg7o.html|State2_Te5IOk6FYFAUAg7o.html|je5IOk6FYFAUAg7n" id="optionje5IOk6FYFAUAg7n">WaitingForHutToken : State</option>
+<option value="shape|663.0|319.0|174.0|40.0|State2_3mxIOk6FYFAUAg7X.html|State2_3mxIOk6FYFAUAg7X.html|XmxIOk6FYFAUAg7W" id="optionXmxIOk6FYFAUAg7W">WaitingForPrey : State</option>
+<option value="shape|763.0|193.0|174.0|40.0|State2_68BIOk6FYFAUAg7R.html|State2_68BIOk6FYFAUAg7R.html|a8BIOk6FYFAUAg7Q" id="optiona8BIOk6FYFAUAg7Q">OnNewSquare : State</option>
+<option value="shape|385.0|193.0|174.0|40.0|State2_bbGIOk6FYFAUAg66.html|State2_bbGIOk6FYFAUAg66.html|rbGIOk6FYFAUAg65" id="optionrbGIOk6FYFAUAg65">WaitingForForestToken : State</option>
+<option value="shape|385.0|83.0|174.0|40.0|State2_rGAIOk6FYFAUAg6G.html|State2_rGAIOk6FYFAUAg6G.html|rGAIOk6FYFAUAg6F" id="optionrGAIOk6FYFAUAg6F">Start_Turn : State</option>
+<option value="shape|2.0|83.0|174.0|40.0|State2_HkTwOk6FYFAUAg5z.html|State2_HkTwOk6FYFAUAg5z.html|HkTwOk6FYFAUAg5y" id="optionHkTwOk6FYFAUAg5y">Start_Game : State</option>
+<option value="shape|79.0|2.0|20.0|20.0|InitialPseudoState_9xxwOk6FYFAUAg5p.html|InitialPseudoState_9xxwOk6FYFAUAg5p.html|9xxwOk6FYFAUAg5o" id="option9xxwOk6FYFAUAg5o">Unnamed Initial Pseudo State : Initial Pseudo State</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Game_State_Machine_Diagram_IT2.png" usemap="#diagram_map" class="Image" width="1026" height="401"/>
+					<map name="diagram_map">
+<area imageId="diagram" coords="82.0, 22.0, 82.0, 83.0, 96.0, 83.0, 96.0, 22.0" coords2="82.0, 22.0, 82.0, 83.0, 96.0, 83.0, 96.0, 22.0" shape="poly" alt="playGame:Transition" id="areadiagram_map_LSIIOk6FYFAUAg6a_default" href="Transition2_DSIIOk6FYFAUAg6Z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="176.0, 96.0, 176.0, 110.0, 385.0, 110.0, 385.0, 96.0" coords2="176.0, 96.0, 176.0, 110.0, 385.0, 110.0, 385.0, 96.0" shape="poly" alt="initialize:Transition" id="areadiagram_map_pmSIOk6FYFAUAg6v_default" href="Transition2_hmSIOk6FYFAUAg6u.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="465.0, 123.0, 465.0, 193.0, 479.0, 193.0, 479.0, 123.0" coords2="465.0, 123.0, 465.0, 193.0, 479.0, 193.0, 479.0, 123.0" shape="poly" alt="waitForForestToken:Transition" id="areadiagram_map_ue7IOk6FYFAUAg8l_default" href="Transition2_Ge7IOk6FYFAUAg8k.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="559.0, 206.0, 559.0, 220.0, 763.0, 220.0, 763.0, 206.0" coords2="559.0, 206.0, 559.0, 220.0, 763.0, 220.0, 763.0, 206.0" shape="poly" alt="onNewSquare:Transition" id="areadiagram_map_aQgoOk6FYFAUAg9F_default" href="Transition2_SQgoOk6FYFAUAg9E.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="358.0, 203.0, 358.0, 206.0, 355.0, 206.0, 355.0, 220.0, 358.0, 220.0, 358.0, 319.0, 372.0, 319.0, 372.0, 220.0, 385.0, 220.0, 385.0, 206.0, 372.0, 206.0, 372.0, 203.0" coords2="358.0, 203.0, 358.0, 206.0, 355.0, 206.0, 355.0, 220.0, 358.0, 220.0, 358.0, 319.0, 372.0, 319.0, 372.0, 220.0, 385.0, 220.0, 385.0, 206.0, 372.0, 206.0, 372.0, 203.0" shape="poly" alt="onNewSquare:Transition" id="areadiagram_map_m5MoOk6FYFAUAg9s_default" href="Transition2_K5MoOk6FYFAUAg9r.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="792.0, 233.0, 792.0, 319.0, 806.0, 319.0, 806.0, 233.0" coords2="792.0, 233.0, 792.0, 319.0, 806.0, 319.0, 806.0, 233.0" shape="poly" alt="missingResource:Transition" id="areadiagram_map_ATaoOk6FYFAUAg.G_default" href="Transition2_PjaoOk6FYFAUAg_F.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="878.0, 233.0, 878.0, 319.0, 892.0, 319.0, 892.0, 233.0" coords2="878.0, 233.0, 878.0, 319.0, 892.0, 319.0, 892.0, 233.0" shape="poly" alt="hutTokenCheckDone:Transition" id="areadiagram_map_c6toOk6FYFAUAg_U_default" href="Transition2_06toOk6FYFAUAg_T.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="284.0, 103.0, 284.0, 106.0, 281.0, 106.0, 281.0, 120.0, 284.0, 120.0, 284.0, 319.0, 298.0, 319.0, 298.0, 120.0, 385.0, 120.0, 385.0, 106.0, 298.0, 106.0, 298.0, 103.0" coords2="284.0, 103.0, 284.0, 106.0, 281.0, 106.0, 281.0, 120.0, 284.0, 120.0, 284.0, 319.0, 298.0, 319.0, 298.0, 120.0, 385.0, 120.0, 385.0, 106.0, 298.0, 106.0, 298.0, 103.0" shape="poly" alt="nextTurn:Transition" id="areadiagram_map_DKXoOk6FYFAUAhAA_default" href="Transition2_NKXoOk6FYFAUAg__.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="176.0, 332.0, 176.0, 346.0, 234.0, 346.0, 234.0, 332.0" coords2="176.0, 332.0, 176.0, 346.0, 234.0, 346.0, 234.0, 332.0" shape="poly" alt="winner:Transition" id="areadiagram_map_vCYYOk6FYFAUAhA2_default" href="Transition2_rCYYOk6FYFAUAhA1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="82.0, 123.0, 82.0, 319.0, 96.0, 319.0, 96.0, 123.0" coords2="82.0, 123.0, 82.0, 319.0, 96.0, 319.0, 96.0, 123.0" shape="poly" alt="playGame:Transition" id="areadiagram_map_n0CYOk6FYFAUAhBa_default" href="Transition2_r0CYOk6FYFAUAhBZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="408.0, 332.0, 408.0, 346.0, 663.0, 346.0, 663.0, 332.0" coords2="408.0, 332.0, 408.0, 346.0, 663.0, 346.0, 663.0, 332.0" shape="poly" alt="stealResource:Transition" id="areadiagram_map_PDxYOk6FYFAUAhBs_default" href="Transition2_7DxYOk6FYFAUAhBr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="314.0, 359.0, 314.0, 390.0, 311.0, 390.0, 311.0, 404.0, 314.0, 404.0, 314.0, 407.0, 328.0, 407.0, 328.0, 404.0, 928.0, 404.0, 928.0, 407.0, 942.0, 407.0, 942.0, 404.0, 945.0, 404.0, 945.0, 390.0, 942.0, 390.0, 942.0, 359.0, 928.0, 359.0, 928.0, 390.0, 328.0, 390.0, 328.0, 359.0" coords2="314.0, 359.0, 314.0, 390.0, 311.0, 390.0, 311.0, 404.0, 314.0, 404.0, 314.0, 407.0, 328.0, 407.0, 328.0, 404.0, 928.0, 404.0, 928.0, 407.0, 942.0, 407.0, 942.0, 404.0, 945.0, 404.0, 945.0, 390.0, 942.0, 390.0, 942.0, 359.0, 928.0, 359.0, 928.0, 390.0, 328.0, 390.0, 328.0, 359.0" shape="poly" alt="builtHut:Transition" id="areadiagram_map_T41YOk6FYFAUAhB8_default" href="Transition2_d41YOk6FYFAUAhB7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="763.0, 225.85864, 393.0, 314.0, 393.7143, 319.0, 408.0, 319.0, 408.0, 324.90314, 408.0, 324.90314, 777.0, 237.0, 776.4286, 233.0, 763.0, 233.0, 763.0, 225.85864" coords2="763.0, 225.85864, 393.0, 314.0, 393.7143, 319.0, 408.0, 319.0, 408.0, 324.90314, 408.0, 324.90314, 777.0, 237.0, 776.4286, 233.0, 763.0, 233.0, 763.0, 225.85864" shape="poly" alt="actionDone || gotResource:Transition" id="areadiagram_map_WIk4Ok6FYFAUAhCh_default" href="Transition2_aIk4Ok6FYFAUAhCg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2, 319, 176, 359" coords2="2, 319, 176, 359" shape="rect" alt="End_Game:State" id="areadiagram_map_a19IOk6FYFAUAg74_default" href="State2_619IOk6FYFAUAg75.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="234, 319, 408, 359" coords2="234, 319, 408, 359" shape="rect" alt="End_Turn:State" id="areadiagram_map_KX1IOk6FYFAUAg7t_default" href="State2_KX1IOk6FYFAUAg7u.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="848, 319, 1022, 359" coords2="848, 319, 1022, 359" shape="rect" alt="WaitingForHutToken:State" id="areadiagram_map_je5IOk6FYFAUAg7n_default" href="State2_Te5IOk6FYFAUAg7o.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="663, 319, 837, 359" coords2="663, 319, 837, 359" shape="rect" alt="WaitingForPrey:State" id="areadiagram_map_XmxIOk6FYFAUAg7W_default" href="State2_3mxIOk6FYFAUAg7X.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="763, 193, 937, 233" coords2="763, 193, 937, 233" shape="rect" alt="OnNewSquare:State" id="areadiagram_map_a8BIOk6FYFAUAg7Q_default" href="State2_68BIOk6FYFAUAg7R.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="385, 193, 559, 233" coords2="385, 193, 559, 233" shape="rect" alt="WaitingForForestToken:State" id="areadiagram_map_rbGIOk6FYFAUAg65_default" href="State2_bbGIOk6FYFAUAg66.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Stato in cui si trova il game dopo l'inizializzazione o successivamente 
+      al termine di un &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');&amp;quot;&amp;gt;turno&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="385, 83, 559, 123" coords2="385, 83, 559, 123" shape="rect" alt="Start_Turn:State" id="areadiagram_map_rGAIOk6FYFAUAg6F_default" href="State2_rGAIOk6FYFAUAg6G.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Stato in cui si trova il game prima che venga inizializzato
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 83, 176, 123" coords2="2, 83, 176, 123" shape="rect" alt="Start_Game:State" id="areadiagram_map_HkTwOk6FYFAUAg5y_default" href="State2_HkTwOk6FYFAUAg5z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="79, 2, 99, 22" coords2="79, 2, 99, 22" shape="rect" alt=":Initial Pseudo State" id="areadiagram_map_9xxwOk6FYFAUAg5o_default" href="InitialPseudoState_9xxwOk6FYFAUAg5p.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_619IOk6FYFAUAg75.html" class="ItemLink">End_Game : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_KX1IOk6FYFAUAg7u.html" class="ItemLink">End_Turn : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_Te5IOk6FYFAUAg7o.html" class="ItemLink">WaitingForHutToken : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_3mxIOk6FYFAUAg7X.html" class="ItemLink">WaitingForPrey : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_68BIOk6FYFAUAg7R.html" class="ItemLink">OnNewSquare : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_bbGIOk6FYFAUAg66.html" class="ItemLink">WaitingForForestToken : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_rGAIOk6FYFAUAg6G.html" class="ItemLink">Start_Turn : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Stato in cui si trova il game dopo l'inizializzazione o successivamente 
+      al termine di un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="highlightGridModelSelection('16KyGw6FYFAUBRCa');">turno</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_HkTwOk6FYFAUAg5z.html" class="ItemLink">Start_Game : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Stato in cui si trova il game prima che venga inizializzato
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InitialPseudoState.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InitialPseudoState.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="InitialPseudoState_9xxwOk6FYFAUAg5p.html" class="ItemLink">N/A : Initial Pseudo State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

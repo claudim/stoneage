@@ -1,0 +1,1320 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Grid - Glossary Grid</title>
+	<META name="Description" content="Glossario di StoneAge"/>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_kn2AGw6FYFAUBQ6f.html" class="PageParentTitle">Glossary : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Grid - Glossary <a onclick="highlightGridModelSelection('8GRgaI6FYFAUAg6_');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_" class="ItemLink">Grid</a>		</span>
+<a onclick="showVpLink('StoneAgeIT3_24.vpp://diagram/qn2AGw6FYFAUBQ6n', 'Glossary Grid\nStoneAgeIT3_24.vpp://diagram/qn2AGw6FYFAUBQ6n', 'Glossary Grid', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Configuration			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Model Element</span>			</td>
+			<td>
+			</td>
+			<td>
+				<div class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Term.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Term.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Term</span>				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Project</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Includes Referenced Projects</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Terms			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="3" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="3" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td width="19%" style="padding: 5px 10px;">
+<span class="TableHeaderText">Name</span>			</td>
+			<td width="19%" style="padding: 5px 10px;">
+<span class="TableHeaderText">Aliases</span>			</td>
+			<td width="61%" style="padding: 5px 10px;">
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="3" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr id="modelSelectionHE.GDY6FYFAUAgo0" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="HE.GDY6FYFAUAgo0"></a><a href="Glossary_HE_GDY6FYFAUAgo0.html" class="TableContent"><span class="TableContent">activePlayer</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="HE.GDY6FYFAUAgo0"></a>				<span class="TableContent">
+<span class="TableContent">currentPlayer</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="HE.GDY6FYFAUAgo0"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      attivo durante il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="highlightGridModelSelection('16KyGw6FYFAUBRCa');">turno</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection_s8EGw6FYFAUBQ8Q" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="_s8EGw6FYFAUBQ8Q"></a><a href="Glossary__s8EGw6FYFAUBQ8Q.html" class="TableContent"><span class="TableContent">Anfora</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="_s8EGw6FYFAUBQ8Q"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="_s8EGw6FYFAUBQ8Q"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Tipologia particolare di <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionJFpiGw6FYFAUBRBj" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="JFpiGw6FYFAUBRBj"></a><a href="Glossary_JFpiGw6FYFAUBRBj.html" class="TableContent"><span class="TableContent">Artigiano</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="JFpiGw6FYFAUBRBj"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="JFpiGw6FYFAUBRBj"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono collocate le risorse <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#_s8EGw6FYFAUBQ8Q" name="" onclick="highlightGridModelSelection('_s8EGw6FYFAUBQ8Q');">anfora</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionP5z4Gw6FYFAUBQ70" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="P5z4Gw6FYFAUBQ70"></a><a href="Glossary_P5z4Gw6FYFAUBQ70.html" class="TableContent"><span class="TableContent">Bacca</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="P5z4Gw6FYFAUBQ70"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="P5z4Gw6FYFAUBQ70"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Tipologia particolare di <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectioneD4O206FYFAUAhFu" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="eD4O206FYFAUAhFu"></a><a href="Glossary_eD4O206FYFAUAhFu.html" class="TableContent"><span class="TableContent">buildHut(idHutToken: int): void</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="eD4O206FYFAUAhFu"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="eD4O206FYFAUAhFu"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Operazione di sistema per la costruzione di una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_" name="" onclick="highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');">capanna</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionketiGw6FYFAUBRB2" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="ketiGw6FYFAUBRB2"></a><a href="Glossary_ketiGw6FYFAUBRB2.html" class="TableContent"><span class="TableContent">Campo di battaglia</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="ketiGw6FYFAUBRB2"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="ketiGw6FYFAUBRB2"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono effettuate battaglie tra giocatori.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectiondE_CGw6FYFAUBRAn" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="dE_CGw6FYFAUBRAn"></a><a href="Glossary_dE_CGw6FYFAUBRAn.html" class="TableContent"><span class="TableContent">Cane</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="dE_CGw6FYFAUBRAn"></a>				<span class="TableContent">
+<span class="TableContent">Dog</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="dE_CGw6FYFAUBRAn"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono posizionati i <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#l2bEGw6FYFAUBQ83" name="" onclick="highlightGridModelSelection('l2bEGw6FYFAUBQ83');">dog
+      token</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection9_5CGw6FYFAUBRAX" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="9_5CGw6FYFAUBRAX"></a><a href="Glossary_9_5CGw6FYFAUBRAX.html" class="TableContent"><span class="TableContent">Cantiere</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="9_5CGw6FYFAUBRAX"></a>				<span class="TableContent">
+<span class="TableContent">BuildingSiteSquare</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="9_5CGw6FYFAUBRAX"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui viene costruita una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_" name="" onclick="highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');">capanna</a>
+      se il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      &#232; in possesso di tutte le risorse necessarie.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionQYA0Gw6FYFAUBQ9_" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="QYA0Gw6FYFAUBQ9_"></a><a href="Glossary_QYA0Gw6FYFAUBQ9_.html" class="TableContent"><span class="TableContent">Capanna</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="QYA0Gw6FYFAUBQ9_"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="QYA0Gw6FYFAUBQ9_"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Elemento del gioco acquisito nell'<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">insediamento</a>
+      di un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      attraverso l'uso di risorse.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionaANSGw6FYFAUBRCR" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="aANSGw6FYFAUBRCR"></a><a href="Glossary_aANSGw6FYFAUBRCR.html" class="TableContent"><span class="TableContent">Carta Capanna</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="aANSGw6FYFAUBRCR"></a>				<span class="TableContent">
+<span class="TableContent">cartaCapanna</span>, <span class="TableContent">HutToken</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="aANSGw6FYFAUBRCR"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Carta del gioco associata ad una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_" name="" onclick="highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');">capanna</a>.
+      Indica al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      quali sono le risorse necessarie per la costruzione di una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_" name="" onclick="highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');">capanna</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionk.niGw6FYFAUBRCI" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="k.niGw6FYFAUBRCI"></a><a href="Glossary_k_niGw6FYFAUBRCI.html" class="TableContent"><span class="TableContent">Carta Sorpresa</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="k.niGw6FYFAUBRCI"></a>				<span class="TableContent">
+<span class="TableContent">SurpriseToken</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="k.niGw6FYFAUBRCI"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Carta del gioco che consente al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      azioni particolari.
+    </p>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Le carte <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#VToiGw6FYFAUBRAy" name="" onclick="highlightGridModelSelection('VToiGw6FYFAUBRAy');">sorpresa</a>
+      sono:
+    </p>
+    <ol class="decimal" margin-left-ltr="50" margin-right-rtl="50" style="list-style-type:none;margin-bottom:0px;margin-top:0px;margin-left:40pt;">
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        Salta il prossimo <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="highlightGridModelSelection('16KyGw6FYFAUBRCa');">turno</a>;
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        Vai al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9_5CGw6FYFAUBRAX" name="" onclick="highlightGridModelSelection('9_5CGw6FYFAUBRAX');">cantiere</a>;
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        vai al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL" name="" onclick="highlightGridModelSelection('5W2CGw6FYFAUBRAL');">mercato</a>;
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        vai dal <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#dE_CGw6FYFAUBRAn" name="" onclick="highlightGridModelSelection('dE_CGw6FYFAUBRAn');">cane</a>;
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        scambia 2 <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+        forest</a>;
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        scegli un altro <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+        forest</a>;
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        consegna una particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>;
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        al prossimo <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="highlightGridModelSelection('16KyGw6FYFAUBRCa');">turno</a>
+        prendi due risorse nella <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      </li>
+    </ol>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0;margin-left:0pt;">
+      &nbsp;
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectiont1dcGw6FYFAUBQ_q" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="t1dcGw6FYFAUBQ_q"></a><a href="Glossary_t1dcGw6FYFAUBQ_q.html" class="TableContent"><span class="TableContent">Casella</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="t1dcGw6FYFAUBQ_q"></a>				<span class="TableContent">
+<span class="TableContent">Square</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="t1dcGw6FYFAUBQ_q"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Un elemento del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6" name="" onclick="highlightGridModelSelection('nNgCGw6FYFAUBQ_6');">game
+      board</a> del gioco. L'insieme delle caselle costituisce il percorso su 
+      cui il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+      di un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      pu&#242; muoversi.
+    </p>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Alcune caselle appartengono a pi&#249; di una modalit&#224;del gioco.
+    </p>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Le caselle sono: <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL" name="" onclick="highlightGridModelSelection('5W2CGw6FYFAUBRAL');">Mercato</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9_5CGw6FYFAUBRAX" name="" onclick="highlightGridModelSelection('9_5CGw6FYFAUBRAX');">Cantiere</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#dE_CGw6FYFAUBRAn" name="" onclick="highlightGridModelSelection('dE_CGw6FYFAUBRAn');">Cane</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#VToiGw6FYFAUBRAy" name="" onclick="highlightGridModelSelection('VToiGw6FYFAUBRAy');">Sorpresa</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Em8iGw6FYFAUBRBH" name="" onclick="highlightGridModelSelection('Em8iGw6FYFAUBRBH');">Prateria</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#hJqiGw6FYFAUBRBR" name="" onclick="highlightGridModelSelection('hJqiGw6FYFAUBRBR');">Foresta</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#JFpiGw6FYFAUBRBj" name="" onclick="highlightGridModelSelection('JFpiGw6FYFAUBRBj');">Artigiano</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8RliGw6FYFAUBRBt" name="" onclick="highlightGridModelSelection('8RliGw6FYFAUBRBt');">Cava</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#ketiGw6FYFAUBRB2" name="" onclick="highlightGridModelSelection('ketiGw6FYFAUBRB2');">Campo
+      di Battaglia</a>, <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#qwLiGw6FYFAUBRB_" name="" onclick="highlightGridModelSelection('qwLiGw6FYFAUBRB_');">Fiume</a>.
+    </p>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      &nbsp;
+    </p>
+    &nbsp;
+
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      &nbsp;
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionpYTx2k6FYFAUAjJz" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="pYTx2k6FYFAUAjJz"></a><a href="Glossary_pYTx2k6FYFAUAjJz.html" class="TableContent"><span class="TableContent">Casella Risorsa</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="pYTx2k6FYFAUAjJz"></a>				<span class="TableContent">
+<span class="TableContent">ResourceSquare</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="pYTx2k6FYFAUAjJz"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">Casella</a>
+      che contiene una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>.
+      Esempi di <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz" name="" onclick="highlightGridModelSelection('pYTx2k6FYFAUAjJz');">casella
+      risorsa</a> &#232; <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#hJqiGw6FYFAUBRBR" name="" onclick="highlightGridModelSelection('hJqiGw6FYFAUBRBR');">Foresta</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#qwLiGw6FYFAUBRB_" name="" onclick="highlightGridModelSelection('qwLiGw6FYFAUBRB_');">Fiume</a>,<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8RliGw6FYFAUBRBt" name="" onclick="highlightGridModelSelection('8RliGw6FYFAUBRBt');">Cava</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Em8iGw6FYFAUBRBH" name="" onclick="highlightGridModelSelection('Em8iGw6FYFAUBRBH');">Prateria</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#JFpiGw6FYFAUBRBj" name="" onclick="highlightGridModelSelection('JFpiGw6FYFAUBRBj');">Artigiano</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#dE_CGw6FYFAUBRAn" name="" onclick="highlightGridModelSelection('dE_CGw6FYFAUBRAn');">Cane</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection8RliGw6FYFAUBRBt" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="8RliGw6FYFAUBRBt"></a><a href="Glossary_8RliGw6FYFAUBRBt.html" class="TableContent"><span class="TableContent">Cava</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="8RliGw6FYFAUBRBt"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="8RliGw6FYFAUBRBt"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono collocate le risorse <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Qdv4Gw6FYFAUBQ8G" name="" onclick="highlightGridModelSelection('Qdv4Gw6FYFAUBQ8G');">freccia</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectiont1X4Gw6FYFAUBQ79" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="t1X4Gw6FYFAUBQ79"></a><a href="Glossary_t1X4Gw6FYFAUBQ79.html" class="TableContent"><span class="TableContent">Dente</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="t1X4Gw6FYFAUBQ79"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="t1X4Gw6FYFAUBQ79"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Tipologia particolare di <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionl2bEGw6FYFAUBQ83" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="l2bEGw6FYFAUBQ83"></a><a href="Glossary_l2bEGw6FYFAUBQ83.html" class="TableContent"><span class="TableContent">Dog token</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="l2bEGw6FYFAUBQ83"></a>				<span class="TableContent">
+<span class="TableContent">jolly</span>, <span class="TableContent">dogToken</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="l2bEGw6FYFAUBQ83"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    Elemento del gioco che funge da <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#l2bEGw6FYFAUBQ83" name="" onclick="highlightGridModelSelection('l2bEGw6FYFAUBQ83');">jolly</a>
+    nel gioco. Infatti, pu&#242; essere utilizzato al posto di un'altra <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+    per la costruzione di una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_" name="" onclick="highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');">capanna</a>,
+    ma non pu&#242; essere n&#232; scambiato al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL" name="" onclick="highlightGridModelSelection('5W2CGw6FYFAUBRAL');">mercato</a>,
+    n&#232; vinto in battaglia.
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionCFl1DY6FYFAUAh91" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="CFl1DY6FYFAUAh91"></a><a href="Glossary_CFl1DY6FYFAUAh91.html" class="TableContent"><span class="TableContent">EmulatedPlayer</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="CFl1DY6FYFAUAh91"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="CFl1DY6FYFAUAh91"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">Player</a>
+      emulato dal sistema
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionqwLiGw6FYFAUBRB_" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="qwLiGw6FYFAUBRB_"></a><a href="Glossary_qwLiGw6FYFAUBRB_.html" class="TableContent"><span class="TableContent">Fiume</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="qwLiGw6FYFAUBRB_"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="qwLiGw6FYFAUBRB_"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono collocate le risorse <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#4V6EGw6FYFAUBQ8s" name="" onclick="highlightGridModelSelection('4V6EGw6FYFAUBQ8s');">pesce</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionhJqiGw6FYFAUBRBR" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="hJqiGw6FYFAUBRBR"></a><a href="Glossary_hJqiGw6FYFAUBRBR.html" class="TableContent"><span class="TableContent">Foresta</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="hJqiGw6FYFAUBRBR"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="hJqiGw6FYFAUBRBR"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono collocate le risorse <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#P5z4Gw6FYFAUBQ70" name="" onclick="highlightGridModelSelection('P5z4Gw6FYFAUBQ70');">bacca</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionQdv4Gw6FYFAUBQ8G" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="Qdv4Gw6FYFAUBQ8G"></a><a href="Glossary_Qdv4Gw6FYFAUBQ8G.html" class="TableContent"><span class="TableContent">Freccia</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="Qdv4Gw6FYFAUBQ8G"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="Qdv4Gw6FYFAUBQ8G"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Tipologia particolare di <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionnNgCGw6FYFAUBQ_6" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="nNgCGw6FYFAUBQ_6"></a><a href="Glossary_nNgCGw6FYFAUBQ_6.html" class="TableContent"><span class="TableContent">Game board</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="nNgCGw6FYFAUBQ_6"></a>				<span class="TableContent">
+<span class="TableContent">Board</span>, <span class="TableContent">gameBoard</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="nNgCGw6FYFAUBQ_6"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Tavolo da gioco. Possiede diverse aree per collocare gli elementi del 
+      gioco.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionKTSsGw6FYFAUBQ_H" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="KTSsGw6FYFAUBQ_H"></a><a href="Glossary_KTSsGw6FYFAUBQ_H.html" class="TableContent"><span class="TableContent">Gestore</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="KTSsGw6FYFAUBQ_H"></a>				<span class="TableContent">
+<span class="TableContent">Manager</span>, <span class="TableContent">Game Manager</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="KTSsGw6FYFAUBQ_H"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Colui che gestisce il gioco
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionV3pMGw6FYFAUBQ.w" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="V3pMGw6FYFAUBQ.w"></a><a href="Glossary_V3pMGw6FYFAUBQ_w.html" class="TableContent"><span class="TableContent">Giocatore</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="V3pMGw6FYFAUBQ.w"></a>				<span class="TableContent">
+<span class="TableContent">Player</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="V3pMGw6FYFAUBQ.w"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Colui che gioca al gioco
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection5kYsaI6FYFAUAhKL" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="5kYsaI6FYFAUAhKL"></a><a href="Glossary_5kYsaI6FYFAUAhKL.html" class="TableContent"><span class="TableContent">Giro</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="5kYsaI6FYFAUAhKL"></a>				<span class="TableContent">
+<span class="TableContent">Round</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="5kYsaI6FYFAUAhKL"></a><span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr id="modelSelection8GRgaI6FYFAUAg6_" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="8GRgaI6FYFAUAg6_"></a><a href="Glossary_8GRgaI6FYFAUAg6_.html" class="TableContent"><span class="TableContent">Grid</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="8GRgaI6FYFAUAg6_"></a>				<span class="TableContent">
+<span class="TableContent">Griglia</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="8GRgaI6FYFAUAg6_"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_" name="" onclick="highlightGridModelSelection('8GRgaI6FYFAUAg6_');">Griglia</a>
+      (o insieme) delle posizioni che devono essere occupate dai <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionSOmgaI6FYFAUAg6y" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="SOmgaI6FYFAUAg6y"></a><a href="Glossary_SOmgaI6FYFAUAg6y.html" class="TableContent"><span class="TableContent">HumanPlayer</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="SOmgaI6FYFAUAg6y"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="SOmgaI6FYFAUAg6y"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">Player</a>
+      fisico
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionaCx2206FYFAUAhFN" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="aCx2206FYFAUAhFN"></a><a href="Glossary_aCx2206FYFAUAhFN.html" class="TableContent"><span class="TableContent">hutTokenInSettlement</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="aCx2206FYFAUAhFN"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="aCx2206FYFAUAhFN"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Hut toke appena costruito dal <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a>
+      e posizionato nel suo accampamento
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection2l_W206FYFAUAhEj" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="2l_W206FYFAUAhEj"></a><a href="Glossary_2l_W206FYFAUAhEj.html" class="TableContent"><span class="TableContent">hutTokenToBuildByPlayer</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="2l_W206FYFAUAhEj"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="2l_W206FYFAUAhEj"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Insieme dei token hut che il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a>
+      attivo pu&#242; edificare quando il suo <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+      si trova sulla <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      building site
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionmS9yGw6FYFAUBRCk" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="mS9yGw6FYFAUBRCk"></a><a href="Glossary_mS9yGw6FYFAUBRCk.html" class="TableContent"><span class="TableContent">Marker</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="mS9yGw6FYFAUBRCk"></a>				<span class="TableContent">
+<span class="TableContent">Pedina</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="mS9yGw6FYFAUBRCk"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Elemento del gioco che consente di individuare la <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nnFgaI6FYFAUAg7I" name="" onclick="highlightGridModelSelection('nnFgaI6FYFAUAg7I');">posizione</a>
+      di un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      sul <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6" name="" onclick="highlightGridModelSelection('nNgCGw6FYFAUBQ_6');">game
+      board</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionL49ZTw6FYFAUAhaJ" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="L49ZTw6FYFAUAhaJ"></a><a href="Glossary_L49ZTw6FYFAUAhaJ.html" class="TableContent"><span class="TableContent">markerNameNextPlayer</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="L49ZTw6FYFAUAhaJ"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="L49ZTw6FYFAUAhaJ"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Nome del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+      del prossimo <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      che deve giocare
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionR7apTw6FYFAUAhXR" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="R7apTw6FYFAUAhXR"></a><a href="Glossary_R7apTw6FYFAUAhXR.html" class="TableContent"><span class="TableContent">markerNamerFirstPlayer</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="R7apTw6FYFAUAhXR"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="R7apTw6FYFAUAhXR"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Il nome del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+      del primo <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection0hJZTw6FYFAUAhZw" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="0hJZTw6FYFAUAhZw"></a><a href="Glossary_0hJZTw6FYFAUAhZw.html" class="TableContent"><span class="TableContent">markerNameSquare</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="0hJZTw6FYFAUAhZw"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="0hJZTw6FYFAUAhZw"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Nome della <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      in cui si trova il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection5W2CGw6FYFAUBRAL" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="5W2CGw6FYFAUBRAL"></a><a href="Glossary_5W2CGw6FYFAUBRAL.html" class="TableContent"><span class="TableContent">Mercato</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="5W2CGw6FYFAUBRAL"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="5W2CGw6FYFAUBRAL"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono effettuati gli scambi di risorse.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionNXm2DY6FYFAUAg09" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="NXm2DY6FYFAUAg09"></a><a href="Glossary_NXm2DY6FYFAUAg09.html" class="TableContent"><span class="TableContent">Modalità</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="NXm2DY6FYFAUAg09"></a>				<span class="TableContent">
+<span class="TableContent">Mode</span>, <span class="TableContent">GameMode</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="NXm2DY6FYFAUAg09"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare configurazione del gioco.
+    </p>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Pu&#242; essere <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e" name="" onclick="highlightGridModelSelection('CCEt5U6FYFAUBV1e');">Rossa</a>
+      o <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1." name="" onclick="highlightGridModelSelection('Q_mt5U6FYFAUBV1.');">Verde</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionnJrWGw6FYFAUBRN4" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="nJrWGw6FYFAUBRN4"></a><a href="Glossary_nJrWGw6FYFAUBRN4.html" class="TableContent"><span class="TableContent">Mossa</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="nJrWGw6FYFAUBRN4"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="nJrWGw6FYFAUBRN4"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Azione che pu&#242; essere effettuata da un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      in una determinata fase del gioco.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionVcRWGw6FYFAUBRMx" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="VcRWGw6FYFAUBRMx"></a><a href="Glossary_VcRWGw6FYFAUBRMx.html" class="TableContent"><span class="TableContent">Partita</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="VcRWGw6FYFAUBRMx"></a>				<span class="TableContent">
+<span class="TableContent">StoneAgeGame</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="VcRWGw6FYFAUBRMx"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Insieme di turni effettuati da diversi giocatori fino alla vittoria di 
+      uno di essi.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection4V6EGw6FYFAUBQ8s" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="4V6EGw6FYFAUBQ8s"></a><a href="Glossary_4V6EGw6FYFAUBQ8s.html" class="TableContent"><span class="TableContent">Pesce</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="4V6EGw6FYFAUBQ8s"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="4V6EGw6FYFAUBQ8s"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Tipologia particolare di <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionnnFgaI6FYFAUAg7I" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="nnFgaI6FYFAUAg7I"></a><a href="Glossary_nnFgaI6FYFAUAg7I.html" class="TableContent"><span class="TableContent">Position</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="nnFgaI6FYFAUAg7I"></a>				<span class="TableContent">
+<span class="TableContent">Posizione</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="nnFgaI6FYFAUAg7I"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Area che deve essere occupata da un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionEm8iGw6FYFAUBRBH" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="Em8iGw6FYFAUBRBH"></a><a href="Glossary_Em8iGw6FYFAUBRBH.html" class="TableContent"><span class="TableContent">Prateria</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="Em8iGw6FYFAUBRBH"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="Em8iGw6FYFAUBRBH"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono collocate le risorse <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1X4Gw6FYFAUBQ79" name="" onclick="highlightGridModelSelection('t1X4Gw6FYFAUBQ79');">dente</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionUfUz006GAqACBw2c" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="UfUz006GAqACBw2c"></a><a href="Glossary_UfUz006GAqACBw2c.html" class="TableContent"><span class="TableContent">RegularSquare</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="UfUz006GAqACBw2c"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="UfUz006GAqACBw2c"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">Casella</a>
+      in cui non viene eseguita alcuna azione quando il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+      vi atterra.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection.2AO206FYFAUAhFf" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name=".2AO206FYFAUAhFf"></a><a href="Glossary__2AO206FYFAUAhFf.html" class="TableContent"><span class="TableContent">resourceInSettlement</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name=".2AO206FYFAUAhFf"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name=".2AO206FYFAUAhFf"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">Risorsa</a>
+      rimossa dall <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>
+      di originee assegnata all'<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">insediamento</a>
+      del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      attivo
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionYZN2206FYFAUAhFW" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="YZN2206FYFAUAhFW"></a><a href="Glossary_YZN2206FYFAUAhFW.html" class="TableContent"><span class="TableContent">resourcesInSquare</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="YZN2206FYFAUAhFW"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="YZN2206FYFAUAhFW"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Risorse ricollocate nelle <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>
+      di origine
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionpYZAGw6FYFAUBQ7A" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="pYZAGw6FYFAUBQ7A"></a><a href="Glossary_pYZAGw6FYFAUBQ7A.html" class="TableContent"><span class="TableContent">Risorsa</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="pYZAGw6FYFAUBQ7A"></a>				<span class="TableContent">
+<span class="TableContent">Resource</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="pYZAGw6FYFAUBQ7A"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Un elemento del gioco utilizzato per la costruzione di una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_" name="" onclick="highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');">capanna</a>,
+      per lo scambio nel <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL" name="" onclick="highlightGridModelSelection('5W2CGw6FYFAUBRAL');">mercato</a>
+      o come ricompensa per la vittoria di una battaglia.
+    </p>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Le risorse possono essere distinte in:
+    </p>
+    <ol class="decimal" margin-left-ltr="50" margin-right-rtl="50" style="list-style-type:none;margin-bottom:0px;margin-top:0px;margin-left:40pt;">
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#P5z4Gw6FYFAUBQ70" name="" onclick="highlightGridModelSelection('P5z4Gw6FYFAUBQ70');">Bacca</a>
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1X4Gw6FYFAUBQ79" name="" onclick="highlightGridModelSelection('t1X4Gw6FYFAUBQ79');">Dente</a>
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Qdv4Gw6FYFAUBQ8G" name="" onclick="highlightGridModelSelection('Qdv4Gw6FYFAUBQ8G');">Freccia</a>
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#4V6EGw6FYFAUBQ8s" name="" onclick="highlightGridModelSelection('4V6EGw6FYFAUBQ8s');">Pesce</a>
+      </li>
+      <li style="margin-right:0;margin-bottom:0;margin-top:0;margin-left:0;">
+        <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#_s8EGw6FYFAUBQ8Q" name="" onclick="highlightGridModelSelection('_s8EGw6FYFAUBQ8Q');">Anfora</a>
+      </li>
+    </ol>
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0;margin-left:0pt;">
+      &nbsp;
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionCCEt5U6FYFAUBV1e" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="CCEt5U6FYFAUBV1e"></a><a href="Glossary_CCEt5U6FYFAUBV1e.html" class="TableContent"><span class="TableContent">Rossa</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="CCEt5U6FYFAUBV1e"></a>				<span class="TableContent">
+<span class="TableContent">RedMode</span>, <span class="TableContent">Modalità Rossa</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="CCEt5U6FYFAUBV1e"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">Modalit&#224;</a>
+      difficile del gioco
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection68V0Gw6FYFAUBQ.J" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="68V0Gw6FYFAUBQ.J"></a><a href="Glossary_68V0Gw6FYFAUBQ_J.html" class="TableContent"><span class="TableContent">Settlement</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="68V0Gw6FYFAUBQ.J"></a>				<span class="TableContent">
+<span class="TableContent">Insediamento</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="68V0Gw6FYFAUBQ.J"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Area assegnata ad ogni <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      nella quale costruire le capanne, stoccare le risorse ed altri elementi 
+      del gioco come ad esempio i <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#l2bEGw6FYFAUBQ83" name="" onclick="highlightGridModelSelection('l2bEGw6FYFAUBQ83');">dog
+      token</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionVToiGw6FYFAUBRAy" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="VToiGw6FYFAUBRAy"></a><a href="Glossary_VToiGw6FYFAUBRAy.html" class="TableContent"><span class="TableContent">Sorpresa</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="VToiGw6FYFAUBRAy"></a>				<span class="TableContent">
+<span class="TableContent">SurpriseSquare</span>, <span class="TableContent">Casella Sorpresa</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="VToiGw6FYFAUBRAy"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Particolare <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      del gioco in cui vengono collocate le carte <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#VToiGw6FYFAUBRAy" name="" onclick="highlightGridModelSelection('VToiGw6FYFAUBRAy');">sorpresa</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionz58O206FYFAUAhF3" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="z58O206FYFAUAhF3"></a><a href="Glossary_z58O206FYFAUAhF3.html" class="TableContent"><span class="TableContent">stealResource(playerName)</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="z58O206FYFAUAhF3"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="z58O206FYFAUAhF3"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Operazione di sistema per il furto di una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection9EJsGw6FYFAUBQ_f" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="9EJsGw6FYFAUBQ_f"></a><a href="Glossary_9EJsGw6FYFAUBQ_f.html" class="TableContent"><span class="TableContent">Token Forest</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="9EJsGw6FYFAUBQ_f"></a>				<span class="TableContent">
+<span class="TableContent">tokenForest</span>, <span class="TableContent">forestToken</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="9EJsGw6FYFAUBQ_f"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Tessera del gioco scelta da un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      all'inizio di ogni <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="highlightGridModelSelection('16KyGw6FYFAUBRCa');">turno</a>
+      e indica la <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      su cui posizionare il proprio <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>.
+      &#232; utilizzato come un dado, ma oltre alle 6 facce standard, ci sono <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a> indicanti non un incremento nell'avanzamento ma una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      specifica come ad esempio la <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL" name="" onclick="highlightGridModelSelection('5W2CGw6FYFAUBRAL');">mercato</a>,
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9_5CGw6FYFAUBRAX" name="" onclick="highlightGridModelSelection('9_5CGw6FYFAUBRAX');">cantiere</a>,
+      ecc..
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionp5zuDY6FYFAUAg34" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="p5zuDY6FYFAUAg34"></a><a href="Glossary_p5zuDY6FYFAUAg34.html" class="TableContent"><span class="TableContent">tokenForestPosition</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="p5zuDY6FYFAUAg34"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="p5zuDY6FYFAUAg34"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nnFgaI6FYFAUAg7I" name="" onclick="highlightGridModelSelection('nnFgaI6FYFAUAg7I');">Posizione</a>
+      associata al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionHbmZTw6FYFAUAhZN" class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="HbmZTw6FYFAUAhZN"></a><a href="Glossary_HbmZTw6FYFAUAhZN.html" class="TableContent"><span class="TableContent">tokenForestValue</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="HbmZTw6FYFAUAhZN"></a>				<span class="TableContent">
+				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="HbmZTw6FYFAUAhZN"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Valore del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a>. Per sapere i valori possibili del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a> vedi regola<span style="font-size:11.0pt;"><font size="11.0pt" style="font-size:11.0pt;">&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a> per <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">modalit&#224;</a><o p="#DEFAULT" style="font-size:11.0pt;"></o style="font-size:11.0pt;"></font></span>&nbsp;<span style="font-size:11.0pt;"><font size="11.0pt" style="font-size:11.0pt;">
+      per <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">modalit&#224;</a><o p="#DEFAULT" style="font-size:11.0pt;"></o style="font-size:11.0pt;"></font></span>
+      R22 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelection16KyGw6FYFAUBRCa" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="16KyGw6FYFAUBRCa"></a><a href="Glossary_16KyGw6FYFAUBRCa.html" class="TableContent"><span class="TableContent">Turno</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="16KyGw6FYFAUBRCa"></a>				<span class="TableContent">
+<span class="TableContent">Turn</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="16KyGw6FYFAUBRCa"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Insieme delle mosse effettuate da un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionQ_mt5U6FYFAUBV1." class="TableRow2">
+			<td style="padding: 5px 10px;">
+<a name="Q_mt5U6FYFAUBV1."></a><a href="Glossary_Q_mt5U6FYFAUBV1_.html" class="TableContent"><span class="TableContent">Verde</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="Q_mt5U6FYFAUBV1."></a>				<span class="TableContent">
+<span class="TableContent">Green</span>, <span class="TableContent">GreenMode</span>, <span class="TableContent">Modalità Verde</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="Q_mt5U6FYFAUBV1."></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">Modalit&#224;</a>
+      facile del gioco
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr id="modelSelectionvKs0zw6FYFAUAhc9" class="TableRow1">
+			<td style="padding: 5px 10px;">
+<a name="vKs0zw6FYFAUAhc9"></a><a href="Glossary_vKs0zw6FYFAUAhc9.html" class="TableContent"><span class="TableContent">Vincitore</span></a>			</td>
+			<td style="padding: 5px 10px;">
+<a name="vKs0zw6FYFAUAhc9"></a>				<span class="TableContent">
+<span class="TableContent">winner</span>				</span>
+			</td>
+			<td style="padding: 5px 10px;">
+<a name="vKs0zw6FYFAUAhc9"></a><span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">Giocatore</a>
+      che ha costruito il giusto numero di capanne per ottenere la vittoria 
+      del gioco
+    </p>
+  </body></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>
