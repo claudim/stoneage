@@ -42,6 +42,7 @@ public class CheckBuildableHutStrategy implements ICheckBuildableHutStrategy {
                     mHutToken.setM_buildableByActivePlayer(false);
                 if (mHutToken.isM_buildableByActivePlayer())
                     playerBuildableMHutTokens.add(mHutToken);
+
             }
         }
         return playerBuildableMHutTokens;

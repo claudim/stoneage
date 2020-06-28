@@ -149,6 +149,11 @@ public abstract class MGrid {
 		return FACEDOWNTokens;
 	}
 
+	/**
+	 * Choose a forest token id using the nextForestTokenStrategy.
+	 *
+	 * @return the forest token id
+	 */
 	public int getNextForestTokenId() {
 		return m_nextForestTokenStrategy.getNextForestTokenId(getFACEDOWNTokenForest());
 	}
