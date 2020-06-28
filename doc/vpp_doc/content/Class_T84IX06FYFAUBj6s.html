@@ -1,0 +1,7629 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title></title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		<span>
+StoneAge		</span>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p>
+<a href="Model_6JuH5U6FYFAUBSOP.html" class="PageParentTitle">Implementation Model : Model</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Package_9HYIX06FYFAUBjoV.html" class="PageParentTitle">com : Package</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Package_bHYIX06FYFAUBjoW.html" class="PageParentTitle">univaq : Package</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Package_nHYIX06FYFAUBjoX.html" class="PageParentTitle">stoneage : Package</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Package_3HYIX06FYFAUBjoY.html" class="PageParentTitle">model : Package</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Package_EM4IX06FYFAUBj3M.html" class="PageParentTitle">players : Package</a>	</p>
+	<p class="PageTitle">
+Class - MPlayer<a onclick="javascript: showVpLink('StoneAgeIT3_24.vpp://modelelement/T84IX06FYFAUBj6s', 'MPlayer\nStoneAgeIT3_24.vpp://modelelement/T84IX06FYFAUBj6s', 'MPlayer', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Properties			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The class <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">Player</a> 
+      is responsible for the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      and <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">settlement</a> 
+      creation, <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      movement, build a hut token, steal a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>, 
+      choose the name <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      to rob.
+    </p>
+    <p style="margin-top:0;">
+      It knows if is the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9" name="" onclick="javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');">winner</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Active</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Business Key Mutable</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Business Model</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Root</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Attributes Summary			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="10" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="10" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td width="10%">
+<span class="TableHeaderText">Visibility</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td width="15%">
+<span class="TableHeaderText">Type</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td width="15%">
+<span class="TableHeaderText">Initial Value</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="10" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#384IX06FYFAUBj6u" class="ItemLink">m_winner</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+private			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_3iklKw6FYFAUBQWR.html" class="ItemLink">boolean</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#mP4IX06FYFAUBkV5" class="ItemLink">m_marker</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+protected			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="Class_fiCWp06FYFAUAiKz.html" class="ItemLink">MMarker</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#.P4IX06FYFAUBkWA" class="ItemLink">m_settlement</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+protected			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="Class_jSCWp06FYFAUAiLp.html" class="ItemLink">MSettlement</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Operations Summary			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="8" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="8" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="10%">
+<span class="TableHeaderText">Visibility</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td width="15%">
+<span class="TableHeaderText">Return Type</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="8" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#v84IX06FYFAUBj6w" class="ItemLink">MPlayer</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Constructor.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+String			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#_84IX06FYFAUBj6y" class="ItemLink">getMarkerName</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Get the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      name.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_3iklKw6FYFAUBQWR.html" class="ItemLink">boolean</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#AC4IX06FYFAUBj60" class="ItemLink">isM_winner</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Check if it is the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9" name="" onclick="javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');">winner</a> 
+      according to the game goal.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="Class_HHgVR06FYFAUAg_3.html" class="ItemLink">MSquare</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#QC4IX06FYFAUBj62" class="ItemLink">moveMarker</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Move the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token 
+      forest</a>.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#IC4IX06FYFAUBj66" class="ItemLink">playTurn</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Start a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a>.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#oC4IX06FYFAUBj68" class="ItemLink">createSettlement</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Create the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">settlement</a>.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#4C4IX06FYFAUBj7A" class="ItemLink">buildHut</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Build a hut token.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+String			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#kC4IX06FYFAUBj7E" class="ItemLink">choosePlayerToRob</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Choose the robbed <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      name among game players.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#0C4IX06FYFAUBj7G" class="ItemLink">stealResource</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Steal a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a> 
+      from the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      passed as parameter.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#cC4IX06FYFAUBj7K" class="ItemLink">executeOnSquareAbility</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Perform actions according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      abilities when the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      is on the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#8C4IX06FYFAUBj7M" class="ItemLink">executeOnStartTurnAbility</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Perform start <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a> 
+      actions according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      abilities.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#CC4IX06FYFAUBj7O" class="ItemLink">executeOnEndTurnAbility</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Perform end <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a> 
+      actions according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      abilities.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="Class_47gVR06FYFAUAg81.html" class="ItemLink">MPlayer</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#yC4IX06FYFAUBj7S" class="ItemLink">getPlayer</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Get the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      with no ability.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#KC4IX06FYFAUBj7U" class="ItemLink">createMarker</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Create the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#mC4IX06FYFAUBj7Y" class="ItemLink">createMarker</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Create the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      and set it on a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td class="TableContent">
+public			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<a href="DataType__iklKw6FYFAUBQWW.html" class="ItemLink">int</a>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_T84IX06FYFAUBj6s.html#OC4IX06FYFAUBj7e" class="ItemLink">chooseIdHutToken</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td class="TableContent">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Choose the hut token id to build.
+    </p>
+  </body>
+</html>
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Relationships Summary			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="6" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="6" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Begin</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">End</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="6" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Association.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Association.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html#zb4IX06FYFAUBkUG" class="ItemLink"> : Association</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_p04IX06FYFAUBj2G.html" class="ItemLink">MStoneAgeGame : Class</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Association.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Association.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html#b74IX06FYFAUBkU2" class="ItemLink"> : Association</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_0M4IX06FYFAUBj3O.html" class="ItemLink">ExtraAbilityPlayerDecorator : Class</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Association.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Association.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html#xv4IX06FYFAUBkWk" class="ItemLink"> : Association</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_TS4IX06FYFAUBj9o.html" class="ItemLink">MPlayerFactory : Class</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Association.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Association.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html#toEIX06FYFAUBkaX" class="ItemLink"> : Association</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_We4IX06FYFAUBkHc.html" class="ItemLink">GoToBuildingSiteSquareSurpriseTokenCommand : Class</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Association.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Association.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html#qP4IX06FYFAUBkV0" class="ItemLink"> : Association</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_484IX06FYFAUBj56.html" class="ItemLink">MMarker : Class</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Association.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Association.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html#2P4IX06FYFAUBkV7" class="ItemLink"> : Association</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>				</span>
+			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+&nbsp;<a href="Class_eC4IX06FYFAUBj7g.html" class="ItemLink">MSettlement : Class</a>				</span>
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Attributes Details			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+<a name="384IX06FYFAUBj6u"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+m_<a onclick="javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9" class="ItemLink">winner</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Stereotypes</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+<a href="Stereotype_MPYIX06FYFAUBjo3.html" class="ItemLink">Property</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Type</span>			</td>
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="DataType_3iklKw6FYFAUBQWR.html" class="ItemLink">boolean</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Allow Empty Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Has Setter</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Has Getter</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">private</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Multiplicity</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Aggregation</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">None</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived Union</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Read Only</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Is ID</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="mP4IX06FYFAUBkV5"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+m_<a onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" class="ItemLink">marker</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Stereotypes</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+<a href="Stereotype_MPYIX06FYFAUBjo3.html" class="ItemLink">Property</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Type</span>			</td>
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_fiCWp06FYFAUAiKz.html" class="ItemLink">MMarker</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Allow Empty Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Has Setter</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Has Getter</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">protected</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Multiplicity</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Aggregation</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">None</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived Union</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Read Only</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Is ID</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name=".P4IX06FYFAUBkWA"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+m_<a onclick="javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" class="ItemLink">settlement</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Stereotypes</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+<a href="Stereotype_MPYIX06FYFAUBjo3.html" class="ItemLink">Property</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Type</span>			</td>
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+<a href="Class_jSCWp06FYFAUAiLp.html" class="ItemLink">MSettlement</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Allow Empty Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Has Setter</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Has Getter</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">protected</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Multiplicity</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Aggregation</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">None</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived Union</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Read Only</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Is ID</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Operations Details			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+<a name="v84IX06FYFAUBj6w"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">MPlayer</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Constructor.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="_84IX06FYFAUBj6y"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">getMarkerName</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Get the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      name.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      name
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">String</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="AC4IX06FYFAUBj60"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+isM_<a onclick="javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9" class="ItemLink">winner</a>				</span>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Check if it is the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9" name="" onclick="javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');">winner</a> 
+      according to the game goal.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      true if is the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9" name="" onclick="javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');">winner</a>, 
+      false otherwise
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_3iklKw6FYFAUBQWR.html" class="ItemLink">boolean</a>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="QC4IX06FYFAUBj62"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">MTokenForest</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Description</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token 
+      forest</a>
+    </p>
+  </body>
+</html>
+</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a href="Class_3946p06FYFAUAh0f.html" class="ItemLink">MTokenForest</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">moveMarker</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Move the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token 
+      forest</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="Class_HHgVR06FYFAUAg_3.html" class="ItemLink">MSquare</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="IC4IX06FYFAUBj66"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">playTurn</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Start a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="oC4IX06FYFAUBj68"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">aName</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Description</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The name.
+    </p>
+  </body>
+</html>
+</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td class="TableContent">
+String						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">createSettlement</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Create the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">settlement</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="4C4IX06FYFAUBj7A"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">idHutToken</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Description</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The hut token id to build.
+    </p>
+  </body>
+</html>
+</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a href="DataType__iklKw6FYFAUBQWW.html" class="ItemLink">int</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">buildHut</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Build a hut token.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="kC4IX06FYFAUBj7E"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">choosePlayerToRob</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Choose the robbed <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      name among game players.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      the robbed <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      name
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">String</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="0C4IX06FYFAUBj7G"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" class="ItemLink">player</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Description</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The robbed <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a>
+    </p>
+  </body>
+</html>
+</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a href="Class_47gVR06FYFAUAg81.html" class="ItemLink">MPlayer</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">stealResource</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Steal a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a> 
+      from the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      passed as parameter.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="cC4IX06FYFAUBj7K"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">executeOnSquareAbility</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Perform actions according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      abilities when the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      is on the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="8C4IX06FYFAUBj7M"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">executeOnStartTurnAbility</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Perform start <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a> 
+      actions according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      abilities.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="CC4IX06FYFAUBj7O"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">gameState</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a href="Class_uk4mp06FYFAUAiBf.html" class="ItemLink">GameState</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">executeOnEndTurnAbility</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Perform end <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');">turn</a> 
+      actions according to the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      abilities.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="yC4IX06FYFAUBj7S"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">getPlayer</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Get the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      with no ability.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      with no ability.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="Class_47gVR06FYFAUAg81.html" class="ItemLink">MPlayer</a>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="KC4IX06FYFAUBj7U"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">aMarkerName</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Description</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      name
+    </p>
+  </body>
+</html>
+</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td class="TableContent">
+String						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">createMarker</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Create the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="mC4IX06FYFAUBj7Y"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">aMarkerName</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Description</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      name
+    </p>
+  </body>
+</html>
+</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td class="TableContent">
+String						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Name</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">aNewSquare</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Description</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      The <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Type</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a href="Class_HHgVR06FYFAUAg_3.html" class="ItemLink">MSquare</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Direction</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">inout</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">createMarker</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Create the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      and set it on a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType_gSklKw6FYFAUBQWZ.html" class="ItemLink">void</a>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="OC4IX06FYFAUBj7e"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Parameters</span>			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">chooseIdHutToken</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Choose the hut token id to build.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Static</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Upper</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">1</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visible</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Ordered</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unique</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type Description</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      the hut token id
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Return Type</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a href="DataType__iklKw6FYFAUBQWW.html" class="ItemLink">int</a>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">public</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Scope</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">instance</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Final</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Synchronized</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Native</span>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+false			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Query</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">true</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Relationships Detail			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+<a name="zb4IX06FYFAUBkUG"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">From</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent"></span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_p04IX06FYFAUBj2G.html" class="ItemLink">MStoneAgeGame : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">false</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">To</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">m_players</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">*</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">true</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td style="height: 5px;">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="b74IX06FYFAUBkU2"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">From</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent"></span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_0M4IX06FYFAUBj3O.html" class="ItemLink">ExtraAbilityPlayerDecorator : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">false</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">To</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" class="ItemLink">player</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">true</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td style="height: 5px;">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="xv4IX06FYFAUBkWk"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">From</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent"></span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_TS4IX06FYFAUBj9o.html" class="ItemLink">MPlayerFactory : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">false</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">To</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">players</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">*</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">true</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td style="height: 5px;">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="toEIX06FYFAUBkaX"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">From</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent"></span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_We4IX06FYFAUBkHc.html" class="ItemLink">GoToBuildingSiteSquareSurpriseTokenCommand : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">false</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">To</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+<a onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" class="ItemLink">player</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">true</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td style="height: 5px;">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="qP4IX06FYFAUBkV0"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">From</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent"></span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">false</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">To</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+m_<a onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" class="ItemLink">marker</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_484IX06FYFAUBj56.html" class="ItemLink">MMarker : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">true</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td style="height: 5px;">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+<a name="2P4IX06FYFAUBkV7"></a>	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Value</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Name</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">From</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent"></span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_T84IX06FYFAUBj6s.html" class="ItemLink">MPlayer : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">false</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">To</span>			</td>
+			<td>
+			</td>
+			<td>
+				<table border="0" cellpadding="0" width="100%" cellspacing="0">
+					<tr class="SubtableHeader">
+						<td class="TableCellSpaceHolder10Px">
+						</td>
+						<td width="25%">
+<span class="TableHeaderText">Name</span>						</td>
+						<td class="TableCellSpaceHolder20Px">
+						</td>
+						<td>
+<span class="TableHeaderText">Value</span>						</td>
+					</tr>
+					<tr>
+						<td colSpan="4" class="TableHeaderLine2">
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Role</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+m_<a onclick="javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" class="ItemLink">settlement</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Element</span>						</td>
+						<td>
+						</td>
+						<td>
+							<span class="TableContent">
+								<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+								</div>
+&nbsp;<a href="Class_eC4IX06FYFAUBj7g.html" class="ItemLink">MSettlement : Class</a>							</span>
+						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Multiplicity</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Unspecified</span>						</td>
+					</tr>
+					<tr class="TableRow2">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Aggregation Kind</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">None</span>						</td>
+					</tr>
+					<tr class="TableRow1">
+						<td>
+						</td>
+						<td>
+<span class="TableContent">Navigable</span>						</td>
+						<td>
+						</td>
+						<td>
+<span class="TableContent">true</span>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Abstract</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Leaf</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Visibility</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Unspecified</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+<span class="TableContent">Derived</span>			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent">false</span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td style="height: 5px;">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<div style="height: 20px;">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+StoneAge	</div>
+</body>
+</html>

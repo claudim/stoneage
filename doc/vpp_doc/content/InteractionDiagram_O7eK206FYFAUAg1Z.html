@@ -1,0 +1,447 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Sequence Diagram - Avvia Partita System Sequence Diagram IT2</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_tslLKw6FYFAUBQbm.html" class="PageParentTitle">Use-Case Model : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Sequence Diagram - Avvia <a onclick="highlightGridModelSelection('VcRWGw6FYFAUBRMx');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#VcRWGw6FYFAUBRMx" class="ItemLink">Partita</a> System Sequence Diagram IT2		</span>
+<a onclick="showVpLink('StoneAgeIT3_24.vpp://diagram/O7eK206FYFAUAg1Z', 'Avvia Partita System Sequence Diagram IT2\nStoneAgeIT3_24.vpp://diagram/O7eK206FYFAUAg1Z', 'Avvia Partita System Sequence Diagram IT2', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|612.0|78.0|8.0|109.0|Activation_f__K206FYFAUAg1w.html|Activation_f__K206FYFAUAg1w.html|0B.K206FYFAUAg1z" id="option0B.K206FYFAUAg1z">Activation : Activation</option>
+<option value="shape|576.0|2.0|81.0|35.0|InteractionLifeLine_P__K206FYFAUAg1v.html|InteractionLifeLine_P__K206FYFAUAg1v.html|P..K206FYFAUAg1t" id="optionP..K206FYFAUAg1t">Unnamed Lifeline : Lifeline</option>
+<option value="shape|2.0|2.0|60.0|35.0|InteractionActor_d__K206FYFAUAg1q.html|InteractionActor_d__K206FYFAUAg1q.html|N..K206FYFAUAg1o" id="optionN..K206FYFAUAg1o">Player : Actor</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Avvia_Partita_System_Sequence_Diagram_IT2.png" usemap="#diagram_map" class="Image" width="661" height="211"/>
+					<map name="diagram_map">
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoNormal&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      &amp;lt;!--[if gte vml 1]&amp;gt;&amp;lt;v:line id=&amp;quot;Connettore_x0020_1_x0020_1&amp;quot;
+ o:spid=&amp;quot;_x0000_s1026&amp;quot; style='position:absolute;z-index:251659264;visibility:visible;
+ mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+ mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+ mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+ mso-position-vertical:absolute;mso-position-vertical-relative:text' from=&amp;quot;-1.85pt,21.15pt&amp;quot;
+ to=&amp;quot;506.15pt,21.15pt&amp;quot; o:gfxdata=&amp;quot;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
+BQAFAGcBAABfDAAAAAA=
+&amp;quot; strokecolor=&amp;quot;#4472c4 [3204]&amp;quot; strokeweight=&amp;quot;.5pt&amp;quot;&amp;gt;
+ &amp;lt;v:stroke joinstyle=&amp;quot;miter&amp;quot;/&amp;gt;
+&amp;lt;/v:line&amp;gt;&amp;lt;![endif]--&amp;gt;
+      &amp;lt;span lang=&amp;quot;EN-US&amp;quot;&amp;gt;Contratto CO1: playStoneAge&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt; IT2&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoNormal&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;lt;/o&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoNormal&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span lang=&amp;quot;EN-US&amp;quot;&amp;gt;Operazione:&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/span&amp;gt;&amp;lt;span lang=&amp;quot;EN-US&amp;quot;&amp;gt;playStoneAge(&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;mode&amp;lt;/a&amp;gt;:String, 
+      numPlayers: Integer, markerName: String)&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoNormal&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Riferimenti:&amp;lt;span&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/span&amp;gt;casi 
+      d&amp;#8217;uso: Avvia &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#VcRWGw6FYFAUBRMx&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('VcRWGw6FYFAUBRMx');&amp;quot;&amp;gt;Partita&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoNormal&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Pre-condizioni:&amp;lt;span&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/span&amp;gt;Il 
+      &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;giocatore&amp;lt;/a&amp;gt; 
+      sta avviando la &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#VcRWGw6FYFAUBRMx&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('VcRWGw6FYFAUBRMx');&amp;quot;&amp;gt;partita&amp;lt;/a&amp;gt; 
+      in &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('CCEt5U6FYFAUBV1e');&amp;quot;&amp;gt;modalit&amp;#224; 
+      rossa&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoNormal&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Post-condizioni:&amp;lt;span&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/span&amp;gt;-&amp;lt;span&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/span&amp;gt;&amp;#232; stata creata un&amp;#8217;istanza sag di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#VcRWGw6FYFAUBRMx&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('VcRWGw6FYFAUBRMx');&amp;quot;&amp;gt;StoneAgeGame&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpFirst&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;sono state create 16 istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;TokenForest&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;per ciascuna istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;TokenForest&amp;lt;/a&amp;gt;, 
+      l&amp;#8217;attributo state &amp;#232; diventato faceDown&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;ciascuna istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;TokenForest&amp;lt;/a&amp;gt; 
+      &amp;#232; stata associata con sag&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;&amp;#232; stata creata un&amp;#8217;istanza &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;board&amp;lt;/a&amp;gt; 
+      di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;Board&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;sag &amp;#232; stata associata con &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;board&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;sono state create 10 istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;Square&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;: 
+      un'istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9_5CGw6FYFAUBRAX&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9_5CGw6FYFAUBRAX');&amp;quot;&amp;gt;buildingSiteSquare&amp;lt;/a&amp;gt;, 
+      6 istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYTx2k6FYFAUAjJz');&amp;quot;&amp;gt;resourceSquare&amp;lt;/a&amp;gt;, 
+      3 istanze &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#UfUz006GAqACBw2c&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('UfUz006GAqACBw2c');&amp;quot;&amp;gt;regularSquare&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;ciascuna istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;Square&amp;lt;/a&amp;gt; 
+      &amp;#232; stata associata con &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;board&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;ciascuna istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;Square&amp;lt;/a&amp;gt; 
+      &amp;#232; stata associata ad un'istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;Square&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      - sono state create 5 istanze di tipo &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt; 
+      per ogni &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYTx2k6FYFAUAjJz');&amp;quot;&amp;gt;resourceSquare&amp;lt;/a&amp;gt; 
+      e 2 istanze per la &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYTx2k6FYFAUAjJz');&amp;quot;&amp;gt;resourceSquare&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#dE_CGw6FYFAUBRAn&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('dE_CGw6FYFAUBRAn');&amp;quot;&amp;gt;cane&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      - sono state associate le istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt; 
+      alle rispettive &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      - sono state create 15 istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('aANSGw6FYFAUBRCR');&amp;quot;&amp;gt;hutToken&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      - sono state associate le istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('aANSGw6FYFAUBRCR');&amp;quot;&amp;gt;hutToken&amp;lt;/a&amp;gt; 
+      alla &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9_5CGw6FYFAUBRAX&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9_5CGw6FYFAUBRAX');&amp;quot;&amp;gt;buildingSiteSquare&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;sono state create numPlayers istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;Player&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;ogni istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;Player&amp;lt;/a&amp;gt; 
+      &amp;#232; stata associata a sag&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;sono state create numPlayers istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;Marker&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;un&amp;#8217;istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;Marker&amp;lt;/a&amp;gt; 
+      &amp;#232; stata associata ad una e una sola istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;Player&amp;lt;/a&amp;gt;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpLast&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;tutte le istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;Marker&amp;lt;/a&amp;gt; 
+      sono state posizionate su (associate con) la &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;casella&amp;lt;/a&amp;gt; 
+      di partenza (una delle istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;Square&amp;lt;/a&amp;gt;)&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;sono state create numPlayers istanze di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');&amp;quot;&amp;gt;Settlement&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;o p=&amp;quot;#DEFAULT&amp;quot;&amp;gt;&amp;lt;/o&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;MsoListParagraphCxSpMiddle&amp;quot; style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:124.0pt;&amp;quot; text-indent=&amp;quot;-18.0pt&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span font-style=&amp;quot;normal&amp;quot; font-variant=&amp;quot;normal&amp;quot; line-height=&amp;quot;normal&amp;quot; style=&amp;quot;font-weight:normal;font-size:7.0pt;font-family:Times New Roman;&amp;quot;&amp;gt;&amp;lt;font face=&amp;quot;Times New Roman&amp;quot; size=&amp;quot;7.0pt&amp;quot; style=&amp;quot;font-size:7.0pt;&amp;quot;&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+      &amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;un&amp;#8217;istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');&amp;quot;&amp;gt;Settlement&amp;lt;/a&amp;gt; 
+      &amp;#232; stata associata ad una e una sola istanza di &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;Player&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="26.0, 87.0, 26.0, 101.0, 622.0, 101.0, 622.0, 87.0" coords2="26.0, 87.0, 26.0, 101.0, 622.0, 101.0, 622.0, 87.0" shape="poly" alt="1: playStoneAge(mode, numPlayers, markerName):Message" id="areadiagram_map_yB.K206FYFAUAg13_default" href="Message_KB_K206FYFAUAg15.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="26.0, 136.0, 26.0, 150.0, 622.0, 150.0, 622.0, 136.0" coords2="26.0, 136.0, 26.0, 150.0, 622.0, 150.0, 622.0, 136.0" shape="poly" alt="1.1: board, squares, forestTokens,  players, resources, hutTokens  :Message" id="areadiagram_map_VB.K206FYFAUAg2E_default" href="Message_1B_K206FYFAUAg2G.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="612, 78, 620, 187" coords2="612, 78, 620, 187" shape="rect" alt="Activation:Activation" id="areadiagram_map_0B.K206FYFAUAg1z_default" href="Activation_f__K206FYFAUAg1w.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="576, 2, 657, 37" coords2="576, 2, 657, 37" shape="rect" alt=" : System:Lifeline" id="areadiagram_map_P..K206FYFAUAg1t_default" href="InteractionLifeLine_P__K206FYFAUAg1v.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2, 2, 62, 37" coords2="2, 2, 62, 37" shape="rect" alt="Player:Actor" id="areadiagram_map_N..K206FYFAUAg1o_default" href="InteractionActor_d__K206FYFAUAg1q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Activation.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Activation.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Activation_f__K206FYFAUAg1w.html" class="ItemLink">Activation : Activation</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/LifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/LifeLine.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="InteractionLifeLine_P__K206FYFAUAg1v.html" class="ItemLink">:System : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="InteractionActor_d__K206FYFAUAg1q.html" class="ItemLink">Player : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

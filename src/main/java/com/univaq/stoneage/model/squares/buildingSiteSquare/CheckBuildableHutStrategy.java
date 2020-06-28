@@ -27,6 +27,7 @@ public class CheckBuildableHutStrategy implements ICheckBuildableHutStrategy {
         //system checks if the player has enough resources to build an hut.
         for (MHutToken mHutToken : hutTokensToCheck) {
             if (mHutToken.getM_state().equals(TokenState.FACEUP)) {
+                mHutToken.setM_buildableByActivePlayer(false);
                 mHutToken.setM_buildableByActivePlayer(true);
                 //posso costruire la capanna?
                 Map<MResource, Integer> hutTokenMResources = mHutToken.getM_resources();

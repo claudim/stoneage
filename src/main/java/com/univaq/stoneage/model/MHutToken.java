@@ -72,6 +72,8 @@ public class MHutToken implements Serializable {
      * @param m_buildableByActivePlayer true if buildable, false otherwise
      */
     public void setM_buildableByActivePlayer(boolean m_buildableByActivePlayer) {
+        System.out.println(this.idToken + " è edificabile " + m_buildableByActivePlayer);
+
         this.notifyPropertyChange("hutTokenBuildable", this.m_buildableByActivePlayer, m_buildableByActivePlayer);
         this.m_buildableByActivePlayer = m_buildableByActivePlayer;
     }
@@ -123,6 +125,8 @@ public class MHutToken implements Serializable {
      * @param newObject The new value of the property
      */
     public void notifyPropertyChange(String property, Object oldObject, Object newObject) {
+        System.out.println("old obj " + oldObject.toString());
+        System.out.println("new obj " + newObject.toString());
         support.firePropertyChange(property, oldObject, newObject);
     }
 }

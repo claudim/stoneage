@@ -1,0 +1,710 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Class Diagram - UI Class Diagram IT3</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_jtMHKw6FYFAUBQb9.html" class="PageParentTitle">Design Model : Model</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Model_CwHO5U6FYFAUBVSg.html" class="PageParentTitle">Iteration3 : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Class Diagram - UI Class Diagram IT3		</span>
+<a onclick="javascript: showVpLink('StoneAgeIT3_24.vpp://diagram/uGJNZ06FYFAUBiMs', 'UI Class Diagram IT3\nStoneAgeIT3_24.vpp://diagram/uGJNZ06FYFAUBiMs', 'UI Class Diagram IT3', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|1673.0|324.0|261.0|162.0|Class_bT5NZ06FYFAUBiM6.html|Class_bT5NZ06FYFAUBiM6.html|9TlNZ06FYFAUBiVW" id="option9TlNZ06FYFAUBiVW">UGameBoard : Class</option>
+<option value="shape|2200.0|264.0|261.0|236.0|Class_rz5NZ06FYFAUBiNT.html|Class_rz5NZ06FYFAUBiNT.html|9TlNZ06FYFAUBiVY" id="option9TlNZ06FYFAUBiVY">UMainFrame : Class</option>
+<option value="shape|2224.0|604.0|212.0|86.0|Class_JL5NZ06FYFAUBiN_.html|Class_JL5NZ06FYFAUBiN_.html|9TlNZ06FYFAUBiVa" id="option9TlNZ06FYFAUBiVa">FrameDimension : Class</option>
+<option value="shape|1579.0|645.0|229.0|236.0|Class_wr5NZ06FYFAUBiON.html|Class_wr5NZ06FYFAUBiON.html|9TlNZ06FYFAUBiVc" id="option9TlNZ06FYFAUBiVc">UStartGame : Class</option>
+<option value="shape|1986.0|690.0|189.0|146.0|Class_gb5NZ06FYFAUBiOt.html|Class_gb5NZ06FYFAUBiOt.html|9TlNZ06FYFAUBiVe" id="option9TlNZ06FYFAUBiVe">UStealResource : Class</option>
+<option value="shape|3078.0|340.0|184.0|102.0|Class_Db5NZ06FYFAUBiPG.html|Class_Db5NZ06FYFAUBiPG.html|9TlNZ06FYFAUBiVg" id="option9TlNZ06FYFAUBiVg">UMarker : Class</option>
+<option value="shape|1217.0|152.0|261.0|506.0|Class_C75NZ06FYFAUBiPb.html|Class_C75NZ06FYFAUBiPb.html|9TlNZ06FYFAUBiVi" id="option9TlNZ06FYFAUBiVi">UPlayer : Class</option>
+<option value="shape|2615.0|46.0|261.0|132.0|Class_sn5NZ06FYFAUBiQm.html|Class_sn5NZ06FYFAUBiQm.html|9TlNZ06FYFAUBiVk" id="option9TlNZ06FYFAUBiVk">UBoard : Class</option>
+<option value="shape|2789.0|800.0|355.0|312.0|Class_Nn5NZ06FYFAUBiQ7.html|Class_Nn5NZ06FYFAUBiQ7.html|9TlNZ06FYFAUBiVm" id="option9TlNZ06FYFAUBiVm">UBuildingSiteSquare : Class</option>
+<option value="shape|2407.0|871.0|353.0|116.0|Class_XX5NZ06FYFAUBiRs.html|Class_XX5NZ06FYFAUBiRs.html|9TlNZ06FYFAUBiVo" id="option9TlNZ06FYFAUBiVo">UResourceSquare : Class</option>
+<option value="shape|2683.0|294.0|273.0|222.0|Class_m35NZ06FYFAUBiSF.html|Class_m35NZ06FYFAUBiSF.html|9TlNZ06FYFAUBiVq" id="option9TlNZ06FYFAUBiVq">USquare : Class</option>
+<option value="shape|580.0|302.0|524.0|206.0|Class_EP5NZ06FYFAUBiSn.html|Class_EP5NZ06FYFAUBiSn.html|9TlNZ06FYFAUBiVs" id="option9TlNZ06FYFAUBiVs">UGrid : Class</option>
+<option value="shape|193.0|302.0|261.0|132.0|Class_7P5NZ06FYFAUBiTJ.html|Class_7P5NZ06FYFAUBiTJ.html|9TlNZ06FYFAUBiVu" id="option9TlNZ06FYFAUBiVu">UTokenForest : Class</option>
+<option value="shape|2.0|1145.0|1200.0|950.0|Package_5T5NZ06FYFAUBiM5.html|Package_5T5NZ06FYFAUBiM5.html|9TlNZ06FYFAUBiVw" id="option9TlNZ06FYFAUBiVw">ui : Package</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/UI_Class_Diagram_IT3.png" usemap="#diagram_map" class="Image" width="3266" height="2099"/>
+					<map name="diagram_map">
+<area coords="2848,1031,2894,1046" coords2="2848,1031,2894,1046" shape="rect" alt="HutToken" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR"/>
+<area coords="1312,623,1377,638" coords2="1312,623,1377,638" shape="rect" alt="currentPlayer" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#HE.GDY6FYFAUAgo0"/>
+<area imageId="diagram" coords="1934.0, 398.0, 1934.0, 412.0, 2200.0, 412.0, 2200.0, 398.0" coords2="1934.0, 398.0, 1934.0, 412.0, 2200.0, 412.0, 2200.0, 398.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiVy_default" href="Association_Lf5NZ06FYFAUBiUF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2143.0, 204.0, 2143.0, 207.0, 2140.0, 207.0, 2140.0, 221.0, 2143.0, 221.0, 2143.0, 316.0, 2140.0, 316.0, 2140.0, 330.0, 2143.0, 330.0, 2143.0, 333.0, 2157.0, 333.0, 2157.0, 330.0, 2200.0, 330.0, 2200.0, 316.0, 2157.0, 316.0, 2157.0, 221.0, 2258.0, 221.0, 2258.0, 264.0, 2272.0, 264.0, 2272.0, 221.0, 2275.0, 221.0, 2275.0, 207.0, 2272.0, 207.0, 2272.0, 204.0, 2258.0, 204.0, 2258.0, 207.0, 2157.0, 207.0, 2157.0, 204.0" coords2="2143.0, 204.0, 2143.0, 207.0, 2140.0, 207.0, 2140.0, 221.0, 2143.0, 221.0, 2143.0, 316.0, 2140.0, 316.0, 2140.0, 330.0, 2143.0, 330.0, 2143.0, 333.0, 2157.0, 333.0, 2157.0, 330.0, 2200.0, 330.0, 2200.0, 316.0, 2157.0, 316.0, 2157.0, 221.0, 2258.0, 221.0, 2258.0, 264.0, 2272.0, 264.0, 2272.0, 221.0, 2275.0, 221.0, 2275.0, 207.0, 2272.0, 207.0, 2272.0, 204.0, 2258.0, 204.0, 2258.0, 207.0, 2157.0, 207.0, 2157.0, 204.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiV0_default" href="Association_Jf5NZ06FYFAUBiUA.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2956.0, 384.0, 2956.0, 398.0, 3078.0, 398.0, 3078.0, 384.0" coords2="2956.0, 384.0, 2956.0, 398.0, 3078.0, 398.0, 3078.0, 384.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiV2_default" href="Association_9gFNZ06FYFAUBiUz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1478.0, 398.0, 1478.0, 412.0, 1673.0, 412.0, 1673.0, 398.0" coords2="1478.0, 398.0, 1478.0, 412.0, 1673.0, 412.0, 1673.0, 398.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiV4_default" href="Association_of5NZ06FYFAUBiTv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1862.0, -8.0, 1862.0, -5.0, 1859.0, -5.0, 1859.0, 9.0, 1862.0, 9.0, 1862.0, 324.0, 1876.0, 324.0, 1876.0, 9.0, 2633.0, 9.0, 2633.0, 46.0, 2647.0, 46.0, 2647.0, 9.0, 2650.0, 9.0, 2650.0, -5.0, 2647.0, -5.0, 2647.0, -8.0, 2633.0, -8.0, 2633.0, -5.0, 1876.0, -5.0, 1876.0, -8.0" coords2="1862.0, -8.0, 1862.0, -5.0, 1859.0, -5.0, 1859.0, 9.0, 1862.0, 9.0, 1862.0, 324.0, 1876.0, 324.0, 1876.0, 9.0, 2633.0, 9.0, 2633.0, 46.0, 2647.0, 46.0, 2647.0, 9.0, 2650.0, 9.0, 2650.0, -5.0, 2647.0, -5.0, 2647.0, -8.0, 2633.0, -8.0, 2633.0, -5.0, 1876.0, -5.0, 1876.0, -8.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiV6_default" href="Association_of5NZ06FYFAUBiT0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2812.0, 178.0, 2812.0, 294.0, 2826.0, 294.0, 2826.0, 178.0" coords2="2812.0, 178.0, 2812.0, 294.0, 2826.0, 294.0, 2826.0, 178.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiV8_default" href="Association_jAFNZ06FYFAUBiUV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2806.0, 516.0, 2806.0, 689.0, 2803.0, 689.0, 2803.0, 703.0, 2806.0, 703.0, 2806.0, 706.0, 2820.0, 706.0, 2820.0, 703.0, 2887.0, 703.0, 2887.0, 800.0, 2901.0, 800.0, 2901.0, 703.0, 2904.0, 703.0, 2904.0, 689.0, 2901.0, 689.0, 2901.0, 686.0, 2887.0, 686.0, 2887.0, 689.0, 2820.0, 689.0, 2820.0, 516.0" coords2="2806.0, 516.0, 2806.0, 689.0, 2803.0, 689.0, 2803.0, 703.0, 2806.0, 703.0, 2806.0, 706.0, 2820.0, 706.0, 2820.0, 703.0, 2887.0, 703.0, 2887.0, 800.0, 2901.0, 800.0, 2901.0, 703.0, 2904.0, 703.0, 2904.0, 689.0, 2901.0, 689.0, 2901.0, 686.0, 2887.0, 686.0, 2887.0, 689.0, 2820.0, 689.0, 2820.0, 516.0" shape="poly" alt=":Generalization" id="areadiagram_map_9TlNZ06FYFAUBiV._default" href="Generalization_jAFNZ06FYFAUBiUb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2806.0, 516.0, 2806.0, 689.0, 2604.0, 689.0, 2604.0, 686.0, 2590.0, 686.0, 2590.0, 689.0, 2587.0, 689.0, 2587.0, 703.0, 2590.0, 703.0, 2590.0, 871.0, 2604.0, 871.0, 2604.0, 703.0, 2806.0, 703.0, 2806.0, 706.0, 2820.0, 706.0, 2820.0, 703.0, 2823.0, 703.0, 2823.0, 689.0, 2820.0, 689.0, 2820.0, 516.0" coords2="2806.0, 516.0, 2806.0, 689.0, 2604.0, 689.0, 2604.0, 686.0, 2590.0, 686.0, 2590.0, 689.0, 2587.0, 689.0, 2587.0, 703.0, 2590.0, 703.0, 2590.0, 871.0, 2604.0, 871.0, 2604.0, 703.0, 2806.0, 703.0, 2806.0, 706.0, 2820.0, 706.0, 2820.0, 703.0, 2823.0, 703.0, 2823.0, 689.0, 2820.0, 689.0, 2820.0, 516.0" shape="poly" alt=":Generalization" id="areadiagram_map_9TlNZ06FYFAUBiWA_default" href="Generalization_CgFNZ06FYFAUBiUt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="835.0, -8.0, 835.0, -5.0, 832.0, -5.0, 832.0, 9.0, 835.0, 9.0, 835.0, 302.0, 849.0, 302.0, 849.0, 9.0, 1731.0, 9.0, 1731.0, 324.0, 1745.0, 324.0, 1745.0, 9.0, 1748.0, 9.0, 1748.0, -5.0, 1745.0, -5.0, 1745.0, -8.0, 1731.0, -8.0, 1731.0, -5.0, 849.0, -5.0, 849.0, -8.0" coords2="835.0, -8.0, 835.0, -5.0, 832.0, -5.0, 832.0, 9.0, 835.0, 9.0, 835.0, 302.0, 849.0, 302.0, 849.0, 9.0, 1731.0, 9.0, 1731.0, 324.0, 1745.0, 324.0, 1745.0, 9.0, 1748.0, 9.0, 1748.0, -5.0, 1745.0, -5.0, 1745.0, -8.0, 1731.0, -8.0, 1731.0, -5.0, 849.0, -5.0, 849.0, -8.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiWC_default" href="Association_of5NZ06FYFAUBiT5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="454.0, 361.0, 454.0, 375.0, 580.0, 375.0, 580.0, 361.0" coords2="454.0, 361.0, 454.0, 375.0, 580.0, 375.0, 580.0, 361.0" shape="poly" alt=":Association" id="areadiagram_map_9TlNZ06FYFAUBiWE_default" href="Association_8QFNZ06FYFAUBiVG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Class containing the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;board&amp;lt;/a&amp;gt;, 
+      players' settlements and forest token &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');&amp;quot;&amp;gt;grid&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1673, 324, 1934, 486" coords2="1673, 324, 1934, 486" shape="rect" alt="UGameBoard:Class" id="areadiagram_map_9TlNZ06FYFAUBiVW_default" href="Class_bT5NZ06FYFAUBiM6.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1673, 324, 1934, 486',new Array('UGameBoard.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/UGameBoard.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1673, 324, 1934, 486'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Singleton Class that contains all graphical elements of the application
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      &amp;nbsp;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      @author Riccardo
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2200, 264, 2461, 500" coords2="2200, 264, 2461, 500" shape="rect" alt="UMainFrame:Class" id="areadiagram_map_9TlNZ06FYFAUBiVY_default" href="Class_rz5NZ06FYFAUBiNT.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2200, 264, 2461, 500',new Array('UMainFrame.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/UMainFrame.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2200, 264, 2461, 500'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="2224, 604, 2436, 690" coords2="2224, 604, 2436, 690" shape="rect" alt="FrameDimension:Class" id="areadiagram_map_9TlNZ06FYFAUBiVa_default" href="Class_JL5NZ06FYFAUBiN_.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2224, 604, 2436, 690',new Array('UMainFrame.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/UMainFrame.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2224, 604, 2436, 690'),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Start game page
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1579, 645, 1808, 881" coords2="1579, 645, 1808, 881" shape="rect" alt="UStartGame:Class" id="areadiagram_map_9TlNZ06FYFAUBiVc_default" href="Class_wr5NZ06FYFAUBiON.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1579, 645, 1808, 881',new Array('UStartGame.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/UStartGame.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1579, 645, 1808, 881'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Page shown when &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      is going to steal a &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1986, 690, 2175, 836" coords2="1986, 690, 2175, 836" shape="rect" alt="UStealResource:Class" id="areadiagram_map_9TlNZ06FYFAUBiVe_default" href="Class_gb5NZ06FYFAUBiOt.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1986, 690, 2175, 836',new Array('UStealResource.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/UStealResource.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1986, 690, 2175, 836'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Sets &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      style and displays it on squares
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="3078, 340, 3262, 442" coords2="3078, 340, 3262, 442" shape="rect" alt="UMarker:Class" id="areadiagram_map_9TlNZ06FYFAUBiVg_default" href="Class_Db5NZ06FYFAUBiPG.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','3078, 340, 3262, 442',new Array('UMarker.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/players/UMarker.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '3078, 340, 3262, 442'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;Player&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');&amp;quot;&amp;gt;settlement&amp;lt;/a&amp;gt; 
+      class, shows held resources
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="1217, 152, 1478, 658" coords2="1217, 152, 1478, 658" shape="rect" alt="UPlayer:Class" id="areadiagram_map_9TlNZ06FYFAUBiVi_default" href="Class_C75NZ06FYFAUBiPb.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','1217, 152, 1478, 658',new Array('UPlayer.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/players/UPlayer.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '1217, 152, 1478, 658'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      GUI class for representing the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;board&amp;lt;/a&amp;gt;, 
+      it contains squares
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2615, 46, 2876, 178" coords2="2615, 46, 2876, 178" shape="rect" alt="UBoard:Class" id="areadiagram_map_9TlNZ06FYFAUBiVk_default" href="Class_sn5NZ06FYFAUBiQm.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2615, 46, 2876, 178',new Array('UBoard.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/squares/UBoard.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2615, 46, 2876, 178'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Building site &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt;. 
+      Holds huts to build
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2789, 800, 3144, 1112" coords2="2789, 800, 3144, 1112" shape="rect" alt="UBuildingSiteSquare:Class" id="areadiagram_map_9TlNZ06FYFAUBiVm_default" href="Class_Nn5NZ06FYFAUBiQ7.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2789, 800, 3144, 1112',new Array('UBuildingSiteSquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/squares/UBuildingSiteSquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2789, 800, 3144, 1112'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Represents the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;resource&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      on the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');&amp;quot;&amp;gt;board&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2407, 871, 2760, 987" coords2="2407, 871, 2760, 987" shape="rect" alt="UResourceSquare:Class" id="areadiagram_map_9TlNZ06FYFAUBiVo_default" href="Class_XX5NZ06FYFAUBiRs.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2407, 871, 2760, 987',new Array('UResourceSquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/squares/UResourceSquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2407, 871, 2760, 987'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Superclass for all kind of squares
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="2683, 294, 2956, 516" coords2="2683, 294, 2956, 516" shape="rect" alt="USquare:Class" id="areadiagram_map_9TlNZ06FYFAUBiVq_default" href="Class_m35NZ06FYFAUBiSF.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','2683, 294, 2956, 516',new Array('USquare.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/squares/USquare.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '2683, 294, 2956, 516'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Forest token &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');&amp;quot;&amp;gt;grid&amp;lt;/a&amp;gt;. 
+      Display tokens and listen for changes in the model &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');&amp;quot;&amp;gt;grid&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="580, 302, 1104, 508" coords2="580, 302, 1104, 508" shape="rect" alt="UGrid:Class" id="areadiagram_map_9TlNZ06FYFAUBiVs_default" href="Class_EP5NZ06FYFAUBiSn.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','580, 302, 1104, 508',new Array('UGrid.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/tokens/UGrid.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '580, 302, 1104, 508'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Represents the single forest token on the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');&amp;quot;&amp;gt;grid&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="193, 302, 454, 434" coords2="193, 302, 454, 434" shape="rect" alt="UTokenForest:Class" id="areadiagram_map_9TlNZ06FYFAUBiVu_default" href="Class_7P5NZ06FYFAUBiTJ.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','193, 302, 454, 434',new Array('UTokenForest.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/ui/tokens/UTokenForest.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '193, 302, 454, 434'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="2, 1145, 1202, 2095" coords2="2, 1145, 1202, 2095" shape="rect" alt="ui:Package" id="areadiagram_map_9TlNZ06FYFAUBiVw_default" href="Package_5T5NZ06FYFAUBiM5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_bT5NZ06FYFAUBiM6.html" class="ItemLink">UGameBoard : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Class containing the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6" name="" onclick="javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');">board</a>, 
+      players' settlements and forest token <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_" name="" onclick="javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');">grid</a>
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_rz5NZ06FYFAUBiNT.html" class="ItemLink">UMainFrame : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Singleton Class that contains all graphical elements of the application
+    </p>
+    <p style="margin-top:0;">
+      &nbsp;
+    </p>
+    <p style="margin-top:0;">
+      @author Riccardo
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_JL5NZ06FYFAUBiN_.html" class="ItemLink">FrameDimension : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_wr5NZ06FYFAUBiON.html" class="ItemLink">UStartGame : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Start game page
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_gb5NZ06FYFAUBiOt.html" class="ItemLink">UStealResource : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Page shown when <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      is going to steal a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_Db5NZ06FYFAUBiPG.html" class="ItemLink">UMarker : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Sets <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a> 
+      style and displays it on squares
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_C75NZ06FYFAUBiPb.html" class="ItemLink">UPlayer : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">Player</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">settlement</a> 
+      class, shows held resources
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_sn5NZ06FYFAUBiQm.html" class="ItemLink">UBoard : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      GUI class for representing the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6" name="" onclick="javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');">board</a>, 
+      it contains squares
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_Nn5NZ06FYFAUBiQ7.html" class="ItemLink">UBuildingSiteSquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Building site <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>. 
+      Holds huts to build
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_XX5NZ06FYFAUBiRs.html" class="ItemLink">UResourceSquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Represents the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">resource</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a> 
+      on the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nNgCGw6FYFAUBQ_6" name="" onclick="javascript: highlightGridModelSelection('nNgCGw6FYFAUBQ_6');">board</a>
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_m35NZ06FYFAUBiSF.html" class="ItemLink">USquare : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Superclass for all kind of squares
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_EP5NZ06FYFAUBiSn.html" class="ItemLink">UGrid : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Forest token <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_" name="" onclick="javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');">grid</a>. 
+      Display tokens and listen for changes in the model <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_" name="" onclick="javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');">grid</a>
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_7P5NZ06FYFAUBiTJ.html" class="ItemLink">UTokenForest : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Represents the single forest token on the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#8GRgaI6FYFAUAg6_" name="" onclick="javascript: highlightGridModelSelection('8GRgaI6FYFAUAg6_');">grid</a>
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_5T5NZ06FYFAUBiM5.html" class="ItemLink">ui : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

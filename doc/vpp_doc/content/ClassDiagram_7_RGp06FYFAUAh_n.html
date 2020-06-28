@@ -1,0 +1,376 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Class Diagram - Game Goal Class Diagram IT3</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_jtMHKw6FYFAUBQb9.html" class="PageParentTitle">Design Model : Model</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Model_CwHO5U6FYFAUBVSg.html" class="PageParentTitle">Iteration3 : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Class Diagram - Game Goal Class Diagram IT3		</span>
+<a onclick="javascript: showVpLink('StoneAgeIT3_24.vpp://diagram/7.RGp06FYFAUAh.n', 'Game Goal Class Diagram IT3\nStoneAgeIT3_24.vpp://diagram/7.RGp06FYFAUAh.n', 'Game Goal Class Diagram IT3', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|21.0|46.0|624.0|127.0|Class_EM5Gp06FYFAUAh_1.html|Class_EM5Gp06FYFAUAh_1.html|VtlGp06FYFAUAh_P" id="optionVtlGp06FYFAUAh_P">IGameGoalStrategyFactory : Class</option>
+<option value="shape|21.0|233.0|624.0|113.0|Class_SM5Gp06FYFAUAh_6.html|Class_SM5Gp06FYFAUAh_6.html|ttlGp06FYFAUAh_R" id="optionttlGp06FYFAUAh_R">GameGoalStrategyFactory : Class</option>
+<option value="shape|665.0|233.0|597.0|113.0|Class_WM5Gp06FYFAUAh__.html|Class_WM5Gp06FYFAUAh__.html|ttlGp06FYFAUAh_T" id="optionttlGp06FYFAUAh_T">ThreeHutTokenGoalStrategy : Class</option>
+<option value="shape|665.0|46.0|597.0|127.0|Class_ZM5Gp06FYFAUAh_F.html|Class_ZM5Gp06FYFAUAh_F.html|9tlGp06FYFAUAh_V" id="option9tlGp06FYFAUAh_V">IGameGoalStrategy : Class</option>
+<option value="shape|2.0|2.0|1281.0|364.0|Package_wM5Gp06FYFAUAh_0.html|Package_wM5Gp06FYFAUAh_0.html|TtlGp06FYFAUAh_X" id="optionTtlGp06FYFAUAh_X">gameGoal : Package</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Game_Goal_Class_Diagram_IT3.png" usemap="#diagram_map" class="Image" width="1287" height="370"/>
+					<map name="diagram_map">
+<area coords="720,90,750,105" coords2="720,90,750,105" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="720,263,750,278" coords2="720,263,750,278" shape="rect" alt="Player" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area imageId="diagram" coords="326.0, 173.0, 326.0, 233.0, 340.0, 233.0, 340.0, 173.0" coords2="326.0, 173.0, 326.0, 233.0, 340.0, 233.0, 340.0, 173.0" shape="poly" alt=":Realization" id="areadiagram_map_TtlGp06FYFAUAh_Z_default" href="Realization_rM5Gp06FYFAUAh_M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="957.0, 173.0, 957.0, 233.0, 971.0, 233.0, 971.0, 173.0" coords2="957.0, 173.0, 957.0, 233.0, 971.0, 233.0, 971.0, 173.0" shape="poly" alt=":Realization" id="areadiagram_map_ztlGp06FYFAUAh_b_default" href="Realization_3M5Gp06FYFAUAh_O.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Interface factory to create the right game goal strategy.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="21, 46, 645, 173" coords2="21, 46, 645, 173" shape="rect" alt="IGameGoalStrategyFactory:Class" id="areadiagram_map_VtlGp06FYFAUAh_P_default" href="Class_EM5Gp06FYFAUAh_1.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','21, 46, 645, 173',new Array('IGameGoalStrategyFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/gameGoal/IGameGoalStrategyFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '21, 46, 645, 173'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Concrete factory to create the right game goal strategy.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="21, 233, 645, 346" coords2="21, 233, 645, 346" shape="rect" alt="GameGoalStrategyFactory:Class" id="areadiagram_map_ttlGp06FYFAUAh_R_default" href="Class_SM5Gp06FYFAUAh_6.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','21, 233, 645, 346',new Array('GameGoalStrategyFactory.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/gameGoal/GameGoalStrategyFactory.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '21, 233, 645, 346'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Strategy to decree the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      victory if the &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      has built 3 hut token.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="665, 233, 1262, 346" coords2="665, 233, 1262, 346" shape="rect" alt="ThreeHutTokenGoalStrategy:Class" id="areadiagram_map_ttlGp06FYFAUAh_T_default" href="Class_WM5Gp06FYFAUAh__.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','665, 233, 1262, 346',new Array('ThreeHutTokenGoalStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/gameGoal/ThreeHutTokenGoalStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '665, 233, 1262, 346'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0;&amp;quot;&amp;gt;
+      Strategy Interface responsible to know if a &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;player&amp;lt;/a&amp;gt; 
+      is the game &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');&amp;quot;&amp;gt;winner&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+" coords="665, 46, 1262, 173" coords2="665, 46, 1262, 173" shape="rect" alt="IGameGoalStrategy:Class" id="areadiagram_map_9tlGp06FYFAUAh_V_default" href="Class_ZM5Gp06FYFAUAh_F.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','665, 46, 1262, 173',new Array('IGameGoalStrategy.java*file:///C:/Users/Riccardo/IdeaProjects/stoneage/src/main/java/com/univaq/stoneage/model/gameGoal/IGameGoalStrategy.java'),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array()),showReferenceIcon('diagram', '665, 46, 1262, 173'),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="2, 2, 1283, 366" coords2="2, 2, 1283, 366" shape="rect" alt="gameGoal:Package" id="areadiagram_map_TtlGp06FYFAUAh_X_default" href="Package_wM5Gp06FYFAUAh_0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_EM5Gp06FYFAUAh_1.html" class="ItemLink">IGameGoalStrategyFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Interface factory to create the right game goal strategy.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_SM5Gp06FYFAUAh_6.html" class="ItemLink">GameGoalStrategyFactory : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Concrete factory to create the right game goal strategy.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_WM5Gp06FYFAUAh__.html" class="ItemLink">ThreeHutTokenGoalStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Strategy to decree the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      victory if the <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      has built 3 hut token.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_ZM5Gp06FYFAUAh_F.html" class="ItemLink">IGameGoalStrategy : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top:0;">
+      Strategy Interface responsible to know if a <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">player</a> 
+      is the game <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#vKs0zw6FYFAUAhc9" name="" onclick="javascript: highlightGridModelSelection('vKs0zw6FYFAUAhc9');">winner</a>.
+    </p>
+  </body>
+</html>
+</span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_wM5Gp06FYFAUAh_0.html" class="ItemLink">gameGoal : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

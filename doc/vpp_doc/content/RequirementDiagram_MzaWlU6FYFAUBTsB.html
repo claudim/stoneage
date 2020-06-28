@@ -1,0 +1,949 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Requirement Diagram - Requirement Diagram1</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_tslLKw6FYFAUBQbm.html" class="PageParentTitle">Use-Case Model : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Requirement Diagram - Requirement Diagram1		</span>
+<a onclick="showVpLink('StoneAgeIT3_24.vpp://diagram/MzaWlU6FYFAUBTsB', 'Requirement Diagram1\nStoneAgeIT3_24.vpp://diagram/MzaWlU6FYFAUBTsB', 'Requirement Diagram1', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|555.0|1269.0|216.0|132.0|Requirement__bzp5w6FYFAUAgnS.html|Requirement__bzp5w6FYFAUAgnS.html|qi6WlU6FYFAUBTum" id="optionqi6WlU6FYFAUBTum">Mostra il giocatore che deve giocare : Requirement</option>
+<option value="shape|917.0|915.0|322.0|132.0|Requirement_wOqmJw6FYFAUAgix.html|Requirement_wOqmJw6FYFAUAgix.html|aA6WlU6FYFAUBTs4" id="optionaA6WlU6FYFAUBTs4">Modalità di gioco : Requirement</option>
+<option value="shape|2.0|1092.0|301.0|132.0|Requirement_LCCZ5w6FYFAUAgob.html|Requirement_LCCZ5w6FYFAUAgob.html|V86WlU6FYFAUBTub" id="optionV86WlU6FYFAUBTub">Valore Token Forest : Requirement</option>
+<option value="shape|472.0|915.0|400.0|132.0|Requirement_luRZ5w6FYFAUAgok.html|Requirement_luRZ5w6FYFAUAgok.html|PG6WlU6FYFAUBTvd" id="optionPG6WlU6FYFAUBTvd">Movimento marker : Requirement</option>
+<option value="shape|629.0|561.0|567.0|132.0|Requirement_21yOJw6FYFAUAgjn.html|Requirement_21yOJw6FYFAUAgjn.html|w46WlU6FYFAUBTtk" id="optionw46WlU6FYFAUBTtk">Inizializzazione Risorse per casella : Requirement</option>
+<option value="shape|765.0|207.0|678.0|132.0|Requirement_WX0uJw6FYFAUAgjz.html|Requirement_WX0uJw6FYFAUAgjz.html|7K6WlU6FYFAUBTu8" id="option7K6WlU6FYFAUBTu8">Inizializzazione posizione marker : Requirement</option>
+<option value="shape|2.0|561.0|583.0|132.0|Requirement_ji4eJw6FYFAUAgj8.html|Requirement_ji4eJw6FYFAUAgj8.html|KU6WlU6FYFAUBTt6" id="optionKU6WlU6FYFAUBTt6">Inizializzazione token forest : Requirement</option>
+<option value="shape|711.0|384.0|606.0|132.0|Requirement__b1eJw6FYFAUAgkc.html|Requirement__b1eJw6FYFAUAgkc.html|Mo6WlU6FYFAUBTtZ" id="optionMo6WlU6FYFAUBTtZ">Inizializzazione risorse mercato : Requirement</option>
+<option value="shape|816.0|1269.0|208.0|132.0|Requirement_O_HeJw6FYFAUAgkl.html|Requirement_O_HeJw6FYFAUAgkl.html|306WlU6FYFAUBTuF" id="option306WlU6FYFAUBTuF">Mischia casualmente i token forest : Requirement</option>
+<option value="shape|286.0|1269.0|224.0|132.0|Requirement_fop_Jw6FYFAUAgku.html|Requirement_fop_Jw6FYFAUAgku.html|ds6WlU6FYFAUBTuQ" id="optionds6WlU6FYFAUBTuQ">Mischia casualmente le carte capanna : Requirement</option>
+<option value="shape|577.0|738.0|473.0|132.0|Requirement_yZX_Jw6FYFAUAgk3.html|Requirement_yZX_Jw6FYFAUAgk3.html|aa6WlU6FYFAUBTvH" id="optionaa6WlU6FYFAUBTvH">Disposizione carta capanna R19 : Requirement</option>
+<option value="shape|2.0|2.0|520.0|160.0|Requirement_sp0BJw6FYFAUAglA.html|Requirement_sp0BJw6FYFAUAglA.html|2zaWlU6FYFAUBTsD" id="option2zaWlU6FYFAUBTsD">Risorse per costruzione capanna : Requirement</option>
+<option value="shape|567.0|2.0|848.0|132.0|Requirement_k5zBJw6FYFAUAglJ.html|Requirement_k5zBJw6FYFAUAglJ.html|8y6WlU6FYFAUBTux" id="option8y6WlU6FYFAUBTux">Carte Sorpresa : Requirement</option>
+<option value="shape|2.0|384.0|664.0|132.0|Requirement_9uPhJw6FYFAUAglS.html|Requirement_9uPhJw6FYFAUAglS.html|xHaWlU6FYFAUBTsM" id="optionxHaWlU6FYFAUBTsM">Insediamento per giocatore : Requirement</option>
+<option value="shape|2.0|1269.0|239.0|132.0|Requirement_UA2RJw6FYFAUAglb.html|Requirement_UA2RJw6FYFAUAglb.html|D66WlU6FYFAUBTvS" id="optionD66WlU6FYFAUBTvS">Visualizzazione insediamento : Requirement</option>
+<option value="shape|2.0|207.0|718.0|132.0|Requirement_dKDRJw6FYFAUAglt.html|Requirement_dKDRJw6FYFAUAglt.html|Fw6WlU6FYFAUBTtO" id="optionFw6WlU6FYFAUBTtO">Primo Giocatore : Requirement</option>
+<option value="shape|2.0|915.0|425.0|132.0|Requirement_TIixJw6FYFAUAgl2.html|Requirement_TIixJw6FYFAUAgl2.html|FE6WlU6FYFAUBTtv" id="optionFE6WlU6FYFAUBTtv">Pulsanti : Requirement</option>
+<option value="shape|348.0|1092.0|292.0|132.0|Requirement_n8omJw6FYFAUAgio.html|Requirement_n8omJw6FYFAUAgio.html|Q_aWlU6FYFAUBTst" id="optionQ_aWlU6FYFAUBTst">Numero giocatori : Requirement</option>
+<option value="shape|997.0|1092.0|264.0|132.0|Requirement_NtPp5w6FYFAUAgoJ.html|Requirement_NtPp5w6FYFAUAgoJ.html|g3aWlU6FYFAUBTsX" id="optiong3aWlU6FYFAUBTsX">Salta turno : Requirement</option>
+<option value="shape|684.0|1092.0|267.0|132.0|Requirement_YPAWJw6FYFAUAgi6.html|Requirement_YPAWJw6FYFAUAgi6.html|AQ6WlU6FYFAUBTtD" id="optionAQ6WlU6FYFAUBTtD">Scelta marker : Requirement</option>
+<option value="shape|2.0|738.0|531.0|132.0|Requirement_fokOJw6FYFAUAgje.html|Requirement_fokOJw6FYFAUAgje.html|EvaWlU6FYFAUBTsi" id="optionEvaWlU6FYFAUBTsi">Inizializzazione Casella : Requirement</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Requirement_Diagram1.png" usemap="#diagram_map" class="Image" width="1447" height="1405"/>
+					<map name="diagram_map">
+<area coords="303,17,348,32" coords2="303,17,348,32" shape="rect" alt="Capanna" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_"/>
+<area coords="86,38,156,53" coords2="86,38,156,53" shape="rect" alt="Carta Capanna" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR"/>
+<area coords="262,399,333,414" coords2="262,399,333,414" shape="rect" alt="Insediamento" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J"/>
+<area coords="356,399,406,414" coords2="356,399,406,414" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="86,420,131,435" coords2="86,420,131,435" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="208,420,273,435" coords2="208,420,273,435" shape="rect" alt="Insediamento" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J"/>
+<area coords="366,420,431,435" coords2="366,420,431,435" shape="rect" alt="Insediamento" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J"/>
+<area coords="1128,1107,1156,1122" coords2="1128,1107,1156,1122" shape="rect" alt="Turno" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa"/>
+<area coords="1111,1128,1156,1143" coords2="1111,1128,1156,1143" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="1230,1128,1255,1143" coords2="1230,1128,1255,1143" shape="rect" alt="Turno" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa"/>
+<area coords="288,753,327,768" coords2="288,753,327,768" shape="rect" alt="Casella" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="97,774,131,789" coords2="97,774,131,789" shape="rect" alt="Casella" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="280,774,322,789" coords2="280,774,322,789" shape="rect" alt="Modalità" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09"/>
+<area coords="1033,930,1078,945" coords2="1033,930,1078,945" shape="rect" alt="Modalità" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09"/>
+<area coords="1141,951,1183,966" coords2="1141,951,1183,966" shape="rect" alt="Modalità" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09"/>
+<area coords="923,966,951,981" coords2="923,966,951,981" shape="rect" alt="Verde" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1."/>
+<area coords="963,966,990,981" coords2="963,966,990,981" shape="rect" alt="Rossa" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e"/>
+<area coords="815,1107,852,1122" coords2="815,1107,852,1122" shape="rect" alt="Marker" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk"/>
+<area coords="908,1128,942,1143" coords2="908,1128,942,1143" shape="rect" alt="Marker" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk"/>
+<area coords="352,222,403,237" coords2="352,222,403,237" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="123,243,168,258" coords2="123,243,168,258" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="386,243,431,258" coords2="386,243,431,258" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="1053,399,1096,414" coords2="1053,399,1096,414" shape="rect" alt="Mercato" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL"/>
+<area coords="880,420,914,435" coords2="880,420,914,435" shape="rect" alt="Casella" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="917,420,957,435" coords2="917,420,957,435" shape="rect" alt="Mercato" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL"/>
+<area coords="1138,420,1178,435" coords2="1138,420,1178,435" shape="rect" alt="Mercato" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL"/>
+<area coords="1200,420,1242,435" coords2="1200,420,1242,435" shape="rect" alt="Modalità" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09"/>
+<area coords="965,576,1002,591" coords2="965,576,1002,591" shape="rect" alt="Casella" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="946,597,980,612" coords2="946,597,980,612" shape="rect" alt="Casella" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="303,576,366,591" coords2="303,576,366,591" shape="rect" alt="Token Forest" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f"/>
+<area coords="87,597,144,612" coords2="87,597,144,612" shape="rect" alt="Token Forest" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f"/>
+<area coords="237,597,294,612" coords2="237,597,294,612" shape="rect" alt="Token Forest" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f"/>
+<area coords="316,597,358,612" coords2="316,597,358,612" shape="rect" alt="Modalità" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09"/>
+<area coords="947,1284,1010,1299" coords2="947,1284,1010,1299" shape="rect" alt="Token Forest" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f"/>
+<area coords="452,1284,497,1299" coords2="452,1284,497,1299" shape="rect" alt="Capanna" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_"/>
+<area coords="292,1320,334,1335" coords2="292,1320,334,1335" shape="rect" alt="Capanna" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_"/>
+<area coords="136,1107,205,1122" coords2="136,1107,205,1122" shape="rect" alt="Token Forest" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f"/>
+<area coords="94,1128,139,1143" coords2="94,1128,139,1143" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="201,1128,258,1143" coords2="201,1128,258,1143" shape="rect" alt="Token Forest" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f"/>
+<area coords="615,1284,665,1299" coords2="615,1284,665,1299" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="982,17,1030,32" coords2="982,17,1030,32" shape="rect" alt="Sorpresa" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#VToiGw6FYFAUBRAy"/>
+<area coords="639,38,711,53" coords2="639,38,711,53" shape="rect" alt="Modalità Rossa" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e"/>
+<area coords="767,38,837,53" coords2="767,38,837,53" shape="rect" alt="Carta Sorpresa" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#k.niGw6FYFAUBRCI"/>
+<area coords="1091,38,1161,53" coords2="1091,38,1161,53" shape="rect" alt="Carta Sorpresa" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#k.niGw6FYFAUBRCI"/>
+<area coords="1099,222,1150,237" coords2="1099,222,1150,237" shape="rect" alt="Posizione" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#nnFgaI6FYFAUAg7I"/>
+<area coords="1153,222,1190,237" coords2="1153,222,1190,237" shape="rect" alt="Marker" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk"/>
+<area coords="865,243,899,258" coords2="865,243,899,258" shape="rect" alt="Marker" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk"/>
+<area coords="928,243,962,258" coords2="928,243,962,258" shape="rect" alt="Casella" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="1112,243,1146,258" coords2="1112,243,1146,258" shape="rect" alt="Casella" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q"/>
+<area coords="799,753,873,768" coords2="799,753,873,768" shape="rect" alt="Carta Capanna" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR"/>
+<area coords="776,774,846,789" coords2="776,774,846,789" shape="rect" alt="Carta Capanna" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR"/>
+<area coords="128,1284,199,1299" coords2="128,1284,199,1299" shape="rect" alt="Insediamento" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J"/>
+<area coords="151,1305,216,1320" coords2="151,1305,216,1320" shape="rect" alt="Insediamento" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J"/>
+<area coords="684,930,721,945" coords2="684,930,721,945" shape="rect" alt="Marker" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk"/>
+<area coords="561,951,595,966" coords2="561,951,595,966" shape="rect" alt="Marker" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk"/>
+<area coords="616,951,661,966" coords2="616,951,661,966" shape="rect" alt="Giocatore" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w"/>
+<area coords="789,951,846,966" coords2="789,951,846,966" shape="rect" alt="Token Forest" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Sposta il &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      del &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;giocatore&amp;lt;/a&amp;gt; 
+      secondo l'indicazione del &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;token 
+      forest&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="472, 915, 872, 1047" coords2="472, 915, 872, 1047" shape="rect" alt="Movimento marker:Requirement" id="areadiagram_map_PG6WlU6FYFAUBTvd_default" href="Requirement_luRZ5w6FYFAUAgok.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Soddisfa regola vista &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');&amp;quot;&amp;gt;insediamento&amp;lt;/a&amp;gt; 
+      R24
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 1269, 241, 1401" coords2="2, 1269, 241, 1401" shape="rect" alt="Visualizzazione insediamento:Requirement" id="areadiagram_map_D66WlU6FYFAUBTvS_default" href="Requirement_UA2RJw6FYFAUAglb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Soddisfa la regola disposizione &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('aANSGw6FYFAUBRCR');&amp;quot;&amp;gt;carta 
+      capanna&amp;lt;/a&amp;gt; R19 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="577, 738, 1050, 870" coords2="577, 738, 1050, 870" shape="rect" alt="Disposizione carta capanna R19:Requirement" id="areadiagram_map_aa6WlU6FYFAUBTvH_default" href="Requirement_yZX_Jw6FYFAUAgk3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Posiziona i &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt; 
+      nella &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;casella&amp;lt;/a&amp;gt; 
+      di partenza secondo la regola &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;casella&amp;lt;/a&amp;gt; 
+      di partenza R21 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="765, 207, 1443, 339" coords2="765, 207, 1443, 339" shape="rect" alt="Inizializzazione posizione marker:Requirement" id="areadiagram_map_7K6WlU6FYFAUBTu8_default" href="Requirement_WX0uJw6FYFAUAgjz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Nella &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('CCEt5U6FYFAUBV1e');&amp;quot;&amp;gt;modalit&amp;#224; 
+      rossa&amp;lt;/a&amp;gt; esiste una &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#k.niGw6FYFAUBRCI&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('k.niGw6FYFAUBRCI');&amp;quot;&amp;gt;carta 
+      sorpresa&amp;lt;/a&amp;gt; secondo le azioni prensenti nella regola azione per &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#k.niGw6FYFAUBRCI&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('k.niGw6FYFAUBRCI');&amp;quot;&amp;gt;carta 
+      sorpresa&amp;lt;/a&amp;gt; R7 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="567, 2, 1415, 134" coords2="567, 2, 1415, 134" shape="rect" alt="Carte Sorpresa:Requirement" id="areadiagram_map_8y6WlU6FYFAUBTux_default" href="Requirement_k5zBJw6FYFAUAglJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="555, 1269, 771, 1401" coords2="555, 1269, 771, 1401" shape="rect" alt="Mostra il giocatore che deve giocare:Requirement" id="areadiagram_map_qi6WlU6FYFAUBTum_default" href="Requirement__bzp5w6FYFAUAgnS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Mostra al &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;giocatore&amp;lt;/a&amp;gt; 
+      il valore del &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;token 
+      forest&amp;lt;/a&amp;gt; scelto
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 1092, 303, 1224" coords2="2, 1092, 303, 1224" shape="rect" alt="Valore Token Forest:Requirement" id="areadiagram_map_V86WlU6FYFAUBTub_default" href="Requirement_LCCZ5w6FYFAUAgob.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Mischia casualmente le carte &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');&amp;quot;&amp;gt;capanna&amp;lt;/a&amp;gt; 
+      secondo le regole nelle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="286, 1269, 510, 1401" coords2="286, 1269, 510, 1401" shape="rect" alt="Mischia casualmente le carte capanna:Requirement" id="areadiagram_map_ds6WlU6FYFAUBTuQ_default" href="Requirement_fop_Jw6FYFAUAgku.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Mischia casualmente i &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;token 
+      forest&amp;lt;/a&amp;gt; secondo le regole definite nelle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="816, 1269, 1024, 1401" coords2="816, 1269, 1024, 1401" shape="rect" alt="Mischia casualmente i token forest:Requirement" id="areadiagram_map_306WlU6FYFAUBTuF_default" href="Requirement_O_HeJw6FYFAUAgkl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Istanzia &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;token 
+      forest&amp;lt;/a&amp;gt; secondo la regola &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('9EJsGw6FYFAUBQ_f');&amp;quot;&amp;gt;token 
+      forest&amp;lt;/a&amp;gt; per &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;modalit&amp;#224;&amp;lt;/a&amp;gt; 
+      R22 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 561, 585, 693" coords2="2, 561, 585, 693" shape="rect" alt="Inizializzazione token forest:Requirement" id="areadiagram_map_KU6WlU6FYFAUBTt6_default" href="Requirement_ji4eJw6FYFAUAgj8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Interfaccia con pulsanti di medie dimensioni e contrasto di colori 
+      elevato
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 915, 427, 1047" coords2="2, 915, 427, 1047" shape="rect" alt="Pulsanti:Requirement" id="areadiagram_map_FE6WlU6FYFAUBTtv_default" href="Requirement_TIixJw6FYFAUAgl2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Inizializza le risorse secondo la regola setup risorse per &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;casella&amp;lt;/a&amp;gt; 
+      R5 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="629, 561, 1196, 693" coords2="629, 561, 1196, 693" shape="rect" alt="Inizializzazione Risorse per casella:Requirement" id="areadiagram_map_w46WlU6FYFAUBTtk_default" href="Requirement_21yOJw6FYFAUAgjn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Inizializza le risorse nella &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;casella&amp;lt;/a&amp;gt;&amp;nbsp;&amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('5W2CGw6FYFAUBRAL');&amp;quot;&amp;gt;mercato&amp;lt;/a&amp;gt; 
+      secondo la regola numero risorse al &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('5W2CGw6FYFAUBRAL');&amp;quot;&amp;gt;mercato&amp;lt;/a&amp;gt; 
+      per &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;modalit&amp;#224;&amp;lt;/a&amp;gt; 
+      R11
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="711, 384, 1317, 516" coords2="711, 384, 1317, 516" shape="rect" alt="Inizializzazione risorse mercato:Requirement" id="areadiagram_map_Mo6WlU6FYFAUBTtZ_default" href="Requirement__b1eJw6FYFAUAgkc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Individua primo &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;giocatore&amp;lt;/a&amp;gt; 
+      a giocare secondo la regola individua primo &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;giocatore&amp;lt;/a&amp;gt; 
+      a giocare R8 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 207, 720, 339" coords2="2, 207, 720, 339" shape="rect" alt="Primo Giocatore:Requirement" id="areadiagram_map_Fw6WlU6FYFAUBTtO_default" href="Requirement_dKDRJw6FYFAUAglt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Il sistema permette di scegliere tra 4 &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('mS9yGw6FYFAUBRCk');&amp;quot;&amp;gt;marker&amp;lt;/a&amp;gt;&amp;nbsp;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="684, 1092, 951, 1224" coords2="684, 1092, 951, 1224" shape="rect" alt="Scelta marker:Requirement" id="areadiagram_map_AQ6WlU6FYFAUBTtD_default" href="Requirement_YPAWJw6FYFAUAgi6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Il sistema permette di scegliere tra 2 &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;modalit&amp;#224;&amp;lt;/a&amp;gt; 
+      di gioco: &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1.&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('Q_mt5U6FYFAUBV1.');&amp;quot;&amp;gt;verde&amp;lt;/a&amp;gt; 
+      e &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('CCEt5U6FYFAUBV1e');&amp;quot;&amp;gt;rossa&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="917, 915, 1239, 1047" coords2="917, 915, 1239, 1047" shape="rect" alt="Modalità di gioco:Requirement" id="areadiagram_map_aA6WlU6FYFAUBTs4_default" href="Requirement_wOqmJw6FYFAUAgix.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Il sistema permette di scegliere da 2 a 4 giocatori
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="348, 1092, 640, 1224" coords2="348, 1092, 640, 1224" shape="rect" alt="Numero giocatori:Requirement" id="areadiagram_map_Q_aWlU6FYFAUBTst_default" href="Requirement_n8omJw6FYFAUAgio.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Inizializza &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;casella&amp;lt;/a&amp;gt; 
+      secondo la regola caselle per &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('NXm2DY6FYFAUAg09');&amp;quot;&amp;gt;modalit&amp;#224;&amp;lt;/a&amp;gt; 
+      R6 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 738, 533, 870" coords2="2, 738, 533, 870" shape="rect" alt="Inizializzazione Casella:Requirement" id="areadiagram_map_EvaWlU6FYFAUBTsi_default" href="Requirement_fokOJw6FYFAUAgje.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Controlla se il &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;giocatore&amp;lt;/a&amp;gt; 
+      deve saltare il &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('16KyGw6FYFAUBRCa');&amp;quot;&amp;gt;turno&amp;lt;/a&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="997, 1092, 1261, 1224" coords2="997, 1092, 1261, 1224" shape="rect" alt="Salta turno:Requirement" id="areadiagram_map_g3aWlU6FYFAUBTsX_default" href="Requirement_NtPp5w6FYFAUAgoJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Ad ogni &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('V3pMGw6FYFAUBQ.w');&amp;quot;&amp;gt;giocatore&amp;lt;/a&amp;gt; 
+      &amp;#232; associato un &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');&amp;quot;&amp;gt;insediamento&amp;lt;/a&amp;gt; 
+      secondo la regola &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('68V0Gw6FYFAUBQ.J');&amp;quot;&amp;gt;insediamento&amp;lt;/a&amp;gt; 
+      R23 delle specifiche supplementari
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 384, 666, 516" coords2="2, 384, 666, 516" shape="rect" alt="Insediamento per giocatore:Requirement" id="areadiagram_map_xHaWlU6FYFAUBTsM_default" href="Requirement_9uPhJw6FYFAUAglS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Ad ogni &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('aANSGw6FYFAUBRCR');&amp;quot;&amp;gt;carta 
+      capanna&amp;lt;/a&amp;gt; &amp;#232; associato un numero di risorse necessarie per la sua 
+      costruzione
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 2, 522, 162" coords2="2, 2, 522, 162" shape="rect" alt="Risorse per costruzione capanna:Requirement" id="areadiagram_map_2zaWlU6FYFAUBTsD_default" href="Requirement_sp0BJw6FYFAUAglA.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement__bzp5w6FYFAUAgnS.html" class="ItemLink">Mostra il giocatore che deve giocare : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_wOqmJw6FYFAUAgix.html" class="ItemLink">Modalità di gioco : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Il sistema permette di scegliere tra 2 <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">modalit&#224;</a>
+      di gioco: <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1." name="" onclick="highlightGridModelSelection('Q_mt5U6FYFAUBV1.');">verde</a>
+      e <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e" name="" onclick="highlightGridModelSelection('CCEt5U6FYFAUBV1e');">rossa</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_LCCZ5w6FYFAUAgob.html" class="ItemLink">Valore Token Forest : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Mostra al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      il valore del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a> scelto
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_luRZ5w6FYFAUAgok.html" class="ItemLink">Movimento marker : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Sposta il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+      del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      secondo l'indicazione del <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_21yOJw6FYFAUAgjn.html" class="ItemLink">Inizializzazione Risorse per casella : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Inizializza le risorse secondo la regola setup risorse per <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      R5 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_WX0uJw6FYFAUAgjz.html" class="ItemLink">Inizializzazione posizione marker : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Posiziona i <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>
+      nella <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      di partenza secondo la regola <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      di partenza R21 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_ji4eJw6FYFAUAgj8.html" class="ItemLink">Inizializzazione token forest : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Istanzia <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a> secondo la regola <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a> per <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">modalit&#224;</a>
+      R22 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement__b1eJw6FYFAUAgkc.html" class="ItemLink">Inizializzazione risorse mercato : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Inizializza le risorse nella <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>&nbsp;<a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL" name="" onclick="highlightGridModelSelection('5W2CGw6FYFAUBRAL');">mercato</a>
+      secondo la regola numero risorse al <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#5W2CGw6FYFAUBRAL" name="" onclick="highlightGridModelSelection('5W2CGw6FYFAUBRAL');">mercato</a>
+      per <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">modalit&#224;</a>
+      R11
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_O_HeJw6FYFAUAgkl.html" class="ItemLink">Mischia casualmente i token forest : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Mischia casualmente i <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#9EJsGw6FYFAUBQ_f" name="" onclick="highlightGridModelSelection('9EJsGw6FYFAUBQ_f');">token
+      forest</a> secondo le regole definite nelle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_fop_Jw6FYFAUAgku.html" class="ItemLink">Mischia casualmente le carte capanna : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Mischia casualmente le carte <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#QYA0Gw6FYFAUBQ9_" name="" onclick="highlightGridModelSelection('QYA0Gw6FYFAUBQ9_');">capanna</a>
+      secondo le regole nelle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_yZX_Jw6FYFAUAgk3.html" class="ItemLink">Disposizione carta capanna R19 : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Soddisfa la regola disposizione <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR" name="" onclick="highlightGridModelSelection('aANSGw6FYFAUBRCR');">carta
+      capanna</a> R19 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_sp0BJw6FYFAUAglA.html" class="ItemLink">Risorse per costruzione capanna : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Ad ogni <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#aANSGw6FYFAUBRCR" name="" onclick="highlightGridModelSelection('aANSGw6FYFAUBRCR');">carta
+      capanna</a> &#232; associato un numero di risorse necessarie per la sua 
+      costruzione
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_k5zBJw6FYFAUAglJ.html" class="ItemLink">Carte Sorpresa : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Nella <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e" name="" onclick="highlightGridModelSelection('CCEt5U6FYFAUBV1e');">modalit&#224;
+      rossa</a> esiste una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#k.niGw6FYFAUBRCI" name="" onclick="highlightGridModelSelection('k.niGw6FYFAUBRCI');">carta
+      sorpresa</a> secondo le azioni prensenti nella regola azione per <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#k.niGw6FYFAUBRCI" name="" onclick="highlightGridModelSelection('k.niGw6FYFAUBRCI');">carta
+      sorpresa</a> R7 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_9uPhJw6FYFAUAglS.html" class="ItemLink">Insediamento per giocatore : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Ad ogni <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      &#232; associato un <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">insediamento</a>
+      secondo la regola <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">insediamento</a>
+      R23 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_UA2RJw6FYFAUAglb.html" class="ItemLink">Visualizzazione insediamento : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Soddisfa regola vista <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#68V0Gw6FYFAUBQ.J" name="" onclick="highlightGridModelSelection('68V0Gw6FYFAUBQ.J');">insediamento</a>
+      R24
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_dKDRJw6FYFAUAglt.html" class="ItemLink">Primo Giocatore : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Individua primo <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      a giocare secondo la regola individua primo <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      a giocare R8 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_TIixJw6FYFAUAgl2.html" class="ItemLink">Pulsanti : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Interfaccia con pulsanti di medie dimensioni e contrasto di colori 
+      elevato
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_n8omJw6FYFAUAgio.html" class="ItemLink">Numero giocatori : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Il sistema permette di scegliere da 2 a 4 giocatori
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_NtPp5w6FYFAUAgoJ.html" class="ItemLink">Salta turno : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Controlla se il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#V3pMGw6FYFAUBQ.w" name="" onclick="highlightGridModelSelection('V3pMGw6FYFAUBQ.w');">giocatore</a>
+      deve saltare il <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#16KyGw6FYFAUBRCa" name="" onclick="highlightGridModelSelection('16KyGw6FYFAUBRCa');">turno</a>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_YPAWJw6FYFAUAgi6.html" class="ItemLink">Scelta marker : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Il sistema permette di scegliere tra 4 <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#mS9yGw6FYFAUBRCk" name="" onclick="highlightGridModelSelection('mS9yGw6FYFAUBRCk');">marker</a>&nbsp;
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_fokOJw6FYFAUAgje.html" class="ItemLink">Inizializzazione Casella : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Inizializza <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">casella</a>
+      secondo la regola caselle per <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#NXm2DY6FYFAUAg09" name="" onclick="highlightGridModelSelection('NXm2DY6FYFAUAg09');">modalit&#224;</a>
+      R6 delle specifiche supplementari
+    </p>
+  </body></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

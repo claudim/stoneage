@@ -1,0 +1,372 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>State Machine Diagram - Resource Square State Diagram Iteration3 </title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		StoneAge	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="Model_jtMHKw6FYFAUBQb9.html" class="PageParentTitle">Design Model : Model</a><span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="Model_CwHO5U6FYFAUBVSg.html" class="PageParentTitle">Iteration3 : Model</a>	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			State Machine Diagram - <a onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" class="ItemLink">Resource</a> <a onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" class="ItemLink">Square</a> State Diagram Iteration3 		</span>
+<a onclick="showVpLink('StoneAgeIT3_24.vpp://diagram/Krr55U6FYFAUBVoJ', 'Resource Square State Diagram Iteration3 \nStoneAgeIT3_24.vpp://diagram/Krr55U6FYFAUBVoJ', 'Resource Square State Diagram Iteration3 ', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|43.0|256.0|119.0|54.0|State2_PGCF5U6FYFAUBVp0.html|State2_PGCF5U6FYFAUBVp0.html|PGCF5U6FYFAUBVpz" id="optionPGCF5U6FYFAUBVpz">Release2Resources : State</option>
+<option value="shape|358.0|256.0|120.0|54.0|State2_tnb55U6FYFAUBVou.html|State2_tnb55U6FYFAUBVou.html|tnb55U6FYFAUBVos" id="optiontnb55U6FYFAUBVos">Steal_Resource : State</option>
+<option value="shape|43.0|103.0|119.0|54.0|State2_Znb55U6FYFAUBVop.html|State2_Znb55U6FYFAUBVop.html|Znb55U6FYFAUBVon" id="optionZnb55U6FYFAUBVon">No_Resource : State</option>
+<option value="shape|358.0|103.0|119.0|54.0|State2_Onb55U6FYFAUBVok.html|State2_Onb55U6FYFAUBVok.html|2nb55U6FYFAUBVoi" id="option2nb55U6FYFAUBVoi">With_Resource : State</option>
+<option value="shape|407.0|14.0|20.0|20.0|InitialPseudoState_inb55U6FYFAUBVof.html|InitialPseudoState_inb55U6FYFAUBVof.html|inb55U6FYFAUBVod" id="optioninb55U6FYFAUBVod">Unnamed Initial Pseudo State : Initial Pseudo State</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Resource_Square_State_Diagram_Iteration3_.png" usemap="#diagram_map" class="Image" width="803" height="370"/>
+					<map name="diagram_map">
+<area imageId="diagram" coords="410.0, 34.0, 410.0, 103.0, 424.0, 103.0, 424.0, 34.0" coords2="410.0, 34.0, 410.0, 103.0, 424.0, 103.0, 424.0, 34.0" shape="poly" alt="createResourceSquare:Transition" id="areadiagram_map_Lnb55U6FYFAUBVox_default" href="Transition2_rnb55U6FYFAUBVoz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="102.0, 14.0, 102.0, 17.0, 99.0, 17.0, 99.0, 31.0, 102.0, 31.0, 102.0, 103.0, 116.0, 103.0, 116.0, 31.0, 407.0, 31.0, 407.0, 17.0, 116.0, 17.0, 116.0, 14.0" coords2="102.0, 14.0, 102.0, 17.0, 99.0, 17.0, 99.0, 31.0, 102.0, 31.0, 102.0, 103.0, 116.0, 103.0, 116.0, 31.0, 407.0, 31.0, 407.0, 17.0, 116.0, 17.0, 116.0, 14.0" shape="poly" alt="createResourceSquare:Transition" id="areadiagram_map_Xnb55U6FYFAUBVo2_default" href="Transition2_Xnb55U6FYFAUBVo4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="732.0, 14.0, 732.0, 17.0, 427.0, 17.0, 427.0, 31.0, 732.0, 31.0, 732.0, 276.0, 478.0, 276.0, 478.0, 290.0, 732.0, 290.0, 732.0, 293.0, 746.0, 293.0, 746.0, 290.0, 749.0, 290.0, 749.0, 276.0, 746.0, 276.0, 746.0, 31.0, 749.0, 31.0, 749.0, 17.0, 746.0, 17.0, 746.0, 14.0" coords2="732.0, 14.0, 732.0, 17.0, 427.0, 17.0, 427.0, 31.0, 732.0, 31.0, 732.0, 276.0, 478.0, 276.0, 478.0, 290.0, 732.0, 290.0, 732.0, 293.0, 746.0, 293.0, 746.0, 290.0, 749.0, 290.0, 749.0, 276.0, 746.0, 276.0, 746.0, 31.0, 749.0, 31.0, 749.0, 17.0, 746.0, 17.0, 746.0, 14.0" shape="poly" alt="createResourceSquare:Transition" id="areadiagram_map__nb55U6FYFAUBVo7_default" href="Transition2__nb55U6FYFAUBVo9.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="452.0, 76.0, 452.0, 79.0, 449.0, 79.0, 449.0, 93.0, 452.0, 93.0, 452.0, 103.0, 466.0, 103.0, 466.0, 93.0, 510.0, 93.0, 510.0, 123.0, 477.0, 123.0, 477.0, 137.0, 510.0, 137.0, 510.0, 140.0, 524.0, 140.0, 524.0, 137.0, 527.0, 137.0, 527.0, 123.0, 524.0, 123.0, 524.0, 93.0, 527.0, 93.0, 527.0, 79.0, 524.0, 79.0, 524.0, 76.0, 510.0, 76.0, 510.0, 79.0, 466.0, 79.0, 466.0, 76.0" coords2="452.0, 76.0, 452.0, 79.0, 449.0, 79.0, 449.0, 93.0, 452.0, 93.0, 452.0, 103.0, 466.0, 103.0, 466.0, 93.0, 510.0, 93.0, 510.0, 123.0, 477.0, 123.0, 477.0, 137.0, 510.0, 137.0, 510.0, 140.0, 524.0, 140.0, 524.0, 137.0, 527.0, 137.0, 527.0, 123.0, 524.0, 123.0, 524.0, 93.0, 527.0, 93.0, 527.0, 79.0, 524.0, 79.0, 524.0, 76.0, 510.0, 76.0, 510.0, 79.0, 466.0, 79.0, 466.0, 76.0" shape="poly" alt="removeResource:Transition" id="areadiagram_map_wXb55U6FYFAUBVpA_default" href="Transition2_IXb55U6FYFAUBVpC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="162.0, 137.0, 162.0, 151.0, 358.0, 151.0, 358.0, 137.0" coords2="162.0, 137.0, 162.0, 151.0, 358.0, 151.0, 358.0, 137.0" shape="poly" alt="removeResource:Transition" id="areadiagram_map_UXb55U6FYFAUBVpF_default" href="Transition2_UXb55U6FYFAUBVpH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="436.0, 157.0, 436.0, 256.0, 450.0, 256.0, 450.0, 157.0" coords2="436.0, 157.0, 436.0, 256.0, 450.0, 256.0, 450.0, 157.0" shape="poly" alt="removeResource:Transition" id="areadiagram_map_8Xb55U6FYFAUBVpK_default" href="Transition2_CXb55U6FYFAUBVpM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="510.0, 138.0, 510.0, 141.0, 477.0, 141.0, 477.0, 155.0, 510.0, 155.0, 510.0, 174.0, 466.0, 174.0, 466.0, 157.0, 452.0, 157.0, 452.0, 174.0, 449.0, 174.0, 449.0, 188.0, 452.0, 188.0, 452.0, 191.0, 466.0, 191.0, 466.0, 188.0, 510.0, 188.0, 510.0, 191.0, 524.0, 191.0, 524.0, 188.0, 527.0, 188.0, 527.0, 174.0, 524.0, 174.0, 524.0, 155.0, 527.0, 155.0, 527.0, 141.0, 524.0, 141.0, 524.0, 138.0" coords2="510.0, 138.0, 510.0, 141.0, 477.0, 141.0, 477.0, 155.0, 510.0, 155.0, 510.0, 174.0, 466.0, 174.0, 466.0, 157.0, 452.0, 157.0, 452.0, 174.0, 449.0, 174.0, 449.0, 188.0, 452.0, 188.0, 452.0, 191.0, 466.0, 191.0, 466.0, 188.0, 510.0, 188.0, 510.0, 191.0, 524.0, 191.0, 524.0, 188.0, 527.0, 188.0, 527.0, 174.0, 524.0, 174.0, 524.0, 155.0, 527.0, 155.0, 527.0, 141.0, 524.0, 141.0, 524.0, 138.0" shape="poly" alt="addResource:Transition" id="areadiagram_map_qXb55U6FYFAUBVpP_default" href="Transition2_qXb55U6FYFAUBVpR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="401.0, 157.0, 401.0, 256.0, 415.0, 256.0, 415.0, 157.0" coords2="401.0, 157.0, 401.0, 256.0, 415.0, 256.0, 415.0, 157.0" shape="poly" alt="addResource:Transition" id="areadiagram_map_WXb55U6FYFAUBVpU_default" href="Transition2_2Xb55U6FYFAUBVpW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="162.0, 123.0, 162.0, 137.0, 358.0, 137.0, 358.0, 123.0" coords2="162.0, 123.0, 162.0, 137.0, 358.0, 137.0, 358.0, 123.0" shape="poly" alt="addResource:Transition" id="areadiagram_map_.Xb55U6FYFAUBVpZ_default" href="Transition2_BXb55U6FYFAUBVpb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="303.0, 146.0, 297.3784, 150.0, 290.0, 150.0, 290.0, 155.25, 148.40541, 256.0, 162.0, 256.0, 162.0, 263.01923, 301.16217, 164.0, 368.0, 164.0, 368.0, 157.0, 358.0, 157.0, 358.0, 150.0, 305.9091, 150.0, 303.0, 146.0" coords2="303.0, 146.0, 297.3784, 150.0, 290.0, 150.0, 290.0, 155.25, 148.40541, 256.0, 162.0, 256.0, 162.0, 263.01923, 301.16217, 164.0, 368.0, 164.0, 368.0, 157.0, 358.0, 157.0, 358.0, 150.0, 305.9091, 150.0, 303.0, 146.0" shape="poly" alt="take2Resources:Transition" id="areadiagram_map_j4hF5U6FYFAUBVqD_default" href="Transition2_F4hF5U6FYFAUBVqC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="363.0, 157.0, 363.0, 176.58385, 221.1132, 270.0, 162.0, 270.0, 162.0, 284.0, 217.81818, 284.0, 220.0, 287.0, 224.55661, 284.0, 234.0, 284.0, 234.0, 277.78262, 234.0, 277.78262, 365.8113, 191.0, 377.0, 191.0, 377.0, 183.63354, 377.0, 183.63354, 381.0, 181.0, 377.0, 175.5, 377.0, 157.0" coords2="363.0, 157.0, 363.0, 176.58385, 221.1132, 270.0, 162.0, 270.0, 162.0, 284.0, 217.81818, 284.0, 220.0, 287.0, 224.55661, 284.0, 234.0, 284.0, 234.0, 277.78262, 234.0, 277.78262, 365.8113, 191.0, 377.0, 191.0, 377.0, 183.63354, 377.0, 183.63354, 381.0, 181.0, 377.0, 175.5, 377.0, 157.0" shape="poly" alt="removeResource:Transition" id="areadiagram_map_VGrF5U6FYFAUBVqq_default" href="Transition2_pGrF5U6FYFAUBVqp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="162.0, 291.0, 162.0, 305.0, 358.0, 305.0, 358.0, 291.0" coords2="162.0, 291.0, 162.0, 305.0, 358.0, 305.0, 358.0, 291.0" shape="poly" alt="removeResource:Transition" id="areadiagram_map_cuIl5U6FYFAUBVrL_default" href="Transition2_4uIl5U6FYFAUBVrK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="510.0, 288.0, 510.0, 291.0, 478.0, 291.0, 478.0, 305.0, 510.0, 305.0, 510.0, 359.0, 435.0, 359.0, 435.0, 310.0, 421.0, 310.0, 421.0, 359.0, 418.0, 359.0, 418.0, 373.0, 421.0, 373.0, 421.0, 376.0, 435.0, 376.0, 435.0, 373.0, 510.0, 373.0, 510.0, 376.0, 524.0, 376.0, 524.0, 373.0, 527.0, 373.0, 527.0, 359.0, 524.0, 359.0, 524.0, 305.0, 527.0, 305.0, 527.0, 291.0, 524.0, 291.0, 524.0, 288.0" coords2="510.0, 288.0, 510.0, 291.0, 478.0, 291.0, 478.0, 305.0, 510.0, 305.0, 510.0, 359.0, 435.0, 359.0, 435.0, 310.0, 421.0, 310.0, 421.0, 359.0, 418.0, 359.0, 418.0, 373.0, 421.0, 373.0, 421.0, 376.0, 435.0, 376.0, 435.0, 373.0, 510.0, 373.0, 510.0, 376.0, 524.0, 376.0, 524.0, 373.0, 527.0, 373.0, 527.0, 359.0, 524.0, 359.0, 524.0, 305.0, 527.0, 305.0, 527.0, 291.0, 524.0, 291.0, 524.0, 288.0" shape="poly" alt="take2Resource:Transition" id="areadiagram_map_4z6l5U6FYFAUBVr8_default" href="Transition2__T6l5U6FYFAUBVr7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="293.0, 53.0, 293.0, 56.0, 290.0, 56.0, 290.0, 70.0, 293.0, 70.0, 293.0, 103.0, 290.0, 103.0, 290.0, 117.0, 293.0, 117.0, 293.0, 120.0, 307.0, 120.0, 307.0, 117.0, 358.0, 117.0, 358.0, 103.0, 307.0, 103.0, 307.0, 70.0, 374.0, 70.0, 374.0, 103.0, 388.0, 103.0, 388.0, 70.0, 391.0, 70.0, 391.0, 56.0, 388.0, 56.0, 388.0, 53.0, 374.0, 53.0, 374.0, 56.0, 307.0, 56.0, 307.0, 53.0" coords2="293.0, 53.0, 293.0, 56.0, 290.0, 56.0, 290.0, 70.0, 293.0, 70.0, 293.0, 103.0, 290.0, 103.0, 290.0, 117.0, 293.0, 117.0, 293.0, 120.0, 307.0, 120.0, 307.0, 117.0, 358.0, 117.0, 358.0, 103.0, 307.0, 103.0, 307.0, 70.0, 374.0, 70.0, 374.0, 103.0, 388.0, 103.0, 388.0, 70.0, 391.0, 70.0, 391.0, 56.0, 388.0, 56.0, 388.0, 53.0, 374.0, 53.0, 374.0, 56.0, 307.0, 56.0, 307.0, 53.0" shape="poly" alt="take2Resource:Transition" id="areadiagram_map_kv5l5U6FYFAUBVsf_default" href="Transition2_Qv5l5U6FYFAUBVse.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Stato in cui la &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('t1dcGw6FYFAUBQ_q');&amp;quot;&amp;gt;square&amp;lt;/a&amp;gt; 
+      cede 2 risorse
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="43, 256, 162, 310" coords2="43, 256, 162, 310" shape="rect" alt="Release2Resources:State" id="areadiagram_map_PGCF5U6FYFAUBVpz_default" href="State2_PGCF5U6FYFAUBVp0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Stato in cui si trova la &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYTx2k6FYFAUAjJz');&amp;quot;&amp;gt;ResourceSquare&amp;lt;/a&amp;gt; 
+      quando non possiede nessuna una &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;risorsa&amp;lt;/a&amp;gt; 
+      e si gioco &amp;#232; in &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('CCEt5U6FYFAUBV1e');&amp;quot;&amp;gt;modalit&amp;#224; 
+      Rossa&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="358, 256, 478, 310" coords2="358, 256, 478, 310" shape="rect" alt="Steal_Resource:State" id="areadiagram_map_tnb55U6FYFAUBVos_default" href="State2_tnb55U6FYFAUBVou.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Stato in cui si trova la &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYTx2k6FYFAUAjJz');&amp;quot;&amp;gt;ResourceSquare&amp;lt;/a&amp;gt; 
+      quando non possiede nemmeno una &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;risorsa&amp;lt;/a&amp;gt; 
+      e il gioco &amp;#232; in &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1.&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('Q_mt5U6FYFAUBV1.');&amp;quot;&amp;gt;modalit&amp;#224; 
+      Verde&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="43, 103, 162, 157" coords2="43, 103, 162, 157" shape="rect" alt="No_Resource:State" id="areadiagram_map_Znb55U6FYFAUBVon_default" href="State2_Znb55U6FYFAUBVop.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Stato in cui si trova la &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYTx2k6FYFAUAjJz');&amp;quot;&amp;gt;ResourceSquare&amp;lt;/a&amp;gt; 
+      quando possiede almeno una &amp;lt;a class=&amp;quot;ItemLink&amp;quot; href=&amp;quot;GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A&amp;quot; name=&amp;quot;&amp;quot; onclick=&amp;quot;javascript: highlightGridModelSelection('pYZAGw6FYFAUBQ7A');&amp;quot;&amp;gt;risorsa&amp;lt;/a&amp;gt;.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="358, 103, 477, 157" coords2="358, 103, 477, 157" shape="rect" alt="With_Resource:State" id="areadiagram_map_2nb55U6FYFAUBVoi_default" href="State2_Onb55U6FYFAUBVok.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="407, 14, 427, 34" coords2="407, 14, 427, 34" shape="rect" alt=":Initial Pseudo State" id="areadiagram_map_inb55U6FYFAUBVod_default" href="InitialPseudoState_inb55U6FYFAUBVof.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_PGCF5U6FYFAUBVp0.html" class="ItemLink">Release2Resources : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Stato in cui la <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#t1dcGw6FYFAUBQ_q" name="" onclick="highlightGridModelSelection('t1dcGw6FYFAUBQ_q');">square</a>
+      cede 2 risorse
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_tnb55U6FYFAUBVou.html" class="ItemLink">Steal_Resource : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Stato in cui si trova la <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz" name="" onclick="highlightGridModelSelection('pYTx2k6FYFAUAjJz');">ResourceSquare</a>
+      quando non possiede nessuna una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+      e si gioco &#232; in <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#CCEt5U6FYFAUBV1e" name="" onclick="highlightGridModelSelection('CCEt5U6FYFAUBV1e');">modalit&#224;
+      Rossa</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_Znb55U6FYFAUBVop.html" class="ItemLink">No_Resource : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Stato in cui si trova la <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz" name="" onclick="highlightGridModelSelection('pYTx2k6FYFAUAjJz');">ResourceSquare</a>
+      quando non possiede nemmeno una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>
+      e il gioco &#232; in <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#Q_mt5U6FYFAUBV1." name="" onclick="highlightGridModelSelection('Q_mt5U6FYFAUBV1.');">modalit&#224;
+      Verde</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/State.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/State.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="State2_Onb55U6FYFAUBVok.html" class="ItemLink">With_Resource : State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-right:0;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;margin-left:0pt;">
+      Stato in cui si trova la <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYTx2k6FYFAUAjJz" name="" onclick="highlightGridModelSelection('pYTx2k6FYFAUAjJz');">ResourceSquare</a>
+      quando possiede almeno una <a class="ItemLink" href="GridDiagram_qn2AGw6FYFAUBQ6n.html#pYZAGw6FYFAUBQ7A" name="" onclick="highlightGridModelSelection('pYZAGw6FYFAUBQ7A');">risorsa</a>.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InitialPseudoState.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InitialPseudoState.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="InitialPseudoState_inb55U6FYFAUBVof.html" class="ItemLink">N/A : Initial Pseudo State</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		StoneAge	</div>
+</body>
+</html>

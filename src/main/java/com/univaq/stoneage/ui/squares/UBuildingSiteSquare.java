@@ -89,12 +89,15 @@ public class UBuildingSiteSquare extends USquare {
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("hutTokenBuildable")) {
             MHutToken mHutToken = (MHutToken) evt.getSource();
+            System.out.println(mHutToken.getIdToken() + " è edificabile view " + (((Boolean) evt.getNewValue()).booleanValue()));
+
             //enable or disable the button
             buttonHutTokenMapping.get(mHutToken.getIdToken()).setEnabled((((Boolean) evt.getNewValue()).booleanValue()));
         }
 
         if (evt.getPropertyName().equals("hutTokenRemoved")) {
             MHutToken mHutTokenRemoved = (MHutToken) evt.getOldValue();
+            System.out.println("token rimosso " + mHutTokenRemoved.getIdToken());
             JButton buttonToReplace = buttonHutTokenMapping.get(mHutTokenRemoved.getIdToken());
             // delete from buttonHutTokenMapping the token associated to the id  elimina nella mappa il token con quell'id
             buttonHutTokenMapping.remove(mHutTokenRemoved.getIdToken());
